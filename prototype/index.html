@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>FC 中国象棋 · 老头对战</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game" aria-label="中国象棋游戏画面">
+    <div class="screen-surface">
+      <canvas id="screen" width="256" height="224" tabindex="0" aria-label="FC 中国象棋。点击模式开始，点击棋子选择，再点击目标落子。"></canvas>
+      <div id="hotspots" aria-label="游戏操作"></div>
+    </div>
+    <p id="status" class="sr-only" aria-live="polite"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

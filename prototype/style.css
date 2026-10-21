@@ -1,0 +1,12 @@
+:root { color-scheme: dark; font-family: "SimSun", "Songti SC", serif; background: #0c111c; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100svh; display: grid; place-items: center; }
+.game { width: fit-content; max-width: 100%; }
+.screen-surface { position: relative; }
+canvas { display: block; width: min(100vw, calc(100svh * 256 / 224)); height: auto; aspect-ratio: 256 / 224; cursor: pointer; outline: none; background: #193b57; touch-action: manipulation; }
+canvas:focus-visible { outline: 2px solid #59b385; outline-offset: -2px; }
+#hotspots { position: absolute; inset: 0; pointer-events: none; }
+.hotspot { position: absolute; pointer-events: auto; padding: 0; border: 0; background: transparent; color: transparent; font-size: 0; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.hotspot:hover { background: #ffffff0b; }
+.hotspot:focus-visible { outline: 2px solid #fff1a6; outline-offset: -2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
