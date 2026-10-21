@@ -1,0 +1,9 @@
+{
+  "name": "miliastra-template",
+  "lua": {
+    "root": "src",
+    "entry": "main",
+    "out": "dist/main.lua",
+    "startupLog": true
+  }
+}
