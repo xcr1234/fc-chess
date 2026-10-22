@@ -867,24 +867,23 @@
         "canvasId": "pc-16-9"
       },
       "fixture": {
-        "standard": true,
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          }
+        ],
         "mode": "difficult",
         "ai": {
-          "nodeBudget": 100,
-          "scriptedDepths": [
-            {
-              "depth": 1,
-              "nodes": 10
-            },
-            {
-              "depth": 2,
-              "nodes": 30
-            },
-            {
-              "depth": 3,
-              "nodes": 100
-            }
-          ]
+          "nodeBudget": 25,
+          "noBook": true,
+          "maxDepth": 3
         }
       }
     }

@@ -41,6 +41,14 @@
   "asserts": [
     {
       "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result"
+    },
+    {
+      "kind": "control",
       "at": 0.9,
       "id": "",
       "name": "MoveCount",
@@ -62,6 +70,14 @@
       "name": "BlackStepTime",
       "field": "text",
       "equals": "00:00"
+    },
+    {
+      "kind": "control",
+      "at": 0.9,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
     }
   ]
 }

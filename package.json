@@ -15,7 +15,9 @@
     "preview": "beyond-simulator-web --workspace . --open",
     "preview:html": "node scripts/serve-prototype.mjs",
     "check:game-cases": "node scripts/check-game-cases.mjs",
-    "test:prototype": "node --test scripts/test-prototype.mjs"
+    "test:prototype": "node --test scripts/test-prototype.mjs",
+    "test:lua": "node scripts/run-lua-check.mjs tests/lua-regression.lua",
+    "build:game": "node scripts/generate-fixtures.mjs && npm run build:lua && node scripts/sync-game-save.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.1",

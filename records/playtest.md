@@ -111,3 +111,10 @@
 
 - [模式页](screenshots/html-menu.jpg)。
 - [对局页](screenshots/html-board.jpg)。
+
+## 2026-10-22 第 5 步 Lua / 模拟器
+
+- 执行者：Codex；runtime=simulator，画布 `pc-16-9`，部分用例为 `mobile-16-9`；同一项目内单文件产物。正式与测试存档 `scripts[].source` 与 `dist/main.lua` 逐字节一致，SHA-256：`a8515c4cb8da7fbe0d57ed6e9932322b1dd9357ce9d048353024b887f5fd1367`。
+- Red：骨架已加载且输入控件可点击；`first-success` 于 0.7 秒因 `000手` 非 `001手` 失败，`first-fail` 于 0.7 秒因状态仍为输入路由文字失败；加强后的 `restart` 于 0.7 秒因未进入 result 失败。记录见 `lua-step5-results.json`。
+- Green/Regress：实现棋规、状态、搜索和等待后 47/47 原生模拟器用例通过；9 项纯 Lua 回归通过。最初发现逐帧回调未启用、coroutine 被平台禁用，修正后重复局面、步时、确认就绪、真实节点预算用例通过。
+- 视觉：模拟器逐页查看菜单、编辑、棋种层、对局、确认和结果；头像矩形遮罩内可见。最后微调菜单文字与弹层尺寸后仅截图核对，完整 47 项尚未重跑。模拟器截图的部分汉字呈缺字方框；浏览器/真机字体需复核。尚未进行真机试玩与部署。
