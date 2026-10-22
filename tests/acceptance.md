@@ -1,92 +1,69 @@
-# 详细设计验收用例
+# 娱乐规则验收与追踪
 
-- 日期：2026-10-22（Asia/Shanghai）。状态：**用例已制定，未执行**，不是HTML/模拟器/真机通过记录。
-- 依据：[GDD](../docs/gdd.md)、[规则详细设计](../docs/game-spec.md)、[AI方案](../docs/ai-design.md)。
-- 此处是步骤2的文字用例与追踪设计。当前会话没有模拟器工具、项目node_modules尚不存在，未取得事件/断言schema；不伪造可执行JSON，步骤2尚未达到完整退出条件。
+- 日期：2026-10-22（Asia/Shanghai）。最新用户要求：不做循环/长将/长捉、将死/困毙、自将/强制应将；实际吃将或认输才判胜负。
+- 状态：47个正式格式用例已制定并离线校验，**未运行模拟器**；原有52条文字草案由本版取代。
+- 规则来源：[GDD](../docs/gdd.md)、[详细设计](../docs/game-spec.md)、[AI方案](../docs/ai-design.md)。格式与步骤5测试桥接见[README](README.md)。
 
-## 执行约定
+每例独立开始，PC/mobile用不同canvasId。特殊局面/时间/AI输入逐例写在plan.json，实际断言写在独立case文件。时间消费固定dt；棋力回归使用相同规则档案、seed、预算和缓存初始状态。下表是规则→前置→动作→可观察结果的追踪，不是已执行结果。
 
-每例独立开局/夹具，不依赖前例状态。局面坐标按详细设计，规则夹具包含双方将帅和必要挡子，排除目标之外的自将/照面干扰。测试比较给定输入与预期，不复制生产规则算法。
+| case | 前置 | 玩家/测试动作 | 主要预期 |
+|---|---|---|---|
+| [boot](cases/boot.json) | 菜单独立开始 | 仅观察 | SceneState=mode-select；ModeCount=3 |
+| [first-success](cases/first-success.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_5 | MoveCount=001手；TurnText=黑方 |
+| [first-fail](cases/first-fail.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_7 | MoveCount=000手；TurnText=紅方；StatusText=這步不能走 |
+| [fast-immediate](cases/fast-immediate.json) | 菜单独立开始 | ModeFast → Square_0_6 → Square_0_5 | MoveCount=002手；TurnText=紅方；ExtraWait=0 |
+| [selection](cases/selection.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_6 | SelectedSquare=none；MoveCount=000手 |
+| [switch-selection](cases/switch-selection.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_2_6 | SelectedSquare=2,6；MoveCount=000手 |
+| [resign](cases/resign.json) | 菜单独立开始 | ModeDifficult → ResignButton → ConfirmYes | SceneState=result；ResultTitle=您落敗了；ResultReason=主動認輸 |
+| [modal-cancel](cases/modal-cancel.json) | 菜单独立开始 | ModeDifficult → ResignButton → ConfirmNo | SceneState=player-turn；MoveCount=000手 |
+| [return-mode](cases/return-mode.json) | 菜单独立开始 | ModeDifficult → ModeButton → ConfirmYes | SceneState=mode-select；ModeCount=3 |
+| [restart](cases/restart.json) | 菜单独立开始 | ModeFast → ResignButton → ConfirmYes → RestartButton | MoveCount=000手；TurnText=紅方；BlackStepTime=00:00 |
+| [edit-lock](cases/edit-lock.json) | 菜单独立开始 | ModeCustom → Square_4_9 | StatusText=帥保留，不能修改；RedPieceCount=16 |
+| [fifteen-rooks](cases/fifteen-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton → StartCustomButton | RedRookCount=15；RedPieceCount=16；MoveCount=000手 |
+| [edit-reset](cases/edit-reset.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ResetCustomButton → StartCustomButton | RedRookCount=2；RedPieceCount=16；RuleProfile=custom-capture-free-advisor-elephant-v1 |
+| [custom-restart](cases/custom-restart.json) | 菜单独立开始 | ModeCustom → AllRooksButton → StartCustomButton → ResignButton → ConfirmYes → RestartButton | RedRookCount=15；MoveCount=000手；TurnText=紅方 |
+| [draft-retained](cases/draft-retained.json) | 菜单独立开始 | ModeCustom → AllRooksButton → EditBackButton → ModeCustom | RedRookCount=15；SceneState=custom-edit |
+| [mobile-smoke](cases/mobile-smoke.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_5 → ModeButton → ConfirmNo | MoveCount=001手；TurnText=黑方 |
+| [rook-block](cases/rook-block.json) | 定向夹具（见plan.json） | Square_0_5 → Square_0_1 | MoveCount=000手；StatusText=這步不能走 |
+| [horse-leg](cases/horse-leg.json) | 定向夹具（见plan.json） | Square_5_5 → Square_7_4 | MoveCount=000手；StatusText=這步不能走 |
+| [cannon-screen](cases/cannon-screen.json) | 定向夹具（见plan.json） | Square_2_5 → Square_2_1 | MoveCount=001手；Piece_2_1=C；Piece_2_5= |
+| [elephant-eye](cases/elephant-eye.json) | 定向夹具（见plan.json） | Square_2_6 → Square_4_4 | MoveCount=000手；StatusText=這步不能走 |
+| [standard-zones](cases/standard-zones.json) | 定向夹具（见plan.json） | Square_2_6 → Square_4_4 | MoveCount=000手；StatusText=這步不能走 |
+| [pawn-river](cases/pawn-river.json) | 定向夹具（见plan.json） | Square_0_4 → Square_1_4 | MoveCount=001手；Piece_1_4=P |
+| [free-advisor](cases/free-advisor.json) | 定向夹具（见plan.json） | Square_0_6 → Square_1_5 | MoveCount=001手；Piece_1_5=A |
+| [free-elephant](cases/free-elephant.json) | 定向夹具（见plan.json） | Square_0_6 → Square_2_4 | MoveCount=001手；Piece_2_4=E |
+| [expose-king](cases/expose-king.json) | 定向夹具（见plan.json） | Square_4_5 → Square_3_5 | MoveCount=001手；Piece_3_5=R；SceneState=ai-search |
+| [ignore-threat](cases/ignore-threat.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=001手；Piece_0_5=P；SceneState=ai-search |
+| [capture-king](cases/capture-king.json) | 定向夹具（见plan.json） | Square_4_5 → Square_4_0 | MoveCount=001手；SceneState=result；ResultTitle=您獲勝了；ResultReason=吃掉黑將 |
+| [decline-capture](cases/decline-capture.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=001手；Piece_4_0=k；SceneState=ai-search |
+| [flying-king](cases/flying-king.json) | 定向夹具（见plan.json） | Square_4_9 → Square_4_0 | MoveCount=001手；SceneState=result；ResultTitle=您獲勝了 |
+| [repeat-continues](cases/repeat-continues.json) | 定向夹具（见plan.json） | Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 → Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 → Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 | SceneState=player-turn；MoveCount=012手 |
+| [undo-wait](cases/undo-wait.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；PendingReply=none |
+| [undo-pair](cases/undo-pair.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；RedStepTime=00:00 |
+| [stale-version](cases/stale-version.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → ModeButton → ConfirmYes → ModeFast | MoveCount=000手；TurnText=紅方 |
+| [step-only](cases/step-only.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | RedStepTime=00:03；BlackStepTime=00:06 |
+| [step-invalid](cases/step-invalid.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_7 | RedStepTime=00:07；MoveCount=000手 |
+| [step-format](cases/step-format.json) | 定向夹具（见plan.json） | 仅观察 | RedStepTime=100:00；SceneState=player-turn |
+| [step-stop](cases/step-stop.json) | 定向夹具（见plan.json） | Square_4_5 → Square_4_0 | RedStepTime=00:00；BlackStepTime=00:00；SceneState=result |
+| [counter](cases/counter.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=1000手 |
+| [modal-ready](cases/modal-ready.json) | 定向夹具（见plan.json） | ResignButton → ConfirmNo | MoveCount=002手；TurnText=紅方 |
+| [wait-simple](cases/wait-simple.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=4 |
+| [wait-complex](cases/wait-complex.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
+| [wait-custom](cases/wait-custom.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
+| [wait-fast](cases/wait-fast.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=0 |
+| [wait-missing](cases/wait-missing.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=9 |
+| [wait-saturation](cases/wait-saturation.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
+| [ai-custom-book](cases/ai-custom-book.json) | 定向夹具（见plan.json） | TestProbeBook | BookEnabled=false |
+| [ai-budget](cases/ai-budget.json) | 定向夹具（见plan.json） | TestRunBudget | SearchCompleteDepth=2；WorkingBoardRestored=true；PartialExactStored=false |
 
-计时注入可控增量，不靠墙钟等待断言准确秒数。AI固定规则档案、历史、seed、节点预算及初始缓存；PC/mobile独立画布。优先语义点击，坐标映射才使用pointer事件。
+## 手工与设备检查
 
-## 流程与输入
-
-| case / 规则 | 前置与动作 | 可观察预期 |
+| 项目 | 操作 | 预期/证据 |
 |---|---|---|
-| boot / 三模式 | 独立打开PC画布 | 画布内仅三模式入口；无自动开局、暂停或外围必需按钮 |
-| first-success / 落子 | 快速标准开局，红兵(0,6)→(0,5) | 合法前进，001手、黑方行棋、选择清除；红步时停，黑从零起表 |
-| first-fail / 非法 | 标准开局红兵(0,6)尝试退至(0,7) | 原局面/000手/选择保留，本步继续计时 |
-| selection / 选择 | 同子点两次，再点不同红子 | 同子取消、异子切换，无落子/增手数，边框不周期消失 |
-| black-input / 锁棋 | 黑计算/等待中反复点棋盘 | 不替任一方多走一步，不清零黑步时 |
-| modal-cancel / 确认 | 打开认输/模式选择，点否/取消键 | 默认否，原局保留，时间和等待不重置 |
-| modal-ready / 确认到期 | 黑方确认层打开时让计算/等待结束，再点否 | 背景不先落子，取消后提交一次，手数只加一 |
-| resign / 认输 | 计算中确认认输，继续推进时间 | 显示落败/认输原因，无迟到回棋 |
-| return-mode / 离局 | 确认返回菜单，再进自定义 | 旧局不回棋，不记一次败局，新页面可正常编辑 |
-| restart / 重开 | 标准/自定义终局点再来一局 | 本局初始阵容与模式；000手、双方00:00、红起表，无下一关 |
-| no-pause / 无暂停 | 各状态按Enter/切可见性 | 不出现暂停/继续层；前台持续推进；后台补时待平台能力核验 |
-| overlay / 穿透 | 点击确认或棋种选项下方恰为棋盘交点 | 只触发覆盖层动作，不同时落子/选子 |
+| visual-baseline | 菜单/编辑/对局/确认/结果逐页查看 | 保留已认可配色/头像/构图，无关卡及03:00占位，右上无额外状态 |
+| pointer-resize | PC、横竖屏手机及不同DPR，点九路边缘并缩放 | 命中准确；局面、选择、步时不因缩放清零；画布完整，无外围必需操作 |
+| no-pause | 计算/等待时按Enter、打开确认、前后台切换 | 无暂停/继续层；确认不重置时钟。Lua后台补时留待官方时钟核验 |
+| performance-device | 同次Lua产物测试原始阵容中局、15车、自由士相 | 记录节点、完整深度、最长帧和内存；按钮可响应。模拟器不冒充真机 |
+| casual-boundaries | 连续攻击将帅、送将、两个将帅照面，遇到无基本走法 | 不提前判胜负/和棋；基本移动限制仍有效；无步跳过，双方均无步只显示无法继续 |
 
-## 棋规与终局
-
-| case | 前置与动作 | 可观察预期 |
-|---|---|---|
-| rook-block | 车路径分别放己/敌挡子，尝试越过及吃挡子 | 不可越子，可走阻挡前空点，可吃敌挡子 |
-| horse-leg | 两类日字分别塞横腿/竖腿 | 对应方向被拒，未挡方向合法 |
-| cannon-screen | 炮吃同一目标，中间分别0/1/2子；另测空走跳架 | 仅1架吃子合法，架可属任一方；空走不能跳架 |
-| elephant-eye | 标准/自定义相，象眼分别空/有子 | 空眼按档案移动，有子均拒绝 |
-| standard-zones | 普通士出宫、象过河、帅出宫 | 全拒，手数不变，步时继续 |
-| pawn-river | 红兵rank5/4横走，黑卒镜像，另测端线 | 过河前不能横，过河后能横；不退/升变/越界 |
-| self-check | 移开遮挡黑车与红帅的红子 | 自将拒绝，原棋子与手数不变 |
-| facing-kings | 两将同列仅一挡子，移走；另加第二挡子重测 | 前者照面拒绝，后者符合其他规则时可走 |
-| check-evasion | 红帅受将，试无关步，再试吃攻击子/挡将/移帅 | 不解将拒绝，各合法解可走 |
-| mate-stalemate | 独立夹具：受将无步/未受将无步/唯一应将 | 前两均负、原因不同；唯一应将不能误判终局 |
-| no-king-capture | 将死后继续点击/提交过期动作 | 不吃掉将帅、不重复结算 |
-| repetition-proposal | 裁判锁定后重放单方长将、普通循环、异行棋方棋谱 | 按锁定规则判负/和；未锁定前不执行或标通过 |
-
-## 自定义
-
-| case | 前置与动作 | 可观察预期 |
-|---|---|---|
-| edit-lock | 编辑帅/黑子 | 拒绝修改，无第二帅选项 |
-| edit-six | 同一非帅红子逐次替换六棋种 | 位置/阵营/总数不变，棋种正确，不限制标准数量 |
-| fifteen-rooks | 全部改车后开局 | 1帅15车、黑方标准，规则/搜索均遍历全部车 |
-| free-advisor | 自定义红士在原兵位斜走至宫外，再试直走 | 斜合法、直拒绝；标准模式仍限九宫 |
-| free-elephant | 自定义红相(0,6)→(2,4)，再塞象眼重测 | 可过河，塞眼拒绝，非传统落点可替换 |
-| custom-black | 自定义黑士出宫、黑象过河；红士相威胁黑将 | 黑方仍受标准限制；红方自由攻击进入黑AI威胁判断 |
-| edit-reset | 修改→恢复初始→开始→重开→返回编辑 | 恢复标准红阵容但仍自定义规则；重开取本局阵容，草稿本会话保留 |
-
-## 步时、手数与悔棋
-
-| case | 前置与动作 | 可观察预期 |
-|---|---|---|
-| step-only | 红耗5秒走，黑算2秒等4秒走，再给红3秒 | 红上手05、黑本手06；新红03/黑保留06，没有红累计08或局时 |
-| step-invalid | 红5秒后非法/取消选择，再推进2秒 | 红07，手数不变，不清零 |
-| step-format | 注入59.9/60/6000秒 | 00:59、01:00、100:00，不超时判负或回绕 |
-| step-stop | 终局后再推进60秒 | 时间停住，无下一手或下一关 |
-| undo-search | 红走后黑计算中悔棋，再完成旧搜索 | 恢复红落子前，手数恢复，新红00，旧结果丢弃 |
-| undo-wait | 计算完等待中悔棋，推进超过旧截止点 | 无迟到回棋，等待清除，红可再走 |
-| undo-pair | 红黑走完后悔棋，多次至初局 | 一次撤双方，恢复被吃子/手数/循环历史；黑显示撤回回合前上一手步时，无负手数 |
-| counter | 选子/非法/红合法/黑合法/悔棋/重开；另测999后提交 | 仅提交累计；001/002、恢复/清零正确，1000手不截断 |
-| stale-version | 搜索/等待中离局/认输/重开后注入旧结果 | 新局棋盘、手数、模式、步时不受影响 |
-
-## AI、等待与设备
-
-| case | 前置与动作 | 可观察预期 |
-|---|---|---|
-| ai-same | 相同标准局/历史/seed/预算/缓存，困难与快速搜索 | 同着法，快速W=0，困难复杂度等待；慢模式不多搜 |
-| ai-budget | 迭代/静态搜索中耗尽预算 | 最近完整迭代或明确保底；不记半轮精确缓存，工作棋盘恢复 |
-| ai-book | 命中/非法候选/偏离书路 | 合法书着可用，非法过滤，无候选即搜索 |
-| ai-custom-book | 标准外观自定义与15车局查库 | 禁用普通库，置换表隔离档案 |
-| ai-quiescence | 回吃与被将叶子题 | 不将明显亏子当获利，不漏非吃子应将 |
-| wait-complexity | 唯一应手、明显优着、候选接近摘要 | W随复杂度变化、在界内，同摘要跨设备相同，不以实际耗时代替 |
-| wait-missing | 次佳仅界限/书库缺分数/极大分支摘要 | 不用假精确分差，缺项重新归一化，复杂度饱和不无限等待 |
-| wait-once | 等待期间持续更新，开/关确认 | 截止点不每帧后移，只落一次，快速无固定0.7秒 |
-| mobile-smoke | 独立mobile-16-9画布开局、选兵落子、菜单取消 | 画布完整可见，热区可点，无外围必需控件 |
-| pointer-resize | PC/手机横竖、不同比例/DPR，点九路边界并缩放 | 映射准确，缩放不改棋局/选择/步时 |
-| visual-baseline | 菜单/编辑/对局/确认/结果逐页查看 | 保留认可配色/头像/布局；无03:00和第1-1关占位，右上无额外状态 |
-| performance-device | 同次Lua产物在标准中局/15车/自由士相测试 | 记录节点、完整深度、最长工作帧与内存，按钮有响应；模拟器不冒充真机 |
-
-## 后续证据
-
-每条实际运行记录产物SHA-256、runtime=html/simulator/device、执行者、独立画布、夹具/seed/预算、操作、断言、结果与证据路径。步骤5才执行有效Red→Green→Regress；JSON/schema错误、输入到不了控件或环境故障不能算Red。
+实际执行时记录产物SHA-256、runtime=html/simulator/device、执行者、画布、夹具/seed/预算、步骤、预期/实际与证据路径。步骤5才执行有效Red→Green→Regress；格式错误、输入到不了控件、夹具未加载或工具故障不是游戏行为Red。

@@ -1,0 +1,67 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "step-stop",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_step-stop"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_5"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_0"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "step-stop"
+    },
+    {
+      "kind": "control",
+      "at": 60,
+      "id": "",
+      "name": "RedStepTime",
+      "field": "text",
+      "equals": "00:00"
+    },
+    {
+      "kind": "control",
+      "at": 60,
+      "id": "",
+      "name": "BlackStepTime",
+      "field": "text",
+      "equals": "00:00"
+    },
+    {
+      "kind": "control",
+      "at": 60,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result"
+    }
+  ]
+}

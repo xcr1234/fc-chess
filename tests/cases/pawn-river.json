@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "pawn-river",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_pawn-river"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_4"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_1_4"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "pawn-river"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "Piece_1_4",
+      "field": "text",
+      "equals": "P"
+    }
+  ]
+}

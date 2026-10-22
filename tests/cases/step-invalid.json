@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "step-invalid",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_step-invalid"
+      }
+    },
+    {
+      "t": 5.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 5.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_7"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "step-invalid"
+    },
+    {
+      "kind": "control",
+      "at": 7.2,
+      "id": "",
+      "name": "RedStepTime",
+      "field": "text",
+      "equals": "00:07"
+    },
+    {
+      "kind": "control",
+      "at": 7.2,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    }
+  ]
+}

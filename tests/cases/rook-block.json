@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "rook-block",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_rook-block"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_1"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "rook-block"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "StatusText",
+      "field": "text",
+      "equals": "這步不能走"
+    }
+  ]
+}

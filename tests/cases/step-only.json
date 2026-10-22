@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "step-only",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_step-only"
+      }
+    },
+    {
+      "t": 5.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 5.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "step-only"
+    },
+    {
+      "kind": "control",
+      "at": 14.4,
+      "id": "",
+      "name": "RedStepTime",
+      "field": "text",
+      "equals": "00:03"
+    },
+    {
+      "kind": "control",
+      "at": 14.4,
+      "id": "",
+      "name": "BlackStepTime",
+      "field": "text",
+      "equals": "00:06"
+    }
+  ]
+}

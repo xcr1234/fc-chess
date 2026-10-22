@@ -1,0 +1,83 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "stale-version",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_stale-version"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 1.0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeFast"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "stale-version"
+    },
+    {
+      "kind": "control",
+      "at": 18,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 18,
+      "id": "",
+      "name": "TurnText",
+      "field": "text",
+      "equals": "紅方"
+    }
+  ]
+}

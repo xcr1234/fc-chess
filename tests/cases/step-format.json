@@ -1,0 +1,43 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "step-format",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_step-format"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "step-format"
+    },
+    {
+      "kind": "control",
+      "at": 0.2,
+      "id": "",
+      "name": "RedStepTime",
+      "field": "text",
+      "equals": "100:00"
+    },
+    {
+      "kind": "control",
+      "at": 0.2,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    }
+  ]
+}

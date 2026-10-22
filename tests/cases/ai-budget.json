@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-budget",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-budget"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestRunBudget"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-budget"
+    },
+    {
+      "kind": "control",
+      "at": 0.3,
+      "id": "",
+      "name": "SearchCompleteDepth",
+      "field": "text",
+      "equals": "2"
+    },
+    {
+      "kind": "control",
+      "at": 0.3,
+      "id": "",
+      "name": "WorkingBoardRestored",
+      "field": "text",
+      "equals": "true"
+    },
+    {
+      "kind": "control",
+      "at": 0.3,
+      "id": "",
+      "name": "PartialExactStored",
+      "field": "text",
+      "equals": "false"
+    }
+  ]
+}

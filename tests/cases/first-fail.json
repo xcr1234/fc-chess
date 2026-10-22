@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "first-fail",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeDifficult"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_7"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "TurnText",
+      "field": "text",
+      "equals": "紅方"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "StatusText",
+      "field": "text",
+      "equals": "這步不能走"
+    }
+  ]
+}

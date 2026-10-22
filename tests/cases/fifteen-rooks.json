@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "fifteen-rooks",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeCustom"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "AllRooksButton"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "StartCustomButton"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "RedRookCount",
+      "field": "text",
+      "equals": "15"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "RedPieceCount",
+      "field": "text",
+      "equals": "16"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "wait-simple",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_wait-simple"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestComputeSummary"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "wait-simple"
+    },
+    {
+      "kind": "control",
+      "at": 0.3,
+      "id": "",
+      "name": "ExtraWait",
+      "field": "text",
+      "equals": "4"
+    }
+  ]
+}

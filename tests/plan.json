@@ -1,0 +1,892 @@
+{
+  "description": "Execution metadata, not a qxqy-autotest case. Fixture controls are a planned test-only bridge; no simulator run yet.",
+  "cases": [
+    {
+      "case": "boot",
+      "file": "cases/boot.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "first-success",
+      "file": "cases/first-success.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "first-fail",
+      "file": "cases/first-fail.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "fast-immediate",
+      "file": "cases/fast-immediate.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "selection",
+      "file": "cases/selection.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "switch-selection",
+      "file": "cases/switch-selection.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "resign",
+      "file": "cases/resign.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "modal-cancel",
+      "file": "cases/modal-cancel.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "return-mode",
+      "file": "cases/return-mode.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "restart",
+      "file": "cases/restart.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "edit-lock",
+      "file": "cases/edit-lock.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "fifteen-rooks",
+      "file": "cases/fifteen-rooks.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "edit-reset",
+      "file": "cases/edit-reset.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "custom-restart",
+      "file": "cases/custom-restart.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "draft-retained",
+      "file": "cases/draft-retained.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "mobile-smoke",
+      "file": "cases/mobile-smoke.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "rook-block",
+      "file": "cases/rook-block.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 5,
+            "piece": "R"
+          },
+          {
+            "file": 0,
+            "rank": 3,
+            "piece": "p"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "horse-leg",
+      "file": "cases/horse-leg.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 5,
+            "rank": 5,
+            "piece": "N"
+          },
+          {
+            "file": 6,
+            "rank": 5,
+            "piece": "P"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "cannon-screen",
+      "file": "cases/cannon-screen.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 2,
+            "rank": 5,
+            "piece": "C"
+          },
+          {
+            "file": 2,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 2,
+            "rank": 1,
+            "piece": "r"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "elephant-eye",
+      "file": "cases/elephant-eye.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 2,
+            "rank": 6,
+            "piece": "E"
+          },
+          {
+            "file": 3,
+            "rank": 5,
+            "piece": "P"
+          }
+        ],
+        "mode": "custom",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "standard-zones",
+      "file": "cases/standard-zones.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 2,
+            "rank": 6,
+            "piece": "E"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "pawn-river",
+      "file": "cases/pawn-river.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 4,
+            "piece": "P"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "free-advisor",
+      "file": "cases/free-advisor.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "A"
+          }
+        ],
+        "mode": "custom",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "free-elephant",
+      "file": "cases/free-elephant.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "E"
+          }
+        ],
+        "mode": "custom",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "expose-king",
+      "file": "cases/expose-king.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "ignore-threat",
+      "file": "cases/ignore-threat.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 0,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 3,
+            "piece": "r"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "capture-king",
+      "file": "cases/capture-king.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "decline-capture",
+      "file": "cases/decline-capture.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "flying-king",
+      "file": "cases/flying-king.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "repeat-continues",
+      "file": "cases/repeat-continues.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 5,
+            "piece": "R"
+          },
+          {
+            "file": 8,
+            "rank": 3,
+            "piece": "r"
+          }
+        ],
+        "mode": "fast",
+        "turn": "red",
+        "ai": {
+          "replySequence": [
+            [
+              8,
+              3,
+              7,
+              3
+            ],
+            [
+              7,
+              3,
+              8,
+              3
+            ],
+            [
+              8,
+              3,
+              7,
+              3
+            ],
+            [
+              7,
+              3,
+              8,
+              3
+            ],
+            [
+              8,
+              3,
+              7,
+              3
+            ],
+            [
+              7,
+              3,
+              8,
+              3
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "case": "undo-wait",
+      "file": "cases/undo-wait.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "waitSeconds": 16
+      }
+    },
+    {
+      "case": "undo-pair",
+      "file": "cases/undo-pair.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "ai": "deterministic"
+      }
+    },
+    {
+      "case": "stale-version",
+      "file": "cases/stale-version.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "waitSeconds": 16
+      }
+    },
+    {
+      "case": "step-only",
+      "file": "cases/step-only.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "ai": {
+          "computeSeconds": 2,
+          "waitSeconds": 4
+        }
+      }
+    },
+    {
+      "case": "step-invalid",
+      "file": "cases/step-invalid.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult"
+      }
+    },
+    {
+      "case": "step-format",
+      "file": "cases/step-format.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "redStepMilliseconds": 6000000
+      }
+    },
+    {
+      "case": "step-stop",
+      "file": "cases/step-stop.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "counter",
+      "file": "cases/counter.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "moveCount": 999,
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "modal-ready",
+      "file": "cases/modal-ready.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "phase": "ai-wait",
+        "moveCount": 1,
+        "waitRemainingSeconds": 1,
+        "reply": [
+          1,
+          2,
+          4,
+          2
+        ]
+      }
+    },
+    {
+      "case": "wait-simple",
+      "file": "cases/wait-simple.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "summary": {
+          "count": 1,
+          "tactical": 1
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-complex",
+      "file": "cases/wait-complex.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "summary": {
+          "count": 60,
+          "tactical": 60,
+          "gap": 0,
+          "instability": 1
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-custom",
+      "file": "cases/wait-custom.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "custom",
+        "summary": {
+          "count": 60,
+          "tactical": 60,
+          "gap": 0,
+          "instability": 1
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-fast",
+      "file": "cases/wait-fast.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "summary": {
+          "count": 60,
+          "tactical": 60,
+          "gap": 0,
+          "instability": 1
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-missing",
+      "file": "cases/wait-missing.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "summary": {
+          "count": 30,
+          "tactical": 10
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-saturation",
+      "file": "cases/wait-saturation.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "custom",
+        "summary": {
+          "count": 300,
+          "tactical": 300,
+          "gap": 0,
+          "instability": 1
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "ai-custom-book",
+      "file": "cases/ai-custom-book.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "custom"
+      }
+    },
+    {
+      "case": "ai-budget",
+      "file": "cases/ai-budget.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "ai": {
+          "nodeBudget": 100,
+          "scriptedDepths": [
+            {
+              "depth": 1,
+              "nodes": 10
+            },
+            {
+              "depth": 2,
+              "nodes": 30
+            },
+            {
+              "depth": 3,
+              "nodes": 100
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

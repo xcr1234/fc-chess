@@ -1,0 +1,59 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "resign",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeDifficult"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "ResultTitle",
+      "field": "text",
+      "equals": "您落敗了"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "ResultReason",
+      "field": "text",
+      "equals": "主動認輸"
+    }
+  ]
+}

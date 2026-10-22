@@ -1,5 +1,8 @@
 (() => {
   'use strict';
+  const {isRed, initialBoard, basicMove, movesFor, threatensKing, waitingSeconds, formatStep, StepClock} = FCChessPreview;
+  const clock = new StepClock();
+  let draft = null, generation = 0;
   const canvas = document.querySelector('#screen');
   const ctx = canvas.getContext('2d');
   const live = document.querySelector('#status');
@@ -30,26 +33,22 @@
   const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '砲', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   const gridX = 56, gridY = 48, step = 16;
-  const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], pending: 0, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
+  const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
   function announce(message) { state.message = message; live.textContent = message; }
-  function initialBoard() {
-    const board = Array(90).fill(null);
-    'rneakaenr'.split('').forEach((p, x) => { board[x] = p; board[81 + x] = p.toUpperCase(); });
-    board[19] = board[25] = 'c'; board[64] = board[70] = 'C';
-    [0, 2, 4, 6, 8].forEach(x => { board[27 + x] = 'p'; board[54 + x] = 'P'; });
-    return board;
-  }
-  function isRed(piece) { return !!piece && piece === piece.toUpperCase(); }
   function resetGame(board = initialBoard(), mode = state.menu) {
-    Object.assign(state, { scene: 'game', mode, board: board.slice(), initial: board.slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], pending: 0, modal: null, palette: null, moves: 0 });
+    generation++; clock.reset(performance.now());
+    Object.assign(state, { scene: 'game', mode, board: board.slice(), initial: board.slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, moves: 0 });
     announce('紅方走棋');
   }
   function enterEdit() {
-    Object.assign(state, {scene: 'edit', mode: 2, board: initialBoard(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', pending: 0, history: [], moves: 0, modal: null, palette: null});
+    generation++; clock.reset(performance.now()); clock.stop(performance.now());
+    Object.assign(state, {scene: 'edit', mode: 2, board: (draft || initialBoard()).slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', reply: null, history: [], moves: 0, modal: null, palette: null});
     announce('點擊己方棋子，修改棋種');
   }
   function toMenu() {
-    Object.assign(state, {scene: 'menu', selected: null, pending: 0, modal: null, palette: null, zone: 'board'});
+    if (state.scene === 'edit') draft = state.board.slice();
+    generation++; clock.stop(performance.now());
+    Object.assign(state, {scene: 'menu', selected: null, reply: null, modal: null, palette: null, zone: 'board'});
     announce('請選擇模式');
   }
   function text(value, x, y, color = C.green, size = 9, align = 'left') {
@@ -85,9 +84,9 @@
   }
   function boardScreen(now) {
     ctx.fillStyle = C.navy; ctx.fillRect(0, 0, 256, 224);
-    text(state.scene === 'edit' ? '自定義棋子' : '第 1-1 關', 128, 9, C.cyan, 10, 'center');
-    text('黑方', 8, 42); text('電腦', 8, 56); text('1 級', 8, 72); text('03:00', 5, 94, C.cyan, 8);
-    text('紅方', 8, 138); text('人腦', 8, 152); text('9 級', 8, 168); text('03:00', 5, 190, C.cyan, 8);
+    if (state.scene === 'edit') text('自定義棋子', 128, 9, C.cyan, 10, 'center');
+    text('黑方', 8, 42); text('電腦', 8, 56); text('1 級', 8, 72); text(state.scene === 'edit' ? '00:00' : formatStep(clock.black), 5, 94, C.cyan, 8);
+    text('紅方', 8, 138); text('人腦', 8, 152); text('9 級', 8, 168); text(state.scene === 'edit' ? '00:00' : formatStep(clock.red), 5, 190, C.cyan, 8);
     text(state.turn === 'black' ? '黑方' : '紅方', 226, 18, C.green, 10, 'center');
     text(`${String(state.moves).padStart(3, '0')}手`, 226, 36, C.green, 8, 'center');
     head(210, 56, 32);
@@ -140,24 +139,49 @@
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); hand(m.choice === 0 ? 73 : 145, 125);
   }
   function resultScreen() {
-    box(42, 70, 172, 93, C.navy, C.cyan); text('您認輸了', 128, 82, C.white, 16, 'center');
+    box(42, 70, 172, 93, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
+    text(state.resultReason, 128, 101, C.cyan, 8, 'center');
     text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center'); hand(86, state.resultIndex === 0 ? 114 : 137);
   }
-  // Preview geometry only: no self-check, repetition, checkmate or chess engine.
-  function basicMove(board, from, to) {
-    const p = board[from], target = board[to];
-    if (!p || from === to || (target && isRed(p) === isRed(target)) || (target && target.toLowerCase() === 'k')) return false;
-    const x = from % 9, y = Math.floor(from / 9), tx = to % 9, ty = Math.floor(to / 9), dx = tx - x, dy = ty - y, ax = Math.abs(dx), ay = Math.abs(dy), red = isRed(p);
-    const palace = tx >= 3 && tx <= 5 && (red ? ty >= 7 : ty <= 2);
-    if (p.toLowerCase() === 'p') return (dx === 0 && dy === (red ? -1 : 1)) || (ax === 1 && dy === 0 && (red ? y <= 4 : y >= 5));
-    if (p.toLowerCase() === 'k') return palace && ax + ay === 1;
-    if (p.toLowerCase() === 'a') return palace && ax === 1 && ay === 1;
-    if (p.toLowerCase() === 'e') return ax === 2 && ay === 2 && (red ? ty >= 5 : ty <= 4) && !board[(y + dy / 2) * 9 + x + dx / 2];
-    if (p.toLowerCase() === 'n') return ax === 2 && ay === 1 ? !board[y * 9 + x + Math.sign(dx)] : ax === 1 && ay === 2 && !board[(y + Math.sign(dy)) * 9 + x];
-    if (dx && dy) return false;
-    let count = 0; const stride = dx ? Math.sign(dx) : 9 * Math.sign(dy);
-    for (let i = from + stride; i !== to; i += stride) if (board[i]) count++;
-    return p.toLowerCase() === 'r' ? count === 0 : count === (target ? 1 : 0);
+  function finish(title, reason) {
+    generation++; clock.stop(performance.now());
+    Object.assign(state, {reply: null, selected: null, scene: 'result', resultIndex: 0, modal: null, resultTitle: title, resultReason: reason});
+    announce(`${title}，${reason}`);
+  }
+  function beginTurn(side) {
+    state.turn = side; clock.start(side, performance.now());
+    if (!movesFor(state.board, side, state.mode === 2).length) {
+      const other = side === 'red' ? 'black' : 'red';
+      if (!movesFor(state.board, other, state.mode === 2).length) { finish('本局無法繼續', '雙方暫無可走棋'); return; }
+      state.turn = other; clock.start(other, performance.now());
+      announce(`${side === 'red' ? '紅方' : '黑方'}無可走棋，本次跳過`);
+    }
+    if (state.turn === 'black') planReply();
+    else announce('紅方走棋');
+  }
+  function commitMove(from, to) {
+    clock.update(performance.now());
+    const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
+    state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
+    if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃'); return; }
+    beginTurn(side === 'red' ? 'black' : 'red');
+  }
+  function planReply() {
+    // One-ply demonstration choice, shared by all modes; not the production AI.
+    const candidates = movesFor(state.board, 'black', state.mode === 2);
+    const values = {k: 100000, r: 900, n: 400, c: 450, e: 200, a: 200, p: 100};
+    let tactical = 0;
+    for (const m of candidates) {
+      const target = state.board[m.to], copy = state.board.slice();
+      copy[m.to] = copy[m.from]; copy[m.from] = null;
+      if (target || threatensKing(copy, 'black', state.mode === 2)) tactical++;
+      m.score = (target ? values[target.toLowerCase()] : 0) + (m.from === 19 && m.to === 22 ? 20 : 0) + (state.board[m.from] === 'p' && m.to > m.from ? 10 : 0);
+    }
+    candidates.sort((a, b) => b.score - a.score || a.from - b.from || a.to - b.to);
+    const seconds = waitingSeconds({count: candidates.length, tactical}, state.mode);
+    state.reply = {move: candidates[0], due: performance.now() + seconds * 1000, generation};
+    announce('老頭正在思考');
+    if (seconds === 0 && !state.modal) demoReply();
   }
   function playSquare() {
     if (state.turn !== 'red') { announce('老頭正在思考'); return; }
@@ -168,37 +192,33 @@
     }
     if (i === state.selected) { state.selected = null; announce('已取消選子'); return; }
     if (isRed(p)) { state.selected = i; return; }
-    if (!basicMove(state.board, state.selected, i)) { announce('這步不能走'); return; }
-    state.history.push({board: state.board.slice(), moves: state.moves});
-    state.board[i] = state.board[state.selected]; state.board[state.selected] = null; state.selected = null; state.moves++;
-    state.turn = 'black'; state.pending = state.mode === 1 ? 700 : 12000; announce('老頭正在思考');
+    if (!basicMove(state.board, state.selected, i, state.mode === 2)) { announce('這步不能走'); return; }
+    state.history.push({board: state.board.slice(), moves: state.moves, blackTime: clock.black});
+    commitMove(state.selected, i);
   }
   function demoReply() {
-    let from = 19, to = 22;
-    if (!(state.board[from] === 'c' && basicMove(state.board, from, to))) {
-      from = -1;
-      for (let y = 3; y < 9 && from < 0; y++) for (let x = 0; x < 9 && from < 0; x++) {
-        const i = y * 9 + x; if (state.board[i] === 'p' && basicMove(state.board, i, i + 9)) { from = i; to = i + 9; }
-      }
-    }
-    if (from >= 0) { state.board[to] = state.board[from]; state.board[from] = null; state.moves++; }
-    state.pending = 0; state.turn = 'red'; announce('紅方走棋');
+    const reply = state.reply; state.reply = null;
+    if (!reply || reply.generation !== generation || state.scene !== 'game' || state.turn !== 'black') return;
+    const m = reply.move;
+    if (m && basicMove(state.board, m.from, m.to, state.mode === 2)) commitMove(m.from, m.to);
   }
   function panelAction() {
+    clock.update(performance.now());
     if (state.scene === 'edit') {
       if (state.sideIndex === 0) { state.board = state.board.map(p => isRed(p) && p !== 'K' ? 'R' : p); announce('己方：1 帥 + 15 車'); }
       if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢復初始棋子'); }
-      if (state.sideIndex === 2) resetGame(state.board, 2);
+      if (state.sideIndex === 2) { draft = state.board.slice(); resetGame(state.board, 2); }
       if (state.sideIndex === 3) toMenu();
       return;
     }
     if (state.sideIndex === 0) {
       const last = state.history.pop();
       if (!last) { announce('尚無棋步可悔'); return; }
-      state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.pending = 0; state.selected = null; announce('已悔棋，紅方走棋');
+      state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
     } else state.modal = {type: state.sideIndex === 1 ? 'resign' : 'menu', choice: 1};
   }
   function input(key) {
+    clock.update(performance.now());
     const direction = ['up', 'down', 'left', 'right'].includes(key);
     if (state.scene === 'menu') {
       if (key === 'up' || key === 'down') { state.menu = (state.menu + (key === 'up' ? 2 : 1)) % 3; announce(names[state.menu]); }
@@ -219,7 +239,7 @@
         if (m.choice === 0) {
           if (m.type === 'custom') enterEdit();
           else if (m.type === 'menu') toMenu();
-          else { state.pending = 0; state.selected = null; state.scene = 'result'; state.resultIndex = 0; announce('您認輸了'); }
+          else finish('您落敗了', '主動認輸');
         }
       }
       return;
@@ -303,17 +323,16 @@
     state.inputMethod = 'pointer'; state.zone = 'board'; state.cursor = {x: column, y: row};
     canvas.focus({preventScroll: true}); input('ok');
   });
-  let previous = performance.now();
   function frame(now) {
-    const dt = Math.max(0, now - previous); previous = now;
-    if (state.scene === 'game' && !state.modal && state.pending > 0) { state.pending -= dt; if (state.pending <= 0) demoReply(); }
+    clock.update(now);
+    if (state.scene === 'game' && !state.modal && state.reply && now >= state.reply.due) demoReply();
     resizeCanvas();
     ctx.setTransform(canvas.width / 256, 0, 0, canvas.height / 224, 0, 0);
     ctx.imageSmoothingEnabled = false;
     if (state.scene === 'menu') menuScreen();
     else { boardScreen(now); if (state.palette) paletteScreen(); if (state.modal) modalScreen(); if (state.scene === 'result') resultScreen(); }
     updateHotspots();
-    const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;
+    const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，紅方步時${formatStep(clock.red)}，黑方步時${formatStep(clock.black)}，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;
     if (canvas.getAttribute('aria-label') !== description) canvas.setAttribute('aria-label', description);
     requestAnimationFrame(frame);
   }

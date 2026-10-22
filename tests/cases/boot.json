@@ -1,0 +1,26 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "boot",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "mode-select"
+    },
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "ModeCount",
+      "field": "text",
+      "equals": "3"
+    }
+  ]
+}
