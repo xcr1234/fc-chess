@@ -1,7 +1,7 @@
 # 娱乐规则验收与追踪
 
 - 日期：2026-10-22（Asia/Shanghai）。最新用户要求：不做循环/长将/长捉、将死/困毙、自将/强制应将；实际吃将或认输才判胜负。
-- 状态：47个正式格式用例已制定、离线校验并在第5步运行通过；最新证据见 records/lua-step5-regression.json。原有52条文字草案由本版取代，尚未真机验收。
+- 状态：第6步53个正式格式用例、162条断言通过；最新证据见 records/lua-step6-results.json。五画布30页及5项坐标输入检查见 records/lua-step6-matrix.json。尚未真机验收，性能仍有风险。
 - 规则来源：[GDD](../docs/gdd.md)、[详细设计](../docs/game-spec.md)、[AI方案](../docs/ai-design.md)。格式与步骤5测试桥接见[README](README.md)。
 
 每例独立开始，PC/mobile用不同canvasId。特殊局面/时间/AI输入逐例写在plan.json，实际断言写在独立case文件。时间消费固定dt；棋力回归使用相同规则档案、seed、预算和缓存初始状态。下表是规则→前置→动作→可观察结果的追踪，不是已执行结果。
@@ -57,6 +57,19 @@
 | [ai-budget](cases/ai-budget.json) | 定向夹具（见plan.json） | TestRunBudget | SearchCompleteDepth=2；WorkingBoardRestored=true；PartialExactStored=false |
 
 ## 手工与设备检查
+
+第6步新增自然操作边界（均不注入受控回棋，使用正式引擎）：
+
+| case | 操作 | 预期 |
+|---|---|---|
+| search-undo-spam | 15车走子，搜索中连续悔棋，再走最右路后悔棋 | 恢复000手/红方，无旧回棋 |
+| search-resign | 15车搜索期间确认认输，继续推进时间 | 结果保持落败，手数不再变化 |
+| search-leave | 15车搜索期间离局，再开快速 | 新局000手/红方，无旧回棋 |
+| restart-twice | 两次认输并重开 | 两次经过结果页，新局000手 |
+| edge-contact | 最右路兵非法后退，再前进 | 拒绝非法着法，只计合法一步 |
+| input-spam | 连点取消、空悔棋、取消确认、思考期间点棋、悔棋 | 不重复提交，恢复000手 |
+
+五画布坐标检查从菜单直接点困难、点击第9路兵热区右缘及目标、打开确认并点击棋盘、取消后悔棋；断言001手→确认层保持001手→000手。此处验证模拟器坐标输入，不等于真实手机触摸证据。
 
 | 项目 | 操作 | 预期/证据 |
 |---|---|---|

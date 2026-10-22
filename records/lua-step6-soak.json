@@ -1,0 +1,35 @@
+{
+  "runtime": "lua-fengari",
+  "scope": "real-engine continuous matches; host elapsed time, not device performance",
+  "sourceSHA256": "d794095173a31a865327121d71401d521dc3f08cdf0dba001b4544444a7455a3",
+  "exitCode": 0,
+  "stdout": "PROGRESS custom=false searches=10 plies=11\nPROGRESS custom=false searches=20 plies=21\nPROGRESS custom=false searches=30 plies=31\nPROGRESS custom=false searches=40 plies=41\nPROGRESS custom=false searches=50 plies=51\nPROGRESS custom=false searches=60 plies=61\nPROGRESS custom=false searches=70 plies=71\nPROGRESS custom=false searches=80 plies=81\nSOAK custom=false plies=81 scene=ai-search searches=80 nodes=128000 minDepth=1 cpuSeconds=132.183 maxSearchStepMs=98.532\nPROGRESS custom=true searches=10 plies=10\nPROGRESS custom=true searches=20 plies=20\nPROGRESS custom=true searches=30 plies=30\nPROGRESS custom=true searches=40 plies=40\nPROGRESS custom=true searches=50 plies=50\nPROGRESS custom=true searches=60 plies=60\nPROGRESS custom=true searches=70 plies=70\nPROGRESS custom=true searches=80 plies=80\nSOAK custom=true plies=80 scene=player-turn searches=80 nodes=128000 minDepth=1 cpuSeconds=162.072 maxSearchStepMs=437.154\n",
+  "stderr": "",
+  "timingSource": "Fengari 0.1.5 Node os.clock uses process.uptime: host elapsed time including GC/scheduling, not CPU time",
+  "results": [
+    {
+      "custom": false,
+      "plies": 81,
+      "scene": "ai-search",
+      "searches": 80,
+      "nodes": 128000,
+      "minDepth": 1,
+      "elapsedSeconds": 132.183,
+      "maxSearchStepMs": 98.532
+    },
+    {
+      "custom": true,
+      "plies": 80,
+      "scene": "player-turn",
+      "searches": 80,
+      "nodes": 128000,
+      "minDepth": 1,
+      "elapsedSeconds": 162.072,
+      "maxSearchStepMs": 437.154
+    }
+  ],
+  "notes": [
+    "Raw stdout preserves the legacy cpuSeconds label; it measures elapsed host time, see timingSource.",
+    "Neither 80-search sequence reached terminal state; targeted simulator cases cover outcomes and restart."
+  ]
+}

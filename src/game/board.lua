@@ -52,7 +52,15 @@ function M.moves(b,side,custom,captures)
   if k=='R' or k=='C' then
    for _,d in ipairs(orth) do local f,r=x+d[1],y+d[2];local seen=0
     while f>=0 and f<=8 and r>=0 and r<=9 do
-     add(f,r);if b[M.index(f,r)]~='' then seen=seen+1 end
+     -- This ray already knows the screen count. Do not rescan the same
+     -- intervening squares with valid() for every destination.
+     local z=M.index(f,r);local target=b[z]
+     if target=='' then
+      if not captures and seen==0 then out[#out+1]={a,z} end
+     else
+      if M.side(target)~=side and seen==(k=='R' and 0 or 1) then out[#out+1]={a,z} end
+      seen=seen+1
+     end
      if seen>=(k=='R' and 1 or 2) then break end
      f=f+d[1];r=r+d[2]
     end

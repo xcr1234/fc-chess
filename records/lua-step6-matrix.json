@@ -1,0 +1,2663 @@
+{
+  "runtime": "simulator",
+  "sourceSHA256": "d794095173a31a865327121d71401d521dc3f08cdf0dba001b4544444a7455a3",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "menu",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-menu.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        }
+      ],
+      "renderedNodes": 922,
+      "images": 908,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "edit",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-edit.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 428,
+      "images": 374,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "palette",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-palette.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 453,
+      "images": 390,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "board",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-board.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 424,
+      "images": 372,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "confirm",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-confirm.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 434,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "result",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-16-9-result.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.30000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.30000000000000004
+        }
+      ],
+      "renderedNodes": 435,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "pointer",
+      "case": {
+        "format": "qxqy-autotest",
+        "version": 1,
+        "name": "pointer-pc-16-9",
+        "dt": 0.05,
+        "events": [
+          {
+            "t": 0.1,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 814.0625,
+              "y": 594.6428571428571
+            }
+          },
+          {
+            "t": 0.2,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1055.1339285714284,
+              "y": 321.4285714285714
+            }
+          },
+          {
+            "t": 0.3,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1055.1339285714284,
+              "y": 385.7142857142857
+            }
+          },
+          {
+            "t": 0.4,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1199.7767857142858,
+              "y": 291.29464285714283
+            }
+          },
+          {
+            "t": 0.5,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 510.71428571428567,
+              "y": 321.4285714285714
+            }
+          },
+          {
+            "t": 0.6,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 944.6428571428571,
+              "y": 353.57142857142856
+            }
+          },
+          {
+            "t": 0.7,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1199.7767857142858,
+              "y": 375.66964285714283
+            }
+          }
+        ],
+        "asserts": [
+          {
+            "kind": "control",
+            "at": 0.35,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.45,
+            "name": "ConfirmTitle",
+            "field": "text",
+            "equals": "要認輸嗎？"
+          },
+          {
+            "kind": "control",
+            "at": 0.55,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "000手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "TurnText",
+            "field": "text",
+            "equals": "紅方"
+          }
+        ]
+      },
+      "format": "qxqy-autotest",
+      "name": "pointer-pc-16-9",
+      "passed": true,
+      "failedAt": null,
+      "frame": 16,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.45,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8000000000000002,
+        "frame": 16,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=false",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 63->54 captured= step=0.20 count=1",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.7000000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8000000000000002,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "menu",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-menu.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        }
+      ],
+      "renderedNodes": 922,
+      "images": 908,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "edit",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-edit.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 428,
+      "images": 374,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "palette",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-palette.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 453,
+      "images": 390,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "board",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-board.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 424,
+      "images": 372,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "confirm",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-confirm.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 434,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "result",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-pc-21-9-result.png",
+      "width": 1029,
+      "height": 900,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.30000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.30000000000000004
+        }
+      ],
+      "renderedNodes": 435,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "pointer",
+      "case": {
+        "format": "qxqy-autotest",
+        "version": 1,
+        "name": "pointer-pc-21-9",
+        "dt": 0.05,
+        "events": [
+          {
+            "t": 0.1,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1064.0625,
+              "y": 594.6428571428571
+            }
+          },
+          {
+            "t": 0.2,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1305.1339285714284,
+              "y": 321.4285714285714
+            }
+          },
+          {
+            "t": 0.3,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1305.1339285714284,
+              "y": 385.7142857142857
+            }
+          },
+          {
+            "t": 0.4,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1449.7767857142858,
+              "y": 291.29464285714283
+            }
+          },
+          {
+            "t": 0.5,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 760.7142857142857,
+              "y": 321.4285714285714
+            }
+          },
+          {
+            "t": 0.6,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1194.642857142857,
+              "y": 353.57142857142856
+            }
+          },
+          {
+            "t": 0.7,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1449.7767857142858,
+              "y": 375.66964285714283
+            }
+          }
+        ],
+        "asserts": [
+          {
+            "kind": "control",
+            "at": 0.35,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.45,
+            "name": "ConfirmTitle",
+            "field": "text",
+            "equals": "要認輸嗎？"
+          },
+          {
+            "kind": "control",
+            "at": 0.55,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "000手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "TurnText",
+            "field": "text",
+            "equals": "紅方"
+          }
+        ]
+      },
+      "format": "qxqy-autotest",
+      "name": "pointer-pc-21-9",
+      "passed": true,
+      "failedAt": null,
+      "frame": 16,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.45,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8000000000000002,
+        "frame": 16,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=false",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 63->54 captured= step=0.20 count=1",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.7000000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8000000000000002,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "menu",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-menu.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        }
+      ],
+      "renderedNodes": 922,
+      "images": 908,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "edit",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-edit.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 428,
+      "images": 374,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "palette",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-palette.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 453,
+      "images": 390,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "board",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-board.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 424,
+      "images": 372,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "confirm",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-confirm.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 434,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "result",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-16-9-result.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.30000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.30000000000000004
+        }
+      ],
+      "renderedNodes": 435,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "pointer",
+      "case": {
+        "format": "qxqy-autotest",
+        "version": 1,
+        "name": "pointer-mobile-16-9",
+        "dt": 0.05,
+        "events": [
+          {
+            "t": 0.1,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 651.25,
+              "y": 475.7142857142857
+            }
+          },
+          {
+            "t": 0.2,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 844.1071428571429,
+              "y": 257.14285714285717
+            }
+          },
+          {
+            "t": 0.3,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 844.1071428571429,
+              "y": 308.57142857142856
+            }
+          },
+          {
+            "t": 0.4,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 959.8214285714286,
+              "y": 233.0357142857143
+            }
+          },
+          {
+            "t": 0.5,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 408.57142857142856,
+              "y": 257.14285714285717
+            }
+          },
+          {
+            "t": 0.6,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 755.7142857142857,
+              "y": 282.8571428571429
+            }
+          },
+          {
+            "t": 0.7,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 959.8214285714286,
+              "y": 300.5357142857143
+            }
+          }
+        ],
+        "asserts": [
+          {
+            "kind": "control",
+            "at": 0.35,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.45,
+            "name": "ConfirmTitle",
+            "field": "text",
+            "equals": "要認輸嗎？"
+          },
+          {
+            "kind": "control",
+            "at": 0.55,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "000手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "TurnText",
+            "field": "text",
+            "equals": "紅方"
+          }
+        ]
+      },
+      "format": "qxqy-autotest",
+      "name": "pointer-mobile-16-9",
+      "passed": true,
+      "failedAt": null,
+      "frame": 16,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.45,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8000000000000002,
+        "frame": 16,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=false",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 63->54 captured= step=0.20 count=1",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.7000000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8000000000000002,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "menu",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-menu.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        }
+      ],
+      "renderedNodes": 922,
+      "images": 908,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "edit",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-edit.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 428,
+      "images": 374,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "palette",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-palette.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 453,
+      "images": 390,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "board",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-board.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 424,
+      "images": 372,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "confirm",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-confirm.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 434,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "result",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-19.5-9-result.png",
+      "width": 823,
+      "height": 720,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.30000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.30000000000000004
+        }
+      ],
+      "renderedNodes": 435,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "pointer",
+      "case": {
+        "format": "qxqy-autotest",
+        "version": 1,
+        "name": "pointer-mobile-19.5-9",
+        "dt": 0.05,
+        "events": [
+          {
+            "t": 0.1,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 791.25,
+              "y": 475.7142857142857
+            }
+          },
+          {
+            "t": 0.2,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 984.1071428571429,
+              "y": 257.14285714285717
+            }
+          },
+          {
+            "t": 0.3,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 984.1071428571429,
+              "y": 308.57142857142856
+            }
+          },
+          {
+            "t": 0.4,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1099.8214285714284,
+              "y": 233.0357142857143
+            }
+          },
+          {
+            "t": 0.5,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 548.5714285714286,
+              "y": 257.14285714285717
+            }
+          },
+          {
+            "t": 0.6,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 895.7142857142857,
+              "y": 282.8571428571429
+            }
+          },
+          {
+            "t": 0.7,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1099.8214285714284,
+              "y": 300.5357142857143
+            }
+          }
+        ],
+        "asserts": [
+          {
+            "kind": "control",
+            "at": 0.35,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.45,
+            "name": "ConfirmTitle",
+            "field": "text",
+            "equals": "要認輸嗎？"
+          },
+          {
+            "kind": "control",
+            "at": 0.55,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "000手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "TurnText",
+            "field": "text",
+            "equals": "紅方"
+          }
+        ]
+      },
+      "format": "qxqy-autotest",
+      "name": "pointer-mobile-19.5-9",
+      "passed": true,
+      "failedAt": null,
+      "frame": 16,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.45,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8000000000000002,
+        "frame": 16,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=false",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 63->54 captured= step=0.20 count=1",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.7000000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8000000000000002,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "menu",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-menu.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        }
+      ],
+      "renderedNodes": 922,
+      "images": 908,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "edit",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-edit.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 428,
+      "images": 374,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "palette",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-palette.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 453,
+      "images": 390,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "board",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-board.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 424,
+      "images": 372,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "confirm",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-confirm.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ],
+      "renderedNodes": 434,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "result",
+      "passed": true,
+      "screenshot": "records/screenshots/step6-mobile-4-3-result.png",
+      "width": 1097,
+      "height": 960,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.30000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.30000000000000004
+        }
+      ],
+      "renderedNodes": 435,
+      "images": 378,
+      "assetWarnings": []
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "pointer",
+      "case": {
+        "format": "qxqy-autotest",
+        "version": 1,
+        "name": "pointer-mobile-4-3",
+        "dt": 0.05,
+        "events": [
+          {
+            "t": 0.1,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 655,
+              "y": 634.2857142857142
+            }
+          },
+          {
+            "t": 0.2,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 912.1428571428571,
+              "y": 342.85714285714283
+            }
+          },
+          {
+            "t": 0.3,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 912.1428571428571,
+              "y": 411.42857142857144
+            }
+          },
+          {
+            "t": 0.4,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1066.4285714285716,
+              "y": 310.7142857142857
+            }
+          },
+          {
+            "t": 0.5,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 331.42857142857144,
+              "y": 342.85714285714283
+            }
+          },
+          {
+            "t": 0.6,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 794.2857142857143,
+              "y": 377.1428571428571
+            }
+          },
+          {
+            "t": 0.7,
+            "source": "user",
+            "kind": "pointer",
+            "payload": {
+              "type": "click",
+              "x": 1066.4285714285716,
+              "y": 400.7142857142857
+            }
+          }
+        ],
+        "asserts": [
+          {
+            "kind": "control",
+            "at": 0.35,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.45,
+            "name": "ConfirmTitle",
+            "field": "text",
+            "equals": "要認輸嗎？"
+          },
+          {
+            "kind": "control",
+            "at": 0.55,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "001手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "MoveCount",
+            "field": "text",
+            "equals": "000手"
+          },
+          {
+            "kind": "control",
+            "at": 0.8,
+            "name": "TurnText",
+            "field": "text",
+            "equals": "紅方"
+          }
+        ]
+      },
+      "format": "qxqy-autotest",
+      "name": "pointer-mobile-4-3",
+      "passed": true,
+      "failedAt": null,
+      "frame": 16,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.45,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8000000000000002,
+        "frame": 16,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:33:58.555 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=false",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.1
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 63->54 captured= step=0.20 count=1",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.7000000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8000000000000002,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    }
+  ],
+  "authoring": {
+    "migrationWarnings": [],
+    "controlGuidChanges": [],
+    "scripts": [
+      {
+        "path": "dist/main.lua",
+        "mounted": true,
+        "controlName": "FCChessHost"
+      }
+    ],
+    "luaBytes": 64016
+  }
+}

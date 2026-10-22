@@ -1,5 +1,5 @@
 {
-  "description": "Execution metadata, not a qxqy-autotest case. Test-only fixture bridge is implemented; latest execution evidence is records/lua-step5-regression.json.",
+  "description": "Execution metadata, not a qxqy-autotest case. Test-only fixture bridge is implemented; step 6 evidence is records/lua-step6-results.json. Natural search boundary cases do not inject AI replies.",
   "cases": [
     {
       "case": "boot",
@@ -886,6 +886,54 @@
           "maxDepth": 3
         }
       }
+    },
+    {
+      "case": "search-undo-spam",
+      "file": "cases/search-undo-spam.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "search-resign",
+      "file": "cases/search-resign.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "search-leave",
+      "file": "cases/search-leave.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "restart-twice",
+      "file": "cases/restart-twice.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "edge-contact",
+      "file": "cases/edge-contact.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "input-spam",
+      "file": "cases/input-spam.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": null
     }
   ]
 }

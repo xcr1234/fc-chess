@@ -17,7 +17,9 @@ check('move generator matches exhaustive validator across seeded boards and both
   for n=1,24 do b[math.random(1,90)]=pieces[math.random(1,#pieces)] end b[5]='k';b[86]='K'
   for _,side in ipairs({'red','black'}) do for _,custom in ipairs({false,true}) do
    local generated={} for _,m in ipairs(B.moves(b,side,custom)) do local key=m[1]*100+m[2];assert(not generated[key]);generated[key]=true end
+   local captures={} for _,m in ipairs(B.moves(b,side,custom,true)) do local key=m[1]*100+m[2];assert(not captures[key]);captures[key]=true end
    for a=1,90 do if B.side(b[a])==side then for z=1,90 do assert(not not generated[a*100+z]==B.valid(b,a,z,custom)) end end end
+   for a=1,90 do if B.side(b[a])==side then for z=1,90 do assert(not not captures[a*100+z]==(b[z]~='' and B.valid(b,a,z,custom))) end end end
   end end
  end
 end)

@@ -1,0 +1,141 @@
+{
+  "runtime": "lua-fengari",
+  "scope": "isolated real search; no UI/device performance claim",
+  "sourceSHA256": "d794095173a31a865327121d71401d521dc3f08cdf0dba001b4544444a7455a3",
+  "samples": [
+    {
+      "profile": "standard",
+      "ply": 1,
+      "initMs": 29.25,
+      "stepP50Ms": 14.851,
+      "stepP95Ms": 19.907,
+      "stepMaxMs": 37.503,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "standard",
+      "ply": 2,
+      "initMs": 21.453,
+      "stepP50Ms": 15.116,
+      "stepP95Ms": 22.022,
+      "stepMaxMs": 28.7,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "standard",
+      "ply": 3,
+      "initMs": 12.121,
+      "stepP50Ms": 14.871,
+      "stepP95Ms": 23.928,
+      "stepMaxMs": 28.349,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "standard",
+      "ply": 4,
+      "initMs": 15.58,
+      "stepP50Ms": 15.385,
+      "stepP95Ms": 23.705,
+      "stepMaxMs": 27.634,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 1,
+      "initMs": 27.456,
+      "stepP50Ms": 15.35,
+      "stepP95Ms": 17.209,
+      "stepMaxMs": 27.661,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 2,
+      "initMs": 14.308,
+      "stepP50Ms": 13.814,
+      "stepP95Ms": 17.136,
+      "stepMaxMs": 18.675,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 3,
+      "initMs": 31.328,
+      "stepP50Ms": 15.24,
+      "stepP95Ms": 24.23,
+      "stepMaxMs": 27.641,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 4,
+      "initMs": 12.731,
+      "stepP50Ms": 13.375,
+      "stepP95Ms": 21.129,
+      "stepMaxMs": 27.778,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 1,
+      "initMs": 19.534,
+      "stepP50Ms": 15.197,
+      "stepP95Ms": 20.046,
+      "stepMaxMs": 20.882,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 2,
+      "initMs": 14.736,
+      "stepP50Ms": 16.331,
+      "stepP95Ms": 30.029,
+      "stepMaxMs": 36.115,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 3,
+      "initMs": 32.441,
+      "stepP50Ms": 29.147,
+      "stepP95Ms": 45.06,
+      "stepMaxMs": 55.548,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 4,
+      "initMs": 32.308,
+      "stepP50Ms": 15.722,
+      "stepP95Ms": 40.656,
+      "stepMaxMs": 55.726,
+      "frames": 101,
+      "nodes": 1600,
+      "depth": 1
+    }
+  ],
+  "exitCode": 0,
+  "timingSource": "Fengari 0.1.5 Node os.clock uses process.uptime: host elapsed time including GC/scheduling, not CPU time"
+}

@@ -1,0 +1,131 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "input-spam",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeDifficult"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 0.5,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    },
+    {
+      "t": 0.7,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.9,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_2_6"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_2_5"
+      }
+    },
+    {
+      "t": 1.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "SelectedSquare",
+      "field": "text",
+      "equals": "none"
+    },
+    {
+      "kind": "control",
+      "at": 0.65,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 1.05,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.2,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    }
+  ]
+}

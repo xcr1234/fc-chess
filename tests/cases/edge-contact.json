@@ -1,0 +1,75 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "edge-contact",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeDifficult"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_8_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_8_7"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_8_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "StatusText",
+      "field": "text",
+      "equals": "這步不能走"
+    },
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 0.5,
+      "id": "",
+      "name": "Piece_8_5",
+      "field": "text",
+      "equals": "P"
+    }
+  ]
+}

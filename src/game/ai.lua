@@ -32,9 +32,13 @@ function M.book(b,custom)
  if choices and #choices>0 then return choices end
 end
 local function ordered(b,moves,preferred,job,ply)
+ local ranks={}
+ for _,m in ipairs(moves) do
+  local key=m[1]*100+m[2]
+  ranks[key]=(preferred and m[1]==preferred[1] and m[2]==preferred[2] and 1e8 or 0)+value(b[m[2]])*10-value(b[m[1]])+(job and job.history[key] or 0)+(job and job.killers[ply or 0]==key and 5000 or 0)
+ end
  table.sort(moves,function(a,c)
-  local function rank(m) return (preferred and m[1]==preferred[1] and m[2]==preferred[2] and 1e8 or 0)+value(b[m[2]])*10-value(b[m[1]])+(job and job.history[m[1]*100+m[2]] or 0)+(job and job.killers[ply or 0]==m[1]*100+m[2] and 5000 or 0) end
-  local x,y=rank(a),rank(c);if x==y then return a[1]*100+a[2]<c[1]*100+c[2] end return x>y
+  local x,y=ranks[a[1]*100+a[2]],ranks[c[1]*100+c[2]];if x==y then return a[1]*100+a[2]<c[1]*100+c[2] end return x>y
  end)
  return moves
 end
@@ -67,11 +71,11 @@ function M.new(board,side,custom,opts)
  ordered(b,root,nil)
  local job={board=b,side=side,custom=custom,original=B.key(b,side,custom),nodes=0,depth=0,budget=opts.nodeBudget or 1600,done=false,restored=true,partialExact=false,elapsed=0,tt={},ttCount=0,history={},killers={},stack={},root=root,rootIndex=1,scores={},iteration=1,maxDepth=opts.maxDepth or 3,changes={}}
  job.move=root[1];job.summary={count=#root,tactical=0}
+ local king for i=1,90 do if b[i]==(side=='red' and 'k' or 'K') then king=i;break end end
  for _,m in ipairs(root) do
   local captured=b[m[2]];local p=b[m[1]];b[m[2]]=p;b[m[1]]=''
   local tactical=captured~=''
   if not tactical then
-   local king for i=1,90 do if b[i]==(side=='red' and 'k' or 'K') then king=i;break end end
    if king then for i=1,90 do if B.side(b[i])==side and B.valid(b,i,king,custom) then tactical=true;break end end end
   end
   b[m[1]]=p;b[m[2]]=captured

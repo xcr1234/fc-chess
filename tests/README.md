@@ -1,18 +1,21 @@
 # 游戏测试制定与运行约定
 
-第5步已实现测试桥接并运行47项模拟器用例；最新结果见 `records/lua-step5-regression.json` 和 `records/playtest.md`。尚未真机测试。
+第6步已运行53项模拟器用例（162条断言）、五画布30页截图与5项坐标输入检查；最新结果见 `records/lua-step6-results.json`、`records/lua-step6-matrix.json` 和 `records/playtest.md`。尚未真机测试；性能风险仍保留。
 
 ## 重放当前产物
 
 - `npm run build:game`：生成夹具、打包Lua、同步正式/测试存档。
 - `npm run test:lua`：11项纯Lua规则与边界回归。
-- `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主CPU采样；不是设备性能结果。
+- `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主耗时采样；不是设备性能结果。
+- `npm run test:lua:performance`：单独运行标准/15车/自由士相各4次真实搜索，记录初始化及step的P50/P95/最大宿主耗时。采样期间停止其他测试与浏览器试玩，报告为 `records/lua-step6-performance.json`；单轮宿主数据不能当作性能改善百分比或真机结论。
 - `npm run test:simulator`：通过项目内MCP运行全部原生用例，先验证两个存档与dist源码一致，拒绝空用例；输出带产物SHA-256的报告。
 - `npm run test:simulator -- --layouts`：正式存档五种画布的开局smoke与画布范围截图，另存 `records/lua-layout-results.json`；截图仍需人工查看。
+- `npm run test:simulator -- --output lua-step6-results.json`：重放当前全部用例并保留第5步历史报告。
+- `npm run test:simulator -- --matrix`：正式存档五画布×菜单/编辑/棋种/对局/确认/结果截图，另测右侧边缘落点、确认阻挡与悔棋；输出 `records/lua-step6-matrix.json` 及游戏范围截图。每项独立启动；模拟器原生pointer的Y原点在左下。
 
 ## 文件与检查
 
-- `cases/*.json`：47个`qxqy-autotest/version:1`原生格式用例，含独立的boot、first-success、first-fail、restart和mobile-smoke。
+- `cases/*.json`：53个`qxqy-autotest/version:1`原生格式用例，含独立的boot、first-success、first-fail、restart、mobile-smoke与第6步边界回归。
 - `plan.json`：用例到画布和夹具的运行清单，不是模拟器用例；`args.canvasId`作为runCase的外部参数，不塞进原生case未知字段。
 - `acceptance.md`：规则/用例追踪、手工视觉及设备检查。
 - `npm run check:game-cases`：从锁定依赖`beyond-simulator-mcp@0.4.1/dist/index.js`抽取**纯用例解析函数**做离线验证，检查所有字段均被保留。不会import其CLI、开工程、初始化Worker或运行case；版本/纯函数定位变化时失败并要求重新核对。
