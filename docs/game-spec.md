@@ -108,6 +108,8 @@
 
 采用千星左下原点、Y向上，256×224比例。GameRoot在画布居中，子控件均以其左下为原点、anchor=(0,0)；下表offset为中心位置。以下为目标规格，不是已验证的模板/API字段。
 
+第4步资料核对补充：下表使用设计空间，不能直接当作API参数。官方客户端API说明SetAnchoredPosition在存在父级时相对父级中心；实现时需转换父级坐标，具体锚点与缩放组合仍须验证。
+
 | id / kind | parent | offset | size | styleToken/asset | 可见与动作 |
 |---|---|---|---|---|---|
 | GameRoot / container | 画布 | (128,112) | (256,224) | bg.navy | 对局/编辑/结果背景 |

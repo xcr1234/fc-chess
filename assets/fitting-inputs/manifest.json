@@ -1,0 +1,63 @@
+{
+  "stage": 4,
+  "status": "reference-crops-only",
+  "date": "2026-10-22",
+  "items": [
+    {
+      "id": "old-man",
+      "required": true,
+      "source": "prototype/assets/original-opponents.jpg",
+      "url": "https://img.mamecn.com/uploadfile/2021/0324/20210324020644640.jpg",
+      "crop": {
+        "x": 56,
+        "y": 230,
+        "width": 79,
+        "height": 80
+      },
+      "displaySizes": [
+        {
+          "width": 32,
+          "height": 32,
+          "where": "对局"
+        },
+        {
+          "width": 35,
+          "height": 35,
+          "where": "模式菜单，三个入口复用"
+        }
+      ],
+      "scale": 4,
+      "file": "assets/fitting-inputs/old-man.png",
+      "preview": "assets/fitting-inputs/old-man-preview.png",
+      "sourceSha256": "174d7137a27ca843cf8ca171ea603917588b801e5435ff5c26b7ffbfc69f6352",
+      "sha256": "f19df7a1da5ca045035bf3a7bc35f81579ad1a0523ca97ce0394225845043e25",
+      "background": "保留参考原有背景，未抠图、未重绘、未拟合"
+    },
+    {
+      "id": "hand-cursor",
+      "required": false,
+      "source": "prototype/assets/original-screen.png",
+      "url": "https://nesninja.com/public/images/nes/found/Zhong_Guo_Xiang_Qi_%28Chinese_Chess%29_1.png",
+      "crop": {
+        "x": 216,
+        "y": 192,
+        "width": 13,
+        "height": 16
+      },
+      "displaySizes": [
+        {
+          "width": 16,
+          "height": 16,
+          "where": "可选菜单/辅助键盘焦点，不是必需操作"
+        }
+      ],
+      "scale": 8,
+      "file": "assets/fitting-inputs/hand-cursor.png",
+      "preview": "assets/fitting-inputs/hand-cursor-preview.png",
+      "sourceSha256": "5738fa68296d470b745223f3b69eff71d813b7707b146ee038b43f2140be9045",
+      "sha256": "8cb2aadff352af6b74fd12ac1c56a95796a30894a558ba0e7ef3145783d4a0af",
+      "background": "保留参考原有背景，未抠图、未重绘、未拟合",
+      "note": "缩窄至第一只手的范围，排除右侧相邻手形碎片；未移除原深蓝背景。"
+    }
+  ]
+}
