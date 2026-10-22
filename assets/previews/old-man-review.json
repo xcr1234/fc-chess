@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-22",
+  "runtime": "static-asset-review",
+  "jsonSha256": "6f1c1df249e71163922f2b765a5b27abd2a415f7ccc2b489aa1c4b3cab142b4c",
+  "luaSha256": "489f38d3de02c9b29defed897d41b823c6258e83bb3cf8324483b33d197268b6",
+  "canvas": {
+    "width": 79,
+    "height": 80,
+    "background": "#ffffff"
+  },
+  "elementCount": 300,
+  "kinds": {
+    "ellipse": 300
+  },
+  "jsonLuaCorrespondence": {
+    "sameElementOrderTypesColorsAndAlpha": true,
+    "geometryTolerance": 0.0101,
+    "maxGeometryDelta": 0.009999999999999787,
+    "roundedFields": 8
+  },
+  "luaSyntaxOnly": true,
+  "luaExecuted": false,
+  "ellipsesCrossingCanvas": 41,
+  "mask": {
+    "enabled": true,
+    "shape_type": "rectangle",
+    "coverage": 0.5441,
+    "center": {
+      "x": 39,
+      "y": -40.5
+    },
+    "size": {
+      "width": 60,
+      "height": 77
+    },
+    "bbox_px": {
+      "x": 9,
+      "y": 2,
+      "width": 60,
+      "height": 77
+    }
+  },
+  "imagePrefabId": 0,
+  "menuImageInstances": 900,
+  "gameImageInstances": 300,
+  "integrationNotes": [
+    "Raw Lua uses item[3] - IMG_HEIGHT/2, but item[3] is already negative source y. Center-relative y must use item[3] - shaper.origin.y (origin.y=-40); current raw y is 80*scale too low.",
+    "JSON shaper rectangle mask and out-of-canvas ellipses need clipping in final UI; raw Lua does not apply the exported mask.",
+    "JSON canvas background is a white viewing/background-composition hint, not an opaque background primitive. Final underlay/alpha must match the reviewed appearance.",
+    "IMAGE_PREFAB_ID=0 is a placeholder; source lifecycle callbacks and scale settings must be adapted into a module in step 5, not concatenated into main.lua."
+  ],
+  "status": "reference asset received and statically checked; platform integration/device rendering not verified"
+}

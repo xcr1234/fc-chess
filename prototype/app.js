@@ -16,17 +16,6 @@
   new ResizeObserver(resizeCanvas).observe(canvas);
   window.addEventListener('resize', resizeCanvas);
   const portrait = new Image(); portrait.src = 'assets/original-opponents.jpg';
-  const reference = new Image(); reference.src = 'assets/original-screen.png';
-  const finger = document.createElement('canvas'); finger.width = finger.height = 16;
-  let fingerReady = false;
-  reference.onload = () => {
-    try {
-    const f = finger.getContext('2d'); f.drawImage(reference, 216, 192, 16, 16, 0, 0, 16, 16);
-    const pixels = f.getImageData(0, 0, 16, 16), background = Array.from(pixels.data.slice(0, 3));
-    for (let i = 0; i < pixels.data.length; i += 4) if (background.every((v, c) => Math.abs(v - pixels.data[i + c]) < 6)) pixels.data[i + 3] = 0;
-    f.putImageData(pixels, 0, 0); fingerReady = true;
-    } catch { fingerReady = false; } // file:// may restrict pixel reads; keep the drawn fallback hand.
-  };
   const C = { navy: '#193b57', green: '#3defa0', cyan: '#28eff0', purple: '#6840fa', pink: '#f5a4cf', paper: '#bbc6c8', line: '#352599', red: '#f33d43', blue: '#2818a0', white: '#fff9e9', black: '#071415' };
   const names = ['困难', '快速模式', '自定义模式'];
   const subnames = ['经典老头 · 原味等待', '经典老头 · 快速思考', '修改己方初始棋子'];
@@ -64,12 +53,8 @@
       ctx.drawImage(portrait, 56, 230, 79, 80, x, y, size, size);
     } else { text('老', x + size / 2, y + 8, C.black, 18, 'center'); }
   }
-  function hand(x, y) {
-    if (fingerReady) {
-      ctx.drawImage(finger, Math.round(x), Math.round(y));
-    } else {
-      ctx.fillStyle = '#f8b18e'; ctx.fillRect(x + 3, y, 3, 9); ctx.fillRect(x + 3, y + 5, 9, 7); ctx.fillStyle = C.black; ctx.strokeRect(x + 3.5, y + .5, 3, 8);
-    }
+  function focusRect(x, y, width, height) {
+    ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(x, y, width, height);
   }
   function menuScreen() {
     ctx.fillStyle = C.purple; ctx.fillRect(0, 0, 256, 224);
@@ -78,7 +63,7 @@
     rows.forEach((y, i) => {
       ctx.fillStyle = '#140948'; ctx.fillRect(34, y + 5, 35, 35); head(29, y, 35);
       text(names[i], 81, y + 3, C.white, 15); text(subnames[i], 81, y + 24, '#e2d0ff', 8);
-      if (state.menu === i) hand(64, y + 9);
+      if (state.inputMethod === 'keyboard' && state.menu === i) focusRect(24, y - 4, 215, 44);
     });
     text('點擊模式，開始對局', 128, 207, C.white, 8, 'center');
   }
@@ -120,8 +105,7 @@
       text(label, 227, y + 4, C.green, 8, 'center');
     });
     if (state.inputMethod === 'keyboard' && !state.modal && !state.palette) {
-      if (state.zone === 'panel') hand(194, 124 + state.sideIndex * 21);
-      else { ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(gridX + state.cursor.x * step - 8, gridY + state.cursor.y * step - 8, 16, 16); }
+      if (state.zone !== 'panel') { ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(gridX + state.cursor.x * step - 8, gridY + state.cursor.y * step - 8, 16, 16); }
     }
     text(state.message, 128, 210, C.cyan, 8, 'center');
   }
@@ -129,19 +113,19 @@
     box(37, 67, 182, 98, C.navy, C.cyan); text('改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
     choices.forEach((piece, i) => {
       const x = 86 + (i % 3) * 45, y = 105 + Math.floor(i / 3) * 28;
-      text(glyphs[piece], x, y, C.white, 15, 'center'); if (i === state.palette.choice) hand(x - 19, y + 1);
+      text(glyphs[piece], x, y, C.white, 15, 'center'); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
     });
   }
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
     text(m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回模式選擇？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
     if (m.type !== 'resign') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
-    text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); hand(m.choice === 0 ? 73 : 145, 125);
+    text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {
     box(42, 70, 172, 93, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
     text(state.resultReason, 128, 101, C.cyan, 8, 'center');
-    text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center'); hand(86, state.resultIndex === 0 ? 114 : 137);
+    text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
   }
   function finish(title, reason) {
     generation++; clock.stop(performance.now());

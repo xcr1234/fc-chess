@@ -7,3 +7,4 @@ lua.deploy.local.json
 .lua-deploy-state.json
 .lua-deploy-backups/
 *.log
+.DS_Store

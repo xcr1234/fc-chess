@@ -27,6 +27,6 @@
 
 ## 参考与移植
 
-原版头像暂引用`assets/original-opponents.jpg`的困难区域；原图来自[难度菜单截图](https://img.mamecn.com/uploadfile/2021/0324/20210324020644640.jpg)。手形参考`assets/original-screen.png`来自[原版对局截图](https://nesninja.com/public/images/nes/found/Zhong_Guo_Xiang_Qi_%28Chinese_Chess%29_1.png)。尚未正式验收为平台素材。
+原版头像暂引用`assets/original-opponents.jpg`的困难区域；原图来自[难度菜单截图](https://img.mamecn.com/uploadfile/2021/0324/20210324020644640.jpg)。尚未正式验收为平台素材。
 
-必须保留：游戏画布构图、配色、固定头像、三模式、右侧悔棋/认输/模式选择、点击与稳定选框。辅助键盘焦点符号可降级。外围网页标题/标签/外框/工具栏/手柄/说明不移植；留边不是游戏背景。千星坐标左下原点、Y向上，需按[详细设计](../docs/game-spec.md)重建。
+必须保留：游戏画布构图、配色、固定头像、三模式、右侧悔棋/认输/模式选择、点击与稳定选框。手形图标已移除，辅助键盘焦点使用边框。外围网页标题/标签/外框/工具栏/手柄/说明不移植；留边不是游戏背景。千星坐标左下原点、Y向上，需按[详细设计](../docs/game-spec.md)重建。
