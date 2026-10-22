@@ -1,5 +1,5 @@
 {
-  "description": "Execution metadata, not a qxqy-autotest case. Fixture controls are a planned test-only bridge; no simulator run yet.",
+  "description": "Execution metadata, not a qxqy-autotest case. Test-only fixture bridge is implemented; latest execution evidence is records/lua-step5-regression.json.",
   "cases": [
     {
       "case": "boot",

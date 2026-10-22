@@ -62,6 +62,9 @@ local function pop(job,score)
 end
 function M.new(board,side,custom,opts)
  opts=opts or {};local b=B.copy(board);local root=B.moves(b,side,custom)
+ -- A deadline can expire before even depth one completes. Keep the legal
+ -- fallback tactical (especially an immediate king capture), not scan order.
+ ordered(b,root,nil)
  local job={board=b,side=side,custom=custom,original=B.key(b,side,custom),nodes=0,depth=0,budget=opts.nodeBudget or 1600,done=false,restored=true,partialExact=false,elapsed=0,tt={},ttCount=0,history={},killers={},stack={},root=root,rootIndex=1,scores={},iteration=1,maxDepth=opts.maxDepth or 3,changes={}}
  job.move=root[1];job.summary={count=#root,tactical=0}
  for _,m in ipairs(root) do
@@ -77,7 +80,6 @@ function M.new(board,side,custom,opts)
  local choices=not opts.noBook and M.book(b,custom)
  if choices then job.move=choices[((opts.seed or 1)-1)%#choices+1];job.done=true;job.book=true end
  if #root==0 then job.done=true end
- ordered(b,root,nil)
  return job
 end
 function M.step(job,dt)

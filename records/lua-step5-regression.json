@@ -1,0 +1,4942 @@
+{
+  "runtime": "simulator",
+  "sourceSHA256": "81aa8f3d885a30bbc48cea6a37ba773e4ca7ee0339548086aed0cb6a5d219c63",
+  "results": [
+    {
+      "format": "qxqy-autotest",
+      "name": "boot",
+      "passed": true,
+      "failedAt": null,
+      "frame": 1,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.1,
+        "frame": 1,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.1,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "first-success",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "first-fail",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=64",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "fast-immediate",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=0 book=true",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 20->23 captured= step=0.00 count=2",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "selection",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "switch-selection",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "2,6",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "resign",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "主動認輸",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=2",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "modal-cancel",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "return-mode",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] menu version=2",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "restart",
+      "passed": true,
+      "failedAt": null,
+      "frame": 9,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8999999999999999,
+        "frame": 9,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=2",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=3",
+            "time": 0.7999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0.7999999999999999
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8999999999999999,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "edit-lock",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "帥保留，不能修改",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=1",
+            "time": 0.2
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "fifteen-rooks",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "15",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=2",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "edit-reset",
+      "passed": true,
+      "failedAt": null,
+      "frame": 9,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "2",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "custom-capture-free-advisor-elephant-v1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8999999999999999,
+        "frame": 9,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=2",
+            "time": 0.7999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0.7999999999999999
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8999999999999999,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "custom-restart",
+      "passed": true,
+      "failedAt": null,
+      "frame": 13,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "15",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 1.3,
+        "frame": 13,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=2",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=3",
+            "time": 0.9999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+            "time": 0.9999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=4",
+            "time": 1.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 1.2
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 1.3,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "draft-retained",
+      "passed": true,
+      "failedAt": null,
+      "frame": 9,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "15",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "custom-edit",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.8999999999999999,
+        "frame": 9,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] menu version=2",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] edit version=3",
+            "time": 0.7999999999999999
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.8999999999999999,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "mobile-smoke",
+      "passed": true,
+      "failedAt": null,
+      "frame": 11,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 1.0999999999999999,
+        "frame": 11,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.6
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 1.0999999999999999,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "rook-block",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "rook-block",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=10",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "horse-leg",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "horse-leg",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=44",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "cannon-screen",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "cannon-screen",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "C",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 48->12 captured=r step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "elephant-eye",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "elephant-eye",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=41",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "standard-zones",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "standard-zones",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=41",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "pawn-river",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "pawn-river",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 37->38 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "free-advisor",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "free-advisor",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "A",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->47 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "free-elephant",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "free-elephant",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "E",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->39 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "expose-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "expose-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 50->49 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ignore-threat",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ignore-threat",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "capture-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "capture-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "吃掉黑將",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 50->5 captured=k step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=2",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您獲勝了 吃掉黑將 moves=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "decline-capture",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "decline-capture",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "flying-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "flying-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 86->5 captured=k step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=2",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您獲勝了 吃掉黑將 moves=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "repeat-continues",
+      "passed": true,
+      "failedAt": null,
+      "frame": 25,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "repeat-continues",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.5,
+          "ok": true,
+          "actual": "012手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 2.500000000000001,
+        "frame": 25,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 46->47 captured= step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 0.5
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 36->35 captured= step=0.10 count=2",
+            "time": 0.5
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 47->46 captured= step=0.30 count=3",
+            "time": 0.7999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 0.8999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 35->36 captured= step=0.10 count=4",
+            "time": 0.8999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 46->47 captured= step=0.30 count=5",
+            "time": 1.2
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 1.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 36->35 captured= step=0.10 count=6",
+            "time": 1.3
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 47->46 captured= step=0.30 count=7",
+            "time": 1.6000000000000003
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 1.7000000000000004
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 35->36 captured= step=0.10 count=8",
+            "time": 1.7000000000000004
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 46->47 captured= step=0.30 count=9",
+            "time": 2.0000000000000004
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 2.1000000000000005
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 36->35 captured= step=0.10 count=10",
+            "time": 2.1000000000000005
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 47->46 captured= step=0.30 count=11",
+            "time": 2.400000000000001
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.100 wait=0 book=false",
+            "time": 2.500000000000001
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 35->36 captured= step=0.10 count=12",
+            "time": 2.500000000000001
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 2.500000000000001,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-wait",
+      "passed": true,
+      "failedAt": null,
+      "frame": 180,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "undo-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 17.999999999999986,
+        "frame": 180,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=16 book=true",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 17.999999999999986,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-pair",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "undo-pair",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.7,
+        "frame": 7,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=0 book=true",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 20->23 captured= step=0.00 count=2",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] undo version=2",
+            "time": 0.6
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.7,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "stale-version",
+      "passed": true,
+      "failedAt": null,
+      "frame": 180,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "stale-version",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 17.999999999999986,
+        "frame": 180,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=16 book=true",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] menu version=2",
+            "time": 0.7999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=3",
+            "time": 0.9999999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0.9999999999999999
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 17.999999999999986,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-only",
+      "passed": true,
+      "failedAt": null,
+      "frame": 144,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-only",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 14.4,
+          "ok": true,
+          "actual": "00:03",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 14.4,
+          "ok": true,
+          "actual": "00:06",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 14.399999999999965,
+        "frame": 144,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=5.30 count=1",
+            "time": 5.299999999999997
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ai] depth=0 nodes=0 compute=2.000 wait=4 book=false",
+            "time": 7.29999999999999
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 1->10 captured= step=6.00 count=2",
+            "time": 11.299999999999976
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 14.399999999999965,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-invalid",
+      "passed": true,
+      "failedAt": null,
+      "frame": 72,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-invalid",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 7.2,
+          "ok": true,
+          "actual": "00:07",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 7.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 7.19999999999999,
+        "frame": 72,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][invalid] target=64",
+            "time": 5.299999999999997
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 7.19999999999999,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-format",
+      "passed": true,
+      "failedAt": null,
+      "frame": 2,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-format",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "100:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.2,
+        "frame": 2,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.2,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-stop",
+      "passed": true,
+      "failedAt": null,
+      "frame": 600,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-stop",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 60.00000000000058,
+        "frame": 600,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 50->5 captured=k step=0.40 count=1",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] result version=2",
+            "time": 0.4
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][result] 您獲勝了 吃掉黑將 moves=1",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 60.00000000000058,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "counter",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "counter",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "1000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.5,
+        "frame": 5,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1000",
+            "time": 0.4
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.5,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "modal-ready",
+      "passed": true,
+      "failedAt": null,
+      "frame": 32,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "modal-ready",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 3.2000000000000015,
+        "frame": 32,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][move] black 20->23 captured= step=3.00 count=2",
+            "time": 3.0000000000000013
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 3.2000000000000015,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-simple",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-simple",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "4",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-complex",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-complex",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-custom",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-custom",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-fast",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-fast",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] fast profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-missing",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-missing",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "9",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-saturation",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-saturation",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-book",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-book",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-budget",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-budget",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "2",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "snapshot": {
+        "time": 0.30000000000000004,
+        "frame": 3,
+        "logs": [
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Build date (local): 2026-10-22 23:14:06.899 +08:00",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization started (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][ready] UI ready test=true",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[miliastra] Initialization completed (OnStart)",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][cancel] start version=1",
+            "time": 0
+          },
+          {
+            "source": "client",
+            "level": "info",
+            "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+            "time": 0
+          }
+        ],
+        "serverLogs": [],
+        "server": {
+          "clock": 0.30000000000000004,
+          "onlineLatencyMs": 0,
+          "playerCount": 1,
+          "viewPlayerIndex": 1,
+          "logic": {
+            "version": 1,
+            "rules": []
+          },
+          "vars": {
+            "Level": {},
+            "PlayerSelf": {},
+            "AvatarSelf": {},
+            "Player1": {},
+            "Avatar1": {}
+          },
+          "inbound": [],
+          "outbound": [],
+          "logs": []
+        }
+      }
+    }
+  ]
+}

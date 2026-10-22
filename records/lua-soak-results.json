@@ -1,0 +1,40 @@
+{
+  "runtime": "lua-fengari",
+  "date": "2026-10-22",
+  "sourceSHA256": "81aa8f3d885a30bbc48cea6a37ba773e4ca7ee0339548086aed0cb6a5d219c63",
+  "executor": "Codex",
+  "nodeVersion": "v24.9.0",
+  "options": {
+    "nodeBudget": 1600,
+    "maxDepth": 3,
+    "noBook": true,
+    "dt": 0.016666666666666666,
+    "searchesPerProfile": 80
+  },
+  "results": [
+    {
+      "custom": false,
+      "plies": 81,
+      "searches": 80,
+      "nodes": 128000,
+      "minDepth": 1,
+      "cpuSeconds": 125.699,
+      "maxSearchStepMs": 150.44
+    },
+    {
+      "custom": true,
+      "plies": 80,
+      "searches": 80,
+      "nodes": 128000,
+      "minDepth": 1,
+      "cpuSeconds": 229.364,
+      "maxSearchStepMs": 399.566
+    }
+  ],
+  "notes": [
+    "All searches restored their private board, left the visible board untouched, and returned a legal move; no partial exact entry.",
+    "Session may immediately play a book reply after red commits; this explains 81 plies for 80 manually driven standard searches.",
+    "Fengari os.clock host CPU samples; concurrent host tasks/GC can affect measurements. Not device performance or simulator frame-rate acceptance.",
+    "Neither 80-search run reached game over; terminal/restart behavior is covered by targeted simulator cases."
+  ]
+}
