@@ -1,0 +1,69 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "user-cannon-recapture",
+  "dt": 0.03333333333333333,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_user-cannon-recapture"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_2_7"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_3_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.4,
+      "name": "BookUsed",
+      "field": "text",
+      "equals": "false"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "008手"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "name": "Piece_7_9",
+      "field": "text",
+      "equals": "N"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "name": "Piece_8_9",
+      "field": "text",
+      "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "name": "WorkingBoardRestored",
+      "field": "text",
+      "equals": "true"
+    }
+  ]
+}

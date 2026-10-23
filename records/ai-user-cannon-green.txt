@@ -1,0 +1,9 @@
+
+> miliastra-template@0.1.0 test:lua:exchange
+> node scripts/run-lua-check.mjs tests/lua-ai-exchange.lua && node scripts/run-lua-check.mjs tests/lua-ai-user-cannon.lua
+
+PASS protected horse exchange -50, exposed pawn 100, input restored
+PASS genuinely free rook remains a gain of 900
+PASS fork remains an exposure even when victim can move
+USER dt=0.033333333333333 depth=2 nodes=1920 move=26-35 score=-25
+USER dt=0.016666666666667 depth=2 nodes=3200 move=26-35 score=-25

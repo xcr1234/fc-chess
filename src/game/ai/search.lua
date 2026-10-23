@@ -1,4 +1,5 @@
 local B=require('game.board')
+local Exchange=require('game.ai.exchange')
 local M={}
 local values={K=1000000,R=900,N=400,C=450,E=200,A=200,P=100}
 local function other(s) return s=='red' and 'black' or 'red' end
@@ -18,7 +19,16 @@ local function pieceScore(p,i)
  return (B.red(p) and 1 or -1)*(value(p)+pos)
 end
 local function evaluate(job,side)
- return (side=='red' and 1 or -1)*job.eval
+ local frame=job.stack[#job.stack];local key=frame and frame.key
+ job.evalCache=job.evalCache or {};job.evalCacheCount=job.evalCacheCount or 0
+ if key and job.evalCache[key]~=nil then return job.evalCache[key] end
+ local score=job.eval+math.floor(0.5*(Exchange.risk(job.board,'black',side,job.custom)-Exchange.risk(job.board,'red',side,job.custom)))
+ score=(side=='red' and 1 or -1)*score
+ if key then
+  if job.evalCacheCount>=512 then job.evalCache={};job.evalCacheCount=0 end
+  job.evalCache[key]=score;job.evalCacheCount=job.evalCacheCount+1
+ end
+ return score
 end
 local function endangered(job,side)
  local king=job.kings[side]
