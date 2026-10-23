@@ -51,9 +51,9 @@
       "kind": "control",
       "at": 60,
       "id": "",
-      "name": "BlackStepTime",
+      "name": "AIThinkingNumber",
       "field": "text",
-      "equals": "00:00"
+      "equals": "00000"
     },
     {
       "kind": "control",

@@ -1,10 +1,11 @@
 local B=require('game.board')
 local AI=require('game.ai')
 local Wait=require('game.wait')
+local Counter=require('game.thinking_counter')
 local Log=require('app.log')
 local M={}
 local function other(s) return s=='red' and 'black' or 'red' end
-function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,version=0,history={},status='請選擇模式',extraWait=0} end
+function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0} end
 function M.cancel(s,reason)
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
@@ -14,6 +15,7 @@ function M.start(s,mode,board)
  local red,black=false,false for _,p in ipairs(s.board) do red=red or p=='K';black=black or p=='k' end
  assert(red and black,'Invalid initial board: both kings required')
  s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='請走棋';s.fixture=nil;s.aiInput=nil
+ s.aiCounter=Counter.new();s.lastAiMove=nil
  Log.event('start',mode..' profile='..M.profile(s))
 end
 function M.profile(s) return s.custom and 'custom-capture-free-advisor-elephant-v1' or 'casual-capture-v1' end
@@ -21,7 +23,7 @@ function M.finish(s,title,reason)
  M.cancel(s,'result');s.scene='result';s.modal=nil;s.selected=nil;s.resultTitle=title;s.resultReason=reason;s.status=reason
  Log.event('result',title..' '..reason..' moves='..s.moves)
 end
-function M.menu(s) M.cancel(s,'menu');s.scene='mode-select';s.modal=nil;s.palette=nil;s.selected=nil;s.status='請選擇模式' end
+function M.menu(s) M.cancel(s,'menu');s.scene='mode-select';s.modal=nil;s.palette=nil;s.selected=nil;s.status='請選擇模式';s.aiCounter=Counter.new();s.lastAiMove=nil end
 function M.begin(s,side)
  s.turn=side;s[side]=0
  if #B.moves(s.board,side,s.custom)==0 then
@@ -31,6 +33,7 @@ function M.begin(s,side)
  end
  if side=='red' then s.scene='player-turn';s.status='請走棋';return end
  s.scene='ai-search';s.status='思考中';s.compute=0;s.replyVersion=s.version
+ s.aiCounter=Counter.new()
  local a=s.aiInput
  if a=='hold' or (type(a)=='table' and (a.computeSeconds or a.replySequence)) then return end
  s.job=AI.new(s.board,'black',s.custom,{seed=1})
@@ -38,7 +41,11 @@ function M.begin(s,side)
 end
 function M.commit(s,m)
  if not m or not B.valid(s.board,m[1],m[2],s.custom) or B.side(s.board[m[1]])~=s.turn then return false end
- if s.turn=='red' then s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black} end
+ if s.turn=='red' then
+  s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,lastAiMove=s.lastAiMove,aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
+ else
+  s.lastAiMove={m[1],m[2]};Counter.finish(s.aiCounter)
+ end
  local captured=s.board[m[2]];s.board[m[2]]=s.board[m[1]];s.board[m[1]]='';s.moves=s.moves+1;s.selected=nil
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)
  if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將')
@@ -77,6 +84,7 @@ function M.undo(s)
  local h=table.remove(s.history)
  if not h then s.status='尚無棋步可悔';return end
  M.cancel(s,'undo');s.board=B.copy(h.board);s.moves=h.moves;s.black=h.black;s.red=0;s.turn='red';s.scene='player-turn';s.selected=nil;s.status='已悔棋'
+ s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
 end
 function M.action(s,name)
  if s.modal then
@@ -105,6 +113,7 @@ function M.action(s,name)
 end
 function M.update(s,dt)
  if s.scene=='player-turn' or s.scene=='ai-search' or s.scene=='ai-wait' then s[s.turn]=s[s.turn]+dt end
+ if s.scene=='ai-search' or s.scene=='ai-wait' then Counter.update(s.aiCounter,dt) end
  if s.scene=='ai-search' then
   s.compute=s.compute+dt
   local a=s.aiInput

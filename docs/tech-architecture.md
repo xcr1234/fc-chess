@@ -1,6 +1,6 @@
 # 第 5 步 Lua 架构与挂载
 
-- 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 统一合法走法与局面；`session.lua` 管理模式、步时、悔棋、确认层、版本与提交；`ai.lua` 为显式搜索栈、Alpha-beta、迭代加深、静态吃子延伸、有限置换表和标准开局书；`wait.lua` 根据搜索摘要计算附加等待。`src/ui/` 创建画布图元、控件和已拟合头像；`src/app/log.lua` 输出事件日志。`src/testing/` 只在测试存档宿主名称为 `FCChessTestHost` 时创建夹具入口和诊断控件。
+- 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 统一合法走法与局面；`session.lua` 管理模式、红方步时、AI反馈、悔棋、确认层、版本与提交；`ai.lua` 为显式搜索栈、Alpha-beta、迭代加深、静态吃子延伸、有限置换表和标准开局书；`wait.lua` 根据搜索摘要计算附加等待；`thinking_counter.lua`管理按回合经过时间增长、五位格式与落子定格的模拟数字。`src/ui/` 创建画布图元、控件和已拟合头像；`src/app/log.lua` 输出事件日志。`src/testing/` 只在测试存档宿主名称为 `FCChessTestHost` 时创建夹具入口和诊断控件。
 - 单文件构建：`npm run build:game` 生成测试夹具模块、`dist/main.lua`，并把同一产物写入两份存档的 `scripts[].source`；常规维护请勿直接改 `dist` 或存档内联源码。SHA-256 见试玩记录。
 - 正式存档：`fc-chess.save.json`；测试存档：`tests/fc-chess.test.save.json`。两份均为完整 `qxqy-simulator-save`，服务端 UI 容器内的客户端节点分别命名为 `FCChessHost` / `FCChessTestHost`，均挂载单一脚本映射 `dist/main.lua`。模板索引 1073742001–2004 对应容器、图片、文本、光标区；导入千星后需核对实际索引并语义更新引用。服务端无棋规节点或变量；规则与输入在客户端运行。
 - 控件由 Lua 从少量模板动态实例化；设计空间为 256×224，居中等比缩放至当前画布。输入回调进入 `session`，状态驱动 `view`；AI 在 `OnUpdate(dt)` 分帧推进。官方 Lua 禁用 `coroutine.*`，故搜索使用显式栈，取消/预算中止时撤销全部试走。等待只计计算结束后的附加时间；确认层不暂停步时。
@@ -20,3 +20,10 @@
 - 正式/测试存档已显式同步同次打包源码；第6步报告均标注SHA-256。五画布截图及pointer检查使用正式存档，不包含测试入口。
 - `--matrix`记录每页实际渲染节点/图片数、资源警告、挂载与迁移信息；它不是千星导出/导入验证。菜单922个渲染节点（含908图片，主要来自3×300椭圆头像），对局424个；被隐藏的选择框等控件不包含在渲染节点计数中。Lua产物64016字节。平台内存与图元上限仍需真机测量。
 - 独立采样没有消除长帧风险，不能据此宣称60fps或真机流畅。详细结果与范围见 `records/playtest.md`。
+
+## 2026-10-23 第5步反馈修复
+
+- `session.aiCounter`仅保存本回合elapsed/value；进入黑方回合重新创建，在ai-search/ai-wait消费dt，实际黑方commit定格。黑方秒数仍作内部诊断与日志，视图不再显示。新数字不影响搜索、等待和公共随机状态。
+- `lastAiMove`只在有效黑方提交时替换为起止索引；悔棋快照包含该着法和数字副本。回菜单/新局清空，结果页保留。视图用两组可复用四边图元AILastFrom/AILastTo移动到交点，玩家黄色选框单独管理；不新增光标热区。
+- `AIThinkingNumber`替代`BlackStepTime`，原有布局和`RedStepTime`保留。增长上限与算法见game-spec.md；用dt推导而非逐帧随机加数，保证帧率无关和大dt封顶。
+- 本轮删除第7步发布初稿、旧export文件及预检记录，当前仅维护源码/构建产物和完整模拟器存档；没有生成新的GIA或发布清单。

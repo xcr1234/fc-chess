@@ -1,0 +1,498 @@
+{
+  "runtime": "simulator",
+  "sourceSHA256": "f730bf5f232f13869cea27f334aed03b5ffc71b48779e48da857d82858b3efe9",
+  "scope": "production save, real book reply, game canvas only; no device evidence",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "thinking": {
+        "path": "records/screenshots/step5-feedback-pc-16-9-thinking.png",
+        "width": 1029,
+        "height": 900,
+        "assetWarnings": []
+      },
+      "moved": {
+        "path": "records/screenshots/step5-feedback-pc-16-9-moved.png",
+        "width": 1029,
+        "height": 900,
+        "assetWarnings": []
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-23 10:17:18.723 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.20 count=1",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 20->23 captured= step=20.70 count=2",
+          "time": 21
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "thinking": {
+        "path": "records/screenshots/step5-feedback-pc-21-9-thinking.png",
+        "width": 1029,
+        "height": 900,
+        "assetWarnings": []
+      },
+      "moved": {
+        "path": "records/screenshots/step5-feedback-pc-21-9-moved.png",
+        "width": 1029,
+        "height": 900,
+        "assetWarnings": []
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-23 10:17:18.723 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.20 count=1",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 20->23 captured= step=20.70 count=2",
+          "time": 21
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "thinking": {
+        "path": "records/screenshots/step5-feedback-mobile-16-9-thinking.png",
+        "width": 823,
+        "height": 720,
+        "assetWarnings": []
+      },
+      "moved": {
+        "path": "records/screenshots/step5-feedback-mobile-16-9-moved.png",
+        "width": 823,
+        "height": 720,
+        "assetWarnings": []
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-23 10:17:18.723 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.20 count=1",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 20->23 captured= step=20.70 count=2",
+          "time": 21
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "thinking": {
+        "path": "records/screenshots/step5-feedback-mobile-19.5-9-thinking.png",
+        "width": 823,
+        "height": 720,
+        "assetWarnings": []
+      },
+      "moved": {
+        "path": "records/screenshots/step5-feedback-mobile-19.5-9-moved.png",
+        "width": 823,
+        "height": 720,
+        "assetWarnings": []
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-23 10:17:18.723 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.20 count=1",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 20->23 captured= step=20.70 count=2",
+          "time": 21
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "thinking": {
+        "path": "records/screenshots/step5-feedback-mobile-4-3-thinking.png",
+        "width": 1097,
+        "height": 960,
+        "assetWarnings": []
+      },
+      "moved": {
+        "path": "records/screenshots/step5-feedback-mobile-4-3-moved.png",
+        "width": 1097,
+        "height": 960,
+        "assetWarnings": []
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-23 10:17:18.723 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.20 count=1",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=9 book=true",
+          "time": 0.3
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 20->23 captured= step=20.70 count=2",
+          "time": 21
+        }
+      ]
+    }
+  ],
+  "interaction": "ModeDifficult -> Square_0_6 -> Square_0_5; dt=.05 until 1s thinking screenshot; one explicit dt=20s to exercise large-dt submission; Square_2_6 then moved screenshot. Five canvases inspected in matrix and mobile-16-9 at full size."
+}

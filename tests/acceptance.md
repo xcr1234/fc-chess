@@ -1,7 +1,7 @@
 # 娱乐规则验收与追踪
 
-- 日期：2026-10-22（Asia/Shanghai）。最新用户要求：不做循环/长将/长捉、将死/困毙、自将/强制应将；实际吃将或认输才判胜负。
-- 状态：第6步53个正式格式用例、162条断言通过；最新证据见 records/lua-step6-results.json。五画布30页及5项坐标输入检查见 records/lua-step6-matrix.json。尚未真机验收，性能仍有风险。
+- 日期：2026-10-23（Asia/Shanghai）。最新用户要求：不做循环/长将/长捉、将死/困毙、自将/强制应将；实际吃将或认输才判胜负。
+- 当前状态：回到第5步修复，57个正式格式用例、193条断言通过，见 records/lua-step5-feedback-results.json；最新五画布反馈截图见 records/lua-step5-feedback-visuals.json。第6步53用例/162断言为历史证据。五画布30页及5项坐标输入检查见 records/lua-step6-matrix.json。尚未真机验收，性能仍有风险。
 - 规则来源：[GDD](../docs/gdd.md)、[详细设计](../docs/game-spec.md)、[AI方案](../docs/ai-design.md)。格式与步骤5测试桥接见[README](README.md)。
 
 每例独立开始，PC/mobile用不同canvasId。特殊局面/时间/AI输入逐例写在plan.json，实际断言写在独立case文件。时间消费固定dt；棋力回归使用相同规则档案、seed、预算和缓存初始状态。下表是规则→前置→动作→可观察结果的追踪，不是已执行结果。
@@ -17,7 +17,7 @@
 | [resign](cases/resign.json) | 菜单独立开始 | ModeDifficult → ResignButton → ConfirmYes | SceneState=result；ResultTitle=您落敗了；ResultReason=主動認輸 |
 | [modal-cancel](cases/modal-cancel.json) | 菜单独立开始 | ModeDifficult → ResignButton → ConfirmNo | SceneState=player-turn；MoveCount=000手 |
 | [return-mode](cases/return-mode.json) | 菜单独立开始 | ModeDifficult → ModeButton → ConfirmYes | SceneState=mode-select；ModeCount=3 |
-| [restart](cases/restart.json) | 菜单独立开始 | ModeFast → ResignButton → ConfirmYes → RestartButton | MoveCount=000手；TurnText=紅方；BlackStepTime=00:00 |
+| [restart](cases/restart.json) | 菜单独立开始 | ModeFast → ResignButton → ConfirmYes → RestartButton | MoveCount=000手；TurnText=紅方；AIThinkingNumber=00000 |
 | [edit-lock](cases/edit-lock.json) | 菜单独立开始 | ModeCustom → Square_4_9 | StatusText=帥保留，不能修改；RedPieceCount=16 |
 | [fifteen-rooks](cases/fifteen-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton → StartCustomButton | RedRookCount=15；RedPieceCount=16；MoveCount=000手 |
 | [edit-reset](cases/edit-reset.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ResetCustomButton → StartCustomButton | RedRookCount=2；RedPieceCount=16；RuleProfile=custom-capture-free-advisor-elephant-v1 |
@@ -41,10 +41,10 @@
 | [undo-wait](cases/undo-wait.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；PendingReply=none |
 | [undo-pair](cases/undo-pair.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；RedStepTime=00:00 |
 | [stale-version](cases/stale-version.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → ModeButton → ConfirmYes → ModeFast | MoveCount=000手；TurnText=紅方 |
-| [step-only](cases/step-only.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | RedStepTime=00:03；BlackStepTime=00:06 |
+| [step-only](cases/step-only.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | RedStepTime=00:03；AIThinkingNumber=11800 |
 | [step-invalid](cases/step-invalid.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_7 | RedStepTime=00:07；MoveCount=000手 |
 | [step-format](cases/step-format.json) | 定向夹具（见plan.json） | 仅观察 | RedStepTime=100:00；SceneState=player-turn |
-| [step-stop](cases/step-stop.json) | 定向夹具（见plan.json） | Square_4_5 → Square_4_0 | RedStepTime=00:00；BlackStepTime=00:00；SceneState=result |
+| [step-stop](cases/step-stop.json) | 定向夹具（见plan.json） | Square_4_5 → Square_4_0 | RedStepTime=00:00；AIThinkingNumber=00000；SceneState=result |
 | [counter](cases/counter.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=1000手 |
 | [modal-ready](cases/modal-ready.json) | 定向夹具（见plan.json） | ResignButton → ConfirmNo | MoveCount=002手；TurnText=紅方 |
 | [wait-simple](cases/wait-simple.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=4 |
@@ -80,3 +80,14 @@
 | casual-boundaries | 连续攻击将帅、送将、两个将帅照面，遇到无基本走法 | 不提前判胜负/和棋；基本移动限制仍有效；无步跳过，双方均无步只显示无法继续 |
 
 实际执行时记录产物SHA-256、runtime=html/simulator/device、执行者、画布、夹具/seed/预算、步骤、预期/实际与证据路径。步骤5才执行有效Red→Green→Regress；格式错误、输入到不了控件、夹具未加载或工具故障不是游戏行为Red。
+
+## 2026-10-23 第5步修复用例
+
+| case | 操作 | 预期 |
+|---|---|---|
+| ai-move-feedback | 受控AI计算1秒并等2秒，选子、悔棋 | 实际起止边框显示且坐标正确，数字06400，选框并存，悔棋全部复原 |
+| ai-number-long-wait | 计算1秒并等8秒，落子后继续推进 | 数字17200并保持定格，高于短等待的06400 |
+| ai-number-cap | 计算30秒后快速落子 | 数字40000封顶，实际落点框显示 |
+| ai-feedback-restart | AI落子、认输重开、返回自定义 | 新局与编辑均清空数字及上手边框 |
+
+`lua-feedback.lua`另验20Hz连续增长、计算/等待/确认均增长、分帧等价、即时书库回棋至少01000、连续两轮悔棋恢复上一组标记/数字、撤销旧任务，以及实际吃帅后的反馈定格。以上均走生产session逻辑；有效Red为原实现缺少对应状态，测试环境错误不计Red。

@@ -2,10 +2,12 @@ local U=require('ui.primitives')
 local P=require('ui.portrait')
 local B=require('game.board')
 local S=require('game.session')
+local Counter=require('game.thinking_counter')
 local M={}
 local glyph={r='車',n='馬',e='象',a='士',k='將',c='砲',p='卒',R='車',N='馬',E='相',A='仕',K='帥',C='砲',P='兵'}
 local root,page,overlay,pageKind,overlayKind,onAction,onSquare
 local pieces={}
+local aiFrames={}
 local lastWidth,lastHeight
 local function text(n,x,y,w,h,v,c,z,p) return U.text(p or page,n,x-128,y-112,w,h,v,c,z) end
 local function rect(n,x,y,w,h,c,p) return U.image(p or page,n,x-128,y-112,w,h,c) end
@@ -45,7 +47,7 @@ local function build(kind)
  text('RiverLeft',86,104,40,15,'楚河','352599',11);text('RiverRight',150,104,40,15,'漢界','352599',11)
  for _,v in ipairs({{'BlackLabel','黑方',174},{'ComputerLabel','電腦',160},{'BlackLevel','1 級',144},{'RedLabel','紅方',78},{'HumanLabel','人腦',64},{'RedLevel','9 級',48}}) do text(v[1],22,v[3],40,13,v[2],'3defa0',10) end
  text('TurnText',226,201,52,14,'紅方','3defa0',10);text('MoveCount',226,184,56,12,'000手','3defa0',8)
- text('BlackStepTime',22,126,42,12,'00:00','28eff0',8);text('RedStepTime',22,30,42,12,'00:00','28eff0',8)
+ text('AIThinkingNumber',22,126,42,12,'00000','28eff0',8);text('RedStepTime',22,30,42,12,'00:00','28eff0',8)
  text('StatusText',128,10,248,12,'','28eff0',8)
  P.draw(page,'OldManPortrait',226-128,152-112,32)
  for r=0,9 do for f=0,8 do local i=B.index(f,r);local x,y=56+16*f-128,176-16*r-112
@@ -56,6 +58,14 @@ local function build(kind)
   focus:SetVisible(false)
   pieces[i]={disk,label,focus};U.hit(page,'Square_'..f..'_'..r,x,y,16,16,function() onSquare(i) end)
  end end
+ -- Two reusable frames above the pieces; cursor hit areas remain unchanged.
+ aiFrames={}
+ for i,n in ipairs({'AILastFrom','AILastTo'}) do
+  local frame=U.create('container',page,n,0,0,17,17)
+  local thickness=i==1 and .8 or 1.3
+  for j,v in ipairs({{0,8,17,thickness},{0,-8,17,thickness},{8,0,thickness,17},{-8,0,thickness,17}}) do U.image(frame,n..'Edge'..j,v[1],v[2],v[3],v[4],'28eff0') end
+  frame:SetVisible(false);aiFrames[i]={control=frame}
+ end
  if kind=='edit' then
   text('EditTitle',128,210,180,14,'自定義棋子','28eff0',10)
   for i,v in ipairs({{'AllRooksButton','全部改車'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
@@ -66,7 +76,15 @@ function M.render(s)
  if kind~=pageKind then if overlay then game.DestroyClientUIControl(overlay);overlay=nil end overlayKind=nil;build(kind);pageKind=kind end
  if kind~='menu' then
   U.set('TurnText',s.turn=='red' and '紅方' or '黑方');U.set('MoveCount',string.format('%03d手',s.moves));U.set('StatusText',s.status)
-  U.set('RedStepTime',S.format(s.red));U.set('BlackStepTime',S.format(s.black))
+  U.set('RedStepTime',S.format(s.red));U.set('AIThinkingNumber',Counter.format(s.aiCounter))
+  for i,frame in ipairs(aiFrames) do
+   local square=kind=='board' and s.lastAiMove and s.lastAiMove[i] or nil
+   if frame.square~=square then
+    frame.control:SetVisible(square~=nil)
+    if square then local f,r=B.coords(square);frame.control:SetAnchoredPosition(56+16*f-128,176-16*r-112) end
+    frame.square=square
+   end
+  end
   for i,p in ipairs(s.board) do local c=pieces[i]
    if c.last~=p then c[1]:SetVisible(p~='');c[2]:SetVisible(p~='');c[2].text=glyph[p] or '';c[2].fontColor=U.color(B.red(p) and 'f33d43' or '2818a0');c.last=p end
    local selected=s.selected==i;if c.selected~=selected then c[3]:SetVisible(selected);c.selected=selected end

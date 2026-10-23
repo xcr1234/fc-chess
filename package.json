@@ -17,6 +17,7 @@
     "check:game-cases": "node scripts/check-game-cases.mjs",
     "test:prototype": "node --test scripts/test-prototype.mjs",
     "test:lua": "node scripts/run-lua-check.mjs tests/lua-regression.lua",
+    "test:lua:feedback": "node scripts/run-lua-check.mjs tests/lua-feedback.lua",
     "test:lua:soak": "node scripts/run-lua-check.mjs tests/lua-soak.lua",
     "test:lua:performance": "node scripts/profile-lua.mjs",
     "test:simulator": "node scripts/run-simulator-cases.mjs",

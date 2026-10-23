@@ -934,6 +934,98 @@
         "canvasId": "mobile-16-9"
       },
       "fixture": null
+    },
+    {
+      "case": "ai-move-feedback",
+      "file": "cases/ai-move-feedback.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "ai": {
+          "computeSeconds": 1,
+          "waitSeconds": 2,
+          "replySequence": [
+            [
+              0,
+              3,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "case": "ai-number-long-wait",
+      "file": "cases/ai-number-long-wait.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "ai": {
+          "computeSeconds": 1,
+          "waitSeconds": 8,
+          "replySequence": [
+            [
+              0,
+              3,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "case": "ai-number-cap",
+      "file": "cases/ai-number-cap.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "ai": {
+          "computeSeconds": 30,
+          "waitSeconds": 0,
+          "replySequence": [
+            [
+              0,
+              3,
+              0,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "case": "ai-feedback-restart",
+      "file": "cases/ai-feedback-restart.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "ai": {
+          "computeSeconds": 1,
+          "waitSeconds": 0,
+          "replySequence": [
+            [
+              0,
+              3,
+              0,
+              4
+            ]
+          ]
+        }
+      }
     }
   ]
 }

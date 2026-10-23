@@ -1,11 +1,12 @@
 # 游戏测试制定与运行约定
 
-第6步已运行53项模拟器用例（162条断言）、五画布30页截图与5项坐标输入检查；最新结果见 `records/lua-step6-results.json`、`records/lua-step6-matrix.json` 和 `records/playtest.md`。尚未真机测试；性能风险仍保留。
+当前按用户要求回到第5步Lua修复：57项模拟器用例（193条断言）通过；五画布思考/落子10张截图已实看。最新结果见 `records/lua-step5-feedback-results.json`、`records/lua-step5-feedback-visuals.json` 和 `records/playtest.md`。第6步历史矩阵仍保留；第7步发布初稿已删除，尚无真机通过记录。
 
 ## 重放当前产物
 
 - `npm run build:game`：生成夹具、打包Lua、同步正式/测试存档。
 - `npm run test:lua`：11项纯Lua规则与边界回归。
+- `npm run test:lua:feedback`：6组AI边框/数字/等待关联/确认/悔棋/终局回归。
 - `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主耗时采样；不是设备性能结果。
 - `npm run test:lua:performance`：单独运行标准/15车/自由士相各4次真实搜索，记录初始化及step的P50/P95/最大宿主耗时。采样期间停止其他测试与浏览器试玩，报告为 `records/lua-step6-performance.json`；单轮宿主数据不能当作性能改善百分比或真机结论。
 - `npm run test:simulator`：通过项目内MCP运行全部原生用例，先验证两个存档与dist源码一致，拒绝空用例；输出带产物SHA-256的报告。
@@ -15,7 +16,7 @@
 
 ## 文件与检查
 
-- `cases/*.json`：53个`qxqy-autotest/version:1`原生格式用例，含独立的boot、first-success、first-fail、restart、mobile-smoke与第6步边界回归。
+- `cases/*.json`：57个`qxqy-autotest/version:1`原生格式用例，含独立的boot、first-success、first-fail、restart、mobile-smoke与第6步边界回归。
 - `plan.json`：用例到画布和夹具的运行清单，不是模拟器用例；`args.canvasId`作为runCase的外部参数，不塞进原生case未知字段。
 - `acceptance.md`：规则/用例追踪、手工视觉及设备检查。
 - `npm run check:game-cases`：从锁定依赖`beyond-simulator-mcp@0.4.1/dist/index.js`抽取**纯用例解析函数**做离线验证，检查所有字段均被保留。不会import其CLI、开工程、初始化Worker或运行case；版本/纯函数定位变化时失败并要求重新核对。
@@ -27,7 +28,7 @@
 
 画布内玩家动作采用：ModeDifficult、ModeFast、ModeCustom、Square_file_rank、UndoButton、ResignButton、ModeButton、ConfirmYes、ConfirmNo、RestartButton、AllRooksButton、ResetCustomButton、StartCustomButton、EditBackButton。名字是本项目已实现的控件契约，不是官方API。
 
-原生断言优先检查可见的TurnText、MoveCount、StatusText、RedStepTime、BlackStepTime、ResultTitle、ResultReason。棋子原始类型用Piece_file_rank诊断值（R/N/C/E/A/P/K及小写黑子，空格为""）；不要用字体/位图相似度测试棋规。
+原生断言优先检查可见的TurnText、MoveCount、StatusText、RedStepTime、AIThinkingNumber（五位模拟数字）、AILastFrom/AILastTo（实际边框位置及可见性）、ResultTitle、ResultReason。棋子原始类型用Piece_file_rank诊断值（R/N/C/E/A/P/K及小写黑子，空格为""）；不要用字体/位图相似度测试棋规。
 
 SceneState、ModeCount、SelectedSquare、RedRookCount、RedPieceCount、RuleProfile、PendingReply、ExtraWait、BookEnabled、SearchCompleteDepth、WorkingBoardRestored、PartialExactStored属于测试诊断文本，仅在测试夹具环境提供，读真实游戏状态/搜索计数，不直接生成“用例通过”结果。
 

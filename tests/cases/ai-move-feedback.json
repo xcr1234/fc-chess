@@ -1,0 +1,171 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-move-feedback",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-move-feedback"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_2_6"
+      }
+    },
+    {
+      "t": 4.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-move-feedback"
+    },
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 0.6,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "visible",
+      "equals": true
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": true
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "anchoredPositionX",
+      "equals": -72
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "anchoredPositionY",
+      "equals": 16
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AILastTo",
+      "field": "anchoredPositionY",
+      "equals": 0
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "06400"
+    },
+    {
+      "kind": "control",
+      "at": 4.1,
+      "id": "",
+      "name": "Selection_57",
+      "field": "visible",
+      "equals": true
+    },
+    {
+      "kind": "control",
+      "at": 4.1,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": true
+    },
+    {
+      "kind": "control",
+      "at": 4.3,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 4.3,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 4.3,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "00000"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-number-long-wait",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-number-long-wait"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-number-long-wait"
+    },
+    {
+      "kind": "control",
+      "at": 9.5,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "17200"
+    },
+    {
+      "kind": "control",
+      "at": 20,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "17200"
+    },
+    {
+      "kind": "control",
+      "at": 20,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    }
+  ]
+}

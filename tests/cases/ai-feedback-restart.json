@@ -1,0 +1,147 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-feedback-restart",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-feedback-restart"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 2.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 2.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "RestartButton"
+      }
+    },
+    {
+      "t": 3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeButton"
+      }
+    },
+    {
+      "t": 3.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 3.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeCustom"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-feedback-restart"
+    },
+    {
+      "kind": "control",
+      "at": 1.6,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "02800"
+    },
+    {
+      "kind": "control",
+      "at": 1.6,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": true
+    },
+    {
+      "kind": "control",
+      "at": 2.6,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "00000"
+    },
+    {
+      "kind": "control",
+      "at": 2.6,
+      "id": "",
+      "name": "AILastTo",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 3.6,
+      "id": "",
+      "name": "EditTitle",
+      "field": "text",
+      "equals": "自定義棋子"
+    },
+    {
+      "kind": "control",
+      "at": 3.6,
+      "id": "",
+      "name": "AILastFrom",
+      "field": "visible",
+      "equals": false
+    },
+    {
+      "kind": "control",
+      "at": 3.6,
+      "id": "",
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "00000"
+    }
+  ]
+}
