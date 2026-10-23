@@ -1,0 +1,37 @@
+SCOPE runtime=lua-fengari fixed-dt=1/60 maxDepth=5 no-device-or-full-simulator-claim
+SOURCE ai=44668185c1c934a0b24ee28a240aa365c5aa03371c50fd5d009e6ba01cc65a11
+SOURCE board=164ed28a55a7db9ed2361d37a357455d827da60c163c82f9ba7b6fe3aa9055ac
+CONFIG {"name":"baseline","budget":1600,"threat":3000,"q":2,"seconds":4}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.035 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.230 gap=122
+RESULT middle-cannon-then-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.178 gap=0
+RESULT isolated-out-of-book-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=20-83 piece=c captured=N seconds=1.203 gap=0
+RECAPTURE isolated-out-of-book-edge-pawn 82-83 Rxc
+CONFIG {"name":"budget3200","budget":3200,"threat":3000,"q":2,"seconds":4}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.015 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=2 nodes=3200 frames=201 elapsed=3.350 move=23-59 piece=c captured=P seconds=2.285 gap=62
+RESULT middle-cannon-then-edge-pawn book=nil depth=2 nodes=3200 frames=201 elapsed=3.350 move=23-59 piece=c captured=P seconds=2.560 gap=6
+RESULT isolated-out-of-book-edge-pawn book=nil depth=2 nodes=3200 frames=201 elapsed=3.350 move=20-23 piece=c captured= seconds=2.432 gap=0
+CONFIG {"name":"threat150","budget":1600,"threat":150,"q":2,"seconds":4}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.015 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.088 gap=122
+RESULT middle-cannon-then-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.197 gap=52
+RESULT isolated-out-of-book-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=20-83 piece=c captured=N seconds=1.209 gap=0
+RECAPTURE isolated-out-of-book-edge-pawn 82-83 Rxc
+CONFIG {"name":"q4","budget":1600,"threat":3000,"q":4,"seconds":4}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.015 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.045 gap=122
+RESULT middle-cannon-then-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=23-59 piece=c captured=P seconds=1.281 gap=4
+RESULT isolated-out-of-book-edge-pawn book=nil depth=1 nodes=1600 frames=101 elapsed=1.683 move=28-37 piece=p captured= seconds=1.530 gap=0
+RECAPTURE isolated-out-of-book-edge-pawn 46-37 Pxp
+CONFIG {"name":"combined","budget":3200,"threat":150,"q":4,"seconds":4}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.015 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=2 nodes=3200 frames=201 elapsed=3.350 move=23-59 piece=c captured=P seconds=2.175 gap=66
+RESULT middle-cannon-then-edge-pawn book=nil depth=2 nodes=3200 frames=201 elapsed=3.350 move=2-21 piece=n captured= seconds=2.505 gap=0
+RESULT isolated-out-of-book-edge-pawn book=nil depth=1 nodes=3200 frames=201 elapsed=3.350 move=28-37 piece=p captured= seconds=2.602 gap=0
+RECAPTURE isolated-out-of-book-edge-pawn 46-37 Pxp
+CONFIG {"name":"extended","budget":6400,"threat":150,"q":4,"seconds":8}
+RESULT red-middle-cannon book=true depth=0 nodes=0 frames=0 elapsed=0.000 move=20-23 piece=c captured= seconds=0.015 gap=nil
+RESULT middle-cannon-takes-pawn book=nil depth=2 nodes=6400 frames=401 elapsed=6.683 move=23-59 piece=c captured=P seconds=4.539 gap=66
+RESULT middle-cannon-then-edge-pawn book=nil depth=2 nodes=6400 frames=401 elapsed=6.683 move=2-21 piece=n captured= seconds=5.200 gap=0
+RESULT isolated-out-of-book-edge-pawn book=nil depth=2 nodes=6400 frames=401 elapsed=6.683 move=20-23 piece=c captured= seconds=5.280 gap=0
