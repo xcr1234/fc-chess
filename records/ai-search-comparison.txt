@@ -1,0 +1,27 @@
+PASS shared-root vs full-window reference: six fixed depth-two positions 39-48,40-49,41-50,42-51,43-52,44-53
+VARIANT baseline
+SAMPLE {"profile":"standard","ply":1,"initMs":11.264,"stepP50Ms":11.298,"stepP95Ms":14.395,"stepMaxMs":24.794,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"standard","ply":2,"initMs":10.976,"stepP50Ms":11.360,"stepP95Ms":16.241,"stepMaxMs":21.920,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"standard","ply":3,"initMs":9.282,"stepP50Ms":11.409,"stepP95Ms":17.844,"stepMaxMs":20.924,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"standard","ply":4,"initMs":11.271,"stepP50Ms":11.239,"stepP95Ms":17.987,"stepMaxMs":23.208,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"fifteen-rooks","ply":1,"initMs":26.809,"stepP50Ms":11.914,"stepP95Ms":13.953,"stepMaxMs":21.895,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"fifteen-rooks","ply":2,"initMs":14.223,"stepP50Ms":10.536,"stepP95Ms":13.143,"stepMaxMs":13.967,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"fifteen-rooks","ply":3,"initMs":23.333,"stepP50Ms":10.541,"stepP95Ms":16.997,"stepMaxMs":19.460,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"fifteen-rooks","ply":4,"initMs":6.891,"stepP50Ms":10.281,"stepP95Ms":12.173,"stepMaxMs":13.877,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"free-pieces","ply":1,"initMs":20.637,"stepP50Ms":11.959,"stepP95Ms":15.850,"stepMaxMs":22.612,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"free-pieces","ply":2,"initMs":15.105,"stepP50Ms":11.604,"stepP95Ms":18.958,"stepMaxMs":23.160,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"free-pieces","ply":3,"initMs":12.406,"stepP50Ms":11.111,"stepP95Ms":16.976,"stepMaxMs":20.617,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"free-pieces","ply":4,"initMs":12.451,"stepP50Ms":11.576,"stepP95Ms":15.562,"stepMaxMs":20.777,"frames":101,"nodes":1600,"depth":1}
+VARIANT candidate
+SAMPLE {"profile":"standard","ply":1,"initMs":16.214,"stepP50Ms":7.573,"stepP95Ms":14.668,"stepMaxMs":22.310,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"standard","ply":2,"initMs":12.984,"stepP50Ms":6.470,"stepP95Ms":14.340,"stepMaxMs":15.647,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"standard","ply":3,"initMs":11.741,"stepP50Ms":8.323,"stepP95Ms":14.616,"stepMaxMs":15.809,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"standard","ply":4,"initMs":11.846,"stepP50Ms":7.551,"stepP95Ms":15.058,"stepMaxMs":16.410,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"fifteen-rooks","ply":1,"initMs":21.809,"stepP50Ms":7.526,"stepP95Ms":10.054,"stepMaxMs":11.482,"frames":101,"nodes":1600,"depth":1}
+SAMPLE {"profile":"fifteen-rooks","ply":2,"initMs":11.703,"stepP50Ms":7.090,"stepP95Ms":12.451,"stepMaxMs":14.317,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"fifteen-rooks","ply":3,"initMs":24.129,"stepP50Ms":6.973,"stepP95Ms":11.335,"stepMaxMs":14.251,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"fifteen-rooks","ply":4,"initMs":7.290,"stepP50Ms":6.776,"stepP95Ms":10.816,"stepMaxMs":14.206,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"free-pieces","ply":1,"initMs":14.640,"stepP50Ms":7.217,"stepP95Ms":14.324,"stepMaxMs":15.786,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"free-pieces","ply":2,"initMs":12.874,"stepP50Ms":6.786,"stepP95Ms":14.802,"stepMaxMs":15.563,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"free-pieces","ply":3,"initMs":14.588,"stepP50Ms":8.076,"stepP95Ms":14.734,"stepMaxMs":17.034,"frames":101,"nodes":1600,"depth":2}
+SAMPLE {"profile":"free-pieces","ply":4,"initMs":11.618,"stepP50Ms":7.156,"stepP95Ms":15.020,"stepMaxMs":16.778,"frames":101,"nodes":1600,"depth":2}

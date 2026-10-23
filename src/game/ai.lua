@@ -4,17 +4,30 @@ local M={}
 local values={K=1000000,R=900,N=400,C=450,E=200,A=200,P=100}
 local function other(s) return s=='red' and 'black' or 'red' end
 local function value(p) return values[string.upper(p)] or 0 end
-local function evaluate(b,side,custom)
- local score=0
- local kings={}
- for i=1,90 do if string.upper(b[i])=='K' then kings[B.side(b[i])]=i end end
- for i=1,90 do local p=b[i];if p~='' then
-  local f,r=B.coords(i);local pos=string.upper(p)=='P' and (B.red(p) and 9-r or r)*8 or (4-math.abs(f-4))*2
-  local opponent=B.side(p)=='red' and 'black' or 'red'
-  local threat=kings[opponent] and B.valid(b,i,kings[opponent],custom) and 3000 or 0
-  score=score+(B.side(p)==side and 1 or -1)*(value(p)+pos+threat)
- end end
- return score
+-- Piece-specific positional terms; incremental score is always red minus black.
+-- Independently expressed heuristics, not copied upstream tables.
+local function pieceScore(p,i)
+ if p=='' then return 0 end
+ local f,r=B.coords(i);local k=string.upper(p)
+ local advance=B.red(p) and 9-r or r
+ local center=4-math.abs(f-4);local pos=0
+ if k=='P' then pos=advance*8+(advance>=5 and center*6 or 0)
+ elseif k=='N' then pos=center*8+math.min(advance,6)*4
+ elseif k=='R' then pos=center*3+math.min(advance,7)*2
+ elseif k=='C' then pos=center*4+(advance<=4 and advance*3 or 0)
+ elseif k=='K' then pos=-advance*4 end
+ return (B.red(p) and 1 or -1)*(value(p)+pos)
+end
+local function evaluate(job,side)
+ return (side=='red' and 1 or -1)*job.eval
+end
+local function endangered(job,side)
+ local king=job.kings[side]
+ if not king then return false end
+ for i=1,90 do
+  if B.side(job.board[i])==other(side) and B.valid(job.board,i,king,job.custom) then return true end
+ end
+ return false
 end
 function M.bookEnabled(custom) return Book.enabled(custom) end
 function M.book(b,custom,side) return Book.candidates(b,side or 'black',custom) end
@@ -29,7 +42,7 @@ local function ordered(b,moves,preferred,job,ply)
  end)
  return moves
 end
-local function restore(job,f) if f.move then job.board[f.move[1]]=f.piece;job.board[f.move[2]]=f.captured end end
+local function restore(job,f) if f.move then job.eval=f.oldEval;job.kings[f.side=='red' and 'black' or 'red']=f.oldKing;job.board[f.move[1]]=f.piece;job.board[f.move[2]]=f.captured end end
 local function finish(job)
  for i=#job.stack,1,-1 do restore(job,job.stack[i]) end
  job.stack={};job.partialExact=false
@@ -38,7 +51,12 @@ local function finish(job)
 end
 local function push(job,move,side,depth,alpha,beta,ply,q)
  local b=job.board;local f={move=move,piece=move and b[move[1]],captured=move and b[move[2]] or '',side=side,depth=depth,alpha=alpha,beta=beta,oldAlpha=alpha,ply=ply,q=q}
- if move then b[move[2]]=f.piece;b[move[1]]='' end;job.stack[#job.stack+1]=f
+ if move then
+  f.oldEval=job.eval;f.oldKing=job.kings[other(side)]
+  job.eval=job.eval-pieceScore(f.piece,move[1])-pieceScore(f.captured,move[2])+pieceScore(f.piece,move[2])
+  if string.upper(f.piece)=='K' then job.kings[other(side)]=move[2] end
+  b[move[2]]=f.piece;b[move[1]]=''
+ end;job.stack[#job.stack+1]=f
 end
 local function scoreFromTT(score,ply) if score>900000 then return score-ply elseif score< -900000 then return score+ply end return score end
 local function scoreToTT(score,ply) if score>900000 then return score+ply elseif score< -900000 then return score-ply end return score end
@@ -49,7 +67,7 @@ local function pop(job,score)
   score=-score
   if score>parent.best then parent.best=score;parent.bestMove=f.move end
   parent.alpha=math.max(parent.alpha,score)
- else job.scores[#job.scores+1]={move=f.move,score=-score};job.rootIndex=job.rootIndex+1 end
+ else job.scores[#job.scores+1]={move=f.move,score=-score,exact=-score>job.rootAlpha};job.rootAlpha=math.max(job.rootAlpha,-score);job.rootIndex=job.rootIndex+1 end
 end
 function M.new(board,side,custom,opts)
  opts=opts or {};local b=B.copy(board);local root=B.moves(b,side,custom)
@@ -57,6 +75,8 @@ function M.new(board,side,custom,opts)
  -- fallback tactical (especially an immediate king capture), not scan order.
  ordered(b,root,nil)
  local job={board=b,side=side,custom=custom,original=B.key(b,side,custom),nodes=0,depth=0,budget=opts.nodeBudget or 1600,done=false,restored=true,partialExact=false,elapsed=0,tt={},ttCount=0,history={},killers={},stack={},root=root,rootIndex=1,scores={},iteration=1,maxDepth=opts.maxDepth or 3,changes={}}
+ job.eval=0;job.kings={};job.rootAlpha=-2000000
+ for i=1,90 do job.eval=job.eval+pieceScore(b[i],i);if string.upper(b[i])=='K' then job.kings[B.side(b[i])]=i end end
  job.move=root[1];job.summary={count=#root,tactical=0}
  local king for i=1,90 do if b[i]==(side=='red' and 'k' or 'K') then king=i;break end end
  for _,m in ipairs(root) do
@@ -85,15 +105,16 @@ function M.step(job,dt)
   local f=job.stack[#job.stack]
   if not f then
    if job.rootIndex>#job.root then
-    table.sort(job.scores,function(a,c) if a.score==c.score then return a.move[1]*100+a.move[2]<c.move[1]*100+c.move[2] end return a.score>c.score end)
+    table.sort(job.scores,function(a,c) if a.score==c.score then if a.exact~=c.exact then return a.exact end return a.move[1]*100+a.move[2]<c.move[1]*100+c.move[2] end return a.score>c.score end)
     local best=job.scores[1];job.depth=job.iteration
     if job.previous then job.changes[#job.changes+1]=(job.previous[1]~=best.move[1] or job.previous[2]~=best.move[2]) and 1 or 0 end
     job.move=best.move;job.previous=best.move
-    if job.scores[2] then job.summary.gap=best.score-job.scores[2].score end
+    -- Root losers can be bounds after shared-alpha pruning, not exact scores.
+    job.summary.gap=nil
     if #job.changes>0 then local n=0;for _,v in ipairs(job.changes) do n=n+v end job.summary.instability=n/#job.changes end
     if job.iteration>=job.maxDepth then finish(job);return end
-    job.iteration=job.iteration+1;job.rootIndex=1;job.scores={};ordered(job.board,job.root,job.move,job,0)
-   else push(job,job.root[job.rootIndex],other(job.side),job.iteration-1,-2000000,2000000,1,2) end
+    job.iteration=job.iteration+1;job.rootAlpha=-2000000;job.rootIndex=1;job.scores={};ordered(job.board,job.root,job.move,job,0)
+   else push(job,job.root[job.rootIndex],other(job.side),job.iteration-1,-2000000,-job.rootAlpha,1,2) end
   elseif not f.entered then
    if job.nodes>=job.budget then finish(job);return end
    job.nodes=job.nodes+1;visited=visited+1;f.entered=true
@@ -108,13 +129,16 @@ function M.step(job,dt)
     end
     if cached then pop(job,cached)
     else
-     f.best=f.depth<=0 and evaluate(job.board,f.side,job.custom) or -2000000
-     if f.depth<=0 and (f.q<=0 or f.best>=f.beta) then pop(job,f.best)
+     f.danger=f.depth<=0 and endangered(job,f.side)
+     f.best=f.depth<=0 and not f.danger and evaluate(job,f.side) or -2000000
+     -- Even at the extension cap an available king capture is terminal.
+     if f.depth<=0 and f.q<=0 then pop(job,endangered(job,other(f.side)) and (1000000-f.ply-1) or evaluate(job,f.side))
+     elseif f.depth<=0 and not f.danger and f.best>=f.beta then pop(job,f.best)
      else
       if f.depth<=0 then f.alpha=math.max(f.alpha,f.best) end
-      f.moves=ordered(job.board,B.moves(job.board,f.side,job.custom,f.depth<=0),entry and entry.move,job,f.ply);f.next=1
+      f.moves=ordered(job.board,B.moves(job.board,f.side,job.custom,f.depth<=0 and not f.danger),entry and entry.move,job,f.ply);f.next=1
       if #f.moves==0 then
-       if f.depth>0 and #B.moves(job.board,other(f.side),job.custom)>0 then f.moves={false} else pop(job,evaluate(job.board,f.side,job.custom)) end
+       if f.depth>0 and #B.moves(job.board,other(f.side),job.custom)>0 then f.moves={false} else pop(job,evaluate(job,f.side)) end
       end
      end
     end

@@ -1,0 +1,65 @@
+
+> miliastra-template@0.1.0 test:lua
+> node scripts/run-lua-check.mjs tests/lua-regression.lua
+
+PASS move generator matches exhaustive validator across seeded boards and both profiles
+PASS AI captures king before material, including fifteen rooks
+PASS real budget abort retains a completed iteration and unwinds board
+PASS cancel mid-search unwinds private board and leaves visible board untouched
+PASS mode-independent search, legal opening book, custom disables book
+PASS restart retains initial custom board; undo cancels real unfinished search
+PASS both empty move lists produce no win, loss or draw adjudication
+PASS invalid initial data is rejected instead of awarded a win
+PASS waiting limits and missing fields are deterministic
+PASS timeout before first iteration still takes an available king
+PASS large frame delta counts step time and confirmation delays only submission
+
+> miliastra-template@0.1.0 test:lua:feedback
+> node scripts/run-lua-check.mjs tests/lua-feedback.lua
+
+PASS AI move records both endpoints; selection does not replace them; undo restores prior feedback
+PASS thinking number grows frequently in search and wait and freezes after actual submission
+PASS longer actual AI wait raises the final number, with a five-digit ceiling
+PASS growth is independent of frame splitting and never bypasses confirmation
+PASS instant book replies, cancellation, restart and custom editing reset feedback safely
+PASS AI king capture preserves final move feedback and freezes its number in results
+
+> miliastra-template@0.1.0 test
+> node --test scripts/test-lua-bundle.mjs scripts/test-lua-project.mjs scripts/test-setup.mjs
+
+[miliastra] Build date (local): 2026-10-23 17:48:20.106 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ single file runs without host loaders, caches nested modules, exposes lifecycle callbacks (14.221792ms)
+✔ ignores require text in comments/strings and preserves source line mapping (4.2165ms)
+[miliastra] Build date (local): 2026-10-23 17:48:20.118 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ preserves lazy loading and isolates locals with the same name (3.189958ms)
+✔ module initialization happens once for nil and false exports (3.64775ms)
+✔ rejects missing modules and cycles with the dependency chain (2.807ms)
+✔ rejects dynamic/aliased/shadowed require and unsafe module names (6.023042ms)
+✔ Lua syntax errors identify the source and do not overwrite the previous build (2.597375ms)
+✔ build is deterministic and cannot overwrite the source tree (3.755625ms)
+✔ build date uses local system time and startup logs surround OnStart without changing its values (3.119125ms)
+✔ startup logs can be disabled while keeping the build date and original callback (2.294125ms)
+✔ failed initialization propagates its error and never logs completion (2.533833ms)
+✔ module-only bundles do not acquire a startup callback (1.714833ms)
+✔ build stays inside the project and does not deploy (10.073459ms)
+✔ dry-run builds but writes neither target nor deployment state (4.051084ms)
+✔ deploys byte-identical Lua only and backs up a previous deployed version (7.85525ms)
+✔ identical deployment is a no-op; externally modified content needs an explicit overwrite (9.730584ms)
+✔ project startupLog setting defaults on and can be disabled (3.268375ms)
+✔ first deployment protects an existing target (5.073292ms)
+✔ failed rebuild cannot publish a stale artifact (4.3175ms)
+✔ build rejects output outside the project; deployment requires an exact absolute Lua path (2.887417ms)
+✔ setup rewrites MCP paths for each clone without a default proxy or target (4.753083ms)
+✔ local proxy survives setup reruns; target setup does not copy files (4.210167ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.418458

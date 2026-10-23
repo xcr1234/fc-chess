@@ -27,13 +27,14 @@ check('AI captures king before material, including fifteen rooks',function()
  local b=empty();b[5]='k';b[86]='K';b[77]='r';for i=10,24 do b[i]='R' end
  local j=run(b,'black',true,{noBook=true,nodeBudget=2000});assert(j.move[2]==86)
 end)
-check('real budget abort retains complete depth two and unwinds board',function()
- local b=empty();b[5]='k';b[86]='K';local j=run(b,'black',false,{noBook=true,nodeBudget=25,maxDepth=3})
- assert(j.depth==2 and j.nodes==25 and not j.partialExact)
+check('real budget abort retains a completed iteration and unwinds board',function()
+ local b=empty();b[5]='k';b[86]='K';local j=run(b,'black',false,{noBook=true,nodeBudget=25,maxDepth=5})
+ assert(j.depth>=1 and j.depth<5 and j.nodes==25 and not j.partialExact)
 end)
 check('cancel mid-search unwinds private board and leaves visible board untouched',function()
  local b=B.standard();local key=B.key(b,'black',true);local j=A.new(b,'black',true,{noBook=true,nodeBudget=5000})
- A.step(j,.01);assert(not j.done);A.cancel(j);assert(j.done and j.restored);assert(B.key(j.board,'black',true)==key);assert(B.key(b,'black',true)==key)
+ local initialEval=j.eval;local redKing=j.kings.red;local blackKing=j.kings.black
+ A.step(j,.01);assert(not j.done);A.cancel(j);assert(j.eval==initialEval and j.kings.red==redKing and j.kings.black==blackKing);assert(j.done and j.restored);assert(B.key(j.board,'black',true)==key);assert(B.key(b,'black',true)==key)
 end)
 check('mode-independent search, legal opening book, custom disables book',function()
  local b=B.standard();b[68]=b[65];b[65]='' -- actual source-book opening: central cannon

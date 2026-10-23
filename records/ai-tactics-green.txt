@@ -1,0 +1,5 @@
+PASS out-of-book must not trade cannon for protected horse depth=2 nodes=1600 move=2-21
+PASS save attacked rook depth=3 nodes=348 move=41-50
+PASS take genuinely free rook depth=3 nodes=328 move=20-56
+PASS immediate king capture depth=3 nodes=475 move=77-86
+PASS quiet escape from rook attack depth=1 nodes=5 move=5-4

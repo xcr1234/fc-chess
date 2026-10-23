@@ -21,7 +21,7 @@ function M.init(host,s,render)
  U.hit(p,'TestComputeSummary',0,0,1,1,function() s.extraWait=Wait.seconds(s.mode,s.fixture.summary);render() end)
  U.hit(p,'TestProbeBook',0,0,1,1,function() render() end)
  U.hit(p,'TestRunBudget',0,0,1,1,function()
-  probe=AI.new(s.board,'black',s.custom,{nodeBudget=s.fixture.ai.nodeBudget,noBook=true,maxDepth=3})
+  probe=AI.new(s.board,'black',s.custom,{nodeBudget=s.fixture.ai.nodeBudget,noBook=true,maxDepth=s.fixture.ai.maxDepth})
   while not probe.done do AI.step(probe,0) end
   render()
  end)

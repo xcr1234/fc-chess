@@ -194,3 +194,12 @@
 - 自动Green（runtime=node-renderer）：上述4例通过；另验证重复应用不改变输出、可精确还原原文件、未知上游改动拒绝覆盖。共5/5通过，记录records/simulator-text-green.txt。未改Lua引擎/存档，因此不重复无关60项棋规回归。
 - 浏览器Green（runtime=simulator-web，真实WebGL/Pixi）：刷新页面重新加载bundle，进入试玩并启动。菜单“中国象棋”、模式名称及副标题明显清晰；点击快速模式，对局棋子、左右信息、计数与三个按钮清晰；打开返回模式选择弹窗，“返回模式選擇？”与是/否清晰，确认后回菜单。控制台error为空。截图records/screenshots/simulator-text-clear-menu.jpg、simulator-text-clear-board.jpg均从浏览器截图裁至游戏画布，不是原生宿主截图。
 - 范围：浏览器实际检查DPR1；DPR2、旋转、非均匀缩放、父级动画及极端倍率由自动渲染器用例覆盖。未承诺所有设备的字体/性能一致，未改变游戏Lua、现成开局库或画布设计，未部署真机；存档继续使用此前已验收的888bbd93d358a7baf3334e522df7e9300223b8823f6b3f5105bd1490ce368091产物。
+
+## 2026-10-23 AI算法优化与共享等待扩展
+
+- runtime=lua-fengari，执行者Codex：旧版炮20→83换受保护马有效Red，其他3项基线通过；新版5项战术通过，记录ai-tactics-red/green.txt。6个完整深度2固定局面的根界限结果与全窗口对照一致，见ai-search-comparison.txt。不是实测对弈胜率。
+- 等待扩展旧版因配置未生效有效Red；新版困难/自定义分别通过配置、追加、弹窗与悔棋，快速不等待。见wait-extension-red/green.txt。无新增玩家按钮。
+- 11项原Lua回归、6项反馈、22项工具测试通过；书库8组及8704局面9934候选检查通过。见ai-optimization-regression.txt、ai-book-regression.txt。
+- 首轮模拟器59/60通过：预算测试旧预期固定2层，优化后25节点已完成3层。提高该测试搜索上限至5并保持25节点，仍验证预算中止；相应改预期3，未降低撤销/缓存断言。
+- 纯算法无新增平台API，复用已核验生命周期/控件资料。未改布局，未重做视觉矩阵或真机；未复制用户外部路径。宿主性能采样和模拟器回归分别记录，真机性能仍待验证。
+- 最终runtime=simulator：60/60、214断言通过；同次产物4297e2d40f983dadf7665da088918268247825223cd83657b8cebcee3947a261。最终静态延伸回到2层，4层压力样本depth=0不采用。最终对照12样本旧均1层、新11个2层/1个1层，具体耗时见ai-search-comparison.txt；只作宿主资源观察，不推断真机性能或胜率。

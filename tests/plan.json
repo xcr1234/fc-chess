@@ -883,7 +883,7 @@
         "ai": {
           "nodeBudget": 25,
           "noBook": true,
-          "maxDepth": 3
+          "maxDepth": 5
         }
       }
     },

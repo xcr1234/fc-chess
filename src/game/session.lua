@@ -8,7 +8,7 @@ local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
 function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0} end
 function M.cancel(s,reason)
- AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.version=s.version+1
+ AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
 end
 function M.start(s,mode,board)
@@ -57,12 +57,22 @@ function M.commit(s,m)
  return true
 end
 function M.computed(s,move,summary)
- s.reply=move;s.replyVersion=s.version;s.extraWait=Wait.seconds(s.mode,summary)
+ s.reply=move;s.replyVersion=s.version;s.extraWait=Wait.seconds(s.mode,summary,s.waitPolicy)
  local a=s.aiInput
  if type(a)=='table' and a.waitSeconds then s.extraWait=a.waitSeconds elseif s.fixture and s.fixture.waitSeconds then s.extraWait=s.fixture.waitSeconds end
  s.remaining=s.extraWait;s.scene='ai-wait'
- Log.event('ai',string.format('depth=%d nodes=%d compute=%.3f wait=%d book=%s',s.job and s.job.depth or 0,s.job and s.job.nodes or 0,s.compute or 0,s.extraWait,tostring(s.job and s.job.book or false)))
+ Log.event('ai',string.format('depth=%d nodes=%d compute=%.3f wait=%.3f book=%s',s.job and s.job.depth or 0,s.job and s.job.nodes or 0,s.compute or 0,s.extraWait,tostring(s.job and s.job.book or false)))
  if s.remaining<=0 then M.submitReply(s) end
+end
+-- Add seconds to the current artificial wait only. Does not restart search.
+-- extraWait is the planned total; remaining is the current countdown.
+function M.extendWait(s,seconds)
+ if s.mode=='fast' or s.scene~='ai-wait' or not s.reply or s.replyVersion~=s.version then return false end
+ if type(seconds)~='number' or seconds~=seconds or seconds<=0 or seconds==math.huge then return false end
+ local remaining=math.max(0,s.remaining)+seconds
+ if remaining==math.huge or s.extraWait+seconds==math.huge then return false end
+ s.extraWait=s.extraWait+seconds;s.remaining=remaining;s.ready=false
+ return true
 end
 function M.submitReply(s)
  if s.modal then s.ready=true;return end

@@ -37,7 +37,7 @@
       "id": "",
       "name": "SearchCompleteDepth",
       "field": "text",
-      "equals": "2"
+      "equals": "3"
     },
     {
       "kind": "control",

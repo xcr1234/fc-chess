@@ -1,0 +1,9 @@
+PASS real book covers red root and several opening replies beyond first move
+PASS seed selects weighted alternatives reproducibly without modifying the board
+PASS mirror candidates keep weights and convert coordinates in both directions
+PASS unknown positions search; side and custom rules never share book hits
+PASS book never overrides immediate king capture or returns exposed-king candidates
+PASS session keeps seed in undo history and advances it only after real AI submission
+PASS weighted selection uses weight intervals rather than a candidate index
+PASS invalid and exposed-king records fall back without mutating the visible board
+PASS full book: 8704 positions, 9934 legal weighted candidates

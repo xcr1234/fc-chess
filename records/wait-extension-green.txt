@@ -1,0 +1,3 @@
+PASS difficult configurable wait, extension, modal, undo
+PASS custom configurable wait, extension, modal, undo
+PASS fast has no artificial delay

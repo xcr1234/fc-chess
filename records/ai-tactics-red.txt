@@ -1,0 +1,5 @@
+FAIL out-of-book must not trade cannon for protected horse depth=1 nodes=1600 move=20-83 [string "package.preload["app.log"]=function()..."]:9207: assertion failed!
+PASS save attacked rook depth=3 nodes=577 move=41-50
+PASS take genuinely free rook depth=3 nodes=1520 move=20-56
+PASS immediate king capture depth=3 nodes=555 move=77-86
+[string "package.preload["app.log"]=function()..."]:9216: 1 tactical failures
