@@ -53,7 +53,7 @@ check('growth is independent of frame splitting and never bypasses confirmation'
  local final=a.aiCounter.value;S.update(a,10);assert(a.aiCounter.value==final)
 end)
 check('instant book replies, cancellation, restart and custom editing reset feedback safely',function()
- local s=S.new();S.start(s,'fast');S.commit(s,{55,46})
+ local s=S.new();S.start(s,'fast');S.commit(s,{65,68}) -- source-book central cannon
  assert(s.moves==2 and s.aiCounter.value>=1000 and s.aiCounter.value<=40000 and s.lastAiMove)
  S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton')
  assert(not s.lastAiMove and s.aiCounter.value==0)

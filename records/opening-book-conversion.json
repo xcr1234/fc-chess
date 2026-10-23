@@ -1,0 +1,35 @@
+{
+  "upstream": "https://github.com/xqbase/xqwlight",
+  "commit": "6221733f1f79b3acb44cce6f83dc6100443cb2c9",
+  "license": "GPL-2.0-or-later",
+  "sources": {
+    "book.js": {
+      "bytes": 305700,
+      "sha256": "fdc90c854ac764b628ea9b779fe3680ea445c51f9592eb54811fa04c6394a48f"
+    },
+    "position.js": {
+      "bytes": 34789,
+      "sha256": "e4c65d04044162783993663a0bae4152257b4adb6b38c34cb571b39d3656dacc"
+    },
+    "LICENSE": {
+      "bytes": 18028,
+      "sha256": "f6108aeca3974fa829b5671bbb13c350962b566c698404f1e07ad5b3ef4dace2"
+    }
+  },
+  "sourceRows": 12081,
+  "sourceSignatures": 10841,
+  "recoveredSourceRows": 9934,
+  "unrecoveredSourceRows": 2147,
+  "ambiguousSignaturesExcluded": [
+    599948037,
+    1380771014
+  ],
+  "visitedPositions": 30345,
+  "inspectedMoves": 1152634,
+  "maxRecoveredPly": 215,
+  "canonicalPositions": 8704,
+  "candidates": 9934,
+  "luaBytes": 722964,
+  "luaSHA256": "062d42c6b544fecb053ca28369b851b10e338f61ca8de132a0db9262bf4f837f",
+  "notes": "Offline recovery/format adaptation of existing data, not a newly trained or collected book. Unreachable rows are retained in the source but not enabled. Upstream text normalized to LF."
+}

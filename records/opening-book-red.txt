@@ -1,0 +1,7 @@
+FAIL real book covers red root and several opening replies beyond first move: [string "package.preload["app.log"]=function()..."]:423: missing initial red book
+PASS seed selects weighted alternatives reproducibly without modifying the board
+FAIL mirror candidates keep weights and convert coordinates in both directions: [string "package.preload["app.log"]=function()..."]:450: attempt to compare number with nil
+PASS unknown positions search; side and custom rules never share book hits
+PASS book never overrides immediate king capture or returns exposed-king candidates
+FAIL session keeps seed in undo history and advances it only after real AI submission: [string "package.preload["app.log"]=function()..."]:471: seed did not advance on submitted book move
+[string "package.preload["app.log"]=function()..."]:476: 3 opening book cases failed

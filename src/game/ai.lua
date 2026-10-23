@@ -1,4 +1,5 @@
 local B=require('game.board')
+local Book=require('game.ai.book')
 local M={}
 local values={K=1000000,R=900,N=400,C=450,E=200,A=200,P=100}
 local function other(s) return s=='red' and 'black' or 'red' end
@@ -15,22 +16,8 @@ local function evaluate(b,side,custom)
  end end
  return score
 end
-local book
-function M.bookEnabled(custom) return not custom end
-function M.book(b,custom)
- if custom then return nil end
- if not book then
-  book={};local initial=B.standard()
-  for _,m in ipairs(B.moves(initial,'red',false)) do
-   local c=B.copy(initial);c[m[2]]=c[m[1]];c[m[1]]=''
-   local choices={}
-   for _,r in ipairs({{B.index(1,2),B.index(4,2)},{B.index(7,2),B.index(4,2)}}) do if B.valid(c,r[1],r[2],false) then choices[#choices+1]=r end end
-   book[B.key(c,'black',false)]=choices
-  end
- end
- local choices=book[B.key(b,'black',false)]
- if choices and #choices>0 then return choices end
-end
+function M.bookEnabled(custom) return Book.enabled(custom) end
+function M.book(b,custom,side) return Book.candidates(b,side or 'black',custom) end
 local function ordered(b,moves,preferred,job,ply)
  local ranks={}
  for _,m in ipairs(moves) do
@@ -81,8 +68,9 @@ function M.new(board,side,custom,opts)
   b[m[1]]=p;b[m[2]]=captured
   if tactical then job.summary.tactical=job.summary.tactical+1 end
  end
- local choices=not opts.noBook and M.book(b,custom)
- if choices then job.move=choices[((opts.seed or 1)-1)%#choices+1];job.done=true;job.book=true end
+ local wins=root[1] and string.upper(b[root[1][2]])=='K'
+ local choices=not opts.noBook and not wins and M.book(b,custom,side)
+ if choices then job.move,job.nextSeed=Book.choose(choices,opts.seed);job.done=true;job.book=true end
  if #root==0 then job.done=true end
  return job
 end

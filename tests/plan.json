@@ -1026,6 +1026,42 @@
           ]
         }
       }
+    },
+    {
+      "case": "opening-book-multiturn",
+      "file": "cases/opening-book-multiturn.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "bookSeed": 17
+      }
+    },
+    {
+      "case": "opening-book-fallback",
+      "file": "cases/opening-book-fallback.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "fast",
+        "bookSeed": 17
+      }
+    },
+    {
+      "case": "opening-book-undo",
+      "file": "cases/opening-book-undo.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "bookSeed": 17
+      }
     }
   ]
 }

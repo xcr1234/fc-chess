@@ -4,6 +4,7 @@ local Wait=require('game.wait')
 local Counter=require('game.thinking_counter')
 local Log=require('app.log')
 local M={}
+local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
 function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0} end
 function M.cancel(s,reason)
@@ -12,6 +13,7 @@ function M.cancel(s,reason)
 end
 function M.start(s,mode,board)
  M.cancel(s,'start');s.mode=mode;s.custom=mode=='custom';s.board=B.copy(board or B.standard());s.initial=B.copy(s.board)
+ gameSerial=(gameSerial+1)%20000;s.bookSeed=gameSerial*104729+1
  local red,black=false,false for _,p in ipairs(s.board) do red=red or p=='K';black=black or p=='k' end
  assert(red and black,'Invalid initial board: both kings required')
  s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='請走棋';s.fixture=nil;s.aiInput=nil
@@ -36,14 +38,15 @@ function M.begin(s,side)
  s.aiCounter=Counter.new()
  local a=s.aiInput
  if a=='hold' or (type(a)=='table' and (a.computeSeconds or a.replySequence)) then return end
- s.job=AI.new(s.board,'black',s.custom,{seed=1})
+ s.job=AI.new(s.board,'black',s.custom,{seed=s.bookSeed})
  if s.job.done then M.computed(s,s.job.move,s.job.summary) end
 end
 function M.commit(s,m)
  if not m or not B.valid(s.board,m[1],m[2],s.custom) or B.side(s.board[m[1]])~=s.turn then return false end
  if s.turn=='red' then
-  s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,lastAiMove=s.lastAiMove,aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
+  s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,bookSeed=s.bookSeed,lastAiMove=s.lastAiMove,aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
  else
+  if s.job and s.job.nextSeed then s.bookSeed=s.job.nextSeed end
   s.lastAiMove={m[1],m[2]};Counter.finish(s.aiCounter)
  end
  local captured=s.board[m[2]];s.board[m[2]]=s.board[m[1]];s.board[m[1]]='';s.moves=s.moves+1;s.selected=nil
@@ -84,6 +87,7 @@ function M.undo(s)
  local h=table.remove(s.history)
  if not h then s.status='尚無棋步可悔';return end
  M.cancel(s,'undo');s.board=B.copy(h.board);s.moves=h.moves;s.black=h.black;s.red=0;s.turn='red';s.scene='player-turn';s.selected=nil;s.status='已悔棋'
+ s.bookSeed=h.bookSeed
  s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
 end
 function M.action(s,name)

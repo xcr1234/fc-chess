@@ -1,0 +1,115 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "opening-book-multiturn",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_opening-book-multiturn"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_1_7"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_7"
+      }
+    },
+    {
+      "t": 0.5,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_6_6"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_6_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "opening-book-multiturn"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "BookUsed",
+      "field": "text",
+      "equals": "true"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "Piece_6_2",
+      "field": "text",
+      "equals": "n"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "004手"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "BookUsed",
+      "field": "text",
+      "equals": "true"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "Piece_0_1",
+      "field": "text",
+      "equals": "r"
+    },
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "TurnText",
+      "field": "text",
+      "equals": "紅方"
+    }
+  ]
+}

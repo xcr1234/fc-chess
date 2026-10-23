@@ -1,0 +1,24 @@
+
+> miliastra-template@0.1.0 test:book
+> node --test scripts/test-opening-book.mjs && node scripts/run-lua-check.mjs tests/lua-book-data.lua && node scripts/run-lua-check.mjs tests/lua-opening-book.lua
+
+✔ offline adaptation is reproducible and the complete source book stays vendored (2.511417ms)
+✔ every exported move and weight matches a source row and is legal in its full position (559.953417ms)
+✔ recovery refuses an exceeded resource bound instead of shipping a silent truncation (10.309958ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23566.502708
+PASS full book: 8704 positions, 9934 legal weighted candidates
+PASS real book covers red root and several opening replies beyond first move
+PASS seed selects weighted alternatives reproducibly without modifying the board
+PASS mirror candidates keep weights and convert coordinates in both directions
+PASS unknown positions search; side and custom rules never share book hits
+PASS book never overrides immediate king capture or returns exposed-king candidates
+PASS session keeps seed in undo history and advances it only after real AI submission
+PASS weighted selection uses weight intervals rather than a candidate index
+PASS invalid and exposed-king records fall back without mutating the visible board

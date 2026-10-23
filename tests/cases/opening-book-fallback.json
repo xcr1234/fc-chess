@@ -1,0 +1,83 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "opening-book-fallback",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_opening-book-fallback"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "opening-book-fallback"
+    },
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "ai-search"
+    },
+    {
+      "kind": "control",
+      "at": 0.35,
+      "id": "",
+      "name": "BookUsed",
+      "field": "text",
+      "equals": "false"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "WorkingBoardRestored",
+      "field": "text",
+      "equals": "true"
+    }
+  ]
+}

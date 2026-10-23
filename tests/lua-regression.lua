@@ -36,7 +36,7 @@ check('cancel mid-search unwinds private board and leaves visible board untouche
  A.step(j,.01);assert(not j.done);A.cancel(j);assert(j.done and j.restored);assert(B.key(j.board,'black',true)==key);assert(B.key(b,'black',true)==key)
 end)
 check('mode-independent search, legal opening book, custom disables book',function()
- local b=B.standard();b[46]=b[55];b[55]=''
+ local b=B.standard();b[68]=b[65];b[65]='' -- actual source-book opening: central cannon
  local one=run(b,'black',false,{seed=1});local two=run(b,'black',false,{seed=1})
  assert(one.book and two.book and one.move[1]==two.move[1] and one.move[2]==two.move[2]);assert(not A.book(b,true))
  local custom=run(b,'black',true,{nodeBudget=300});assert(not custom.book)
