@@ -29,14 +29,24 @@ end
 -- A side to move can save one loose piece. Two independent targets represent
 -- a fork; use the second exposure rather than charging both as certain losses.
 function M.risk(b,side,toMove,custom)
- local targets={}
- for _,m in ipairs(B.moves(b,other(side),custom,true)) do
-  local gain=string.upper(b[m[2]])~='K' and M.gain(b,m,custom) or 0
-  if gain>0 then targets[m[2]]=math.max(targets[m[2]] or 0,gain) end
- end
- local first,second=0,0
- for _,gain in pairs(targets) do
-  if gain>first then second=first;first=gain elseif gain>second then second=gain end
+ local targets={};local first,second=0,0
+ local moves=B.moves(b,other(side),custom,true)
+ table.sort(moves,function(a,c) return value(b[a[2]])>value(b[c[2]]) end)
+ for _,m in ipairs(moves) do
+  local upper=value(b[m[2]])
+  -- The opponent may decline every recapture, so SEE cannot exceed the
+  -- captured piece's value. Remaining lower-valued targets cannot improve
+  -- the requested maximum (or second maximum on the victim's turn).
+  if upper<=(side==toMove and second or first) then break end
+  if string.upper(b[m[2]])~='K' and upper>(targets[m[2]] or 0) then
+   local gain=M.gain(b,m,custom)
+   if gain>(targets[m[2]] or 0) then
+    targets[m[2]]=gain;first,second=0,0
+    for _,v in pairs(targets) do
+     if v>first then second=first;first=v elseif v>second then second=v end
+    end
+   end
+  end
  end
  return side==toMove and second or first
 end

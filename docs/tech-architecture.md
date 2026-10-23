@@ -47,3 +47,7 @@
 ## 分帧PVS内核拆分
 
 game.ai为书库策略及稳定调用门面；game.ai.search独立负责根/内部节点、迭代提交、PVS试探/重搜、TT与预算取消。两者均静态require，打包为同一dist/main.lua，无需额外挂载。job.probes/researches仅供诊断；未新增玩家仪表。详见docs/ai-search-rewrite.md。
+
+## 静态交换与暴露风险
+
+game.ai.exchange提供gain/risk，内部只临时改动传入工作棋盘并完整撤销。game.ai.search在叶子将风险半权重整数化加入位置/子力分，使用最多512项局面评价缓存；风险目标以被吃子价值上界剪除无效SEE。单文件打包新增1模块，不增加映射/挂载。

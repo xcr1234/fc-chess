@@ -1,0 +1,51 @@
+
+> miliastra-template@0.1.0 test:lua:pvs
+> node scripts/run-lua-check.mjs tests/lua-ai-pvs.lua && node scripts/run-lua-check.mjs tests/lua-ai-threats.lua
+
+PASS PVS/reference score sample=1 custom=false nodes=761/775
+PASS PVS/reference score sample=1 custom=true nodes=761/775
+PASS PVS/reference score sample=2 custom=false nodes=873/917
+PASS PVS/reference score sample=2 custom=true nodes=873/917
+PASS PVS/reference score sample=3 custom=false nodes=454/468
+PASS PVS/reference score sample=3 custom=true nodes=454/468
+PASS PVS/reference score sample=4 custom=false nodes=875/796
+PASS PVS/reference score sample=4 custom=true nodes=875/796
+PASS PVS/reference score sample=5 custom=false nodes=763/779
+PASS PVS/reference score sample=5 custom=true nodes=763/779
+PASS PVS/reference score sample=6 custom=false nodes=753/768
+PASS PVS/reference score sample=6 custom=true nodes=753/768
+PASS cancel during PVS re-search; probes=600 re-searches=10
+PASS knight threatens r at 1 from 20 reply=1-19 depth=3
+PASS knight threatens r at 9 from 26 reply=9-27 depth=3
+PASS knight threatens n at 2 from 13 reply=20-83 depth=2
+PASS knight threatens n at 8 from 15 reply=26-89 depth=2
+PASS knight threatens c at 20 from 13 reply=20-83 depth=2
+PASS knight threatens c at 26 from 15 reply=26-89 depth=2
+PASS late horse threatened by R reply=41-58 depth=3
+PASS late horse threatened by C reply=50-49 depth=4
+PASS late horse threatened by N reply=41-60 depth=4
+PASS late horse threatened by P reply=41-48 depth=4
+
+> miliastra-template@0.1.0 test:lua:tactics
+> node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua
+
+PASS out-of-book must not trade cannon for protected horse depth=2 nodes=3200 move=20-25
+PASS save attacked rook depth=3 nodes=350 move=41-50
+PASS take genuinely free rook depth=4 nodes=3200 move=20-56
+PASS immediate king capture depth=1 nodes=50 move=77-86
+PASS quiet escape from rook attack depth=1 nodes=6 move=5-4
+
+> miliastra-template@0.1.0 test:lua
+> node scripts/run-lua-check.mjs tests/lua-regression.lua
+
+PASS move generator matches exhaustive validator across seeded boards and both profiles
+PASS AI captures king before material, including fifteen rooks
+PASS real budget abort retains a completed iteration and unwinds board
+PASS cancel mid-search unwinds private board and leaves visible board untouched
+PASS mode-independent search, legal opening book, custom disables book
+PASS restart retains initial custom board; undo cancels real unfinished search
+PASS both empty move lists produce no win, loss or draw adjudication
+PASS invalid initial data is rejected instead of awarded a win
+PASS waiting limits and missing fields are deterministic
+PASS timeout before first iteration still takes an available king
+PASS large frame delta counts step time and confirmation delays only submission

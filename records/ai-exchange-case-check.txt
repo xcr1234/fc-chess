@@ -1,0 +1,5 @@
+
+> miliastra-template@0.1.0 check:game-cases
+> node scripts/check-game-cases.mjs
+
+61 cases accepted by beyond-simulator-mcp@0.4.1 pure parser; no game cases executed

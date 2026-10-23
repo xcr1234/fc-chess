@@ -35,35 +35,41 @@
       "at": 0.4,
       "name": "BookUsed",
       "field": "text",
-      "equals": "false"
+      "equals": "false",
+      "id": ""
     },
     {
       "kind": "control",
       "at": 5,
       "name": "MoveCount",
       "field": "text",
-      "equals": "008手"
+      "equals": "008手",
+      "id": ""
     },
     {
       "kind": "control",
       "at": 5,
       "name": "Piece_7_9",
       "field": "text",
-      "equals": "N"
+      "equals": "N",
+      "id": ""
     },
     {
       "kind": "control",
       "at": 5,
       "name": "Piece_8_9",
       "field": "text",
-      "equals": "R"
+      "equals": "R",
+      "id": ""
     },
     {
       "kind": "control",
       "at": 5,
       "name": "WorkingBoardRestored",
       "field": "text",
-      "equals": "true"
+      "equals": "true",
+      "id": ""
     }
-  ]
+  ],
+  "playerCount": 1
 }
