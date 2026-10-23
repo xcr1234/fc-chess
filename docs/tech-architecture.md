@@ -1,6 +1,6 @@
 # 第 5 步 Lua 架构与挂载
 
-- 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 统一合法走法与局面；`session.lua` 管理模式、红方步时、AI反馈、悔棋、确认层、版本与提交；`ai.lua` 为显式搜索栈、Alpha-beta、迭代加深、静态吃子延伸、有限置换表和标准开局书；`wait.lua` 根据搜索摘要计算附加等待；`thinking_counter.lua`管理按回合经过时间增长、五位格式与落子定格的模拟数字。`src/ui/` 创建画布图元、控件和已拟合头像；`src/app/log.lua` 输出事件日志。`src/testing/` 只在测试存档宿主名称为 `FCChessTestHost` 时创建夹具入口和诊断控件。
+- 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 统一合法走法与局面；`session.lua` 管理模式、红方步时、AI反馈、悔棋、确认层、版本与提交；`ai.lua` 为显式搜索栈、Alpha-beta、迭代加深、静态吃子延伸、有限置换表；`ai/book.lua`与`ai/book_data.lua`负责现成开局库查询及数据；`wait.lua` 根据搜索摘要计算附加等待；`thinking_counter.lua`管理按回合经过时间增长、五位格式与落子定格的模拟数字。`src/ui/` 创建画布图元、控件和已拟合头像；`src/app/log.lua` 输出事件日志。`src/testing/` 只在测试存档宿主名称为 `FCChessTestHost` 时创建夹具入口和诊断控件。
 - 单文件构建：`npm run build:game` 生成测试夹具模块、`dist/main.lua`，并把同一产物写入两份存档的 `scripts[].source`；常规维护请勿直接改 `dist` 或存档内联源码。SHA-256 见试玩记录。
 - 正式存档：`fc-chess.save.json`；测试存档：`tests/fc-chess.test.save.json`。两份均为完整 `qxqy-simulator-save`，服务端 UI 容器内的客户端节点分别命名为 `FCChessHost` / `FCChessTestHost`，均挂载单一脚本映射 `dist/main.lua`。模板索引 1073742001–2004 对应容器、图片、文本、光标区；导入千星后需核对实际索引并语义更新引用。服务端无棋规节点或变量；规则与输入在客户端运行。
 - 控件由 Lua 从少量模板动态实例化；设计空间为 256×224，居中等比缩放至当前画布。输入回调进入 `session`，状态驱动 `view`；AI 在 `OnUpdate(dt)` 分帧推进。官方 Lua 禁用 `coroutine.*`，故搜索使用显式栈，取消/预算中止时撤销全部试走。等待只计计算结束后的附加时间；确认层不暂停步时。
@@ -27,3 +27,13 @@
 - `lastAiMove`只在有效黑方提交时替换为起止索引；悔棋快照包含该着法和数字副本。回菜单/新局清空，结果页保留。视图用两组可复用四边图元AILastFrom/AILastTo移动到交点，玩家黄色选框单独管理；不新增光标热区。
 - `AIThinkingNumber`替代`BlackStepTime`，原有布局和`RedStepTime`保留。增长上限与算法见game-spec.md；用dt推导而非逐帧随机加数，保证帧率无关和大dt封顶。
 - 本轮删除第7步发布初稿、旧export文件及预检记录，当前仅维护源码/构建产物和完整模拟器存档；没有生成新的GIA或发布清单。
+
+## 2026-10-23 现成开局库模块
+
+- `third_party/xqwlight`保留固定版本的现成书库、仅供开发期转换的棋盘实现、来源校验清单与GPL许可。运行时不引入上游规则引擎。
+- `scripts/build-opening-book.mjs`离线恢复书库对应的完整局面，检测短哈希歧义并排除，输出8704个镜像归一化局面与9934条带权重着法。`book_data.lua`是生成源模块，不能手改；修改转换器后运行build:book并执行test:book。`check:book`对比确定性产物及摘要；不要求玩家建库。
+- `book.lua`懒加载数据，构造包含行棋方的完整FEN式键，解码候选、还原镜像、复核当前基本走法及己将下一手安全；局部种子按权重选取，不污染全局随机。`AI.book(b,custom,side)`保留旧black默认参数，实际AI.new传入真实side；立即吃将不采纳书着，未命中继续原搜索。
+- `session.bookSeed`进入红方落子前快照。job.nextSeed只在有效黑方commit采纳，悔棋恢复；取消不会消耗候选随机状态。新局初值由脚本生命周期内局序号产生，便于固定seed回归。
+- 开局数据占722964字节，16模块打包共792649字节；完整存档两份均同步同一产物。库内含多回合甚至中局记录，按完整棋盘命中而非手数；自定义全部禁库。
+- 测试加载器按静态require发现依赖，参数探针继续可用。测试桥接新增BookUsed和可注入bookSeed，仅测试存档创建，不进入正式游戏画布。
+- 60项/214断言原生模拟器回归通过，纯Lua全库与行为测试通过；正式手机画布完成真实点击试玩。设备内存/加载仍需真机核对，不把约0.79MB单文件大小当作运行内存。

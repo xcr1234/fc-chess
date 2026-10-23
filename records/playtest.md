@@ -171,3 +171,16 @@
 - Agent实验来源：runtime=lua-fengari（纯Lua探针，不是原生模拟器runCase或真机）。步骤5诊断，未修改生产行为；6组参数×4个重建局面，命令 `node scripts/probe-ai-opening.mjs`，结果 `records/ai-opening-probe.txt`。
 - 实际：标准局红边兵后禁用书库的隔离样例，原AI炮吃马可被车回吃；预算1600→3200或静态延伸2→4改变此着；单独攻将奖励3000→150不改变。双方中炮后红吃中卒、黑吃中兵在6组中均未改变。
 - 边界：用例动作与还原断言通过；未验证新着最优性、整体棋力、单帧性能或用户“大劣势”的后续。参数在内存替换，不写存档；正式书库首着仍平中炮。待补战术预期、完整用户线路及回归后再选生产参数。
+
+# 2026-10-23：XQWLight现成开局库接入（步骤5/6）
+
+- 授权与范围：用户选择现成库、不自建，授权开始修改；中途要求Git保存，检查点20ca23a已推送origin/main。采用qxqy-game-studio；先补tests/opening-book-plan.md及相关Lua用例，再进入实现。没有重新制作HTML/美术，没有新增平台API，复用此前核验的客户端资料。
+- 来源（runtime=offline-js）：third_party/xqwlight保留固定版本6221733f1f79b3acb44cce6f83dc6100443cb2c9的完整book.js、position.js及GPL原文，含LF规范化校验清单。转换器只恢复现成库，不联网/收集棋谱。原12081条/10841个短签名恢复为8704个完整局面/9934条带权重候选；2147条未恢复/未启用，包含检测到两个歧义短哈希的记录。原件均保留，运行时不用短哈希识别局面。
+- TDD Red（runtime=lua-fengari，Codex执行）：旧实现下3项目标行为失败：缺少初始红方/多回合书路、候选无权重、实际提交不推进种子；其他用例当时通过。原始记录records/opening-book-red.txt。不是加载、路径或环境故障。
+- Green（runtime=offline-js/lua-fengari）：3项生成/上游逐候选对照、全量8704局面/9934候选合法性和不变性检查通过；新增8组行为回归通过，覆盖连续书路、镜像权重、固定seed与不同候选、精确加权区间、自定义/行棋方隔离、未知局面退回搜索、非法/暴露己将候选过滤、立即吃将不被书着覆盖、等待期不耗种子和悔棋重走一致。记录records/opening-book-green.txt。
+- Regress（runtime=lua-fengari/static）：既有11项棋规/搜索/计时回归、6组反馈回归和22项构建工具测试通过；60项schema静态校验通过。将旧“边兵首着必有书着”前提改为现成库实际收录的中炮；未弱化即时书库回棋断言，并新增边兵出库搜索场景。
+- Regress（runtime=simulator，原生Worker）：60/60用例、214断言全部通过，记录records/lua-opening-book-simulator.json。新增多回合真实书路（两次黑方命中、node=0）、边兵出库（启动真实搜索、随后有效落子并还原）、困难模式等待期悔棋后恢复相同应对；15车、自定义士相范围、送将/不应将、实际吃将、取消/确认/重开等旧用例均通过。
+- 交互/视觉（runtime=simulator，正式存档，Codex原生MCP点击）：mobile-16-9上快速模式红65→68中炮，黑2→21；红83→66出马，黑30→39。两次book=true、depth=0、nodes=0、wait=0。悔棋后再走83→66，黑方仍30→39；随后认输确认和重开，正常输出结果及新局日志，无mountError。截图records/screenshots/opening-book-mobile.png已实看，只有游戏画布，004手、双方棋子、青色着法边框、01000与三个按钮显示完整。日志records/opening-book-interaction.json；manual时钟点击未推进时间，不冒充自然帧试玩或真机性能。
+- 覆盖/资源（runtime=lua-fengari）：标准44种红方基本首着有14种黑方应对，中炮后4候选；其余走搜索，不强行补造书着。逐项见records/opening-book-coverage.json。冷查库单次宿主经过时间19.001ms，含数据表第一次实例化、不含整个脚本编译；不是CPU时间或设备加载/内存结论。未重新运行出库搜索棋力/压力基准，因为搜索配置未改变。
+- 产物：16模块，生成书库722964字节，完整dist/main.lua为792649字节；SHA-256=888bbd93d358a7baf3334e522df7e9300223b8823f6b3f5105bd1490ce368091。正式/测试存档path均为dist/main.lua，非空内联源码与该产物一致，原单脚本挂载保留。此后仅编辑文档/记录，未为时间戳重建产物。
+- 边界：原生模拟器已验证；Web预览4173服务当前未启动，preview_open返回unavailable，未宣称网页已刷新。未部署外部路径、未生成GIA、未真机验证。出库后的送子与PERF-01长帧仍待独立处理；约0.79MB源码不等于Lua运行内存。后续需要时启动Web预览或进入真机加载/内存检查。
