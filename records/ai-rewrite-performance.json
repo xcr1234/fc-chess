@@ -1,0 +1,141 @@
+{
+  "runtime": "lua-fengari",
+  "scope": "isolated real search; no UI/device performance claim",
+  "timingSource": "Fengari 0.1.5 Node os.clock uses process.uptime: host elapsed time including GC/scheduling, not CPU time",
+  "sourceSHA256": "c0855fc708575b75ee4e3d9cd01268e88349022e307a42d46f59e8fb63c94f8f",
+  "samples": [
+    {
+      "profile": "standard",
+      "ply": 1,
+      "initMs": 21.827,
+      "stepP50Ms": 7.106,
+      "stepP95Ms": 12.958,
+      "stepMaxMs": 21.369,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "standard",
+      "ply": 2,
+      "initMs": 15.319,
+      "stepP50Ms": 7.094,
+      "stepP95Ms": 13.687,
+      "stepMaxMs": 19.139,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "standard",
+      "ply": 3,
+      "initMs": 11.091,
+      "stepP50Ms": 7.932,
+      "stepP95Ms": 14.976,
+      "stepMaxMs": 25.411,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "standard",
+      "ply": 4,
+      "initMs": 11.083,
+      "stepP50Ms": 7.118,
+      "stepP95Ms": 14.61,
+      "stepMaxMs": 17.91,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 3
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 1,
+      "initMs": 22.208,
+      "stepP50Ms": 6.662,
+      "stepP95Ms": 9.411,
+      "stepMaxMs": 18.457,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 1
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 2,
+      "initMs": 11.037,
+      "stepP50Ms": 6.896,
+      "stepP95Ms": 12.195,
+      "stepMaxMs": 26.198,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 3
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 3,
+      "initMs": 22.974,
+      "stepP50Ms": 6.957,
+      "stepP95Ms": 11.233,
+      "stepMaxMs": 14.9,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "fifteen-rooks",
+      "ply": 4,
+      "initMs": 6.943,
+      "stepP50Ms": 5.963,
+      "stepP95Ms": 9.231,
+      "stepMaxMs": 13.242,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 1,
+      "initMs": 14.699,
+      "stepP50Ms": 7.297,
+      "stepP95Ms": 12.702,
+      "stepMaxMs": 20.508,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 2,
+      "initMs": 12.113,
+      "stepP50Ms": 6.972,
+      "stepP95Ms": 14.059,
+      "stepMaxMs": 80.034,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 3,
+      "initMs": 13.524,
+      "stepP50Ms": 7.115,
+      "stepP95Ms": 12.471,
+      "stepMaxMs": 16.977,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 2
+    },
+    {
+      "profile": "free-pieces",
+      "ply": 4,
+      "initMs": 11.287,
+      "stepP50Ms": 6.671,
+      "stepP95Ms": 14.347,
+      "stepMaxMs": 20.499,
+      "frames": 201,
+      "nodes": 3200,
+      "depth": 3
+    }
+  ],
+  "exitCode": 0
+}

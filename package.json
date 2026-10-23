@@ -22,6 +22,7 @@
     "check:game-cases": "node scripts/check-game-cases.mjs",
     "test:prototype": "node --test scripts/test-prototype.mjs",
     "test:lua": "node scripts/run-lua-check.mjs tests/lua-regression.lua",
+    "test:lua:pvs": "node scripts/run-lua-check.mjs tests/lua-ai-pvs.lua && node scripts/run-lua-check.mjs tests/lua-ai-threats.lua",
     "test:lua:tactics": "node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua",
     "test:lua:wait": "node scripts/run-lua-check.mjs tests/lua-wait-extension.lua",
     "test:lua:feedback": "node scripts/run-lua-check.mjs tests/lua-feedback.lua",

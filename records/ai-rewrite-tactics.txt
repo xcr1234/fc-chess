@@ -1,0 +1,9 @@
+
+> miliastra-template@0.1.0 test:lua:tactics
+> node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua
+
+PASS out-of-book must not trade cannon for protected horse depth=2 nodes=3200 move=2-21
+PASS save attacked rook depth=3 nodes=350 move=41-50
+PASS take genuinely free rook depth=4 nodes=3200 move=20-56
+PASS immediate king capture depth=1 nodes=50 move=77-86
+PASS quiet escape from rook attack depth=1 nodes=6 move=5-4

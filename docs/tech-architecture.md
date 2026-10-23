@@ -43,3 +43,7 @@
 `game.ai` 私有搜索状态新增eval（红减黑的增量评分）、kings和rootAlpha；每个栈帧保存oldEval/oldKing，与棋盘一起撤销。所有模式共用搜索。根候选的界限分不再作为等待gap。
 
 `game.wait`统一管理困难/自定义基础等待上下限。`game.session`的waitPolicy为可选会话配置；extraWait/remaining为当前计划/剩余等待；extendWait(s,seconds)提供追加入口，取消清零。调用及边界见docs/ai-design.md最新节。
+
+## 分帧PVS内核拆分
+
+game.ai为书库策略及稳定调用门面；game.ai.search独立负责根/内部节点、迭代提交、PVS试探/重搜、TT与预算取消。两者均静态require，打包为同一dist/main.lua，无需额外挂载。job.probes/researches仅供诊断；未新增玩家仪表。详见docs/ai-search-rewrite.md。
