@@ -1,0 +1,17 @@
+
+> miliastra-template@0.1.0 test:simulator-renderer
+> node --test scripts/test-simulator-text-resolution.mjs
+
+✔ a 4x game container rasterizes glyphs at 4x while keeping layout and font size (2.788ms)
+✔ nested rotated and nonuniform parents include device pixel ratio (1.595084ms)
+✔ changing only an ancestor scale refreshes sampling without recreating text (0.742666ms)
+✔ flat paint, shrinkage and large scales stay bounded (0.737583ms)
+✔ the project patch is repeatable, reversible and rejects unexpected vendor changes (5.710583ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53.856167

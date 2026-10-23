@@ -83,7 +83,17 @@ npm run setup -- --proxy http://127.0.0.1:7897
 
 代理保存在本项目 `.codex/mcp.local.json`，不会提交；清除配置用 `npm run setup -- --no-proxy`。宿主的网络限制仍以实际环境为准。
 
-`npm run preview` 启动项目内 Web 编辑器。首次按需创建模拟器存档，给客户端控件挂载 `dist/main.lua`；存档含内联脚本时同步打包内容。模板没有预建 UI 或游戏存档。
+本项目已经包含正式游戏存档。启动浏览器模拟器：
+
+```sh
+npm run preview -- --file fc-chess.save.json
+```
+
+访问 [本地模拟器](http://127.0.0.1:4173)，切换“试玩”并点击“▶ 启动”。终端保持运行，结束时按 `Ctrl+C`。修改Lua后先运行 `npm run build:game`，将同次打包产物同步到正式/测试存档，再刷新网页并重新启动试玩。
+
+`preview`会先自动应用项目内的浏览器文字高清修正：`beyond-simulator-web@0.4.1`原本按小字号生成文字贴图后随父控件放大，修正后按完整父级变换与屏幕像素比提高文字采样精度。补丁源码位于`tools/simulator-text-resolution.mjs`，版本和原始文件SHA-256校验在`scripts/patch-simulator-renderer.mjs`；不会改动游戏Lua或存档。重新安装依赖后启动预览会自动重用修正；升级模拟器版本时需核对补丁，不能跳过校验直接套用。
+
+可单独运行 `npm run patch:simulator` 应用修正，`npm run test:simulator-renderer` 验证缩放、像素比、文字复用与版本保护。已有网页需刷新以重新加载浏览器代码。
 
 ## 编译日期与初始化日志
 

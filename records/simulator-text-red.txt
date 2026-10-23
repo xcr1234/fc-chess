@@ -1,0 +1,82 @@
+✖ a 4x game container rasterizes glyphs at 4x while keeping layout and font size (4.335958ms)
+✖ nested rotated and nonuniform parents include device pixel ratio (1.001292ms)
+✖ changing only an ancestor scale refreshes sampling without recreating text (1.205125ms)
+✖ flat paint, shrinkage and large scales stay bounded (0.958916ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52.321667
+
+✖ failing tests:
+
+test at scripts/test-simulator-text-resolution.mjs:45:1
+✖ a 4x game container rasterizes glyphs at 4x while keeping layout and font size (4.335958ms)
+  AssertionError [ERR_ASSERTION]: Low-resolution text is magnified by the game root
+  
+  1 !== 4
+  
+      at TestContext.<anonymous> (file:///Users/xiechaoran/miliastra/fc-chess/scripts/test-simulator-text-resolution.mjs:48:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-simulator-text-resolution.mjs:51:1
+✖ nested rotated and nonuniform parents include device pixel ratio (1.001292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 12
+  
+      at TestContext.<anonymous> (file:///Users/xiechaoran/miliastra/fc-chess/scripts/test-simulator-text-resolution.mjs:54:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-simulator-text-resolution.mjs:56:1
+✖ changing only an ancestor scale refreshes sampling without recreating text (1.205125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/xiechaoran/miliastra/fc-chess/scripts/test-simulator-text-resolution.mjs:62:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/test-simulator-text-resolution.mjs:64:1
+✖ flat paint, shrinkage and large scales stay bounded (0.958916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 6
+  
+      at TestContext.<anonymous> (file:///Users/xiechaoran/miliastra/fc-chess/scripts/test-simulator-text-resolution.mjs:67:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 6,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

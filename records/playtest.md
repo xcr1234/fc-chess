@@ -184,3 +184,13 @@
 - 覆盖/资源（runtime=lua-fengari）：标准44种红方基本首着有14种黑方应对，中炮后4候选；其余走搜索，不强行补造书着。逐项见records/opening-book-coverage.json。冷查库单次宿主经过时间19.001ms，含数据表第一次实例化、不含整个脚本编译；不是CPU时间或设备加载/内存结论。未重新运行出库搜索棋力/压力基准，因为搜索配置未改变。
 - 产物：16模块，生成书库722964字节，完整dist/main.lua为792649字节；SHA-256=888bbd93d358a7baf3334e522df7e9300223b8823f6b3f5105bd1490ce368091。正式/测试存档path均为dist/main.lua，非空内联源码与该产物一致，原单脚本挂载保留。此后仅编辑文档/记录，未为时间戳重建产物。
 - 边界：原生模拟器已验证；Web预览4173服务当前未启动，preview_open返回unavailable，未宣称网页已刷新。未部署外部路径、未生成GIA、未真机验证。出库后的送子与PERF-01长帧仍待独立处理；约0.79MB源码不等于Lua运行内存。后续需要时启动Web预览或进入真机加载/内存检查。
+
+# 2026-10-23：浏览器文字贴图放大模糊修复
+
+- 用户证据：用户本机浏览器截图显示菜单文字发虚，头像相对清楚。此前截图由原生宿主绘制，不能证明浏览器Pixi文字清晰。随后已启动Web服务并读取真实网页，不继续用原生截图代替浏览器验收。
+- 观察Red（runtime=simulator-web，Codex，真实浏览器）：正式存档菜单在PC1600×900画布内运行；浏览器DPR=1，canvas实际1600×900，CSS显示682×384.5，标题、模式名和小字均发虚。游戏根按900/224放大，Web 0.4.1文本贴图没有相应增加采样分辨率。
+- 自动Red（runtime=node-renderer）：执行已安装浏览器bundle的真实applyScene/render/更新方法，Pixi绘制对象使用Node替身保留父子关系与文字resolution，不需要WebGL。4例有效失败：4倍父级采样仍1、DPR2叠加嵌套变换仍2、仅父级改变未刷新、flat paint缩放未提升。记录records/simulator-text-red.txt，非路径或加载错误。
+- 修复：项目补丁给文本视觉对象保留引用，在所有scene/paint更新完成后合成完整父级线性变换，以最大奇异值×renderer像素比提高贴图采样；0.25分桶、16封顶，文字字号、局面坐标与交互范围不变。tools/simulator-text-resolution.mjs为维护源，scripts/patch-simulator-renderer.mjs校验0.4.1和上游原文件SHA-256后原子替换，preview命令启动前自动应用。没有全局安装或直接提交node_modules。
+- 自动Green（runtime=node-renderer）：上述4例通过；另验证重复应用不改变输出、可精确还原原文件、未知上游改动拒绝覆盖。共5/5通过，记录records/simulator-text-green.txt。未改Lua引擎/存档，因此不重复无关60项棋规回归。
+- 浏览器Green（runtime=simulator-web，真实WebGL/Pixi）：刷新页面重新加载bundle，进入试玩并启动。菜单“中国象棋”、模式名称及副标题明显清晰；点击快速模式，对局棋子、左右信息、计数与三个按钮清晰；打开返回模式选择弹窗，“返回模式選擇？”与是/否清晰，确认后回菜单。控制台error为空。截图records/screenshots/simulator-text-clear-menu.jpg、simulator-text-clear-board.jpg均从浏览器截图裁至游戏画布，不是原生宿主截图。
+- 范围：浏览器实际检查DPR1；DPR2、旋转、非均匀缩放、父级动画及极端倍率由自动渲染器用例覆盖。未承诺所有设备的字体/性能一致，未改变游戏Lua、现成开局库或画布设计，未部署真机；存档继续使用此前已验收的888bbd93d358a7baf3334e522df7e9300223b8823f6b3f5105bd1490ce368091产物。
