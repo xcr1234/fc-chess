@@ -1,0 +1,271 @@
+{
+  "runtime": "simulator",
+  "scope": "full viewport pixels and client input; simulator has no native 3D movement or HUD",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "menu",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "中國象棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-menu-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "board",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-board-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "settings",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "100%",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-settings-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "menu",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "中國象棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-menu-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "board",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-board-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "settings",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "100%",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-settings-pc-21-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "menu",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "中國象棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-menu-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "board",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-board-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "settings",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "100%",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/screen-shell-full-settings-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "menu",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "中國象棋",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "board",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "settings",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "100%",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "menu",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "中國象棋",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "board",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "settings",
+      "passed": true,
+      "wasdEvents": 8,
+      "opaqueCorners": 4,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "100%",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "luaSHA256": "76ac5ce43743efabb51dd05aa26cefdd63a848c02237ed9b2a29713b9a668d48"
+}

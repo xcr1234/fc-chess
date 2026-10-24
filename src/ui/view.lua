@@ -4,12 +4,12 @@ local B=require('game.board')
 local S=require('game.session')
 local Counter=require('game.thinking_counter')
 local Settings=require('audio.settings')
+local Screen=require('ui.screen')
 local M={}
 local glyph={r='車',n='馬',e='象',a='士',k='將',c='砲',p='卒',R='車',N='馬',E='相',A='仕',K='帥',C='砲',P='兵'}
-local root,page,overlay,pageKind,overlayKind,onAction,onSquare
+local root,screen,page,overlay,pageKind,overlayKind,onAction,onSquare
 local pieces={}
 local aiFrames={}
-local lastWidth,lastHeight
 local function text(n,x,y,w,h,v,c,z,p) return U.text(p or page,n,x-128,y-112,w,h,v,c,z) end
 local function rect(n,x,y,w,h,c,p) return U.image(p or page,n,x-128,y-112,w,h,c) end
 local function button(n,label,x,y,w,h,p)
@@ -21,13 +21,14 @@ local function line(n,x,y,w,h,angle)
  local c=rect(n,x,y,w,h,'352599');if angle then c:SetLocalRotation(0,0,angle) end
 end
 function M.init(host,action,square)
- onAction=action;onSquare=square;root=U.create('container',host,'GameRoot',0,0,256,224);root.showCursor=true
+ onAction=action;onSquare=square;screen=Screen.new(host);root=screen.content
  M.resize();return root
 end
-function M.resize() local w,h=game.GetUICanvasSize();if w~=lastWidth or h~=lastHeight then local z=math.min(w/256,h/224);root:SetLocalScale(z,z,1);lastWidth=w;lastHeight=h end end
+function M.resize()local w,h=game.GetUICanvasSize();Screen.resize(screen,w,h)end
 local function build(kind,s)
  if page then game.DestroyClientUIControl(page) end
  page=U.create('container',root,'Page',0,0,256,224);page.showCursor=true;pieces={}
+ Screen.color(screen,kind=='menu' and '6840fa' or '193b57')
  rect('Background',128,112,256,224,kind=='menu' and '6840fa' or '193b57')
  if kind=='audio-settings' then
   text('SettingsTitle',128,198,190,24,'聲音設定','fff9e9',16)
@@ -148,5 +149,5 @@ function M.render(s)
   end
  end
 end
-function M.destroy() if root then game.DestroyClientUIControl(root) end root=nil;page=nil;overlay=nil;pageKind=nil;overlayKind=nil;lastWidth=nil;lastHeight=nil;U.refs={} end
+function M.destroy() Screen.destroy(screen);screen=nil;root=nil;page=nil;overlay=nil;pageKind=nil;overlayKind=nil;U.refs={} end
 return M

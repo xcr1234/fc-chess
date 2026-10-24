@@ -26,6 +26,8 @@
     "test:lua:undo": "node scripts/run-lua-check.mjs tests/lua-undo-confirm.lua",
     "test:lua:result-review": "node scripts/run-lua-check.mjs tests/lua-result-review.lua",
     "test:lua:native-text": "node scripts/run-lua-check.mjs tests/lua-native-text.lua",
+    "test:lua:screen": "node scripts/run-lua-check.mjs tests/lua-screen-shell.lua",
+    "test:screen:simulator": "node scripts/test-screen-shell.mjs",
     "test:native-text:layouts": "node scripts/test-native-text-layouts.mjs",
     "test:result-review:simulator": "node scripts/test-result-review-layouts.mjs",
     "test:lua:audio": "node scripts/run-lua-check.mjs tests/lua-audio-settings.lua && node scripts/run-lua-check.mjs tests/lua-audio-controller.lua",

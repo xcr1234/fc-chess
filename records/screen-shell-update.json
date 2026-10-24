@@ -1,0 +1,40 @@
+{
+  "runtime": "lua-model/simulator/filesystem",
+  "scope": "full-window backdrop and WASD client-input isolation; native HUD is configured by user",
+  "red": {
+    "screenCasesFailed": 4
+  },
+  "green": {
+    "screenLua": 4,
+    "audioLua": 13,
+    "nativeTextLua": 4,
+    "canvases": 5,
+    "layoutScenes": 40,
+    "layoutAssertions": 95,
+    "viewportScenes": 15,
+    "opaqueCornerSamples": 60,
+    "wasdEvents": 120,
+    "simulatorCases": 82,
+    "simulatorAssertions": 334
+  },
+  "testedSHA256": "76ac5ce43743efabb51dd05aa26cefdd63a848c02237ed9b2a29713b9a668d48",
+  "testedBuildDate": "2026-10-24 20:46:05.604 +08:00",
+  "testedCanonicalSHA256": "a369ad740f52b301edf51c10a980cd56a63413724e6a8ad250129be53dfd63e7",
+  "native": {
+    "hud": "manual by user; no game window input was performed",
+    "backdropAndMovement": "pending user save/reload/retest",
+    "simulatorLimitation": "no native 3D movement or HUD model"
+  },
+  "deployment": {
+    "status": "copied-and-sha256-verified",
+    "config": "lua.deploy.local.json",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "builtAt": "2026-10-24 20:54:01.418 +08:00",
+    "sha256": "7d39dc75acc84daf18f03c9f784d9e12bfa05776a9e4a824efc298590e9c79e5",
+    "backup": ".lua-deploy-backups/1792846441533-7b912e20-6c42-444c-887b-bc7f8eb94b38.lua",
+    "backupSHA256": "30791d99e5e33881f9780c08589f61ced930033f4822b018367893f64a1ee613",
+    "sameTestedProgramExceptBuildTimestamp": true,
+    "saveInlineSourcesMatch": true,
+    "delivery": "export/2026-10-24-screen-shell/main.lua"
+  }
+}

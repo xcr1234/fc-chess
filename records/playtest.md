@@ -359,3 +359,10 @@
 - runtime=simulator；五画布×8场景，覆盖菜单、棋盘、离局确认、声音设置、选曲、棋种、结果、落子/确认悔棋。更新受影响文案断言，设置/音量/选曲/离局入口使用实际浏览器绑定产生的轻微抖动pointer；records/settings-layout-polish-layouts.json。22张截图仅画布，手机设置/棋盘/确认已目视，六字离局按钮完整一行，三项设置间距与边缘对齐。
 - runtime=html-controller/lua-model/simulator；HTML23项、原生文字4项、4个离局/取消/重开/回看定向用例通过；records/settings-layout-polish-regression.json。本轮纯视图/文案，未重复AI全量回归，未声称上述结果为真机通过。
 - runtime=filesystem；发布与备份/哈希记录见records/settings-layout-polish-update.json；实际保存重新加载及真机新布局/按钮/提示仍待用户验证。
+
+## 2026-10-24：遮住3D留边与隔离WASD
+
+- runtime=device；执行者：用户；来源：棋盘居中、两侧露出3D场景及默认HUD的真机截图，并询问禁用WASD。截图未用于推断特定原生HUD层级或键盘回调行为，也不将其写入仓库以避免带入玩家标识。
+- runtime=lua-model；旧视图4项Red，新屏幕层4项Green：全窗背景/尺寸变化保持棋盘等比、8个WASD Down/Up回调返回true、点击屏障位于互动内容之下且覆盖留边、销毁/重建不遗留屏幕层。tests/lua-screen-shell.lua是官方接口契约模型，不是原神移动引擎。
+- runtime=simulator；五画布×标题/棋盘/设置15流程，60个角像素均为对应不透明背景，120个WASD事件及边缘点击后保持页面/零手状态。records/screen-shell-viewport.json含9张完整UI视口截图用于验证遮底，宽屏棋盘已目视；不以其证明原生3D/HUD行为。复用40场景/95断言通过，真实绑定的轻微抖动pointer覆盖菜单/落子/设置/选曲/确认；22张裁切游戏画布截图。音频Lua13项、原生文字4项通过。
+- runtime=simulator/filesystem；整层更改后的完整玩法回归、发布与备份/哈希见records/screen-shell-simulator.json和records/screen-shell-update.json。用户自行配置当前职业引用的界面布局固有HUD；本轮仅查询窗口列表，无原神窗口点击/键盘/配置操作。新脚本真机遮底、WASD不移动和HUD配置仍待用户验证。
