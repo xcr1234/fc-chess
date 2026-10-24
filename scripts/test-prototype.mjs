@@ -93,13 +93,27 @@ test('real controller: confirmation keeps black clock running and applies ready 
 });
 test('real controller: undo invalidates waiting reply and resets only new red step',()=>{
  const h=appHarness();h.input('ok');h.square(0,6);h.square(0,5);const due=h.state.reply.due;
- h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.render(due+1000);
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');assert.equal(h.state.modal.type,'undo');assert.equal(h.state.moves,1);
+ h.input('left');h.input('ok');h.render(due+1000);
  assert.equal(h.state.moves,0);assert.equal(h.state.turn,'red');assert.equal(h.state.reply,null);assert.equal(h.state.board[54],'P');assert.equal(h.clock.black,0);
+});
+test('real controller: declining undo preserves history and releases a ready AI reply once',()=>{
+ const h=appHarness();h.input('ok');h.square(0,6);h.square(0,5);const due=h.state.reply.due;
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');assert.equal(h.state.modal.type,'undo');
+ h.render(due+1000);assert.equal(h.state.moves,1);assert.equal(h.state.history.length,1);
+ h.input('ok');h.render(due+1100);assert.equal(h.state.moves,2);assert.equal(h.state.modal,null);
+ h.render(due+1200);assert.equal(h.state.moves,2);
+});
+test('real controller: confirming undo discards a ready AI reply',()=>{
+ const h=appHarness();h.input('ok');h.square(0,6);h.square(0,5);const due=h.state.reply.due;
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.render(due+1000);
+ assert.equal(h.state.moves,1);h.input('left');h.input('ok');h.render(due+1100);
+ assert.equal(h.state.moves,0);assert.equal(h.state.history.length,0);assert.equal(h.state.reply,null);
 });
 test('real controller: capture ends game, decline capture does not; result clock stays stopped',()=>{
  const h=appHarness();h.resetGame(board([[4,9,'K'],[4,0,'k'],[4,5,'R'],[0,6,'P']]),0);
  h.square(0,6);h.square(0,5);assert.equal(h.state.scene,'game');
- h.state.zone='panel';h.state.sideIndex=0;h.input('ok');
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
  h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您獲勝了');assert.equal(h.state.board[4],'R');
  const times=[h.clock.red,h.clock.black];h.render(60000);assert.deepEqual([h.clock.red,h.clock.black],times);
 });

@@ -47,7 +47,8 @@ try {
       };
       if (scenario === 'jitter-undo') {
         click('TestSetup_undo-wait'); click('Square_0_6'); click('Square_0_5'); check('MoveCount', '001手');
-        tap(227.5, 93.5); check('MoveCount', '000手'); check('TurnText', '紅方');
+        tap(227.5, 93.5); check('ConfirmTitle', '要悔棋嗎？'); check('MoveCount', '001手');
+        tap(92, 88); check('MoveCount', '000手'); check('TurnText', '紅方');
       } else {
         click('ModeDifficult');
         if (scenario === 'real-drag') {

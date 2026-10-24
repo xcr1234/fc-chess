@@ -1591,6 +1591,30 @@
         ],
         "waitSeconds": 0
       }
+    },
+    {
+      "case": "undo-confirm-cancel",
+      "file": "cases/undo-confirm-cancel.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "undo-confirm-ready-yes",
+      "file": "cases/undo-confirm-ready-yes.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "undo-confirm-ready-no",
+      "file": "cases/undo-confirm-ready-no.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
     }
   ]
 }

@@ -92,6 +92,14 @@
       "payload": {
         "name": "UndoButton"
       }
+    },
+    {
+      "t": 1.15,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
     }
   ],
   "asserts": [
@@ -121,7 +129,7 @@
     },
     {
       "kind": "control",
-      "at": 1.2,
+      "at": 1.25,
       "id": "",
       "name": "MoveCount",
       "field": "text",

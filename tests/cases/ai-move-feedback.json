@@ -44,6 +44,14 @@
       "payload": {
         "name": "UndoButton"
       }
+    },
+    {
+      "t": 4.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
     }
   ],
   "asserts": [
@@ -145,7 +153,7 @@
     },
     {
       "kind": "control",
-      "at": 4.3,
+      "at": 4.4,
       "id": "",
       "name": "AILastFrom",
       "field": "visible",
@@ -153,7 +161,7 @@
     },
     {
       "kind": "control",
-      "at": 4.3,
+      "at": 4.4,
       "id": "",
       "name": "AILastTo",
       "field": "visible",
@@ -161,7 +169,7 @@
     },
     {
       "kind": "control",
-      "at": 4.3,
+      "at": 4.4,
       "id": "",
       "name": "AIThinkingNumber",
       "field": "text",

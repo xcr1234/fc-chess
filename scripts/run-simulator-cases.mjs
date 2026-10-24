@@ -106,8 +106,8 @@ try {
       // Native pointer coordinates use a bottom-left origin. Test the far
       // right edge of the pawn hit box, then modal blocking and undo.
       const test={format:'qxqy-autotest',version:1,name:'pointer-'+canvasId,dt:.05,
-        events:[point(.1,131.5,148),point(.2,191.5,80),point(.3,191.5,96),point(.4,227.5,72.5),point(.5,56,80),point(.6,164,88),point(.7,227.5,93.5)],
-        asserts:[check(.35,'MoveCount','001手'),check(.45,'ConfirmTitle','要認輸嗎？'),check(.55,'MoveCount','001手'),check(.8,'MoveCount','000手'),check(.8,'TurnText','紅方')]};
+        events:[point(.1,131.5,148),point(.2,191.5,80),point(.3,191.5,96),point(.4,227.5,72.5),point(.5,56,80),point(.6,164,88),point(.7,227.5,93.5),point(.8,92,88)],
+        asserts:[check(.35,'MoveCount','001手'),check(.45,'ConfirmTitle','要認輸嗎？'),check(.55,'MoveCount','001手'),check(.9,'MoveCount','000手'),check(.9,'TurnText','紅方')]};
       const result=await call('qxqy_studio_play',{handle,action:'runCase',args:{canvasId,case:test}});
       report.results.push({canvasId,kind:'pointer',case:test,...result});
       if(!result.passed || result.results.length!==5)throw new Error('Pointer smoke failed: '+canvasId);

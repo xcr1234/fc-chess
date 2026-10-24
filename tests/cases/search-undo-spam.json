@@ -54,7 +54,15 @@
       }
     },
     {
-      "t": 0.7,
+      "t": 0.65,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 0.75,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -62,7 +70,7 @@
       }
     },
     {
-      "t": 0.8,
+      "t": 0.85,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -70,7 +78,7 @@
       }
     },
     {
-      "t": 0.9,
+      "t": 0.95,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -78,11 +86,19 @@
       }
     },
     {
-      "t": 1,
+      "t": 1.05,
       "source": "user",
       "kind": "click",
       "payload": {
         "name": "UndoButton"
+      }
+    },
+    {
+      "t": 1.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
       }
     }
   ],
@@ -97,7 +113,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.1,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -105,7 +121,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.1,
       "id": "",
       "name": "TurnText",
       "field": "text",
@@ -113,7 +129,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.1,
       "id": "",
       "name": "PendingReply",
       "field": "text",

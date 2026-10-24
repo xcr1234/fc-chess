@@ -1,0 +1,115 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "undo-confirm-cancel",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-move-feedback"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_2_6"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 1.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "ConfirmTitle",
+      "field": "text",
+      "equals": "要悔棋嗎？"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "SelectedSquare",
+      "field": "text",
+      "equals": "none"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "ConfirmTitle",
+      "field": "text",
+      "equals": "要悔棋嗎？"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "ai-search"
+    }
+  ]
+}

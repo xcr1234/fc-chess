@@ -1,3 +1,12 @@
+# 悔棋增加确认（2026-10-24）
+
+- 用户要求悔棋与认输一样先确认，按受影响步骤2→5→6执行[计划](../tests/undo-confirm-plan.md)。有历史时显示“要悔棋嗎？”与“是/否”，默认聚焦否；是才撤回，否继续，无历史直接提示。GDD、规格、Lua与HTML演示同步更新，复用既有确认层，无新增平台API。
+- 弹窗期间AI继续计算/等待与计时，但延后落子；确认撤回会取消搜索/清除已就绪回棋，取消弹窗则仅提交一次已就绪回棋。保留原撤一步/两步、反馈恢复与版本失效逻辑。
+- 有效Red：新增6组Lua检查5失败/1通过，`records/undo-confirm-red.txt`；实现后6/6通过。相关5套Lua共34组通过、HTML16/16；`undo-confirm-lua-green.txt`与`undo-confirm-prototype.txt`。
+- 原生模拟器70/70、284断言（新增3用例）；真实浏览器输入绑定→原生Worker五画布20/20、460断言（带抖动打开确认并点是），见`undo-confirm-simulator.json`、`undo-confirm-input-native.json`。上轮点击容差保持有效。
+- 正式浏览器已实际检查：001手弹窗→选否继续至AI回棋002手→再次悔棋确认是→000手/红方/已悔棋；[画布截图](../records/screenshots/undo-confirm-browser.png)保留新弹窗。runtime=simulator-browser；没有真机或外部部署结论。
+- 同次25模块打包并显式同步正式/测试存档，SHA-256=`ee970810bebca7c9d0fe5ced45765eb0fff382641adbf00b0e8504e65de6f31f`。当前为模拟器候选；原有`records/lua-step5-regression.json`改动保持并排除提交。
+
 # 模拟器选子、落点与悔棋漏点修复（2026-10-24）
 
 - 用户确认来源是模拟器预览，表现为多次点击才选中、怀疑只能点中心。按受影响步骤2→5→6执行[输入回归计划](../tests/simulator-input-plan.md)，本轮修复浏览器预览输入层。

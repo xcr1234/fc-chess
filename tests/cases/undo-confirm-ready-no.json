@@ -1,0 +1,115 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "undo-confirm-ready-no",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-move-feedback"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 4.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    },
+    {
+      "t": 4.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.7,
+      "id": "",
+      "name": "ConfirmTitle",
+      "field": "text",
+      "equals": "要悔棋嗎？"
+    },
+    {
+      "kind": "control",
+      "at": 4,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 4,
+      "id": "",
+      "name": "PendingReply",
+      "field": "text",
+      "equals": "pending"
+    },
+    {
+      "kind": "control",
+      "at": 4.3,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 4.3,
+      "id": "",
+      "name": "TurnText",
+      "field": "text",
+      "equals": "紅方"
+    },
+    {
+      "kind": "control",
+      "at": 20,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 20,
+      "id": "",
+      "name": "PendingReply",
+      "field": "text",
+      "equals": "none"
+    }
+  ]
+}

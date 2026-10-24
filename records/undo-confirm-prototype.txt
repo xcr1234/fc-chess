@@ -1,0 +1,28 @@
+
+> miliastra-template@0.1.0 test:prototype
+> node --test scripts/test-prototype.mjs
+
+✔ capture king is legal; exposing own king and ignoring threats are allowed (0.7849ms)
+✔ flying general captures only enemy king across an empty file (0.1083ms)
+✔ custom red advisor leaves palace and elephant crosses river; black stays standard (0.1184ms)
+✔ horse leg, cannon screen, own pieces and board bounds still constrain moves (0.0884ms)
+✔ all 15 rooks are represented and can generate moves (0.6981ms)
+✔ step clock resets the new mover, keeps only opposite previous step and stops at result (0.2076ms)
+✔ complexity changes wait; fast adds zero; bounds and missing metrics are safe (0.2474ms)
+✔ real preview controller: quick reply has no artificial delay (7.3358ms)
+✔ real controller: confirmation keeps black clock running and applies ready reply once (6.823ms)
+✔ real controller: undo invalidates waiting reply and resets only new red step (4.6094ms)
+✔ real controller: declining undo preserves history and releases a ready AI reply once (5.7407ms)
+✔ real controller: confirming undo discards a ready AI reply (4.2019ms)
+✔ real controller: capture ends game, decline capture does not; result clock stays stopped (1.8282ms)
+✔ real controller: custom draft and initial lineup survive return/restart (1.022ms)
+✔ real controller: identical positions may repeat without draw or perpetual-check result (4.3663ms)
+✔ real controller: exposed red king is captured and produces defeat (1.3344ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.9296

@@ -118,8 +118,8 @@
   }
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
-    text(m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回模式選擇？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
-    if (m.type !== 'resign') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
+    text(m.type === 'undo' ? '要悔棋嗎？' : m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回模式選擇？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
+    if (m.type === 'menu' || m.type === 'custom') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {
@@ -196,10 +196,14 @@
       return;
     }
     if (state.sideIndex === 0) {
-      const last = state.history.pop();
-      if (!last) { announce('尚無棋步可悔'); return; }
-      state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
+      if (!state.history.length) { announce('尚無棋步可悔'); return; }
+      state.modal = {type: 'undo', choice: 1};
     } else state.modal = {type: state.sideIndex === 1 ? 'resign' : 'menu', choice: 1};
+  }
+  function undoMove() {
+    const last = state.history.pop();
+    if (!last) return;
+    state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
   }
   function input(key) {
     clock.update(performance.now());
@@ -221,7 +225,8 @@
       if (key === 'ok') {
         const m = state.modal; state.modal = null;
         if (m.choice === 0) {
-          if (m.type === 'custom') enterEdit();
+          if (m.type === 'undo') undoMove();
+          else if (m.type === 'custom') enterEdit();
           else if (m.type === 'menu') toMenu();
           else finish('您落敗了', '主動認輸');
         }

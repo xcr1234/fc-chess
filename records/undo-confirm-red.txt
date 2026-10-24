@@ -1,0 +1,7 @@
+FAIL undo button asks first and blocks squares and other actions without consuming history: [string "package.preload["app.log"]=function()..."]:9794: assertion failed!
+FAIL declining a ready reply releases it exactly once: [string "package.preload["app.log"]=function()..."]:9801: assertion failed!
+FAIL confirming discards a ready reply and restores board, history and feedback: [string "package.preload["app.log"]=function()..."]:9807: assertion failed!
+FAIL confirming during a real unfinished search cancels and restores it: [string "package.preload["app.log"]=function()..."]:9816: assertion failed!
+FAIL completed pairs require confirmation and still undo only one player action: [string "package.preload["app.log"]=function()..."]:9821: assertion failed!
+PASS empty history stays informative; resign and menu confirmations retain their meaning
+[string "package.preload["app.log"]=function()..."]:9830: 5 undo confirmation regressions failed

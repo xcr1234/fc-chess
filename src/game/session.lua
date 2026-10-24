@@ -104,7 +104,10 @@ end
 function M.action(s,name)
  if s.modal then
   if name=='ConfirmNo' then s.modal=nil;if s.ready then M.submitReply(s) end
-  elseif name=='ConfirmYes' then if s.modal=='resign' then M.finish(s,'您落敗了','主動認輸') else M.menu(s) end end
+  elseif name=='ConfirmYes' then
+   if s.modal=='undo' then s.modal=nil;M.undo(s)
+   elseif s.modal=='resign' then M.finish(s,'您落敗了','主動認輸') else M.menu(s) end
+  end
   return
  end
  if s.palette then
@@ -122,7 +125,7 @@ function M.action(s,name)
   elseif name=='EditBackButton' then M.menu(s) end
  elseif s.scene=='result' then
   if name=='RestartButton' then M.start(s,s.mode,s.initial) elseif name=='ModeButton' then M.menu(s) end
- elseif name=='UndoButton' then M.undo(s)
+ elseif name=='UndoButton' then if #s.history>0 then s.modal='undo' else s.status='尚無棋步可悔' end
  elseif name=='ResignButton' then s.modal='resign'
  elseif name=='ModeButton' then s.modal='menu' end
 end

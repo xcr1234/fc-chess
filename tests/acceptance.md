@@ -38,8 +38,8 @@
 | [decline-capture](cases/decline-capture.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=001手；Piece_4_0=k；SceneState=ai-search |
 | [flying-king](cases/flying-king.json) | 定向夹具（见plan.json） | Square_4_9 → Square_4_0 | MoveCount=001手；SceneState=result；ResultTitle=您獲勝了 |
 | [repeat-continues](cases/repeat-continues.json) | 定向夹具（见plan.json） | Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 → Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 → Square_0_5 → Square_1_5 → Square_1_5 → Square_0_5 | SceneState=player-turn；MoveCount=012手 |
-| [undo-wait](cases/undo-wait.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；PendingReply=none |
-| [undo-pair](cases/undo-pair.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton | MoveCount=000手；TurnText=紅方；RedStepTime=00:00 |
+| [undo-wait](cases/undo-wait.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton → ConfirmYes | MoveCount=000手；TurnText=紅方；PendingReply=none |
+| [undo-pair](cases/undo-pair.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → UndoButton → ConfirmYes | MoveCount=000手；TurnText=紅方；RedStepTime=00:00 |
 | [stale-version](cases/stale-version.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 → ModeButton → ConfirmYes → ModeFast | MoveCount=000手；TurnText=紅方 |
 | [step-only](cases/step-only.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | RedStepTime=00:03；AIThinkingNumber=11800 |
 | [step-invalid](cases/step-invalid.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_7 | RedStepTime=00:07；MoveCount=000手 |
@@ -69,7 +69,9 @@
 | edge-contact | 最右路兵非法后退，再前进 | 拒绝非法着法，只计合法一步 |
 | input-spam | 连点取消、空悔棋、取消确认、思考期间点棋、悔棋 | 不重复提交，恢复000手 |
 
-五画布坐标检查从菜单直接点困难、点击第9路兵热区右缘及目标、打开确认并点击棋盘、取消后悔棋；断言001手→确认层保持001手→000手。此处验证模拟器坐标输入，不等于真实手机触摸证据。
+五画布坐标检查从菜单直接点困难、点击第9路兵热区右缘及目标、打开确认并点击棋盘、取消后点悔棋并确认“是”；断言001手→确认层保持001手→000手。此处验证模拟器坐标输入，不等于真实手机触摸证据。
+
+2026-10-24追加悔棋确认：`undo-confirm-cancel`验证标题“要悔棋嗎？”、屏蔽棋盘/其他按钮、取消不撤棋；`undo-confirm-ready-yes/no`分别验证AI就绪仍等确认、确认撤回并丢弃旧回棋、取消后仅回棋一次。其余悔棋用例已补ConfirmYes步骤；追踪见[悔棋确认计划](undo-confirm-plan.md)。
 
 | 项目 | 操作 | 预期/证据 |
 |---|---|---|

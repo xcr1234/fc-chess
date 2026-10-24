@@ -271,3 +271,13 @@
 - runtime=simulator：既有67/67用例、264断言通过，`simulator-input-regression.json`。Lua及两存档仍为上一批SHA-256=`89d40d9fd440f09c1088522665716b406c96d06ca2f2e2b03cb694119d97722f`，本次未改Lua或存档。
 - runtime=simulator-browser，Codex实际试玩：本机Live Preview重载最终JS，以约2×1 CSS px按住微移在左边缘选兵、边缘目标格推进，再对悔棋做同样微移，观察red 55→46、undo version=3且回到000手/红方；[画布截图](screenshots/simulator-input-browser.png)保留选中状态。截图裁掉浏览器和等比预览留边，没有把外围工具纳入游戏画面。
 - 状态：项目内补丁已应用，已有页面刷新后加载；`npm run preview`自动恢复此修正。没有外部部署或真机结论；原有`lua-step5-regression.json`改动保持并排除本次提交。
+
+## 2026-10-24 悔棋确认
+
+- 来源：用户要求悔棋与认输一样增加是否确认。步骤2→5→6窄改，复用既有确认控件/官方API；Lua与HTML演示均显示“要悔棋嗎？”和“是/否”，默认否，无历史直接提示。
+- runtime=lua-fengari，Codex：新增6组定向检查旧版5失败/1通过（undo-confirm-red.txt），修改后6/6；连同规则/反馈/等待/书库共5套34组通过（undo-confirm-lua-green.txt）。验证确认前历史/棋盘不变、遮罩阻挡、取消、AI就绪后是/否、真实搜索取消、一次/两步恢复与重复确认。
+- runtime=html-controller：16/16通过（undo-confirm-prototype.txt），新增取消/确认就绪回棋测试；HTML未新增浏览器视觉证据。
+- runtime=simulator：同次产物70/70用例、284断言，新增undo-confirm-cancel/ready-yes/ready-no；原有6个悔棋相关用例显式增加ConfirmYes，保留原状态断言。证据undo-confirm-simulator.json。
+- runtime=simulator-browser-binding-to-native-worker：五画布20/20、460断言，悔棋微抖输入先检查确认标题与001手，再微抖点是恢复000手/红方；棋格边缘与真实拖拽仍通过，undo-confirm-input-native.json。
+- runtime=simulator-browser，Codex实际操作：正式存档构建日期14:24:32 +08:00。红兵55→46后点悔棋出现新确认；否返回对局，AI随后2→21且002手；再次悔棋选是恢复初局000手/红方/已悔棋，日志undo version=2。截图screenshots/undo-confirm-browser.png仅裁到游戏画布。
+- 同次25模块Lua SHA-256=ee970810bebca7c9d0fe5ced45765eb0fff382641adbf00b0e8504e65de6f31f，两存档path/source显式同步；未外部部署、未真机验证。原有lua-step5-regression.json改动保持并排除提交。

@@ -1,5 +1,9 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-24 悔棋确认
+
+`session.action(UndoButton)`有历史时设置`modal='undo'`，复用原确认遮罩和默认“否”焦点。ConfirmYes先关闭modal再调用原`undo`，保证取消任务与清除就绪回棋；ConfirmNo沿用原确认取消入口，必要时提交一次就绪回棋。`view`按modal类型显示“要悔棋嗎？”，原认输与回菜单语义保留。没有新增控件模板/平台API；HTML演示同步。无历史直接提示，不显示无效确认。
+
 ## 2026-10-24 模拟器浏览器点击容差
 
 `tools/simulator-pointer-slop.mjs`由项目预览补丁嵌入0.4.1的真实`createPlaySession.bindInput`：按下后不足5 CSS px的累计移动不发给Worker，首次达到阈值立即发送，后续沿用原移动合并；释放时补足未收到move的大位移，取消/失去捕获/重启不污染下一次点击。原版Worker任意微移都会阻止CursorClick，此处仅修正浏览器输入，Lua与真机语义保持原实现。棋格热区16×16覆盖整个交点单元；边缘命中、轻点及拖拽证据见`records/simulator-input-native.json`。补丁仍校验固定版本和原始哈希，`npm run preview`自动应用；已有网页需要刷新。

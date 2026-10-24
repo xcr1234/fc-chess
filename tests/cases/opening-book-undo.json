@@ -38,7 +38,15 @@
       }
     },
     {
-      "t": 0.6,
+      "t": 0.55,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 0.65,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -46,7 +54,7 @@
       }
     },
     {
-      "t": 0.7,
+      "t": 0.75,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -81,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 0.55,
+      "at": 0.6,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -89,7 +97,7 @@
     },
     {
       "kind": "control",
-      "at": 0.8,
+      "at": 0.85,
       "id": "",
       "name": "BookUsed",
       "field": "text",
@@ -97,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 20,
+      "at": 20.05,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -105,7 +113,7 @@
     },
     {
       "kind": "control",
-      "at": 20,
+      "at": 20.05,
       "id": "",
       "name": "Piece_6_2",
       "field": "text",

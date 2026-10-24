@@ -23,6 +23,7 @@
 - `npm run test:ai:smoke`：16 局标准档短时限初测，记录完整棋谱/实际时间/超时及起点相关性；报告 `records/ai-strength-smoke.json`，不能当作正式棋力赛。
 - `npm run test:ai:smoke -- --output ai-throughput-strength-smoke.json`：另存本批对照；写入暂时占用会重试，`--resume`仅接受源码指纹/起点/时限一致的未完成记录，并记录跨进程恢复边界。
 - `npm run test:lua:feedback`：6组AI边框/数字/等待关联/确认/悔棋/终局回归。
+- `npm run test:lua:undo`：6组悔棋确认、取消、AI就绪处理、真实搜索取消、连续确认与无历史回归。
 - `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主耗时采样；不是设备性能结果。
 - `npm run test:lua:performance`：单独运行标准/15车/自由士相各4次真实搜索，记录初始化及step的P50/P95/最大宿主耗时。采样期间停止其他测试与浏览器试玩，报告为 `records/lua-step6-performance.json`；单轮宿主数据不能当作性能改善百分比或真机结论。
 - `npm run test:simulator`：通过项目内MCP运行全部原生用例，先验证两个存档与dist源码一致，拒绝空用例；输出带产物SHA-256的报告。
