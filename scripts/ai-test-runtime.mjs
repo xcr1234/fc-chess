@@ -74,9 +74,9 @@ function pushValue(L,value){
   }
  }
 }
-export function createLuaEngine(){
+export function createLuaEngine(transform){
  const started=performance.now();const L=lauxlib.luaL_newstate();lualib.luaL_openlibs(L);
- const source=preloadModules(['game.ai','game.board'])+`
+ const source=preloadModules(['game.ai','game.board'],transform)+`
 coroutine=nil
 local A=require('game.ai');local B=require('game.board');local P=require('game.ai.position');local G=require('game.ai.movegen')
 local job,root,side,custom
@@ -98,7 +98,7 @@ function __fc_result()
   if job.rules.standard then assert(G.safe(clean,P.move(P.from90[job.move[1]],P.from90[job.move[2]])),'unsafe standard move') end
  end
  return {move=job.move,score=job.score,depth=job.depth,nodes=job.nodes,qnodes=job.qnodes,mainNodes=job.mainNodes,leafNodes=job.leafNodes,estimatedLeaves=job.estimatedLeaves,
- lightweight=job.lightweight,timeLimit=job.timeLimit,maxDepth=job.maxDepth,reason=job.reason,
+ lightweight=job.lightweight,timeLimit=job.timeLimit,maxDepth=job.maxDepth,priorityCutoffs=job.priorityCutoffs,priorityProbes=job.priorityProbes,reason=job.reason,
  elapsed=job.elapsed,operations=job.operations or 0,ttEntries=job.transpositions.count,ttHits=job.transpositions.hits,restored=job.restored}
 end
 `;

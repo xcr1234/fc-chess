@@ -250,3 +250,13 @@
 - runtime=lua-fengari-host，11/11回归套件、117条Lua PASS组，另含两次用户原局回放、固定JS核心对照；`ai-custom-light-regression.json`。标准固定深度分数、PVS/完整窗口、TT、危险叶子中止、140取消边界、棋规、书库、等待与反馈通过。
 - runtime=simulator，项目内原生Worker 67/67用例、264断言通过，`ai-custom-light-simulator.json`。15车用例新增娱乐策略/首轮完成检查；同次25模块产物SHA-256=`69cbb39df8a8db8382d1a22fdfede6d861e18faf3898249ab1b5078133748932`，正式与测试存档路径及完整source一致。
 - 基准驱动与构建工具28/28通过，`ai-custom-light-tool-tests.txt`。结果与取舍见[调整报告](../docs/ai-custom-light-results.md)：接受自定义长战术能力降低，优先可完成的浅层比较；没有正式棋力赛、真机或新增视觉/部署证据。原有`records/lua-step5-regression.json`改动保留。
+
+## 2026-10-24 保持速度的搜索优化与晚期反馈
+
+- 用户反馈快速模式棋力远不如JS小巫师，进一步明确后期送子；最终更正选择为保证速度，覆盖临时的可更久计算。标准4秒/原分帧配额、自定义1.5秒及附加等待不增加。尚未取得用户失误前的完整局面，不能宣称原局已复现或送子已解决。
+- 代码：优先合法TT/PV/杀手着法，失败高分时跳过其余走法生成/排序；危险、自定义及空步路径保留原策略。数值颜色过滤、复用步进表、合并增量哈希/评价，生产无重复评分档不再为安静路径分配身份，标准离线档仍保留完整身份。新增每次真实回棋前完整局面和回棋停止原因/分数日志。
+- runtime=lua-fengari-host，固定`f6e89ed`与候选各8局面×30/60 FPS，预热并交替顺序，32次同预算串行采样。16对有2对更深、13对相同、1对更浅，节点比值中位数约1.277，不能当作棋力提高。最长宿主step基线10.01ms、候选10.41ms，未证明硬实时8ms或真机帧率。`ai-throughput-runtime.json`。
+- runtime=node-js-vs-fengari，16局100ms标准档对照为2胜11负3和、0未决，得分21.875%，此前批次25%；未观察到棋力提升。Lua/JS深度中位数1/2，首轮保底25/0次。写报告暂时占用后，保留5局并以同引擎源码恢复，跨进程/JIT边界已记入报告。8起点相关且一对一手结束，不是独立封存集或400局验收。`ai-throughput-strength-smoke.json`；16局467半回合逐步重放，合法性、吃子、最终局面和裁判一致。
+- runtime=lua-fengari-host，新策略对固定基线的Red见`ai-throughput-policy-red.txt`，仅说明生产路径身份开销，不是用户失误原局。新增4组回归，捉子由16扩展为24组；晚期断言跟踪移动后棋子、验证可信回吃及等值补偿。12/12套件、129条Lua PASS组，另含2次用户原局回放与固定JS核心对照；`ai-throughput-regression.json`。基准驱动/构建工具28/28，`ai-throughput-tool-tests.txt`。
+- runtime=simulator，67/67用例、264断言，`ai-throughput-simulator.json`。最终25模块产物SHA-256=`89d40d9fd440f09c1088522665716b406c96d06ca2f2e2b03cb694119d97722f`，两份存档已同步完整source与路径。短时限对照使用添加会话日志前的产物，引擎模块指纹与最终实现一致，没有篡改测量产物哈希。
+- 本批为现有速度约束内的优化及测试，棋力目标仍未通过；后续从新的局面日志获取失误原局继续复现和修正。无新增视觉、真机或外部部署证据，原有`records/lua-step5-regression.json`改动保留。详见[报告](../docs/ai-throughput-results.md)。

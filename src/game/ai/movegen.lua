@@ -5,16 +5,17 @@ local P=require('game.ai.position')
 local R=require('game.ai.rules')
 local M={}
 local orth={-16,-1,1,16}
+local horizontal={-1,1}
 local diag={-17,-15,15,17}
 local knight={{-33,-31},{-18,14},{-14,18},{31,33}}
 local function add(p,out,a,z,captures)
  if not P.to90[z] then return end
  local target=p.board[z]
- if P.side(target)~=p.side and (not captures or target~=0) then out[#out+1]=a+z*256 end
+ if target>>3~=p.side+1 and (not captures or target~=0) then out[#out+1]=a+z*256 end
 end
 -- One piece per scheduler operation, bounded by four board rays.
 function M.piece(p,a,out,captures)
- local pc=p.board[a];if P.side(pc)~=p.side then return end
+ local pc=p.board[a];if pc>>3~=p.side+1 then return end
  local k=pc%8;local free=p.rules.freeRed and p.side==0
  if k==0 then
   for _,d in ipairs(orth) do local z=a+d;if R.palace(z,p.side) then add(p,out,a,z,captures) end end
@@ -41,9 +42,9 @@ function M.piece(p,a,out,captures)
     local target=p.board[z]
     if target==0 then if not screen and not captures then out[#out+1]=a+z*256 end
     elseif not screen then
-     if k==4 then if P.side(target)~=p.side then out[#out+1]=a+z*256 end;break end
+     if k==4 then if target>>3~=p.side+1 then out[#out+1]=a+z*256 end;break end
      screen=true
-    else if P.side(target)~=p.side then out[#out+1]=a+z*256 end;break end
+    else if target>>3~=p.side+1 then out[#out+1]=a+z*256 end;break end
     z=z+d
    end
   end
@@ -54,7 +55,8 @@ function M.piece(p,a,out,captures)
 end
 function M.generate(p,captures,out)
  out=out or {};for i=#out,1,-1 do out[i]=nil end
- for _,sq in ipairs(P.squares) do M.piece(p,sq,out,captures) end
+ local tag=p.side+1
+ for _,sq in ipairs(P.squares) do if p.board[sq]>>3==tag then M.piece(p,sq,out,captures) end end
  return out
 end
 -- Direct target attack query: no all-moves allocation or full-board scan.
@@ -65,7 +67,7 @@ function M.attacker(p,z,side)
  local forward=side==0 and -16 or 16
  local a=z-forward
  if b[a]==tag+6 and P.to90[a] then return a end
- for _,d in ipairs({-1,1}) do a=z+d;if b[a]==tag+6 and P.to90[a] and not R.home(a,side) then return a end end
+ for _,d in ipairs(horizontal) do a=z+d;if b[a]==tag+6 and P.to90[a] and not R.home(a,side) then return a end end
  for i,d in ipairs(orth) do
   for _,jump in ipairs(knight[i]) do a=z-jump;if b[a]==tag+3 and P.to90[a] and b[a+d]==0 then return a end end
  end

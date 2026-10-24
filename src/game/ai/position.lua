@@ -16,7 +16,9 @@ function M.move(a,z) return a+z*256 end
 function M.external(m) if not m or m==0 then return nil end return {M.to90[m%256],M.to90[math.floor(m/256)]} end
 local function change(pos,sq,pc,sign)
  pos.key=pos.key ~ T.key[pc][sq];pos.lock=pos.lock ~ T.lock[pc][sq]
- local v=sign*E.piece(pc,sq,pos.rules)
+ local value=T.value[pc][sq]
+ if pos.rules.freeRed and (pc==9 or pc==10) and value==0 then value=E.piece(pc,sq,pos.rules) end
+ local v=sign*value
  if pc<16 then pos.red=pos.red+v else pos.black=pos.black+v end
 end
 function M.new(board,side,rules)
@@ -36,14 +38,25 @@ function M.make(p,m,u,kind)
   local a,z=m%256,math.floor(m/256);local pc,cap=p.board[a],p.board[z]
   u.piece=pc;u.captured=cap
   if cap~=0 then change(p,z,cap,-1);if cap%8==0 then p.kings[M.side(cap)]=nil end end
-  change(p,a,pc,-1);change(p,z,pc,1);p.board[a]=0;p.board[z]=pc
+  -- Move the two hash lanes and positional delta together; avoid two nested
+  -- change/evaluation calls at every edge of the interpreted search.
+  p.key=p.key ~ T.key[pc][a] ~ T.key[pc][z]
+  p.lock=p.lock ~ T.lock[pc][a] ~ T.lock[pc][z]
+  local values=T.value[pc];local before,after=values[a],values[z]
+  if p.rules.freeRed and (pc==9 or pc==10) then before=E.piece(pc,a,p.rules);after=E.piece(pc,z,p.rules) end
+  if pc<16 then p.red=p.red+after-before else p.black=p.black+after-before end
+  p.board[a]=0;p.board[z]=pc
   if pc%8==0 then p.kings[p.side]=z end
  end
  p.side=1-p.side;p.key=p.key ~ T.sideKey;p.lock=p.lock ~ T.sideLock
  -- Path identities are interned per parent and move. Unlike rolling hashes,
  -- this context has no collision and distinguishes histories for TT values.
  -- Captures reset reversible history; null/pass remain distinct boundaries.
- if u.captured~=0 then p.context=0;p.contextLock=0
+ if not p.rules.standard then
+  -- Production has no repetition score. Only the immediate pass/null boundary
+  -- can affect a cached value; interning every quiet path adds no information.
+  p.context=kind=='pass' and 1 or (kind=='null' and 2 or 0);p.contextLock=0
+ elseif u.captured~=0 then p.context=0;p.contextLock=0
  else
   local parent=p.context
   local edges=p.contextIds[parent];if not edges then edges={};p.contextIds[parent]=edges end
@@ -60,13 +73,13 @@ function M.undo(p,u)
  p.history[#p.history]=nil
 end
 function M.repetition(p,ply)
+ if not p.rules.standard then return nil end
  local own,opp=true,true
  for i=#p.history,1,-1 do
   local u=p.history[i]
   if u.kind=='null' or not u.move or u.captured~=0 then break end
   if u.side==p.side then own=own and u.checked else opp=opp and u.checked end
   if u.side==p.side and u.key==p.key and u.lock==p.lock then
-   if not p.rules.standard then return nil end -- No invented production draw policy.
    local score=(own and ply-9900 or 0)+(opp and 9900-ply or 0)
    return score~=0 and score or (ply%2==0 and -20 or 20)
   end

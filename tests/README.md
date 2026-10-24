@@ -1,5 +1,7 @@
 # 游戏测试制定与运行约定
 
+最新速度约束下的优化（2026-10-24）：标准4秒、自定义1.5秒和附加等待不增；12套件/129条Lua PASS组、67项模拟器用例（264断言）通过，晚期捉子回归扩展到24组并跟踪移动后落点。16局短时限JS对照仍仅21.875%，没有证明棋力提高；见[报告](../docs/ai-throughput-results.md)。
+
 最新自定义娱乐调整（2026-10-24）：采用2层/2000节点/1.5秒逻辑截止，无静态/将军延伸，困难/快速完整搜索保留。32次宿主采样和86半回合自对弈均无首轮保底；11套件、67项模拟器用例（264断言）通过，见[调整报告](../docs/ai-custom-light-results.md)。下方首轮运行和规则回归为此前批次证据。
 
 当前为 JS 1.0 新内核的规则回归候选（2026-10-24）：67 项模拟器用例、262 条断言通过；新增 46 组 Lua 规则检查、16 例捉子回归及固定 JS 核心对照。最新结果见 `records/ai-rule-regression.json`、`records/ai-rule-simulator.json`，追踪见 [补充测试计划](ai-js-rule-regression-plan.md)。历史视觉矩阵仍保留，本轮未重新验证画面或真机，也未运行棋力赛。
@@ -14,10 +16,12 @@
 - `npm run test:ai:custom`：9组自定义浅搜、基本战术、截止/取消、会话及TT隔离检查。
 - `npm run test:ai:custom:profile`：32次生产默认自定义宿主采样及三类阵容持续对局，写入`records/ai-custom-light-runtime.json`；不覆盖此前基线或冒充真机。
 - `npm run test:ai:core`：固定 JS 1.0 的走法/评价/哈希、搜索、切片和取消对照。
-- `npm run test:ai:regression`：串行执行 9 个 Lua 文件和核心对照；单套件失败继续其余套件，记录独立 `records/ai-rule-regression.json`。运行前先构建/同步存档。
+- `npm run test:ai:regression`：串行执行11个Lua文件和核心对照；单套件失败继续其余套件，记录独立`records/ai-rule-regression.json`，可用`-- --output ai-throughput-regression.json`保留独立批次。运行前先构建/同步存档。
+- `npm run test:ai:throughput`：固定`f6e89ed`基线与当前引擎，同预算串行采样并交替顺序，写`records/ai-throughput-runtime.json`；不是棋力提升结论。
 - `npm run test:ai:runtime`：6 项基准驱动检查，包含 FEN/坐标、真实 Lua、JS/Lua 截止与标准基准裁判边界；也纳入 `npm test`。
 - `npm run test:ai:readiness`：串行采样 48 组分帧预算，再做标准/15车/自由士相持续对局；只测当前新引擎，报告为 `records/ai-readiness-performance.json`、`records/ai-readiness-soak.json`。
 - `npm run test:ai:smoke`：16 局标准档短时限初测，记录完整棋谱/实际时间/超时及起点相关性；报告 `records/ai-strength-smoke.json`，不能当作正式棋力赛。
+- `npm run test:ai:smoke -- --output ai-throughput-strength-smoke.json`：另存本批对照；写入暂时占用会重试，`--resume`仅接受源码指纹/起点/时限一致的未完成记录，并记录跨进程恢复边界。
 - `npm run test:lua:feedback`：6组AI边框/数字/等待关联/确认/悔棋/终局回归。
 - `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主耗时采样；不是设备性能结果。
 - `npm run test:lua:performance`：单独运行标准/15车/自由士相各4次真实搜索，记录初始化及step的P50/P95/最大宿主耗时。采样期间停止其他测试与浏览器试玩，报告为 `records/lua-step6-performance.json`；单轮宿主数据不能当作性能改善百分比或真机结论。

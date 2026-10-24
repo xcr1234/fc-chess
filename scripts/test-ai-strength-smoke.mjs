@@ -5,6 +5,9 @@ import {execFileSync} from 'node:child_process';
 import {pinnedContext,createLuaEngine,safeMoves,judgeStandard,externalMove,internalMove,boardFromFen,fenFromBoard,chooseJS,chooseLua,digest} from './ai-test-runtime.mjs';
 import {preloadModules} from './lua-test-loader.mjs';
 const milliseconds=100,maxPlies=100;
+const outputIndex=process.argv.indexOf('--output');
+const output=outputIndex<0?'ai-strength-smoke.json':process.argv[outputIndex+1];
+assert(output&&/^[a-z0-9-]+\.json$/.test(output),'--output requires a filename in records/');
 const initial='rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w';
 const context=pinnedContext();let seed=113;
 const next=limit=>{seed=seed*16807%2147483647;return seed%limit;};
@@ -25,10 +28,27 @@ const meta={runtime:'Node '+process.version+' / Fengari 0.1.5',commit:execFileSy
  scope:'16 paired standard-rule diagnostic games, no book/randomness, cold root history/TT for both engines. JS source unmodified except cooperative deadline wrappers. Lua wall-clock includes FFI and A.new. Third repetition is a benchmark draw; cap is unresolved. Not capture/custom/device or the 400-game target.',
  samplingCaveat:'The eight starts are snapshots of one seeded JS legal-move trajectory, not independent games or a held-out strength corpus. The paired bootstrap is descriptive of this set, not a population confidence claim.',
  deadlineNote:'Lua reason=cancelled means the harness reached its wall limit and preserved the last complete iteration; it is not a player cancellation.',games:[]};
-const save=()=>fs.writeFileSync('records/ai-strength-smoke.json',JSON.stringify(meta,null,2)+'\n');
+if(process.argv.includes('--resume')){
+ const previous=JSON.parse(fs.readFileSync('records/'+output));
+ assert.equal(previous.engineModulesSHA256,meta.engineModulesSHA256);assert.equal(previous.milliseconds,milliseconds);
+ assert.equal(previous.bundleSHA256,meta.bundleSHA256);assert.equal(previous.maxPlies,maxPlies);assert.deepEqual(previous.upstream,meta.upstream);
+ assert.deepEqual(previous.starts,starts);assert(!previous.completed,'report already complete');
+ const order=starts.flatMap(start=>['red','black'].map(luaSide=>({start:start.id,luaSide})));
+ previous.games.forEach((game,index)=>assert.deepEqual({start:game.start,luaSide:game.luaSide},order[index]));
+ meta.games=previous.games;meta.resumedGames=previous.games.length;
+ meta.resumeNote='Same source/protocol; restarted after a report-write error. JIT/host timing differs across processes; diagnostic only.';
+}
+const save=()=>{
+ const body=JSON.stringify(meta,null,2)+'\n';
+ for(let attempt=0;;attempt++)try{fs.writeFileSync('records/'+output,body);return;}catch(error){
+  if(attempt>=5||!['UNKNOWN','EBUSY','EPERM'].includes(error.code))throw error;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,25);
+ }
+};
 const engine=createLuaEngine();
 try{
  for(const start of starts)for(const luaSide of ['red','black']){
+  if(meta.games.some(game=>game.start===start.id&&game.luaSide===luaSide))continue;
   const board=boardFromFen(start.fen);let side=start.fen.endsWith(' w')?'red':'black';
   const game={start:start.id,luaSide,plies:[],outcome:'U',reason:'ply-cap'};const repetitions=new Map();
   function adjudicate(fen,visits){

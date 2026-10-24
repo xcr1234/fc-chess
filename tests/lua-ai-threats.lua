@@ -5,10 +5,10 @@ local function check(name,fn)
  print((ok and 'PASS ' or 'FAIL ')..name..(ok and '' or ': '..tostring(err)))
  if not ok then failed=failed+1 end
 end
-local function search(b)
+local function search(b,fps)
  local key=B.key(b,'black',false);local j=A.new(b,'black',false,{noBook=true,clock=false})
  local frames=0
- while not j.done do A.step(j,1/60);frames=frames+1;assert(frames<1000,'search never finished') end
+ while not j.done do A.step(j,1/(fps or 60));frames=frames+1;assert(frames<1000,'search never finished') end
  assert(j.restored and B.key(b,'black',false)==key and j.move)
  assert(B.valid(b,j.move[1],j.move[2],false))
  local c=B.copy(b);c[j.move[2]]=c[j.move[1]];c[j.move[1]]=''
@@ -22,6 +22,15 @@ local values={k=1000000,K=1000000,R=900,N=400,C=450,P=100,r=900,n=400,c=450}
 local function saved(b,c,attacker,target,j)
  return c[target]~=b[target] or c[attacker]~='N' or not B.valid(c,attacker,target,false)
   or (values[b[j.move[2]]] or 0)>=(values[b[target]] or 0)
+end
+local function credibleCapture(board,attacker,target)
+ if not B.valid(board,attacker,target,false) then return false end
+ local reply=B.copy(board);reply[target]=reply[attacker];reply[attacker]=''
+ local king;for i,pc in ipairs(reply) do if pc=='K' then king=i end end
+ for i,pc in ipairs(reply) do
+  if B.side(pc)=='black' and B.valid(reply,i,king,false) then return false end
+ end
+ return true
 end
 -- Preserve the four existing crowded-position regressions. They are examples
 -- of defensive responses, not a universal requirement that attacked pieces run.
@@ -73,9 +82,29 @@ for _,kind in ipairs({'R','C','N','P'}) do
   if kind=='C' then b[50]='p' end
   assert(B.valid(b,attacker,41,false),'invalid horse threat fixture')
   local j,c=search(b)
-  assert(c[41]~='n' or c[attacker]~=kind or not B.valid(c,attacker,41,false),'ignored late horse threat')
+  local location=j.move[1]==41 and j.move[2] or 41
+  assert(c[location]~='n' or c[attacker]~=kind or not credibleCapture(c,attacker,location)
+   or (values[b[j.move[2]]] or 0)>=values.n,'left late horse capturable')
  end)
 end
+for _,target in ipairs({'r','c'}) do for _,kind in ipairs({'R','C','N','P'}) do
+ check('late '..target..' threatened by '..kind..' at both frame rates',function()
+  for _,fps in ipairs({30,60}) do
+   local b={} for i=1,90 do b[i]='' end
+   b[6]='k';b[85]='K';b[41]=target;b[20]='n';b[55]='P'
+   local attacker=kind=='N' and 60 or (kind=='P' and 50 or 68);b[attacker]=kind
+   if kind=='C' then b[50]='p' end
+   assert(B.valid(b,attacker,41,false),'invalid late heavy-piece fixture')
+   local j,c=search(b,fps)
+   local location=j.move[1]==41 and j.move[2] or 41
+   local exposed=c[location]==target and c[attacker]==kind
+   -- Follow the moved piece: merely leaving its old square is not a defence.
+   -- A material capture that exposes the red king is not a credible reply.
+   if exposed then exposed=credibleCapture(c,attacker,location) end
+   assert(not exposed or (values[b[j.move[2]]] or 0)>=(values[target] or 0),'left late heavy piece capturable at '..fps..' FPS')
+  end
+ end)
+end end
 print('THREAT SUMMARY '..(count-failed)..'/'..count)
-assert(count==16,'incomplete threat fixtures')
+assert(count==24,'incomplete threat fixtures')
 assert(failed==0,'ignored '..failed..' threat cases')

@@ -1,0 +1,3 @@
+Frozen f6e89ed engine + current lua-ai-generation.lua
+Expected policy Red; this is not a reproduction of the user late-game blunder.
+[string "package.preload["game.ai"]=function()..."]:9540: history identity does not match repetition policy

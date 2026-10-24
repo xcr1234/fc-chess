@@ -38,6 +38,7 @@ function M.begin(s,side)
  s.aiCounter=Counter.new()
  local a=s.aiInput
  if a=='hold' or (type(a)=='table' and (a.computeSeconds or a.replySequence)) then return end
+ Log.event('ai-position','side=black profile='..M.profile(s)..' board='..table.concat(s.board,','))
  s.job=AI.new(s.board,'black',s.custom,{seed=s.bookSeed})
  if s.job.done then M.computed(s,s.job.move,s.job.summary) end
 end
@@ -61,7 +62,7 @@ function M.computed(s,move,summary)
  local a=s.aiInput
  if type(a)=='table' and a.waitSeconds then s.extraWait=a.waitSeconds elseif s.fixture and s.fixture.waitSeconds then s.extraWait=s.fixture.waitSeconds end
  s.remaining=s.extraWait;s.scene='ai-wait'
- Log.event('ai',string.format('depth=%d nodes=%d compute=%.3f wait=%.3f book=%s',s.job and s.job.depth or 0,s.job and s.job.nodes or 0,s.compute or 0,s.extraWait,tostring(s.job and s.job.book or false)))
+ Log.event('ai',string.format('depth=%d nodes=%d compute=%.3f wait=%.3f book=%s reason=%s score=%s',s.job and s.job.depth or 0,s.job and s.job.nodes or 0,s.compute or 0,s.extraWait,tostring(s.job and s.job.book or false),s.job and (s.job.book and 'book' or s.job.reason) or 'fixture',tostring(s.job and s.job.score)))
  if s.remaining<=0 then M.submitReply(s) end
 end
 -- Add seconds to the current artificial wait only. Does not restart search.

@@ -20,6 +20,7 @@ local function push(j,move,kind,depth,alpha,beta,ply,ext,q,noNull,trial)
  f.move=move;f.kind=kind;f.depth=depth;f.alpha=alpha;f.originalAlpha=alpha;f.beta=beta;f.ply=ply;f.ext=ext;f.q=q;f.noNull=noNull;f.trial=trial
  f.leaf=j.lightweight and 'static' or 'quiescent'
  f.phase='enter';f.best=-INF;f.bestMove=nil;f.dependent=false;f.heapCount=0;f.safeCount=0;f.count=0;f.tactical=0;f.searched=0;f.preferred=nil;f.danger=false;f.horizon=false
+ f.generated=false;f.priorityActive=false;f.priorityIndex=1;f.tried1=nil;f.tried2=nil;f.tried3=nil
  f.changed=kind=='move' or kind=='pass' or kind=='null'
  if f.changed then P.make(j.pos,move,f.undo,kind);f.undo.checked=kind~='null' and (not j.lightweight or depth>0) and G.danger(j.pos,j.pos.side) end
  j.stack[index]=f
@@ -113,8 +114,12 @@ local function enter(j,f)
  f.cursor=1;f.classify=1
  f.captureOnly=f.horizon or (f.depth<=0 and not f.danger)
  f.phase=f.captureOnly and 'stand' or 'generate'
+ if j.usePriority and f.depth>0 and not f.danger and not j.nullMove then
+  f.priorityActive=true;f.phase='priority'
+ end
 end
 local function classify(j,f,m)
+ if m==f.tried1 or m==f.tried2 or m==f.tried3 then return end
  local p=j.pos;local unsafe=false
  if f.danger or p.rules.standard then
   unsafe=not G.safe(p,m)
@@ -135,6 +140,7 @@ local function classify(j,f,m)
  O.add(f,m,(unsafe and -1000000 or 0)+O.rank(j,f,m))
 end
 local function prepared(j,f)
+ f.generated=true
  local p=j.pos
  if f.ply==0 then j.summary.count=f.count;j.summary.tactical=f.tactical end
  if f.count==0 and not f.captureOnly then
@@ -156,7 +162,16 @@ local function prepared(j,f)
  end
 end
 local function selectMove(j,f)
- if f.alpha>=f.beta or f.heapCount==0 then f.phase='complete';return end
+ if f.alpha>=f.beta then
+  if f.priorityActive and not f.generated then j.priorityCutoffs=j.priorityCutoffs+1 end
+  f.phase='complete';return
+ end
+ if f.heapCount==0 then
+  if f.priorityActive and not f.generated then
+   f.phase=f.priorityIndex<=3 and 'priority' or 'generate'
+  else f.phase='complete' end
+  return
+ end
  local move=O.take(f)
  if f.unsafe[move] then accept(j,f,-10000+f.ply+2,move,false);return end
  local trial=j.pvs and f.depth>0 and f.searched>0 and f.beta-f.alpha>1
@@ -176,10 +191,11 @@ function M.advance(j)
   -- Production pass semantics need a basic move before allowing stand-pat.
   -- Search one piece per work unit; quiet moves are not sorted or classified.
   local found=j.pos.rules.standard
+  local tag=j.pos.side+1
   if not found then
    while f.cursor<=90 do
     local sq=P.squares[f.cursor];f.cursor=f.cursor+1
-    if P.side(j.pos.board[sq])==j.pos.side then G.piece(j.pos,sq,f.moves,false);break end
+    if j.pos.board[sq]>>3==tag then G.piece(j.pos,sq,f.moves,false);break end
    end
    found=#f.moves>0
   end
@@ -189,14 +205,32 @@ function M.advance(j)
    elseif f.best>=f.beta then f.phase='complete'
    else f.alpha=math.max(f.alpha,f.best);f.phase='generate' end
   elseif f.cursor>90 then f.captureOnly=false;prepared(j,f) end
+ elseif f.phase=='priority' then
+  local index=f.priorityIndex;f.priorityIndex=index+1
+  local killers=j.killers[f.ply]
+  local m=index==1 and f.preferred or (killers and killers[index-1])
+  if m and m~=f.tried1 and m~=f.tried2 and m~=f.tried3 then
+   local a=m%256
+   if P.to90[a] and j.pos.board[a]>>3==j.pos.side+1 then
+    G.piece(j.pos,a,f.moves,false);j.priorityProbes=j.priorityProbes+1
+    local legal=false;for _,candidate in ipairs(f.moves) do if candidate==m then legal=true;break end end
+    clear(f.moves)
+    if legal then
+     classify(j,f,m)
+     if f.heapCount>0 then f['tried'..index]=m end
+    end
+   end
+  end
+  f.phase='select'
  elseif f.phase=='generate' then
   if f.classify<=#f.moves then
    local m=f.moves[f.classify];f.classify=f.classify+1;classify(j,f,m)
   else
    local found=false
+   local tag=j.pos.side+1
    while f.cursor<=90 do
     local sq=P.squares[f.cursor];f.cursor=f.cursor+1
-    if P.side(j.pos.board[sq])==j.pos.side then G.piece(j.pos,sq,f.moves,f.captureOnly);found=true;break end
+    if j.pos.board[sq]>>3==tag then G.piece(j.pos,sq,f.moves,f.captureOnly);found=true;break end
    end
    if not found then prepared(j,f) end
   end
@@ -208,12 +242,13 @@ function M.new(board,side,custom,opts)
  opts=opts or {};local rules=R.get(custom,opts.profile);local p=P.new(board,side,rules)
  local copy={} for i=1,90 do copy[i]=board[i] or '' end
  local light=rules.freeRed and opts.lightweight~=false
- local j={pos=p,board=copy,side=side,custom=custom,rules=rules,lightweight=light,stack={},frames={},history={},killers={},changes={},nodes=0,qnodes=0,mainNodes=0,leafNodes=0,estimatedLeaves=0,depth=0,iteration=1,elapsed=0,done=false,restored=true,partialExact=false,probes=0,researches=0,nullProbes=0,nullVerifications=0,nullCutoffs=0,summary={count=0,tactical=0}}
+ local j={pos=p,board=copy,side=side,custom=custom,rules=rules,lightweight=light,stack={},frames={},history={},killers={},changes={},nodes=0,qnodes=0,mainNodes=0,leafNodes=0,estimatedLeaves=0,depth=0,iteration=1,elapsed=0,done=false,restored=true,partialExact=false,probes=0,researches=0,nullProbes=0,nullVerifications=0,nullCutoffs=0,priorityCutoffs=0,priorityProbes=0,summary={count=0,tactical=0}}
  j.initialKey=p.key;j.initialLock=p.lock;j.initialEval=p.red-p.black;j.initialSide=p.side;j.eval=j.initialEval
  j.kings={red=P.to90[p.kings[0]],black=P.to90[p.kings[1]]}
  j.budget=opts.nodeBudget or (light and 2000 or 16000);j.maxDepth=opts.maxDepth or (light and 2 or 8);j.maxPly=opts.maxPly or 64
  j.qDepth=light and 0 or (opts.qDepth or 16);j.extensions=opts.extensions or (light and 0 or 2)
  j.pvs=opts.pvs~=false;j.useTT=opts.tt==true or (opts.tt~=false and not light);j.nullMove=opts.nullMove==true and not rules.freeRed
+ j.usePriority=opts.priority~=false and not light
  j.transpositions=TT.new(opts.ttSize);j.tt=j.transpositions.slots;j.ttCount=0
  j.operationsPerStep=opts.operationsPerStep or 128;j.nodesPerStep=opts.nodesPerStep or 32;j.timeLimit=opts.timeLimit or (light and 1.5 or 4)
  j.clock=opts.clock~=false and (opts.clock or (os and os.clock)) or nil
