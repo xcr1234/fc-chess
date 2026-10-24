@@ -1,0 +1,30 @@
+{
+  "scope": "settings layout and return-to-title copy only",
+  "runtime": "html-controller/lua-model/simulator/filesystem",
+  "testedSHA256": "8cf4db322917d6bf81a428b518bf90c7571ce92328e3bfb135f0a51196a59795",
+  "testedBuildDate": "2026-10-24 20:34:01.145 +08:00",
+  "testedCanonicalSHA256": "c5d5a7ca423a8a663f15f1ec9c778e1afb40c049edb5f7ba57ad55b51acb9989",
+  "green": {
+    "canvases": 5,
+    "layoutScenes": 40,
+    "layoutAssertions": 95,
+    "caseCount": 4,
+    "caseAssertions": 13,
+    "prototype": 23,
+    "nativeText": 4
+  },
+  "device": "pending user save/reload and layout/copy retest",
+  "deployment": {
+    "status": "copied-and-sha256-verified",
+    "config": "lua.deploy.local.json",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "builtAt": "2026-10-24 20:36:53.269 +08:00",
+    "sha256": "30791d99e5e33881f9780c08589f61ced930033f4822b018367893f64a1ee613",
+    "backup": ".lua-deploy-backups/1792845413382-781a98dd-b78c-4c63-a7b0-bdbdb9f0be96.lua",
+    "backupSHA256": "94a6e1840e9baaf8859d926430bf4ce1dcba1593575ed4b2059e2cebe560eded",
+    "sameTestedProgramExceptBuildTimestamp": true,
+    "proof": "restoring the tested build timestamp reproduces both regression source hashes",
+    "saveInlineSourcesMatch": true,
+    "delivery": "export/2026-10-24-settings-layout-polish/main.lua"
+  }
+}

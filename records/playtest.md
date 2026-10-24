@@ -352,3 +352,10 @@
 - runtime=lua-model/html-controller；新契约在旧实现上Red7项，Green音频Lua13项；HTML23项、将军音9项、结果回看7项、文字约束4项通过。覆盖共用选曲/关闭、100%及边界、场景切换不重发BGM、设置返回原对局、选子/历史/步时/AI搜索等待保留及终局回看继续冻结。
 - runtime=simulator；五画布20个页面/返回流程、5组BGM信号、3组音效检查通过，records/shared-audio-layouts.json。棋盘设置通过真实浏览器绑定生成的轻微抖动pointer点击，20张截图仅游戏画布；手机设置及返回棋盘已目视。用户要求的解释提示已移除。
 - runtime=simulator/filesystem；本轮完整回归、发布构建/哈希/备份及同次产物一致性见records/shared-audio-update.json。合并版仍需用户在千星沙箱保存并重新试玩，核对标题/棋盘连续播放、棋盘设置入口和返回局面。
+
+## 2026-10-24：设置布局与返回标题文案
+
+- runtime=device；执行者：用户；来源：本轮设置页真机截图与“布局太奇怪”反馈。当前窄改动将三项设置等距排列、标签左对齐、右侧控件同宽；对局离局按钮与确认提示改为返回标题界面。未修改音量、共用选曲或游戏规则。
+- runtime=simulator；五画布×8场景，覆盖菜单、棋盘、离局确认、声音设置、选曲、棋种、结果、落子/确认悔棋。更新受影响文案断言，设置/音量/选曲/离局入口使用实际浏览器绑定产生的轻微抖动pointer；records/settings-layout-polish-layouts.json。22张截图仅画布，手机设置/棋盘/确认已目视，六字离局按钮完整一行，三项设置间距与边缘对齐。
+- runtime=html-controller/lua-model/simulator；HTML23项、原生文字4项、4个离局/取消/重开/回看定向用例通过；records/settings-layout-polish-regression.json。本轮纯视图/文案，未重复AI全量回归，未声称上述结果为真机通过。
+- runtime=filesystem；发布与备份/哈希记录见records/settings-layout-polish-update.json；实际保存重新加载及真机新布局/按钮/提示仍待用户验证。

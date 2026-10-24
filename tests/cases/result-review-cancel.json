@@ -101,7 +101,7 @@
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
-      "equals": "返回模式選擇？"
+      "equals": "返回標題界面？"
     },
     {
       "kind": "control",

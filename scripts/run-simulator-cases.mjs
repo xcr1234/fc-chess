@@ -71,7 +71,7 @@ try {
       ['edit',['ModeCustom'],'EditTitle','自定義棋子'],
       ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪種棋子？'],
       ['board',['ModeFast'],'TurnText','紅方'],
-      ['confirm',['ModeFast','ModeButton'],'ConfirmTitle','返回模式選擇？'],
+      ['confirm',['ModeFast','ModeButton'],'ConfirmTitle','返回標題界面？'],
       ['result',['ModeFast','ResignButton','ConfirmYes'],'ResultTitle','您落敗了']
     ];
     const sheet=createCanvas(256*6,224*5),ctx=sheet.getContext('2d');

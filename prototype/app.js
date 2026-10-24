@@ -112,9 +112,9 @@
   function settingsRegions(){
     const list=[];const add=(id,label,x,y,w,h)=>region(list,id,x-w/2,224-y-h/2,w,h,label,()=>settingsAction(id));
     if(state.scene==='audio-settings'){
-      add('MusicButton',musicName(state.audio.music),163,162,158,24);
-      add('VolumeDown','－',109,101,30,24);add('VolumeUp','＋',209,101,30,24);
-      add('SfxToggle',state.audio.sfx?'開啟':'關閉',163,67,158,24);add('SettingsBack','返回',128,28,96,24);
+      add('MusicButton',musicName(state.audio.music),164,156,120,24);
+      add('VolumeDown','－',116,118,24,24);add('VolumeUp','＋',212,118,24,24);
+      add('SfxToggle',state.audio.sfx?'開啟':'關閉',164,80,120,24);add('SettingsBack','返回',128,32,88,24);
     }else{
       add('MusicBack','返回',226,207,42,20);
       ['全部','探索','戰鬥','任務','其他'].forEach((name,i)=>add('MusicCategory_'+i,(state.musicCategory===i?'·':'')+name,34+i*47,182,44,20));
@@ -127,8 +127,8 @@
   function settingsScreen(){
     ctx.fillStyle=C.navy;ctx.fillRect(0,0,256,224);
     if(state.scene==='audio-settings'){
-      text('聲音設定',128,9,C.white,16,'center');text('背景音樂',39,57,C.cyan,9,'center');
-      text('BGM音量',47,118,C.cyan,9,'center');text(state.audio.volume+'%',157,117,C.white,11,'center');text('走棋音效',47,152,C.cyan,9,'center');
+      text('聲音設定',128,18,C.white,16,'center');text('背景音樂',32,63.5,C.cyan,9);
+      text('BGM音量',32,101.5,C.cyan,9);text(state.audio.volume+'%',164,100.5,C.white,11,'center');text('走棋音效',32,139.5,C.cyan,9);
     }else{
       text('選擇背景音樂',113,10,C.white,13,'center');
       text((state.musicPage+1)+' / '+Math.ceil(musicRows().length/5),128,205,C.cyan,9,'center');
@@ -167,11 +167,11 @@
         ctx.strokeStyle = '#685419'; ctx.lineWidth = .5; ctx.strokeRect(x - 8.5, y - 8.5, 17, 17);
       }
     });
-    const buttons = state.scene === 'edit' ? ['全部改車', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '模式選擇'];
+    const buttons = state.scene === 'edit' ? ['全部改車', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '返回標題界面'];
     buttons.forEach((label, i) => {
       const y = 122 + i * 21;
       box(204, y, 47, 17, state.zone === 'panel' && state.sideIndex === i ? '#067347' : '#00482f', C.green);
-      text(label, 227, y + 4,state.scene==='result-review'&&i===1?'#78909a':C.green, 8, 'center');
+      text(label, 227, y + 4,state.scene==='result-review'&&i===1?'#78909a':C.green, state.scene!=='edit'&&i===2?7:8, 'center');
     });
     if (state.inputMethod === 'keyboard' && !state.modal && !state.palette) {
       if (state.zone !== 'panel') { ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(gridX + state.cursor.x * step - 8, gridY + state.cursor.y * step - 8, 16, 16); }
@@ -187,15 +187,15 @@
   }
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
-    text(m.type === 'undo' ? '要悔棋嗎？' : m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回模式選擇？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
-    if (m.type === 'menu') text('選擇後無法恢復對局', 128, 105, C.cyan, 8, 'center');
+    text(m.type === 'undo' ? '要悔棋嗎？' : m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回標題界面？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
+    if (m.type === 'menu') text('返回後無法恢復當前對局', 128, 105, C.cyan, 8, 'center');
     else if (m.type === 'custom') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {
     box(42, 70, 172, 116, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
     text(state.resultReason, 128, 101, C.cyan, 8, 'center');
-    text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center');text('返回棋盤',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
+    text('再來一局', 128, 116, C.green, 11, 'center'); text('返回標題界面', 128, 139, C.green, 11, 'center');text('返回棋盤',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
   }
   function finish(title, reason) {
     generation++; clock.stop(performance.now());
@@ -364,9 +364,9 @@
     } else if (state.palette) {
       choices.forEach((piece, i) => region(list, `piece-${i}`, 64 + (i % 3) * 45, 99 + Math.floor(i / 3) * 28, 43, 27, `改为${glyphs[piece]}`, () => { state.palette.choice = i; input('ok'); }));
     } else if (state.scene === 'result') {
-      ['再来一局', '模式选择','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
+      ['再来一局', '返回标题界面','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
     } else {
-      const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '模式选择'];
+      const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));
       if(state.scene!=='edit')region(list,'SettingsButton',204,192.5,47,17,'設定',()=>settingsAction('SettingsButton'));
     }

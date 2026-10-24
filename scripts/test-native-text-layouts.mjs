@@ -16,7 +16,7 @@ try{
  const opened=await client.callTool({name:'qxqy_project_open',arguments:{path:'fc-chess.save.json'}});({handle}=opened.structuredContent??JSON.parse(opened.content.find(c=>c.type==='text').text));
  const scenes=[
   ['menu',[],'ModeDifficultTitle','困難'],['board',['ModeDifficult'],'Glyph_55','兵'],
-  ['confirm',['ModeDifficult','ModeButton'],'ConfirmHint','選擇後無法恢復對局'],
+  ['confirm',['ModeDifficult','ModeButton'],'ConfirmHint','返回後無法恢復當前對局'],
   ['settings',['SettingsButton','VolumeDown'],'BGMVolume','90%'],
   ['music',['SettingsButton','MusicButton'],'MusicPage','1 / 38'],
   ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪種棋子？'],
@@ -28,13 +28,16 @@ try{
   const {canvasWidth:width,canvasHeight:height}=await call('get');
   for(const [kind,actions,name,equals] of scenes){
    const h=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width});let cursor=0;const events=[];
-   const points={ModeDifficult:[131.5,148],Square_0_6:[56,80],Square_0_5:[56,96],UndoButton:[227.5,93.5],ConfirmYes:[92,88]};
+   const points={ModeDifficult:[131.5,148],Square_0_6:[56,80],Square_0_5:[56,96],UndoButton:[227.5,93.5],ConfirmYes:[92,88],SettingsButton:[222,15],VolumeDown:[116,118],MusicButton:[164,156],ModeButton:[227.5,51.5]};
    for(const [i,name] of actions.entries()){
     const t=.1+i*.2;if(points[name]){
      h.tap(...h.point(...points[name]));const list=h.pointer();for(const [j,{light,...payload}] of list.slice(cursor).entries())events.push({t:t+j*.02,source:'user',kind:'pointer',payload});cursor=list.length;
     }else events.push({t,source:'user',kind:'click',payload:{name}});
    }
-   const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events,asserts:[{kind:'control',at:1.1,name,field:'text',equals},{kind:'control',at:1.1,name,field:'fontSize',equals:25}]};
+   const asserts=[{kind:'control',at:1.1,name,field:'text',equals},{kind:'control',at:1.1,name,field:'fontSize',equals:25}];
+   if(kind==='board'||kind==='result')asserts.push({kind:'control',at:1.1,name:'ModeButtonLabel',field:'text',equals:'返回標題界面'});
+   if(kind==='confirm')asserts.push({kind:'control',at:1.1,name:'ConfirmTitle',field:'text',equals:'返回標題界面？'});
+   const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events,asserts};
    const result=await call('runCase',{canvasId,case:test});assert.equal(result.passed,true,JSON.stringify(result));
    assert.ok(!result.snapshot.logs.some(x=>/字号超出限制/.test(x.text)));const row={canvasId,kind,passed:true,assertions:result.results};
    if(['menu','board'].includes(kind)||['pc-16-9','mobile-16-9'].includes(canvasId)){

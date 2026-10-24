@@ -14,7 +14,7 @@ local function text(n,x,y,w,h,v,c,z,p) return U.text(p or page,n,x-128,y-112,w,h
 local function rect(n,x,y,w,h,c,p) return U.image(p or page,n,x-128,y-112,w,h,c) end
 local function button(n,label,x,y,w,h,p)
  p=p or page;U.image(p,n..'Border',x-128,y-112,w,h,'3defa0');U.image(p,n..'Fill',x-128,y-112,w-1,h-1,'00482f')
- text(n..'Label',x,y,w-2,h,label,'3defa0',8,p)
+ text(n..'Label',x,y,w-2,h,label,'3defa0',n=='ModeButton' and w<60 and 7 or 8,p)
  return U.hit(p,n,x-128,y-112,w,h,function() onAction(n) end)
 end
 local function line(n,x,y,w,h,angle)
@@ -30,13 +30,14 @@ local function build(kind,s)
  page=U.create('container',root,'Page',0,0,256,224);page.showCursor=true;pieces={}
  rect('Background',128,112,256,224,kind=='menu' and '6840fa' or '193b57')
  if kind=='audio-settings' then
-  text('SettingsTitle',128,205,190,24,'聲音設定','fff9e9',16)
-  text('MusicCaption',39,162,62,16,'背景音樂','28eff0',9)
-  button('MusicButton',Settings.name(s.audio.music),163,162,158,24)
-  text('VolumeCaption',47,101,80,16,'BGM音量','28eff0',9)
-  button('VolumeDown','－',109,101,30,24);text('BGMVolume',157,101,55,18,s.audio.volume..'%','fff9e9',11);button('VolumeUp','＋',209,101,30,24)
-  text('SfxCaption',47,67,80,16,'走棋音效','28eff0',9);button('SfxToggle',s.audio.sfx and '開啟' or '關閉',163,67,158,24)
-  button('SettingsBack','返回',128,28,96,24);return
+  text('SettingsTitle',128,198,190,24,'聲音設定','fff9e9',16)
+  for _,v in ipairs({{'MusicCaption','背景音樂',156},{'VolumeCaption','BGM音量',118},{'SfxCaption','走棋音效',80}}) do
+   text(v[1],62,v[3],60,16,v[2],'28eff0',9).horizontalAlignment=Enum.TextHorizontalAlignment.Left
+  end
+  button('MusicButton',Settings.name(s.audio.music),164,156,120,24)
+  button('VolumeDown','－',116,118,24,24);text('BGMVolume',164,118,60,18,s.audio.volume..'%','fff9e9',11);button('VolumeUp','＋',212,118,24,24)
+  button('SfxToggle',s.audio.sfx and '開啟' or '關閉',164,80,120,24)
+  button('SettingsBack','返回',128,32,88,24);return
  elseif kind=='music-select' then
   text('MusicTitle',113,207,170,20,'選擇背景音樂','fff9e9',13)
   button('MusicBack','返回',226,207,42,20)
@@ -93,7 +94,7 @@ local function build(kind,s)
   text('EditTitle',128,210,180,14,'自定義棋子','28eff0',10)
   for i,v in ipairs({{'AllRooksButton','全部改車'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
  else
-  for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','模式選擇'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
+  for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','返回標題界面'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
   button('SettingsButton','設定',227.5,23,47,17)
  end
 end
@@ -137,11 +138,11 @@ function M.render(s)
     button('PaletteCancel','返回',128,74,48,14,overlay)
    elseif o=='result' then
     text('ResultTitle',128,139,180,22,s.resultTitle,'fff9e9',16,overlay);text('ResultReason',128,119,180,14,s.resultReason,'28eff0',8,overlay)
-    button('RestartButton','再來一局',128,100,96,20,overlay);button('ModeButton','模式選擇',128,77,96,20,overlay)
+    button('RestartButton','再來一局',128,100,96,20,overlay);button('ModeButton','返回標題界面',128,77,96,20,overlay)
     button('ReturnBoardButton','返回棋盤',128,54,96,20,overlay)
    else
-    text('ConfirmTitle',128,133,190,20,o=='undo' and '要悔棋嗎？' or (o=='resign' and '要認輸嗎？' or '返回模式選擇？'),'fff9e9',12,overlay)
-    if o=='menu' then text('ConfirmHint',128,112,190,14,'選擇後無法恢復對局','28eff0',8,overlay) end
+    text('ConfirmTitle',128,133,190,20,o=='undo' and '要悔棋嗎？' or (o=='resign' and '要認輸嗎？' or '返回標題界面？'),'fff9e9',12,overlay)
+    if o=='menu' then text('ConfirmHint',128,112,190,14,'返回後無法恢復當前對局','28eff0',8,overlay) end
     button('ConfirmYes','是',92,88,60,23,overlay);local no=button('ConfirmNo','否',164,88,60,23,overlay);game.SetControllerFocus(no)
    end
   end

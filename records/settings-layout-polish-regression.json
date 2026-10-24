@@ -1,0 +1,134 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "name": "return-mode",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "name": "modal-cancel",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "name": "restart",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "name": "result-review-cancel",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "返回標題界面？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "luaSHA256": "8cf4db322917d6bf81a428b518bf90c7571ce92328e3bfb135f0a51196a59795"
+}
