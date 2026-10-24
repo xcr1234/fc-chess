@@ -1,0 +1,256 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "name": "return-mode",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "name": "modal-cancel",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "name": "undo-confirm-cancel",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "返回模式選擇？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": 8,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/mode-hint-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "返回模式選擇？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": 8,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "返回模式選擇？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": 8,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/mode-hint-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "返回模式選擇？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": 8,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "passed": true,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "返回模式選擇？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": 8,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "sourceSHA256": "dcdc7400a688f146c39df074f24919709e62cc09ef54a1b91183d5aaba0c99bb"
+}

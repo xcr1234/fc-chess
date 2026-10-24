@@ -109,6 +109,7 @@ function M.render(s)
     button('RestartButton','再來一局',128,100,96,20,overlay);button('ModeButton','模式選擇',128,77,96,20,overlay)
    else
     text('ConfirmTitle',128,133,190,20,o=='undo' and '要悔棋嗎？' or (o=='resign' and '要認輸嗎？' or '返回模式選擇？'),'fff9e9',12,overlay)
+    if o=='menu' then text('ConfirmHint',128,112,190,14,'選擇後無法恢復對局','28eff0',8,overlay) end
     button('ConfirmYes','是',92,88,60,23,overlay);local no=button('ConfirmNo','否',164,88,60,23,overlay);game.SetControllerFocus(no)
    end
   end

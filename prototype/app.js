@@ -119,7 +119,8 @@
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
     text(m.type === 'undo' ? '要悔棋嗎？' : m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回模式選擇？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
-    if (m.type === 'menu' || m.type === 'custom') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
+    if (m.type === 'menu') text('選擇後無法恢復對局', 128, 105, C.cyan, 8, 'center');
+    else if (m.type === 'custom') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {

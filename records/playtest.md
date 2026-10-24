@@ -281,3 +281,10 @@
 - runtime=simulator-browser-binding-to-native-worker：五画布20/20、460断言，悔棋微抖输入先检查确认标题与001手，再微抖点是恢复000手/红方；棋格边缘与真实拖拽仍通过，undo-confirm-input-native.json。
 - runtime=simulator-browser，Codex实际操作：正式存档构建日期14:24:32 +08:00。红兵55→46后点悔棋出现新确认；否返回对局，AI随后2→21且002手；再次悔棋选是恢复初局000手/红方/已悔棋，日志undo version=2。截图screenshots/undo-confirm-browser.png仅裁到游戏画布。
 - 同次25模块Lua SHA-256=ee970810bebca7c9d0fe5ced45765eb0fff382641adbf00b0e8504e65de6f31f，两存档path/source显式同步；未外部部署、未真机验证。原有lua-step5-regression.json改动保持并排除提交。
+
+## 2026-10-24 模式选择确认小字
+
+- 用户更正“小子”为“小字”：保留标题返回模式選擇？，新增8号青色小字“選擇後無法恢復對局”；HTML同步，确认逻辑复用，无新平台API。
+- runtime=html-controller：既有16/16回归通过。runtime=simulator：return-mode、modal-cancel、undo-confirm-cancel与五画布提示/标题/字号共8项、25断言通过；records/mode-confirm-hint.json。
+- 目视检查正式存档PC和手机截图，提示完整，与标题和按钮无重叠；screenshots/mode-hint-pc-16-9.png、mode-hint-mobile-16-9.png均仅保留游戏画布。没有HTML浏览器或真机视觉结论。
+- 25模块同次构建与两份存档已同步，SHA-256=dcdc7400a688f146c39df074f24919709e62cc09ef54a1b91183d5aaba0c99bb；未外部部署，原有lua-step5-regression.json改动保持。
