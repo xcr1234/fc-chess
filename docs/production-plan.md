@@ -1,3 +1,12 @@
+# 真机文字消失修复（2026-10-24）
+
+- 当前步骤7修复候选，用户真机截图显示标题/设置可见、模式/棋字/多数按钮文字不见；日志127次“字号超出限制”，定位19:23构建第10837行primitives.text的小字号/最小字号赋值。真实日志有红黑各一次落子，不推断全部规则已真机通过。
+- 按miliastra-knowledge-lua核对官方客户端API及文本控件指南：fontSize、minimumFontSize为整数，支持adaptiveFontSize和SetLocalScale/SetSizeDelta，但无精确字号范围。未杜撰最小字号。以真机已显示标题的25为安全基准，统一fontSize=25并关闭自适应，不再写minimumFontSize=6；叶控件scale=逻辑字号/25，宽高反向补偿，位置/有效字号/边界保持，棋盘/热区/头像及玩法不变。
+- tests/native-text-plan.md与保守约束测试先Red3项、后Green3项（records/native-text-{red,green}.txt）；模型不是精确真机校验器。动态字/计数/对齐与几何检查通过。模拟器原本允许小字号，不能把其无警告当作已复现或修复真实引擎。
+- 五画布×七页面35场景/70断言通过，20张截图仅游戏画布，菜单/棋字/确认/设置/选曲/结果/棋种层文字完整且边界无重叠；PC菜单与手机棋盘已目视检查，records/native-text-layouts.json。模拟器没有暴露adaptiveFontSize给control断言，该项由Lua模型检查，未将null当false；截图构建与最终部署只差时间戳，已通过重构哈希证明。
+- 发布命令重新构建并备份原目标，无冲突覆盖到已授权路径；构建2026-10-24 19:33:27.044 +08:00，SHA-256=86ea69fc5fba95080be984db6bce5caf4a249156505dde382aa85b7dbf512706。目标、dist、两存档内联及export/2026-10-24-native-text/main.lua一致，备份哈希核对。最终同次产物82模拟器用例/334断言通过（records/native-text-simulator.json），渲染/输入14项回归通过。
+- 交付是已部署待真机复测，非真机文字已恢复结论。请用户保存/重新试玩，核对新时间、文字恢复及警告消失；记录records/native-text-fix.json，不公开账号/玩家名/个人路径。旧导出包音频文档与原测试记录改动保持且排除提交。
+
 # 真机索引校准与指定路径部署（2026-10-24）
 
 - 当前步骤7。用户回传实际索引：FC_container/image/textbox/cursor为1073741847/1848/1849/1850；客户端控件容器资源1073741845，FCChessHost1073741854。源码src/ui/primitives.lua仅改四个模板常量，服务端资源按身份校准；同值旧服务端根1850先由用户补齐实际1845后更新，未猜测或改动无关索引。

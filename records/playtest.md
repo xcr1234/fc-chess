@@ -323,3 +323,11 @@
 - runtime=filesystem-deploy：目标为用户明确指定的dist/main.lua，配置在忽略文件中；旧目标与前次交付仅BOM差异，无外部代码修改。工具备份后发布19:23:43.426构建，SHA-256=3d25044f509b3c2b327c8befdc6db201307bb08065a74d984024b96f8342ba47，目标/产物/正式测试存档一致。见records/device-indices-deploy.json，未公开用户账号路径。
 - runtime=simulator：校准手机模板创建smoke5断言通过，最终发布产物82用例/334断言全部通过（records/device-indices-simulator.json）。未修改玩法；不把这组结果当成真实设备已加载新版。
 - runtime=device-play：待用户保存并重新试玩，核对构建时间。旧package音频文档和原测试记录未纳入本轮提交。
+
+## 2026-10-24：真机文字缺失
+
+- runtime=device，来源=用户两截图/日志：19:23构建，标题与设置可见，多数模式文案/棋子字/按钮字消失；127次字号超出限制，定位统一文本工厂；红黑各一手日志。玩家名与原始个人路径未写入公开记录。
+- runtime=lua-compatibility-model：保守字体约束3项有效Red→Green；统一已在真机可见的25号，以叶控件缩放保持有效字号/位置/边界，并验证动态标签/手数/对齐。官方API没列精确范围，模型不声称精确还原引擎。
+- runtime=simulator：七页面×五画布35场景70断言通过；20张截图，PC菜单/手机棋盘已目视，文字完整。最终发布产物82用例334断言通过；渲染/输入14项通过。模拟器原来就接受小字号，不能仅凭无警告证明真实引擎修复。
+- runtime=filesystem-deploy：19:33:27.044构建，SHA-256=86ea69fc5fba95080be984db6bce5caf4a249156505dde382aa85b7dbf512706，原文件备份后复制；目标/工作区/两存档/交付副本一致。详情records/native-text-fix.json。
+- runtime=device-retest：待用户保存并重新试玩确认文字和警告。尚无修复后真机截图或日志。

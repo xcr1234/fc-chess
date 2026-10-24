@@ -1,0 +1,64 @@
+{
+  "runtime": "native-feedback-to-simulator-and-filesystem",
+  "feedback": {
+    "source": "User native screenshots and pasted script log",
+    "build": "2026-10-24 19:23:43.426 +08:00",
+    "fontWarnings": 127,
+    "warning": "字号超出限制",
+    "bundleLine": 10837,
+    "rendering": "Title and settings visible; menu, board glyphs and most UI text absent",
+    "gameplay": "Log includes one red move and one black reply; user says moves appear normal"
+  },
+  "knowledge": {
+    "api": "ClientUITextBoxControl.fontSize/minimumFontSize/adaptiveFontSize; ClientUIBaseControl.SetLocalScale/SetSizeDelta",
+    "exactNativeFontRange": "Not specified by retrieved official documentation",
+    "workingNativeSize25": "Visible in user title screenshot"
+  },
+  "fix": {
+    "fontSize": 25,
+    "adaptiveFontSize": false,
+    "minimumFontSizeNotWritten": true,
+    "logicalSizeViaLeafScale": true,
+    "preserveBoundsAndPosition": true
+  },
+  "red": "records/native-text-red.txt",
+  "green": "records/native-text-green.txt",
+  "layouts": {
+    "path": "records/native-text-layouts.json",
+    "scenes": 35,
+    "assertions": 70,
+    "sourceSHA256": "7a24674d98372194e3a608c210952921d0c72dd1708c39939978f34c91a6ca8d",
+    "sameProgramAsFinalDeploymentExceptBuildTimestamp": true
+  },
+  "deployment": {
+    "builtAt": "2026-10-24 19:33:27.044 +08:00",
+    "sha256": "86ea69fc5fba95080be984db6bce5caf4a249156505dde382aa85b7dbf512706",
+    "backup": ".lua-deploy-backups/1792841607155-3293a999-fc90-4c5d-9202-9da570bb0335.lua",
+    "targetConfig": "lua.deploy.local.json (gitignored)",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "copyVerified": true,
+    "editorReloadVerified": false,
+    "nativeTextRetestPassed": false
+  },
+  "knownLimits": [
+    "Conservative font model is not exact native validation",
+    "Simulator already allowed tiny fonts; no claim that simulator reproduces the original native disappearance"
+  ],
+  "regression": {
+    "path": "records/native-text-simulator.json",
+    "passed": true,
+    "cases": 82,
+    "assertions": 334,
+    "sourceSHA256": "86ea69fc5fba95080be984db6bce5caf4a249156505dde382aa85b7dbf512706"
+  },
+  "officialSources": [
+    {
+      "title": "客户端控件API文档",
+      "url": "https://act.mihoyo.com/ys/ugc/tutorial/detail/mhtakr07vej4"
+    },
+    {
+      "title": "文本框界面控件",
+      "url": "https://act.mihoyo.com/ys/ugc/tutorial/detail/mhnltrr3g966"
+    }
+  ]
+}

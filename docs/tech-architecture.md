@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-24 真机小字号兼容
+
+用户真机19:23构建日志127次“字号超出限制”，截图小字/棋字不可见，统一定位到primitives.text的fontSize/minimumFontSize赋值。官方API未列精确限制，采用截图已验证能显示的25号基准：每个文本控件设置fontSize=25、adaptiveFontSize=false，不再写minimumFontSize=6；叶控件scale=逻辑字号/25，框宽高除以scale，位置不变。实际显示字号与框边界保持原设计，动态文字/对齐仍直接操作同一文本控件，棋子/按钮热区和图片不缩放。
+
+保守约束模型覆盖6–25逻辑字号与更新/几何，模型不代表精确真机字号限制。原生模拟器仅核对可读文本/字号和画面，不能代替真机复测；见tests/native-text-plan.md。
+
 ## 2026-10-24 结算返回棋盘
 
 终局保留history；`ReturnBoardButton`仅在result转入`result-review`，不调用begin，不恢复计时或AI。square只接受player-turn、commit拒绝两种终局状态；review可走原悔棋确认与模式确认，认输不再响应。确认悔棋沿用历史快照恢复到上次红方落子前并清除resultTitle/Reason，冻结直到确认是才解除。生命周期和音效/BGM接口未变，review仍使用对局BGM且不生成落子事件。

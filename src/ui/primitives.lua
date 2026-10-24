@@ -16,7 +16,11 @@ function M.image(p,n,x,y,w,h,color,id)
   return c
 end
 function M.text(p,n,x,y,w,h,value,color,size)
-  local c=M.create('textbox',p,n,x,y,w,h);c.text=value;c.fontSize=size or 10;c.minimumFontSize=6;c.adaptiveFontSize=true
+  -- 25 is verified visible on native. Keep small logical fonts through leaf
+  -- scaling instead of writing sizes rejected by the native font API.
+  local scale=(size or 10)/25
+  local c=M.create('textbox',p,n,x,y,w/scale,h/scale)
+  c:SetLocalScale(scale,scale,1);c.adaptiveFontSize=false;c.fontSize=25;c.text=value
   c.fontColor=M.color(color or '3defa0');c.bgColor=Color(0,0,0,0);c.enableOutline=false
   c.horizontalAlignment=Enum.TextHorizontalAlignment.Middle;c.verticalAlignment=Enum.TextVerticalAlignment.Middle
   return c

@@ -1,0 +1,14 @@
+{
+  "builtAt": "2026-10-24 19:33:27.044 +08:00",
+  "luaSHA256": "86ea69fc5fba95080be984db6bce5caf4a249156505dde382aa85b7dbf512706",
+  "bytes": 894140,
+  "deployed": true,
+  "nativeTextFixVerifiedOnDevice": false,
+  "templateIds": [
+    1073741847,
+    1073741848,
+    1073741849,
+    1073741850
+  ],
+  "strategy": "Known working native font size 25; leaf scale keeps logical font and bounds; adaptive sizing off"
+}

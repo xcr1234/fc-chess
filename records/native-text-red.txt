@@ -1,0 +1,4 @@
+FAIL all game font roles avoid small native font assignments: [string "package.preload["app.log"]=function()..."]:10115: 字号超出限制: fontSize=6
+FAIL text scale preserves effective font size, position and bounds: [string "package.preload["app.log"]=function()..."]:10115: 字号超出限制: fontSize=6
+FAIL dynamic piece labels, counters and manual alignment remain writable: [string "package.preload["app.log"]=function()..."]:10115: 字号超出限制: fontSize=10
+[string "package.preload["app.log"]=function()..."]:10137: 3 native text failures
