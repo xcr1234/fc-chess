@@ -38,6 +38,14 @@ function M.valid(b,a,z,custom)
  return false
 end
 local orth={{1,0},{-1,0},{0,1},{0,-1}}
+-- Feedback follows the game's capture rules; it does not prohibit self-check.
+function M.threatensKing(b,side,custom)
+ local king=side=='red' and 'k' or 'K';local target
+ for i=1,90 do if b[i]==king then target=i;break end end
+ if not target then return false end
+ for i=1,90 do if M.side(b[i])==side and M.valid(b,i,target,custom) then return true end end
+ return false
+end
 local diagonal={{1,1},{1,-1},{-1,1},{-1,-1}}
 local horses={{2,1},{2,-1},{-2,1},{-2,-1},{1,2},{-1,2},{1,-2},{-1,-2}}
 function M.moves(b,side,custom,captures)

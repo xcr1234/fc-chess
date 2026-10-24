@@ -1,0 +1,500 @@
+{
+  "runtime": "simulator-worker-audio",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "name": "check-audio-red",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "c721f3ad-aacd-4b71-84cd-68b8caddb3e9",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "check-audio-discovered",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "fc9bb63c-33ef-42fa-ae4c-9705009b20a6",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "check-audio-black",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] black count=2",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "078e62bf-cb42-4b36-a173-1256e31823af",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 4,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.4,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.5,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "check-audio-undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "51a2163b-b891-422a-a85a-8d7a7c8298cb",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "check-audio-muted",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 2,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "90b36ab8-18d2-497f-867c-37ec3bf5f19a",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "check-audio-red",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "11f7e446-35bc-47fc-b945-d7dc1e6f280a",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "check-audio-discovered",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "b7cffd3e-5658-4f6a-a3ad-790cfc8d68ff",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "check-audio-black",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] black count=2",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "b684a3f3-f018-4516-a068-57876843dd7f",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 4,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.4,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.5,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "check-audio-undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "13a2a940-af31-4218-ae04-11de421d9d8b",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 0.4,
+            "duration": 0.495,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "check-audio-muted",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 2,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "5ce48e42-ed02-4498-87b8-959888cb5bf6",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    }
+  ],
+  "luaSHA256": "386b72a13c16c3413ac095f7f406e3de284a56d42852199675b488dbd3687afc"
+}

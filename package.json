@@ -26,6 +26,8 @@
     "test:lua:undo": "node scripts/run-lua-check.mjs tests/lua-undo-confirm.lua",
     "test:lua:audio": "node scripts/run-lua-check.mjs tests/lua-audio-settings.lua && node scripts/run-lua-check.mjs tests/lua-audio-controller.lua",
     "test:audio:simulator": "node scripts/test-audio-layouts.mjs",
+    "test:lua:check-audio": "node scripts/run-lua-check.mjs tests/lua-check-audio.lua",
+    "test:check-audio:simulator": "node scripts/test-check-audio-simulator.mjs",
     "test:lua:exchange": "node scripts/run-lua-check.mjs tests/lua-ai-exchange.lua && node scripts/run-lua-check.mjs tests/lua-ai-user-cannon.lua",
     "test:lua:pvs": "node scripts/run-lua-check.mjs tests/lua-ai-pvs.lua && node scripts/run-lua-check.mjs tests/lua-ai-threats.lua",
     "test:lua:tactics": "node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua",

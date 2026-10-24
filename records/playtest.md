@@ -295,3 +295,9 @@
 - runtime=simulator：同次构建14669b22ccb2b804a8cf0d4bcd06986d5fcf869d0a80c350e39e1ad1a73ba3e8，74用例296断言通过（records/audio-settings-simulator.json）；五画布10张设置/选曲截图完整，PC与手机目视无裁切/重叠。5项BGM信号检查覆盖对局路由、40%、0%、标题关闭、对局关闭；3项真实Worker音效检查：双方有效落子共2个50882实例、选子/非法目标0实例、关闭音效后有效落子0实例。音效双方样本用既有1秒计算+2秒等待回复夹具，先前对自然搜索完成时间作3秒假设的测试已改为明确夹具，未改AI。
 - runtime=simulator-browser：Agent通过真实页面点击设置、+至40%、音效关闭，控件与日志响应正确；截图records/screenshots/audio-settings-browser.png。旧棋盘点选/悔棋/拖动五画布20场景460断言回归通过（records/audio-input-native.json）。
 - runtime=device：未执行。BGM服务端节点待编辑器接线，当前serverLogic仅信号接收探针；请求正确不代表BGM可听。未验证扬声器、音量实际响度、循环接缝或真机操作。接法docs/audio-integration.md。未复制到外部部署路径。
+
+## 2026-10-24：将军检测与50888
+
+- runtime=lua-unit/html-controller：9项有效Red→Green，覆盖车炮遮挡、马腿、兵方向/过河、将帅照面、自定义士相、红黑/发现/连续将军、事件队列、静音、吃将及不应将继续走棋。原声音/规则/悔棋/反馈34项、HTML20项通过。
+- runtime=simulator：同次28模块产物SHA-256=386b72a13c16c3413ac095f7f406e3de284a56d42852199675b488dbd3687afc；77用例/305断言通过（records/check-audio-simulator.json）。真实Worker额外PC/手机10场景核对audio.recent音效ID与sequence（records/check-audio-worker.json）：将军只50888一次、普通红步后黑将军顺序50882/50888、悔棋/重复更新不重播、关闭后静音。
+- runtime=device：未执行真实扬声器/真机试听；无画面变化，不重复布局截图，不声称已验真实响度。没有复制外部文件。50888沿用本会话已查资源与官方PlayAudio2D，不增加新API。

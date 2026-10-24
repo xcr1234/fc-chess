@@ -39,7 +39,7 @@
       else if(name==='TitleMusicButton'||name==='BoardMusicButton'){state.musicTarget=name==='TitleMusicButton'?'title':'board';state.musicPage=0;state.musicCategory=0;state.scene='music-select';}
       else if(name==='VolumeDown')state.audio.volume=Math.max(0,state.audio.volume-10);
       else if(name==='VolumeUp')state.audio.volume=Math.min(100,state.audio.volume+10);
-      else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx)moveVoice?.pause();}
+      else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx)for(const voice of moveVoices.values())voice.pause();}
     }else if(state.scene==='music-select'){
       const id=Number(name.match(/^PickMusic_(\d+)$/)?.[1]),category=Number(name.match(/^MusicCategory_(\d)$/)?.[1]);
       if(name==='MusicBack')state.scene='audio-settings';
@@ -51,9 +51,12 @@
     }
   }
   let moveVoice=null;
-  function playMoveSound(){
+  const moveVoices=new Map();
+  function playMoveSound(checking){
     if(!state.audio.sfx||typeof Audio==='undefined')return;
-    moveVoice ||= new Audio('https://oss.070077.xyz/audio/50882.mp3');
+    const id=checking?50888:50882;
+    if(!moveVoices.has(id))moveVoices.set(id,new Audio(`https://oss.070077.xyz/audio/${id}.mp3`));
+    moveVoice=moveVoices.get(id);
     moveVoice.currentTime=0;moveVoice.play()?.catch(()=>{});
   }
   function announce(message) { state.message = message; live.textContent = message; }
@@ -208,7 +211,7 @@
     clock.update(performance.now());
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
-    playMoveSound();
+    playMoveSound(!capturedKing && threatensKing(state.board,side,state.mode===2));
     if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃'); return; }
     beginTurn(side === 'red' ? 'black' : 'red');
   }

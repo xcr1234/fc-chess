@@ -65,22 +65,37 @@ test('complexity changes wait; fast adds zero; bounds and missing metrics are sa
 
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-function appHarness() {
+function appHarness({audio=false}={}) {
  let now=0;
+ const sounds=[];
  const element=()=>({style:{},attributes:{},width:256,height:224,focus(){},addEventListener(){},setAttribute(k,v){this.attributes[k]=v;},getAttribute(k){return this.attributes[k];},replaceChildren(){},getBoundingClientRect(){return {left:0,top:0,width:256,height:224};}});
  const ctx=new Proxy({}, {get:(o,k)=>o[k]??(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
  const screen=element(); screen.getContext=()=>ctx;
  const live=element(),hotspots=element();
  const scope={performance:{now:()=>now},document:{querySelector:s=>({'#screen':screen,'#status':live,'#hotspots':hotspots}[s]),createElement:()=>({...element(),getContext:()=>ctx})},window:{devicePixelRatio:1,addEventListener(){}},ResizeObserver:class{observe(){}},Image:class{},requestAnimationFrame(){}};
  vm.createContext(scope);
+ if(audio)scope.Audio=class{constructor(src){this.src=src;}play(){sounds.push(this.src);return Promise.resolve();}pause(){}};
  vm.runInContext(readFileSync(new URL('../prototype/rules.js',import.meta.url),'utf8'),scope);
  vm.runInContext(readFileSync(new URL('../prototype/audio-catalog.js',import.meta.url),'utf8'),scope);
  const app=readFileSync(new URL('../prototype/app.js',import.meta.url),'utf8');
  // Test-local access to the real controller, not a shipped fixture/debug API.
  vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows};})();'),scope);
  const c=scope.controller;
- return {...c,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
+ return {...c,sounds,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
 }
+test('check audio: red and black checking moves replace ordinary move sounds',()=>{
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[0,8,'r']]),0);
+ h.square(0,6);h.square(0,5);h.state.reply.move={from:pos(0,8),to:pos(3,8)};h.render(h.state.reply.due+1);
+ assert.deepEqual(h.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50888.mp3']);h.render(60000);assert.equal(h.sounds.length,2);
+ const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);r.square(0,5);r.square(4,5);
+ assert.ok(r.sounds[0].endsWith('/50888.mp3'));
+});
+test('check audio: muted checks stay silent and king capture uses normal move sound',()=>{
+ const h=appHarness({audio:true});h.settingsAction('SettingsButton');h.settingsAction('SfxToggle');h.settingsAction('SettingsBack');
+ h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);h.square(0,5);h.square(4,5);assert.equal(h.sounds.length,0);
+ const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);r.square(4,5);r.square(4,0);
+ assert.equal(r.state.scene,'result');assert.ok(r.sounds[0].endsWith('/50882.mp3'));
+});
 test('settings: independent choices, mute, sound toggle and persistence across a new match',()=>{
  const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
  h.settingsAction('TitleMusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);

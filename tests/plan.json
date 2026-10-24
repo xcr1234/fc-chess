@@ -1647,6 +1647,111 @@
         "canvasId": "pc-16-9"
       },
       "fixture": null
+    },
+    {
+      "case": "check-audio-red",
+      "file": "cases/check-audio-red.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "check-audio-discovered",
+      "file": "cases/check-audio-discovered.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 4,
+            "rank": 4,
+            "piece": "N"
+          }
+        ],
+        "mode": "difficult",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "check-audio-black",
+      "file": "cases/check-audio-black.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          },
+          {
+            "file": 0,
+            "rank": 8,
+            "piece": "r"
+          }
+        ],
+        "mode": "difficult",
+        "ai": {
+          "computeSeconds": 0.1,
+          "waitSeconds": 0,
+          "replySequence": [
+            [
+              0,
+              8,
+              3,
+              8
+            ]
+          ]
+        }
+      }
     }
   ]
 }

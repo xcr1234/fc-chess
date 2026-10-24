@@ -1,5 +1,9 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-24 将军音效
+
+`board.threatensKing`检查攻击方按现有基本走法能否吃到对方将帅，完整扫描棋盘以涵盖发现将军；只在session.commit有效落子后运行，不插入AI搜索或限制走法。session按单调递增的落子序号记录`moveSoundChecks`，audio.controller逐事件选择50888/50882，消费后删除，静音时也消费。这样一次同步前有红黑两步也不会丢失各步的将军属性，悔棋/重绘/重开不重播。吃将直接终局不报将军。HTML同步声音优先级；测试见`tests/check-audio-plan.md`。
+
 ## 2026-10-24 声音设置
 
 `audio.catalog`从项目音乐目录生成，`audio.settings`管理会话偏好/分类分页和输入，`audio.controller`管理音效实例与BGM信号副作用。session仅在真实commit时增加`moveSoundSequence`，lifecycle渲染前同步音频；反复render不重复播放，关闭消耗序列不补播，销毁停止实例。默认title10167/board10029/volume30/sfx=true；音量不用于音效API。

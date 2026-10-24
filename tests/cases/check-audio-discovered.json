@@ -1,0 +1,57 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "check-audio-discovered",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_check-audio-discovered"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_4"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_5_2"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "ai-search"
+    },
+    {
+      "kind": "log",
+      "at": 1.5,
+      "contains": "[fc-chess][check] red count=1",
+      "source": "client"
+    }
+  ]
+}

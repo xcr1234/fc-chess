@@ -1,6 +1,6 @@
 local Settings=require('audio.settings')
 local Log=require('app.log')
-local M={moveSoundId=50882,signalName='FCChessBGM'}
+local M={moveSoundId=50882,checkSoundId=50888,signalName='FCChessBGM'}
 function M.new() return {sequence=0,voices={}} end
 local function request(id,volume,seconds,enabled)
  local signal=game.ServerSignal(M.signalName)
@@ -15,10 +15,13 @@ function M.sync(self,s)
  if self.key~=key then request(id,s.audio.volume,track and track.seconds or 0,enabled);self.key=key end
  for instance in pairs(self.voices) do if not game.IsAudioAlive(instance) then self.voices[instance]=nil end end
  if s.audio.sfx then
-  for i=self.sequence+1,s.moveSoundSequence do local instance=game.PlayAudio2D(M.moveSoundId);self.voices[instance]=true end
+  for i=self.sequence+1,s.moveSoundSequence do
+   local instance=game.PlayAudio2D(s.moveSoundChecks[i] and M.checkSoundId or M.moveSoundId);self.voices[instance]=true
+  end
  else
   for instance in pairs(self.voices) do game.StopAudio(instance);self.voices[instance]=nil end
  end
+ for i=self.sequence+1,s.moveSoundSequence do s.moveSoundChecks[i]=nil end
  self.sequence=s.moveSoundSequence
 end
 function M.destroy(self)

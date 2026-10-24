@@ -1,0 +1,13 @@
+
+> miliastra-template@0.1.0 test:lua:check-audio
+> node scripts/run-lua-check.mjs tests/lua-check-audio.lua
+
+PASS rook, cannon screens and horse legs detect real attacks only
+PASS pawn directions, crossed river and facing generals use current profiles
+PASS custom red advisors and elephants can threaten across the river
+PASS checking moves replace normal sound once; repeated render, select and undo stay silent
+PASS black checking move and discovered double attack each play one check sound
+PASS queued normal and check moves keep their own sounds and consume events
+PASS mute consumes check events; no replay on enable or restart
+PASS capturing a king has no check sound and missing king is not threatened
+PASS ignoring check remains legal and continuous checking moves each sound once
