@@ -1,9 +1,18 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
-import { adaptBook, loadUpstream } from './build-opening-book.mjs';
+import { adaptBook, loadUpstream, verifyUpstreamFiles } from './build-opening-book.mjs';
 
 const adapted = adaptBook();
+test('pinned-source checksums accept LF/CRLF checkouts and reject content/version changes', () => {
+  const manifest = JSON.parse(fs.readFileSync('third_party/xqwlight/UPSTREAM.json', 'utf8'));
+  const { files } = loadUpstream();
+  const crlf = Object.fromEntries(Object.entries(files).map(([name, source]) => [name, source.replaceAll('\n', '\r\n')]));
+  assert.deepEqual(verifyUpstreamFiles(crlf, manifest), files);
+  assert.deepEqual(verifyUpstreamFiles(files, manifest), files);
+  assert.throws(() => verifyUpstreamFiles({ ...crlf, 'book.js': crlf['book.js'] + '// changed\r\n' }, manifest), /Vendored source changed: book.js/);
+  assert.throws(() => verifyUpstreamFiles(files, { ...manifest, commit: 'unreviewed' }));
+});
 test('offline adaptation is reproducible and the complete source book stays vendored', () => {
   assert.equal(adapted.summary.sourceRows, 12081);
   assert.ok(adapted.summary.recoveredSourceRows > 9000);

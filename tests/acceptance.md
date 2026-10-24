@@ -1,8 +1,8 @@
 # 娱乐规则验收与追踪
 
 - 日期：2026-10-23（Asia/Shanghai）。最新用户要求：不做循环/长将/长捉、将死/困毙、自将/强制应将；实际吃将或认输才判胜负。
-- 当前状态：回到第5步修复，57个正式格式用例、193条断言通过，见 records/lua-step5-feedback-results.json；最新五画布反馈截图见 records/lua-step5-feedback-visuals.json。第6步53用例/162断言为历史证据。五画布30页及5项坐标输入检查见 records/lua-step6-matrix.json。尚未真机验收，性能仍有风险。
-- 规则来源：[GDD](../docs/gdd.md)、[详细设计](../docs/game-spec.md)、[AI方案](../docs/ai-design.md)。格式与步骤5测试桥接见[README](README.md)。
+- 当前状态：JS 1.0 新内核的规则补充回归完成，67 个原生用例、262 条断言通过，见 `records/ai-rule-simulator.json`；本轮未重新做视觉矩阵/真机验收。历史五画布矩阵见 `records/lua-step6-matrix.json`。
+- 规则来源：[GDD](../docs/gdd.md)、[详细设计](../docs/game-spec.md)、[JS 1.0 重写方案](../docs/ai-rebuild-proposal.md)。新内核的独立规则真值、6 个新增原生场景与证据边界见 [补充测试计划](ai-js-rule-regression-plan.md)，格式及桥接见 [README](README.md)。
 
 每例独立开始，PC/mobile用不同canvasId。特殊局面/时间/AI输入逐例写在plan.json，实际断言写在独立case文件。时间消费固定dt；棋力回归使用相同规则档案、seed、预算和缓存初始状态。下表是规则→前置→动作→可观察结果的追踪，不是已执行结果。
 

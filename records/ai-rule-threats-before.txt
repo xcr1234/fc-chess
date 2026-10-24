@@ -1,0 +1,7 @@
+PASS knight threatens r at 1 from 20 reply=1-19 depth=3
+PASS knight threatens r at 9 from 26 reply=9-27 depth=3
+PASS knight threatens n at 2 from 13 reply=2-21 depth=2
+PASS knight threatens n at 8 from 15 reply=8-25 depth=2
+FAIL knight threatens c at 20 from 13 reply=2-21 depth=2
+FAIL knight threatens c at 26 from 15 reply=8-25 depth=2
+[string "package.preload["app.log"]=function()..."]:9744: ignored 2 direct threats

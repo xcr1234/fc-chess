@@ -1235,6 +1235,362 @@
           }
         ]
       }
+    },
+    {
+      "case": "ai-counter-capture-priority",
+      "file": "cases/ai-counter-capture-priority.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "fast",
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 2,
+            "piece": "R"
+          },
+          {
+            "file": 4,
+            "rank": 8,
+            "piece": "r"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai-custom-advisor-defence",
+      "file": "cases/ai-custom-advisor-defence.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "custom",
+        "waitSeconds": 0,
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 5,
+            "rank": 1,
+            "piece": "A"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai-custom-elephant-defence",
+      "file": "cases/ai-custom-elephant-defence.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "custom",
+        "waitSeconds": 0,
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 6,
+            "rank": 2,
+            "piece": "E"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai-no-basic-move-skip",
+      "file": "cases/ai-no-basic-move-skip.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "mode": "fast",
+        "pieces": [
+          {
+            "file": 3,
+            "rank": 0,
+            "piece": "a"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 5,
+            "rank": 0,
+            "piece": "a"
+          },
+          {
+            "file": 3,
+            "rank": 1,
+            "piece": "a"
+          },
+          {
+            "file": 4,
+            "rank": 1,
+            "piece": "a"
+          },
+          {
+            "file": 5,
+            "rank": 1,
+            "piece": "a"
+          },
+          {
+            "file": 3,
+            "rank": 2,
+            "piece": "a"
+          },
+          {
+            "file": 4,
+            "rank": 2,
+            "piece": "a"
+          },
+          {
+            "file": 5,
+            "rank": 2,
+            "piece": "a"
+          },
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          }
+        ]
+      }
+    },
+    {
+      "case": "ai-custom-standard-army-search",
+      "file": "cases/ai-custom-standard-army-search.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "custom",
+        "standard": true,
+        "waitSeconds": 0,
+        "bookSeed": 17
+      }
+    },
+    {
+      "case": "ai-custom-fifteen-rooks-search",
+      "file": "cases/ai-custom-fifteen-rooks-search.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "custom",
+        "pieces": [
+          {
+            "file": 0,
+            "rank": 0,
+            "piece": "r"
+          },
+          {
+            "file": 1,
+            "rank": 0,
+            "piece": "n"
+          },
+          {
+            "file": 2,
+            "rank": 0,
+            "piece": "e"
+          },
+          {
+            "file": 3,
+            "rank": 0,
+            "piece": "a"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 5,
+            "rank": 0,
+            "piece": "a"
+          },
+          {
+            "file": 6,
+            "rank": 0,
+            "piece": "e"
+          },
+          {
+            "file": 7,
+            "rank": 0,
+            "piece": "n"
+          },
+          {
+            "file": 8,
+            "rank": 0,
+            "piece": "r"
+          },
+          {
+            "file": 1,
+            "rank": 2,
+            "piece": "c"
+          },
+          {
+            "file": 7,
+            "rank": 2,
+            "piece": "c"
+          },
+          {
+            "file": 0,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 2,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 4,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 6,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 8,
+            "rank": 3,
+            "piece": "p"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 2,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 4,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 6,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 8,
+            "rank": 6,
+            "piece": "R"
+          },
+          {
+            "file": 1,
+            "rank": 7,
+            "piece": "R"
+          },
+          {
+            "file": 7,
+            "rank": 7,
+            "piece": "R"
+          },
+          {
+            "file": 0,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 1,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 2,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 5,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 6,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 7,
+            "rank": 9,
+            "piece": "R"
+          },
+          {
+            "file": 8,
+            "rank": 9,
+            "piece": "R"
+          }
+        ],
+        "waitSeconds": 0
+      }
     }
   ]
 }

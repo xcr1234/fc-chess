@@ -1,0 +1,40 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Vendored source changed: book.js
++ actual - expected
+
++ 'c08fbbaaf8344571967c0610004735dc3a35072d54863cba16c1568dbff95b5a'
+- 'fdc90c854ac764b628ea9b779fe3680ea445c51f9592eb54811fa04c6394a48f'
+
+    at loadUpstream (file:///E:/miliastra/fc-chess/scripts/build-opening-book.mjs:19:62)
+    at adaptBook (file:///E:/miliastra/fc-chess/scripts/build-opening-book.mjs:54:41)
+    at file:///E:/miliastra/fc-chess/scripts/test-opening-book.mjs:6:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:689:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'c08fbbaaf8344571967c0610004735dc3a35072d54863cba16c1568dbff95b5a',
+  expected: 'fdc90c854ac764b628ea9b779fe3680ea445c51f9592eb54811fa04c6394a48f',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.9.0
+✖ scripts\test-opening-book.mjs (58.9067ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 65.0572
+
+✖ failing tests:
+
+test at scripts\test-opening-book.mjs:1:1
+✖ scripts\test-opening-book.mjs (58.9067ms)
+  'test failed'

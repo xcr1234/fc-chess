@@ -1,0 +1,153 @@
+{
+  "runtime": "Fengari 0.1.5 / Node v24.9.0",
+  "commit": "2ae4417716469134bec3e6893484d59e8b0dc9b2",
+  "scope": "Rule/engine regressions, not a strength tournament or device result",
+  "sourceHashes": {
+    "src/app/lifecycle.lua": "d635891e2c82f35fc2e2e6fe9da41a890d85e6895462a5a08e18e2c9f9997f1c",
+    "src/app/log.lua": "47283032cfbe9f4ddb99e60bb85f201256f0b7a95aed9b2e1fa09cf08b6e3bb1",
+    "src/game/ai.lua": "7a3614340c21e38c21e6bf065c97ffe96941fc1a413d21a949560b13f3309423",
+    "src/game/ai/book.lua": "6ec44f02e237d39ac715ceee57bf85de8d672baa4458d74cedc2093eb6a79dcf",
+    "src/game/ai/book_data.lua": "062d42c6b544fecb053ca28369b851b10e338f61ca8de132a0db9262bf4f837f",
+    "src/game/ai/evaluate.lua": "85b425a7b09d33e3446a2b02188df95688b2d5f7af758be1f9e6ae85e71c6a50",
+    "src/game/ai/exchange.lua": "43d472e5ac9fcd0d40decbbeb4ae228f8026edf26f25f677ee53f0415420fc8a",
+    "src/game/ai/movegen.lua": "c7de77667a571c7e562aa6db1e753aa5c80694d5a975d47e636a9e833a38b63f",
+    "src/game/ai/order.lua": "757e8be6231c4a81d940be5b4fbacd6177b670a7ea75d8687700fdc1062fc0d1",
+    "src/game/ai/position.lua": "21f6aa5b7bb5f8a10dca5a2d1140f88b1d28b67d7125fe074bc13d245507a606",
+    "src/game/ai/rules.lua": "f801a71e06a85e3124e25411717bc2ead48ecc44fe804b3aa0676887feff36cd",
+    "src/game/ai/scheduler.lua": "c50f3cd056eaa9421ede1381e5ce85d227e0ab82b9719cec43557275ba4a1451",
+    "src/game/ai/search.lua": "e92574470710930cd30edb549c2d22f6a8a5e8e166f0fc3bf66ec342df4a16ba",
+    "src/game/ai/tables.lua": "99bb0427e6c57782d636ebec10551cd2b66722976cef7978897565f0f4e78b47",
+    "src/game/ai/tt.lua": "9d96dd641bec6cc70846c4f14b688e4a91f77f0ec7f710e456240f7abbe6427c",
+    "src/game/board.lua": "164ed28a55a7db9ed2361d37a357455d827da60c163c82f9ba7b6fe3aa9055ac",
+    "src/game/session.lua": "6a58263be1f43f4d5a7df180d0d774055ca69628a2e3900ae3299006819c7f2c",
+    "src/game/thinking_counter.lua": "d24d651a326c3c43c3090cc1d181f81868eec0974b0f5373195d72da836f742d",
+    "src/game/wait.lua": "e05e4f02fe0228d12e85befa557252108eb35e62d46e3cf6a226b3e02aab2e22",
+    "src/main.lua": "38834128a5e1c86ca9b4a567501431c914810573750dbe323651bd9698a4ece6",
+    "src/testing/bridge.lua": "b68bd171822760b4d853d2589d4f57f1c9610ceef34e5c8a925cad9af08bd269",
+    "src/testing/fixtures.lua": "af968eb8d68d8e49dc4b621ccba512217f5da7d909a0a1a74165c57cacd0b22c",
+    "src/ui/portrait.lua": "5aae519be68dfa43ddb2e36c6f2d503e1c732faac7c1fda49a2c2a3ea8d37f21",
+    "src/ui/portrait_data.lua": "52acc17992102d92a56c4fd0c883c7d4b7814cf3c5f72864f1c47a4b5662bedd",
+    "src/ui/primitives.lua": "4cd1956670c4bb74598963a716109d0ba6c5c5fb16189e6c4616b9d3fa653562",
+    "src/ui/view.lua": "d9ea5274e160cf1a1b8a4b782aa1e6b94e05ba70747d40c822c4d562a5fe2671"
+  },
+  "sourceFingerprint": "9de2dc3c162312b6e52b1501108039896a55c9fadc33ede02a41288a5220d939",
+  "bundleSHA256": "8267d71d4be6a8740f9f77355cc1ffe241d849f2a1c5c1474a99103c7ee64c4f",
+  "results": [
+    {
+      "file": "tests/lua-ai-rules.lua",
+      "testSHA256": "d5be8b731c3e99ffbcc1ae907ca07ef2b47c55c1f7817c930d7bf780f16fb341",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 46,
+      "stdout": "PASS RULE-GEOMETRY-1\nPASS RULE-GEOMETRY-2\nPASS RULE-GEOMETRY-3\nPASS RULE-GEOMETRY-4\nPASS RULE-GEOMETRY-5\nPASS RULE-GEOMETRY-6\nPASS RULE-GEOMETRY-7\nPASS RULE-GEOMETRY-8\nPASS RULE-GEOMETRY-9\nPASS RULE-GEOMETRY-10\nPASS RULE-GEOMETRY-11\nPASS RULE-GEOMETRY-12\nPASS RULE-GEOMETRY-13\nPASS RULE-GEOMETRY-14\nPASS RULE-GEOMETRY-15\nPASS RULE-GEOMETRY-16\nPASS RULE-GEOMETRY-17\nPASS RULE-GEOMETRY-18\nPASS RULE-GEOMETRY-19\nPASS RULE-GEOMETRY-20\nPASS RULE-GEOMETRY-21\nPASS RULE-GEOMETRY-22\nPASS RULE-GEOMETRY-23\nPASS RULE-GEOMETRY-24\nPASS RULE-GEOMETRY-25\nPASS RULE-GEOMETRY-26\nPASS RULE-GEOMETRY-27\nPASS RULE-GEOMETRY-28\nPASS RULE-GEOMETRY-29\nPASS RULE-GEOMETRY-30\nPASS RULE-GEOMETRY-31\nPASS RULE-GEOMETRY-32\nPASS RULE-EDGES-AND-FRIENDLY-TARGET\nPASS RULE-FLYING-KING-AND-SCREEN\nPASS RULE-COUNTER-CAPTURE-BEFORE-DEFENCE\nPASS RULE-PINNED-ATTACKER-STILL-CAPTURES-KING\nPASS RULE-CUSTOM-FREE-ADVISOR-AND-ELEPHANT-KING-ATTACK\nPASS RULE-CUSTOM-MATERIAL-AND-PROFILE-ISOLATION\nPASS RULE-REAL-NO-MOVE-SKIP-WITH-BOTH-KINGS\nPASS STATE-REAL-PASS-SEARCH-CANCEL\nPASS RULE-FORCED-LOSS-DOES-NOT-END-GAME-EARLY\nPASS RULE-REPEAT-KEEPS-PRODUCTION-PLAYABLE\nPASS STATE-CAPTURE-KING-MOVE-NULL-PASS-UNDO\nPASS STATE-CLOCK-DEADLINE-AND-IDEMPOTENT-FINISH\nPASS CACHE-RULE-LEAF-PATH-AND-MATE-ISOLATION\nPASS SESSION-FAST-DIFFICULT-SAME-SEARCH-AND-WAIT-FROZEN\nRULE SUMMARY 46/46\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-ai-threats.lua",
+      "testSHA256": "0ef515e8d0f94f08410ec350f76ac79810f5696defa10c5cb9922ed8c166a290",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 16,
+      "stdout": "PASS crowded target 1\nPASS crowded target 9\nPASS crowded target 2\nPASS crowded target 8\nPASS undefended r at 41\nPASS undefended r at 49\nPASS undefended n at 41\nPASS undefended n at 49\nPASS undefended c at 41\nPASS undefended c at 49\nPASS horse/cannon fork 13\nPASS horse/cannon fork 15\nPASS late horse threatened by R\nPASS late horse threatened by C\nPASS late horse threatened by N\nPASS late horse threatened by P\nTHREAT SUMMARY 16/16\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-regression.lua",
+      "testSHA256": "29cee3b713f0101c537ac80c75343884f8dfbcb4810be1a594f7325cbecacb90",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 11,
+      "stdout": "PASS move generator matches exhaustive validator across seeded boards and both profiles\nPASS AI captures king before material, including fifteen rooks\nPASS real budget abort retains a completed iteration and unwinds board\nPASS cancel mid-search unwinds private board and leaves visible board untouched\nPASS mode-independent search, legal opening book, custom disables book\nPASS restart retains initial custom board; undo cancels real unfinished search\nPASS both empty move lists produce no win, loss or draw adjudication\nPASS invalid initial data is rejected instead of awarded a win\nPASS waiting limits and missing fields are deterministic\nPASS timeout before first iteration still takes an available king\nPASS large frame delta counts step time and confirmation delays only submission\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-ai-tactics.lua",
+      "testSHA256": "f8e9da043e15ed26a79319e3ebf1fbf3cd83d9b12a11267dea4eddd8c789c5bd",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 5,
+      "stdout": "PASS out-of-book must not trade cannon for protected horse depth=2 nodes=1283 move=2-21\nPASS save attacked rook depth=3 nodes=895 move=41-50\nPASS take genuinely free rook depth=4 nodes=2400 move=20-56\nPASS immediate king capture depth=0 nodes=0 move=77-86\nPASS quiet escape from rook attack depth=1 nodes=3 move=5-4\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-ai-user-cannon.lua",
+      "testSHA256": "531135302a2ea9fea895d845024b2945d278a5e3f49d244348afb3aa45e956d9",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 0,
+      "stdout": "USER dt=0.033333333333333 depth=2 nodes=546 move=1-2 score=-1\nUSER dt=0.016666666666667 depth=2 nodes=1686 move=1-2 score=-1\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-ai-pvs.lua",
+      "testSHA256": "be28ded7f5c469882e7a5acbfedfea25b5af9640c9caf17cceec4582380bca12",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 13,
+      "stdout": "PASS PVS/reference score sample=1 custom=false nodes=444/455\nPASS PVS/reference score sample=1 custom=true nodes=444/455\nPASS PVS/reference score sample=2 custom=false nodes=539/513\nPASS PVS/reference score sample=2 custom=true nodes=539/513\nPASS PVS/reference score sample=3 custom=false nodes=445/423\nPASS PVS/reference score sample=3 custom=true nodes=445/423\nPASS PVS/reference score sample=4 custom=false nodes=487/466\nPASS PVS/reference score sample=4 custom=true nodes=487/466\nPASS PVS/reference score sample=5 custom=false nodes=424/431\nPASS PVS/reference score sample=5 custom=true nodes=424/431\nPASS PVS/reference score sample=6 custom=false nodes=378/560\nPASS PVS/reference score sample=6 custom=true nodes=378/560\nPASS cancel during PVS re-search; probes=1242 re-searches=136\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-opening-book.lua",
+      "testSHA256": "d1e7c106e2e3d6c54759c7bedff7a93bc760014f9341ce9a9aab67b59a444f4c",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 8,
+      "stdout": "PASS real book covers red root and several opening replies beyond first move\nPASS seed selects weighted alternatives reproducibly without modifying the board\nPASS mirror candidates keep weights and convert coordinates in both directions\nPASS unknown positions search; side and custom rules never share book hits\nPASS book never overrides immediate king capture or returns exposed-king candidates\nPASS session keeps seed in undo history and advances it only after real AI submission\nPASS weighted selection uses weight intervals rather than a candidate index\nPASS invalid and exposed-king records fall back without mutating the visible board\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-wait-extension.lua",
+      "testSHA256": "9830943943929b76647f8ba5657acd79996abb3205c6fc77160b966d08c08d5d",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 3,
+      "stdout": "PASS difficult configurable wait, extension, modal, undo\nPASS custom configurable wait, extension, modal, undo\nPASS fast has no artificial delay\n",
+      "stderr": ""
+    },
+    {
+      "file": "tests/lua-feedback.lua",
+      "testSHA256": "be6bfdae26eb87eac40ee1481f78c14fd52c75470cc5d82997f33e36f05f0374",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 6,
+      "stdout": "PASS AI move records both endpoints; selection does not replace them; undo restores prior feedback\nPASS thinking number grows frequently in search and wait and freezes after actual submission\nPASS longer actual AI wait raises the final number, with a five-digit ceiling\nPASS growth is independent of frame splitting and never bypasses confirmation\nPASS instant book replies, cancellation, restart and custom editing reset feedback safely\nPASS AI king capture preserves final move feedback and freezes its number in results\n",
+      "stderr": ""
+    },
+    {
+      "file": "scripts/verify-ai-core.mjs",
+      "testSHA256": "7fa3db0c09b3e83c370b0d5637ce6a6b91bed5df67570799cc4584f65404e700",
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "passed": true,
+      "passGroups": 13,
+      "stdout": "PASS 32 pinned-JS positions: safe moves, evaluation, 31-bit hash lanes, incremental make/undo\nPASS 160 arbitrary-army capture profiles: generation and king attacks vs game geometry\nPASS six fixed-depth JS/Lua full-window/PVS root scores and independent optimal-move sets\nPASS TT immutable mate distances, bounds, collisions, capacity, extension/history isolation\nPASS 48 fixed-depth runs: full-window/PVS x TT off/on x one-work-unit/512 slices\nPASS 140 cancellation boundaries restore board, kings, side, evaluation, hash, history and stack\nPASS 12 work-budget aborts preserve identical completed iterations across four slice sizes\nPASS cancellation inside null nodes=5414\nPASS cancellation inside verify nodes=7899\nPASS cancellation inside research nodes=9\nPASS zero-quiescence budget never submits an exposed-king fallback\nPASS counter-capture of enemy king wins before own-king danger\nPASS repetition scoring/undo and dangerous-leaf abort propagation\nTT capacity=16384 entries=928 hits=44 nodes=1724 hostMs=655\nTT capacity=32768 entries=941 hits=44 nodes=1724 hostMs=651\nTT capacity=65536 entries=939 hits=44 nodes=1714 hostMs=629\nJS fork diagnostic: 2-21 nodes=4373\nJS fork diagnostic: 8-25 nodes=4733\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "summary": {
+    "suites": 10,
+    "passed": 10,
+    "luaPassGroups": 108
+  }
+}

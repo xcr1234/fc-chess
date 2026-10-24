@@ -1,0 +1,99 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-counter-capture-priority",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-counter-capture-priority"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-counter-capture-priority"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "ResultTitle",
+      "field": "text",
+      "equals": "您落敗了"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "ResultReason",
+      "field": "text",
+      "equals": "帥被吃掉"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "Piece_4_0",
+      "field": "text",
+      "equals": "k"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "Piece_4_9",
+      "field": "text",
+      "equals": "r"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "Piece_4_2",
+      "field": "text",
+      "equals": "R"
+    }
+  ]
+}

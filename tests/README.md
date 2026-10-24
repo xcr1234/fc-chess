@@ -1,11 +1,14 @@
 # 游戏测试制定与运行约定
 
-当前按用户要求回到第5步Lua修复：57项模拟器用例（193条断言）通过；五画布思考/落子10张截图已实看。最新结果见 `records/lua-step5-feedback-results.json`、`records/lua-step5-feedback-visuals.json` 和 `records/playtest.md`。第6步历史矩阵仍保留；第7步发布初稿已删除，尚无真机通过记录。
+当前为 JS 1.0 新内核的规则回归候选（2026-10-24）：67 项模拟器用例、262 条断言通过；新增 46 组 Lua 规则检查、16 例捉子回归及固定 JS 核心对照。最新结果见 `records/ai-rule-regression.json`、`records/ai-rule-simulator.json`，追踪见 [补充测试计划](ai-js-rule-regression-plan.md)。历史视觉矩阵仍保留，本轮未重新验证画面或真机，也未运行棋力赛。
 
 ## 重放当前产物
 
 - `npm run build:game`：生成夹具、打包Lua、同步正式/测试存档。
 - `npm run test:lua`：11项纯Lua规则与边界回归。
+- `npm run test:ai:rules`：46 组新内核规则、状态恢复、缓存和模式接入检查。
+- `npm run test:ai:core`：固定 JS 1.0 的走法/评价/哈希、搜索、切片和取消对照。
+- `npm run test:ai:regression`：串行执行 9 个 Lua 文件和核心对照；单套件失败继续其余套件，记录独立 `records/ai-rule-regression.json`。运行前先构建/同步存档。
 - `npm run test:lua:feedback`：6组AI边框/数字/等待关联/确认/悔棋/终局回归。
 - `npm run test:lua:soak`：标准/15车两组真实引擎连续对局，报告搜索节点、完成深度和宿主耗时采样；不是设备性能结果。
 - `npm run test:lua:performance`：单独运行标准/15车/自由士相各4次真实搜索，记录初始化及step的P50/P95/最大宿主耗时。采样期间停止其他测试与浏览器试玩，报告为 `records/lua-step6-performance.json`；单轮宿主数据不能当作性能改善百分比或真机结论。
@@ -16,7 +19,7 @@
 
 ## 文件与检查
 
-- `cases/*.json`：57个`qxqy-autotest/version:1`原生格式用例，含独立的boot、first-success、first-fail、restart、mobile-smoke与第6步边界回归。
+- `cases/*.json`：67个`qxqy-autotest/version:1`原生格式用例，含 P0、边界回归及新增 6 个真实 AI 场景。
 - `plan.json`：用例到画布和夹具的运行清单，不是模拟器用例；`args.canvasId`作为runCase的外部参数，不塞进原生case未知字段。
 - `acceptance.md`：规则/用例追踪、手工视觉及设备检查。
 - `npm run check:game-cases`：从锁定依赖`beyond-simulator-mcp@0.4.1/dist/index.js`抽取**纯用例解析函数**做离线验证，检查所有字段均被保留。不会import其CLI、开工程、初始化Worker或运行case；版本/纯函数定位变化时失败并要求重新核对。

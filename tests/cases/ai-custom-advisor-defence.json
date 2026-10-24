@@ -1,0 +1,99 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "ai-custom-advisor-defence",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_ai-custom-advisor-defence"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "ai-custom-advisor-defence"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "RuleProfile",
+      "field": "text",
+      "equals": "custom-capture-free-advisor-elephant-v1"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "id": "",
+      "name": "BookUsed",
+      "field": "text",
+      "equals": "false"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "002手"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "Piece_4_0",
+      "field": "text",
+      "equals": ""
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "Piece_5_1",
+      "field": "text",
+      "equals": "A"
+    },
+    {
+      "kind": "control",
+      "at": 5,
+      "id": "",
+      "name": "WorkingBoardRestored",
+      "field": "text",
+      "equals": "true"
+    }
+  ]
+}

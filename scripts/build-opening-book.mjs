@@ -12,11 +12,19 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const digest = value => createHash('sha256').update(value).digest('hex');
 const pieceChars = 'KAENRCP';
 
-export function loadUpstream() {
-  const files = Object.fromEntries(['book.js', 'position.js', 'LICENSE'].map(name => [name, fs.readFileSync(root + 'third_party/xqwlight/' + name, 'utf8')]));
-  const manifest = JSON.parse(fs.readFileSync(root + 'third_party/xqwlight/UPSTREAM.json', 'utf8'));
+export function verifyUpstreamFiles(files, manifest) {
   assert.equal(manifest.commit, UPSTREAM_COMMIT);
-  for (const [name, source] of Object.entries(files)) assert.equal(digest(source), manifest.sha256[name], 'Vendored source changed: ' + name);
+  // The manifest hashes LF text. Git may check these files out as CRLF on
+  // Windows; normalize only line endings, retaining every other source byte.
+  const normalized = Object.fromEntries(Object.entries(files).map(([name, source]) => [name, source.replaceAll('\r\n', '\n')]));
+  for (const [name, source] of Object.entries(normalized)) assert.equal(digest(source), manifest.sha256[name], 'Vendored source changed: ' + name);
+  return normalized;
+}
+
+export function loadUpstream() {
+  const raw = Object.fromEntries(['book.js', 'position.js', 'LICENSE'].map(name => [name, fs.readFileSync(root + 'third_party/xqwlight/' + name, 'utf8')]));
+  const manifest = JSON.parse(fs.readFileSync(root + 'third_party/xqwlight/UPSTREAM.json', 'utf8'));
+  const files = verifyUpstreamFiles(raw, manifest);
   const context = vm.createContext({});
   vm.runInContext(files['position.js'] + '\n' + files['book.js'], context, { timeout: 5000 });
   assert.equal(context.BOOK_DAT.length, 12081);
