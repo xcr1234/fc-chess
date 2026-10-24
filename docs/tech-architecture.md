@@ -28,7 +28,7 @@
 
 - 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 管理游戏侧基本走法与局面；`session.lua` 管理模式、红方步时、AI反馈、悔棋、确认层、版本与提交。`ai.lua` 为新 AI 任务门面，`ai/position.lua`、`movegen.lua`、`evaluate.lua`、`rules.lua`、`order.lua`、`tt.lua`、`search.lua`、`scheduler.lua` 与 `tables.lua` 实现固定 XQWLight JS 1.0 的新内核；三模式共用内核，按规则档适配。`ai/book.lua` 与 `ai/book_data.lua` 负责同源开局数据；`wait.lua` 计算附加等待；`thinking_counter.lua` 管理五位模拟数字。`src/ui/` 创建画布图元、控件和头像，`src/app/log.lua` 输出事件日志。`src/testing/` 仅在测试存档宿主为 `FCChessTestHost` 时创建夹具入口与诊断控件。
 - 单文件构建：`npm run build:game` 生成测试夹具模块、`dist/main.lua`，并把同一产物写入两份存档的 `scripts[].source`；常规维护请勿直接改 `dist` 或存档内联源码。SHA-256 见试玩记录。
-- 正式存档：`fc-chess.save.json`；测试存档：`tests/fc-chess.test.save.json`。两份均为完整 `qxqy-simulator-save`，服务端 UI 容器内的客户端节点分别命名为 `FCChessHost` / `FCChessTestHost`，均挂载单一脚本映射 `dist/main.lua`。模板索引 1073742001–2004 对应容器、图片、文本、光标区；导入千星后需核对实际索引并语义更新引用。服务端无棋规节点或变量；规则与输入在客户端运行。
+- 正式存档：`fc-chess.save.json`；测试存档：`tests/fc-chess.test.save.json`。两份均为完整 `qxqy-simulator-save`，服务端 UI 容器内的客户端节点分别命名为 `FCChessHost` / `FCChessTestHost`，均挂载单一脚本映射 `dist/main.lua`。2026-10-24按用户真机回传校准：容器/图片/文本/光标模板1073741847–1850，客户端控件容器资源1073741845，FCChessHost1073741854；源码只引用四个模板索引。没有将服务端资源索引混入模板实例化。规则与输入在客户端运行，BGM接收探针不是真实音乐节点图。
 - 控件由 Lua 从少量模板动态实例化；设计空间为 256×224，居中等比缩放至当前画布。输入回调进入 `session`，状态驱动 `view`；AI 在 `OnUpdate(dt)` 分帧推进。官方 Lua 禁用 `coroutine.*`，故搜索使用显式栈，取消/预算中止时撤销全部试走。等待只计计算结束后的附加时间；确认层不暂停步时。
 - 头像使用用户提供的 300 个椭圆数据，修正原点，以图片遮罩裁至原 JSON 的矩形 mask，复用在菜单和对局。原始 `assets/old-man.lua`、JSON 不修改。模拟器字形与真机、真机 300 图元性能尚待核对。
 - 日志前缀 `[fc-chess]`：`ready/start/move/invalid/ai-position/ai/cancel/stale/result/error`，记录局面版本、着法、吃子、搜索深度/节点、实际计算与附加等待；`ai-position`包含回棋前的完整90格棋盘及规则档，`ai`附带停止原因与分数；不逐帧打印。

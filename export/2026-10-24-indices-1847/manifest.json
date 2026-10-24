@@ -1,0 +1,32 @@
+{
+  "kind": "existing-native-assets-lua-update",
+  "builtAt": "-- Build date (local): 2026-10-24 19:23:43.426 +08:00",
+  "luaSHA256": "3d25044f509b3c2b327c8befdc6db201307bb08065a74d984024b96f8342ba47",
+  "bytes": 893944,
+  "templates": [
+    {
+      "name": "FC_container",
+      "guid": 1073741847
+    },
+    {
+      "name": "FC_image",
+      "guid": 1073741848
+    },
+    {
+      "name": "FC_textbox",
+      "guid": 1073741849
+    },
+    {
+      "name": "FC_cursor",
+      "guid": 1073741850
+    }
+  ],
+  "serverContainerGuid": 1073741845,
+  "hostGuid": 1073741854,
+  "hostName": "FCChessHost",
+  "deployed": true,
+  "localTargetConfiguredIn": "lua.deploy.local.json (gitignored)",
+  "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+  "editorReloadVerified": false,
+  "nativePlayVerified": false
+}

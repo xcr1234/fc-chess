@@ -1,5 +1,5 @@
 local M = { refs = {} }
-local ids = {container=1073742001,image=1073742002,textbox=1073742003,cursor=1073742004}
+local ids = {container=1073741847,image=1073741848,textbox=1073741849,cursor=1073741850}
 function M.create(kind,parent,name,x,y,w,h)
   local c=game.InstantiateClientUIControl(ids[kind],parent)
   c.name=name; c:SetAnchorMin(.5,.5); c:SetAnchorMax(.5,.5); c:SetPivot(.5,.5)

@@ -315,3 +315,11 @@
 - runtime=simulator-import-roundtrip：在空白工程回读GIA，保留四模板、单脚本、FCChessHost挂载；导出回读快照与Lua比对后，在手机画布执行启动/落子/认输/返回/悔棋/继续，7断言通过。记录records/device-export-2026-10-24.json，映射截图records/screenshots/device-export-roundtrip.png。直接叠加导入已有相同脚本会在模拟器出现额外未挂载项，独立校验采用无游戏脚本的空白工程，最终交付GIA内只有1份脚本。
 - runtime=filesystem-package：export/fc-chess-device-2026-10-24-5f7a245.zip，8项、7载荷哈希全通过；没有复制千星目录。GIA导出说明、索引、映射/挂载、BGM接线及本轮验证路径见docs/device-handoff.md。
 - runtime=device：用户尚未导入/回传，声音、性能、实际字体/索引和真实BGM节点均未真机验收。
+
+## 2026-10-24：真机实际索引与部署
+
+- runtime=device-input，来源=用户：四模板1073741847–1850、客户端控件容器1073741845、FCChessHost1073741854。接收的是导入后索引证据，不是玩法/声音已通过的反馈。
+- runtime=authoring/reference-review：四模板与宿主用MCP索引变更记录校准，服务端资源根按身份更新；源码与内联引用同步，检查后确认账本；无未处理索引或迁移警告。
+- runtime=filesystem-deploy：目标为用户明确指定的dist/main.lua，配置在忽略文件中；旧目标与前次交付仅BOM差异，无外部代码修改。工具备份后发布19:23:43.426构建，SHA-256=3d25044f509b3c2b327c8befdc6db201307bb08065a74d984024b96f8342ba47，目标/产物/正式测试存档一致。见records/device-indices-deploy.json，未公开用户账号路径。
+- runtime=simulator：校准手机模板创建smoke5断言通过，最终发布产物82用例/334断言全部通过（records/device-indices-simulator.json）。未修改玩法；不把这组结果当成真实设备已加载新版。
+- runtime=device-play：待用户保存并重新试玩，核对构建时间。旧package音频文档和原测试记录未纳入本轮提交。

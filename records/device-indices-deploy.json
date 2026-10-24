@@ -1,0 +1,465 @@
+{
+  "runtime": "simulator-and-filesystem-deployment",
+  "source": "user-supplied real editor indices and exact deployment path",
+  "resourceRoot": {
+    "name": "客户端控件容器",
+    "oldGuid": 1073741850,
+    "newGuid": 1073741845,
+    "method": "Updated server resource identity in save; client GUID patch API excludes the server-container root."
+  },
+  "controlChanges": [
+    {
+      "id": "654f8b8b-20ae-4a9c-a834-38ba55739b2c",
+      "controlName": "FCChessHost",
+      "controlAsset": "server-control-template",
+      "oldGuid": 1073741851,
+      "newGuid": 1073741854
+    },
+    {
+      "id": "d21dce39-eb72-4d9e-b144-5debe718db8c",
+      "controlName": "FC_container",
+      "controlAsset": "client-control-template",
+      "oldGuid": 1073742001,
+      "newGuid": 1073741847,
+      "batchId": "02731f4e-2eb0-4a7b-8794-fe1bad312a04"
+    },
+    {
+      "id": "6683c80e-dd41-4984-80b1-3c5874afc92f",
+      "controlName": "FC_image",
+      "controlAsset": "client-control-template",
+      "oldGuid": 1073742002,
+      "newGuid": 1073741848,
+      "batchId": "02731f4e-2eb0-4a7b-8794-fe1bad312a04"
+    },
+    {
+      "id": "5fe0d1ec-fee3-4f1e-9275-27f63736b4de",
+      "controlName": "FC_textbox",
+      "controlAsset": "client-control-template",
+      "oldGuid": 1073742003,
+      "newGuid": 1073741849,
+      "batchId": "02731f4e-2eb0-4a7b-8794-fe1bad312a04"
+    },
+    {
+      "id": "b5b5acf5-5f9b-4abc-8597-664510c0899b",
+      "controlName": "FC_cursor",
+      "controlAsset": "client-control-template",
+      "oldGuid": 1073742004,
+      "newGuid": 1073741850,
+      "batchId": "02731f4e-2eb0-4a7b-8794-fe1bad312a04"
+    }
+  ],
+  "referenceReview": {
+    "source": "src/ui/primitives.lua",
+    "templateIds": [
+      1073741847,
+      1073741848,
+      1073741849,
+      1073741850
+    ],
+    "hostGuidIsNotLuaTemplateReference": true,
+    "oldTemplateReferencesRemoved": true,
+    "serverRootAndHostAreNotTemplateIds": true,
+    "inlineSourceAndDistMatched": true,
+    "ledgerAcknowledgedAfterReferenceReview": true
+  },
+  "preDeploySmoke": {
+    "format": "qxqy-autotest",
+    "name": "real-indices-template-smoke",
+    "passed": true,
+    "failedAt": null,
+    "frame": 21,
+    "results": [
+      {
+        "kind": "control",
+        "at": 0.1,
+        "ok": true,
+        "actual": "自定義模式",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 0.3,
+        "ok": true,
+        "actual": "30%",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 0.5,
+        "ok": true,
+        "actual": "1 / 38",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.3,
+        "ok": true,
+        "actual": "改成哪種棋子？",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 2.1,
+        "ok": true,
+        "actual": "001手",
+        "expected": null,
+        "message": ""
+      }
+    ],
+    "snapshot": {
+      "time": 2.1000000000000005,
+      "frame": 21,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-24 19:22:34.176 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10167 volume=30 enabled=true",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] edit version=1",
+          "time": 0.9999999999999999
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=2",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] custom profile=custom-capture-free-advisor-elephant-v1",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10029 volume=30 enabled=true",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+          "time": 2.0000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai-position] side=black profile=custom-capture-free-advisor-elephant-v1 board=r,n,e,a,k,a,e,n,r,,,,,,,,,,,c,,,,,,c,,p,,p,,p,,p,,p,,,,,,,,,,P,,,,,,,,,,,P,,P,,P,,P,,C,,,,,,C,,,,,,,,,,,R,N,E,A,K,A,E,N,R",
+          "time": 2.0000000000000004
+        }
+      ],
+      "serverLogs": [
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicIndex",
+          "time": 0
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicVolume",
+          "time": 0
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicSeconds",
+          "time": 0
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicEnabled",
+          "time": 0
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicIndex",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicVolume",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicSeconds",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "server",
+          "level": "info",
+          "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicEnabled",
+          "time": 1.6000000000000003
+        }
+      ],
+      "server": {
+        "clock": 2.1000000000000005,
+        "onlineLatencyMs": 0,
+        "playerCount": 1,
+        "viewPlayerIndex": 1,
+        "logic": {
+          "version": 1,
+          "rules": [
+            {
+              "id": "fc-chess-bgm-receiver",
+              "signalName": "FCChessBGM",
+              "actions": [
+                {
+                  "kind": "setCustomVariable",
+                  "entityType": "PlayerSelf",
+                  "name": "FCChessMusicIndex",
+                  "value": {
+                    "fromSignalParam": 0
+                  },
+                  "variableType": "Int"
+                },
+                {
+                  "kind": "setCustomVariable",
+                  "entityType": "PlayerSelf",
+                  "name": "FCChessMusicVolume",
+                  "value": {
+                    "fromSignalParam": 1
+                  },
+                  "variableType": "Int"
+                },
+                {
+                  "kind": "setCustomVariable",
+                  "entityType": "PlayerSelf",
+                  "name": "FCChessMusicSeconds",
+                  "value": {
+                    "fromSignalParam": 2
+                  },
+                  "variableType": "Float"
+                },
+                {
+                  "kind": "setCustomVariable",
+                  "entityType": "PlayerSelf",
+                  "name": "FCChessMusicEnabled",
+                  "value": {
+                    "fromSignalParam": 3
+                  },
+                  "variableType": "Bool"
+                }
+              ]
+            }
+          ]
+        },
+        "vars": {
+          "Level": {},
+          "PlayerSelf": {
+            "FCChessMusicIndex": {
+              "type": "Int",
+              "value": 10029
+            },
+            "FCChessMusicVolume": {
+              "type": "Int",
+              "value": 30
+            },
+            "FCChessMusicSeconds": {
+              "type": "Float",
+              "value": 73
+            },
+            "FCChessMusicEnabled": {
+              "type": "Bool",
+              "value": true
+            }
+          },
+          "AvatarSelf": {},
+          "Player1": {
+            "FCChessMusicIndex": {
+              "type": "Int",
+              "value": 10029
+            },
+            "FCChessMusicVolume": {
+              "type": "Int",
+              "value": 30
+            },
+            "FCChessMusicSeconds": {
+              "type": "Float",
+              "value": 73
+            },
+            "FCChessMusicEnabled": {
+              "type": "Bool",
+              "value": true
+            }
+          },
+          "Avatar1": {}
+        },
+        "inbound": [
+          {
+            "id": 1,
+            "name": "FCChessBGM",
+            "params": [
+              {
+                "type": "Int",
+                "value": 10167
+              },
+              {
+                "type": "Int",
+                "value": 30
+              },
+              {
+                "type": "Float",
+                "value": 117
+              },
+              {
+                "type": "Bool",
+                "value": true
+              }
+            ],
+            "values": [
+              10167,
+              30,
+              117,
+              true
+            ],
+            "time": 0,
+            "playerIndex": 1,
+            "from": "Player1"
+          },
+          {
+            "id": 2,
+            "name": "FCChessBGM",
+            "params": [
+              {
+                "type": "Int",
+                "value": 10029
+              },
+              {
+                "type": "Int",
+                "value": 30
+              },
+              {
+                "type": "Float",
+                "value": 73
+              },
+              {
+                "type": "Bool",
+                "value": true
+              }
+            ],
+            "values": [
+              10029,
+              30,
+              73,
+              true
+            ],
+            "time": 1.6000000000000003,
+            "playerIndex": 1,
+            "from": "Player1"
+          }
+        ],
+        "outbound": [],
+        "logs": [
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicIndex",
+            "time": 0
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicVolume",
+            "time": 0
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicSeconds",
+            "time": 0
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicEnabled",
+            "time": 0
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicIndex",
+            "time": 1.6000000000000003
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicVolume",
+            "time": 1.6000000000000003
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicSeconds",
+            "time": 1.6000000000000003
+          },
+          {
+            "source": "server",
+            "level": "info",
+            "text": "logic fc-chess-bgm-receiver: set PlayerSelf.FCChessMusicEnabled",
+            "time": 1.6000000000000003
+          }
+        ]
+      }
+    }
+  },
+  "deployment": {
+    "targetConfig": "lua.deploy.local.json (gitignored)",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "previousSourceComparedToPriorExport": true,
+    "previousOnlyUTF8BOMDifference": true,
+    "previousSHA256": "ca591e831232883cfcb5cbf7bf3fadd407d608445cab26c9c61b0a29c0f5fb7f",
+    "backup": ".lua-deploy-backups/1792841023550-91651cb0-078e-4405-b85b-a8b95eb16fff.lua",
+    "builtAt": "2026-10-24 19:23:43.426 +08:00",
+    "newSHA256": "3d25044f509b3c2b327c8befdc6db201307bb08065a74d984024b96f8342ba47",
+    "copyVerified": true,
+    "editorReloadVerified": false,
+    "nativePlayVerified": false
+  },
+  "regression": {
+    "report": "records/device-indices-simulator.json",
+    "cases": 82,
+    "assertions": 334,
+    "passed": true,
+    "sourceSHA256": "3d25044f509b3c2b327c8befdc6db201307bb08065a74d984024b96f8342ba47"
+  }
+}
