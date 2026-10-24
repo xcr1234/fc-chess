@@ -6,7 +6,7 @@ local Counter=require('game.thinking_counter')
 local Settings=require('audio.settings')
 local Screen=require('ui.screen')
 local M={}
-local glyph={r='車',n='馬',e='象',a='士',k='將',c='砲',p='卒',R='車',N='馬',E='相',A='仕',K='帥',C='砲',P='兵'}
+local glyph={r='車',n='馬',e='象',a='士',k='將',c='包',p='卒',R='俥',N='傌',E='相',A='仕',K='帥',C='砲',P='兵'}
 local root,screen,page,overlay,pageKind,overlayKind,onAction,onSquare
 local pieces={}
 local aiFrames={}

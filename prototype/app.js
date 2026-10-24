@@ -19,7 +19,7 @@
   const C = { navy: '#193b57', green: '#3defa0', cyan: '#28eff0', purple: '#6840fa', pink: '#f5a4cf', paper: '#bbc6c8', line: '#352599', red: '#f33d43', blue: '#2818a0', white: '#fff9e9', black: '#071415' };
   const names = ['困难', '快速模式', '自定义模式'];
   const subnames = ['经典老头 · 原味等待', '经典老头 · 快速思考', '修改己方初始棋子'];
-  const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '砲', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
+  const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '包', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };

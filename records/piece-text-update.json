@@ -1,0 +1,520 @@
+{
+  "runtime": "simulator",
+  "date": "2026-10-25",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "砲",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "砲",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "砲",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "砲",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "砲",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.30000000000000004,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "deviceGlyphSupport": "pending",
+  "sha256": "d56c30e9e5419b83df57978258ddce67bec1bb8c8516bdaa361a05dc3332a171",
+  "delivery": "export/2026-10-25-piece-text/main.lua",
+  "externalDeployment": "not performed"
+}

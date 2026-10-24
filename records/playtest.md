@@ -380,3 +380,9 @@
 - 最终同一产物13套AI/状态/规则回归全部通过（汇总138个PASS行，包含1个新测试汇总行），完整模拟器82用例/334断言通过。记录：ai-repetition-regressions.json、ai-repetition-simulator.json。曾因dry-run重新构建而触发存档过期保护，重新同步内联源码后完成最终全量回归，不将该保护触发记为游戏失败。
 - 源码、dist、两份存档内联及交付副本核对见ai-repetition-update.json。无UI或平台API变更，复用此前布局证据。此策略只对回到相同完整局面的AI候选做有上限扣分，不保证杜绝所有追击，也不是竞赛长捉判定。
 - 自动审批拒绝外部部署（缺少本轮明确路径/复制授权），外部目标未改；项目内产物已完成。用户真机保存/重新加载与观察仍待部署授权后进行。
+# 2026-10-25：棋子显示文字
+
+- 来源：用户要求黑炮改“包”，红车/红马改“俥 / 傌”，并指出两字需要真机测试。仅改显示映射，Lua棋盘与自定义菜单同步，HTML黑炮同步；未改规则或控件几何。
+- runtime=lua-model/html-controller；执行者Codex；既有原生文字4项、HTML24项通过，未为纯文案修改人为制造Red。
+- runtime=simulator；同次30模块产物，五画布棋盘与棋种菜单10场景55断言通过，包含双方各两枚目标棋子及黑車/馬、红砲保持；records/piece-text-update.json。PC与手机截图为游戏画布，原生字形支持不能由模拟器证明。
+- runtime=filesystem；dist、两存档内联与export/2026-10-25-piece-text/main.lua一致，未复制外部目录。runtime=device：俥/傌是否缺字、空白或方框，仍待用户真实加载并回传。
