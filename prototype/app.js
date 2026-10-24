@@ -55,15 +55,14 @@
       else if(name==='MusicPrevious')state.musicPage=Math.max(0,state.musicPage-1);
     }
   }
-  let moveVoice=null;
   const moveVoices=new Map();
-  function playMoveSound(checking){
+  function playEffect(id){
     if(!state.audio.sfx||typeof Audio==='undefined')return;
-    const id=checking?50888:50882;
     if(!moveVoices.has(id))moveVoices.set(id,new Audio(`https://oss.070077.xyz/audio/${id}.mp3`));
-    moveVoice=moveVoices.get(id);
-    moveVoice.currentTime=0;moveVoice.play()?.catch(()=>{});
+    const voice=moveVoices.get(id);
+    voice.currentTime=0;voice.play()?.catch(()=>{});
   }
+  function playMoveSound(checking){playEffect(checking?50888:50882);}
   function announce(message) { state.message = message; live.textContent = message; }
   function resetGame(board = initialBoard(), mode = state.menu) {
     generation++; clock.reset(performance.now());
@@ -128,7 +127,7 @@
     ctx.fillStyle=C.navy;ctx.fillRect(0,0,256,224);
     if(state.scene==='audio-settings'){
       text('聲音設定',128,18,C.white,16,'center');text('背景音樂',32,63.5,C.cyan,9);
-      text('BGM音量',32,101.5,C.cyan,9);text(state.audio.volume+'%',164,100.5,C.white,11,'center');text('走棋音效',32,139.5,C.cyan,9);
+      text('BGM音量',32,101.5,C.cyan,9);text(state.audio.volume+'%',164,100.5,C.white,11,'center');text('遊戲音效',32,139.5,C.cyan,9);
     }else{
       text('選擇背景音樂',113,10,C.white,13,'center');
       text((state.musicPage+1)+' / '+Math.ceil(musicRows().length/5),128,205,C.cyan,9,'center');
@@ -197,10 +196,11 @@
     text(state.resultReason, 128, 101, C.cyan, 8, 'center');
     text('再來一局', 128, 116, C.green, 11, 'center'); text('返回標題界面', 128, 139, C.green, 11, 'center');text('返回棋盤',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
   }
-  function finish(title, reason) {
+  function finish(title, reason, outcome) {
     generation++; clock.stop(performance.now());
     Object.assign(state, {reply: null, selected: null, scene: 'result', resultIndex: 0, modal: null, resultTitle: title, resultReason: reason});
     announce(`${title}，${reason}`);
+    if(outcome)playEffect(outcome==='win'?50228:50265);
   }
   function beginTurn(side) {
     state.turn = side; clock.start(side, performance.now());
@@ -218,7 +218,7 @@
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
     playMoveSound(!capturedKing && threatensKing(state.board,side,state.mode===2));
-    if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃'); return; }
+    if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃',side==='red'?'win':'lose'); return; }
     beginTurn(side === 'red' ? 'black' : 'red');
   }
   function planReply() {
@@ -302,7 +302,7 @@
           if (m.type === 'undo') undoMove();
           else if (m.type === 'custom') enterEdit();
           else if (m.type === 'menu') toMenu();
-          else finish('您落敗了', '主動認輸');
+          else finish('您落敗了', '主動認輸','lose');
         }
       }
       return;

@@ -1,0 +1,506 @@
+{
+  "runtime": "simulator-worker-audio",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "name": "victory",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "8bde009a-2d13-416f-bcb6-4bce02a6246a",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "defeat",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "5a31d1c4-3157-42f0-8889-55b49213c860",
+        "playerIndex": 1,
+        "sequence": 3,
+        "revision": 5,
+        "active": [
+          {
+            "instanceId": 3,
+            "audioId": 50265,
+            "startedAt": 0.6,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50882,
+            "startedAt": 0.6,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 3,
+            "audioId": 50265,
+            "startedAt": 0.6,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "resign",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "d9825d5f-8c53-40e0-bdd2-1b7f4ba557e1",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "cancel-resign",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "e77d77aa-2a7b-4232-bada-4a6caa2adb46",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "muted",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "034c3a5e-0485-455f-9618-1b802f8cc024",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "second-game",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "52fc20b7-738c-464b-901c-613f2069a7b4",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 2,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50265,
+            "startedAt": 1.0999999999999999,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50265,
+            "startedAt": 1.0999999999999999,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "victory",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "e1840a74-bc54-4f32-b570-62b5c322e15e",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "defeat",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "a2166eeb-08ab-46ff-8902-368890823924",
+        "playerIndex": 1,
+        "sequence": 3,
+        "revision": 5,
+        "active": [
+          {
+            "instanceId": 3,
+            "audioId": 50265,
+            "startedAt": 0.6,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50882,
+            "startedAt": 0.6,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 3,
+            "audioId": 50265,
+            "startedAt": 0.6,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "resign",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "c04114cf-cb0e-4741-b6ea-817796a1fbfa",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "cancel-resign",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "1db06b64-7f0e-4b79-ac29-649e81cb8d7e",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "muted",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "9cb4e1c6-8dc5-4cc4-a708-469088b35da5",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "second-game",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "d825cbbe-ea02-40ee-a9ac-b4313b573d2a",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 2,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50265,
+            "startedAt": 1.0999999999999999,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50265,
+            "startedAt": 0.5,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50265,
+            "startedAt": 1.0999999999999999,
+            "duration": 2.437,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    }
+  ],
+  "luaSHA256": "159296f85c6566f3164e7b22ffe26477154fbb542164a076f2ddbddb9e68eae7"
+}

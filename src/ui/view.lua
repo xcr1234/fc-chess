@@ -32,7 +32,7 @@ local function build(kind,s)
  rect('Background',128,112,256,224,kind=='menu' and '6840fa' or '193b57')
  if kind=='audio-settings' then
   text('SettingsTitle',128,198,190,24,'聲音設定','fff9e9',16)
-  for _,v in ipairs({{'MusicCaption','背景音樂',156},{'VolumeCaption','BGM音量',118},{'SfxCaption','走棋音效',80}}) do
+  for _,v in ipairs({{'MusicCaption','背景音樂',156},{'VolumeCaption','BGM音量',118},{'SfxCaption','遊戲音效',80}}) do
    text(v[1],62,v[3],60,16,v[2],'28eff0',9).horizontalAlignment=Enum.TextHorizontalAlignment.Left
   end
   button('MusicButton',Settings.name(s.audio.music),164,156,120,24)

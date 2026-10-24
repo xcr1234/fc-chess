@@ -366,3 +366,10 @@
 - runtime=lua-model；旧视图4项Red，新屏幕层4项Green：全窗背景/尺寸变化保持棋盘等比、8个WASD Down/Up回调返回true、点击屏障位于互动内容之下且覆盖留边、销毁/重建不遗留屏幕层。tests/lua-screen-shell.lua是官方接口契约模型，不是原神移动引擎。
 - runtime=simulator；五画布×标题/棋盘/设置15流程，60个角像素均为对应不透明背景，120个WASD事件及边缘点击后保持页面/零手状态。records/screen-shell-viewport.json含9张完整UI视口截图用于验证遮底，宽屏棋盘已目视；不以其证明原生3D/HUD行为。复用40场景/95断言通过，真实绑定的轻微抖动pointer覆盖菜单/落子/设置/选曲/确认；22张裁切游戏画布截图。音频Lua13项、原生文字4项通过。
 - runtime=simulator/filesystem；整层更改后的完整玩法回归、发布与备份/哈希见records/screen-shell-simulator.json和records/screen-shell-update.json。用户自行配置当前职业引用的界面布局固有HUD；本轮仅查询窗口列表，无原神窗口点击/键盘/配置操作。新脚本真机遮底、WASD不移动和HUD配置仍待用户验证。
+
+## 2026-10-24：获胜宝箱声与失败金属门声
+
+- 来源：用户最新指定获胜50228、失败50265，替换先前50919/50921计划，并要求不处理悔棋特殊情况。实现只在胜负确定时发出音效事件，未给悔棋/回看增加停播、回放或版本追踪。
+- runtime=lua-model/html-controller；新5项在旧实现Red3→Green5；原音频13项、将军音9项、结果回看7项和HTML24项通过。覆盖吃将/吃帅/确认认输、取消认输、音效关闭、新局重复结束、中性结果及重绘不重复。
+- runtime=simulator-worker-audio；PC/手机各6流程，实际音效序列分别验证胜利[50882,50228]、败局[50882,50882,50265]、认输[50265]、取消[]、关闭[]、两局认输[50265,50265]，再推进帧不新增实例。records/result-audio-worker.json；无原生扬声器或游戏窗口操作。
+- runtime=simulator/filesystem；完整模拟器82用例/334断言通过，records/result-audio-simulator.json。发布备份/哈希见records/result-audio-update.json；用户保存/重新加载及真机结算音效验收仍待完成。

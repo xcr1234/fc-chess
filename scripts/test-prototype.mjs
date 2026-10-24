@@ -94,7 +94,7 @@ test('check audio: muted checks stay silent and king capture uses normal move so
  const h=appHarness({audio:true});h.settingsAction('SettingsButton');h.settingsAction('SfxToggle');h.settingsAction('SettingsBack');
  h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);h.square(0,5);h.square(4,5);assert.equal(h.sounds.length,0);
  const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);r.square(4,5);r.square(4,0);
- assert.equal(r.state.scene,'result');assert.ok(r.sounds[0].endsWith('/50882.mp3'));
+ assert.equal(r.state.scene,'result');assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50228.mp3']);
 });
 test('settings: shared choice, mute, sound toggle and persistence across a new match',()=>{
  const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
@@ -130,9 +130,9 @@ test('real preview controller: quick reply has no artificial delay',()=>{
 test('result review: victory stays frozen until confirmed undo restores the king and permits play',()=>{
  const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');
  h.input('down');h.input('down');h.input('ok');assert.equal(h.state.scene,'result-review');const ended=Array.from(h.state.board),times=[h.clock.red,h.clock.black];
- h.square(4,0);h.square(4,1);h.render(60000);assert.deepEqual(Array.from(h.state.board),ended);assert.deepEqual([h.clock.red,h.clock.black],times);assert.equal(h.state.selected,null);assert.equal(h.sounds.length,1);
+ h.square(4,0);h.square(4,1);h.render(60000);assert.deepEqual(Array.from(h.state.board),ended);assert.deepEqual([h.clock.red,h.clock.black],times);assert.equal(h.state.selected,null);assert.equal(h.sounds.length,2);
  h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('ok');assert.equal(h.state.scene,'result-review');assert.equal(h.state.moves,1);
- h.input('ok');h.input('left');h.input('ok');assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(4,0)],'k');assert.equal(h.sounds.length,1);
+ h.input('ok');h.input('left');h.input('ok');assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(4,0)],'k');assert.equal(h.sounds.length,2);
  h.square(4,5);h.square(5,5);assert.equal(h.state.moves,1);
 });
 test('result review: defeat restores both final plies and resignation without history stays locked',()=>{
@@ -141,6 +141,12 @@ test('result review: defeat restores both final plies and resignation without hi
  assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
  const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
+});
+test('result audio: defeated king and confirmed resignation use the metal door sound; mute stays silent',()=>{
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);assert.ok(h.sounds.at(-1).endsWith('/50265.mp3'));
+ const r=appHarness({audio:true});r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('cancel');assert.equal(r.sounds.length,0);
+ r.input('ok');r.input('left');r.input('ok');assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50265.mp3']);r.render(5000);assert.equal(r.sounds.length,1);
+ const m=appHarness({audio:true});m.state.audio.sfx=false;m.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);m.square(4,5);m.square(4,0);assert.equal(m.sounds.length,0);
 });
 test('real controller: confirmation keeps black clock running and applies ready reply once',()=>{
  const h=appHarness();h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);

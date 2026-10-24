@@ -7,7 +7,7 @@ local Settings=require('audio.settings')
 local M={}
 local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
-function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={}} end
+function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={}} end
 function M.cancel(s,reason)
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
@@ -22,8 +22,9 @@ function M.start(s,mode,board)
  Log.event('start',mode..' profile='..M.profile(s))
 end
 function M.profile(s) return s.custom and 'custom-capture-free-advisor-elephant-v1' or 'casual-capture-v1' end
-function M.finish(s,title,reason)
+function M.finish(s,title,reason,outcome)
  M.cancel(s,'result');s.scene='result';s.modal=nil;s.selected=nil;s.resultTitle=title;s.resultReason=reason;s.status=reason
+ if outcome=='win' or outcome=='lose' then s.resultSoundSequence=s.resultSoundSequence+1;s.resultSoundOutcomes[s.resultSoundSequence]=outcome end
  Log.event('result',title..' '..reason..' moves='..s.moves)
 end
 function M.menu(s) M.cancel(s,'menu');s.scene='mode-select';s.modal=nil;s.palette=nil;s.selected=nil;s.status='請選擇模式';s.aiCounter=Counter.new();s.lastAiMove=nil end
@@ -57,8 +58,8 @@ function M.commit(s,m)
  s.moveSoundChecks[s.moveSoundSequence]=captured~='k' and captured~='K' and B.threatensKing(s.board,s.turn,s.custom)
  if s.moveSoundChecks[s.moveSoundSequence] then Log.event('check',s.turn..' count='..s.moves) end
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)
- if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將')
- elseif captured=='K' then M.finish(s,'您落敗了','帥被吃掉')
+ if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將','win')
+ elseif captured=='K' then M.finish(s,'您落敗了','帥被吃掉','lose')
  else M.begin(s,other(s.turn)) end
  return true
 end
@@ -113,7 +114,7 @@ function M.action(s,name)
   if name=='ConfirmNo' then s.modal=nil;if s.ready then M.submitReply(s) end
   elseif name=='ConfirmYes' then
    if s.modal=='undo' then s.modal=nil;M.undo(s)
-   elseif s.modal=='resign' then M.finish(s,'您落敗了','主動認輸') else M.menu(s) end
+   elseif s.modal=='resign' then M.finish(s,'您落敗了','主動認輸','lose') else M.menu(s) end
   end
   return
  end

@@ -20,7 +20,9 @@
 
 `audio.catalog`从项目音乐目录生成，`audio.settings`管理会话偏好/分类分页和输入，`audio.controller`管理音效实例与BGM信号副作用。session仅在真实commit时增加`moveSoundSequence`，lifecycle渲染前同步音频；反复render不重复播放，关闭消耗序列不补播，销毁停止实例。默认music10167/volume100/sfx=true；全场景共用music，settingsReturnScene保存设置入口场景，设置/选曲期间不推进对局，返回恢复原工作；音量不用于音效API。
 
-`view`新增audio-settings和music-select全画布页面；原菜单加入设置入口。`build:game`先生成目录再打包28模块，两个存档脚本内容与dist一致。生产存档serverLogic是FCChessBGM四参数接收探针，真实背景音乐节点不能由当前工具写入；[接线与验证边界](audio-integration.md)列出真实节点、变量和参数。测试桥新增偏好/序列探针，生产存档不包含测试UI。
+胜负结算另用单调resultSoundSequence/resultSoundOutcomes队列，仅finish的显式win/lose事件追加50228/50265；controller消费并清除，即使音效关闭也消费，不由页面重绘推断胜负。不修改undo，不增加音效追踪/停播逻辑，按普通音效生命周期播放。
+
+`view`新增audio-settings和music-select全画布页面；原菜单加入设置入口。`build:game`先生成目录再打包29模块，两个存档脚本内容与dist一致。生产存档serverLogic是FCChessBGM四参数接收探针，真实背景音乐节点不能由当前工具写入；[接线与验证边界](audio-integration.md)列出真实节点、变量和参数。测试桥新增偏好/序列探针，生产存档不包含测试UI。
 
 ## 2026-10-24 悔棋确认
 

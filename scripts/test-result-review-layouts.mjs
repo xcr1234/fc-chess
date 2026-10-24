@@ -34,7 +34,7 @@ try{
    }
    const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events,asserts:checks.map(([name,equals])=>({kind:'control',at:1.1,name,field:'text',equals}))};
    const result=await call('runCase',{canvasId,case:test});assert.equal(result.passed,true,JSON.stringify(result));
-   const before=await call('get');assert.equal(before.audio.sequence,1);if(kind==='result'||kind==='review'){
+   const before=await call('get');assert.equal(before.audio.sequence,2);if(kind==='result'||kind==='review'){
     await call('step',{dt:2});const after=await call('get');assert.equal(after.audio.sequence,before.audio.sequence);
     report.results.push({canvasId,kind,passed:true,assertions:result.results,audio:after.audio});
    }else report.results.push({canvasId,kind,passed:true,assertions:result.results,audio:before.audio});

@@ -1,0 +1,37 @@
+{
+  "runtime": "lua-model/html-controller/simulator-worker-audio/filesystem",
+  "sounds": {
+    "win": 50228,
+    "lose": 50265
+  },
+  "undo": "unchanged; no special stop or replay handling",
+  "red": {
+    "newLuaFailures": 3
+  },
+  "green": {
+    "resultLua": 5,
+    "existingAudioLua": 13,
+    "checkAudioLua": 9,
+    "resultReviewLua": 7,
+    "prototype": 24,
+    "audioWorkerFlows": 12,
+    "simulatorCases": 82,
+    "simulatorAssertions": 334
+  },
+  "testedSHA256": "159296f85c6566f3164e7b22ffe26477154fbb542164a076f2ddbddb9e68eae7",
+  "testedBuildDate": "2026-10-24 21:17:01.985 +08:00",
+  "testedCanonicalSHA256": "040c0149146f88f7879c40afa0de9a3b5dddcd34a81afb29fb7d728af12fe7a3",
+  "device": "pending user save/reload and native auditory test",
+  "deployment": {
+    "status": "copied-and-sha256-verified",
+    "config": "lua.deploy.local.json",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "builtAt": "2026-10-24 21:20:17.656 +08:00",
+    "sha256": "46619ea95ce7676ba1cca78e6a9d02ce276da2a6737c9a1575fad59745b20ef9",
+    "backup": ".lua-deploy-backups/1792848017770-98974a05-2caa-45d7-8b80-e1601438b4ea.lua",
+    "backupSHA256": "7d39dc75acc84daf18f03c9f784d9e12bfa05776a9e4a824efc298590e9c79e5",
+    "sameTestedProgramExceptBuildTimestamp": true,
+    "saveInlineSourcesMatch": true,
+    "delivery": "export/2026-10-24-result-audio/main.lua"
+  }
+}
