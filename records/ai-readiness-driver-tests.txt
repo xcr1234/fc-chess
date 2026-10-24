@@ -1,0 +1,46 @@
+
+> miliastra-template@0.1.0 test
+> node --test scripts/test-lua-bundle.mjs scripts/test-lua-project.mjs scripts/test-setup.mjs scripts/test-ai-test-runtime.mjs
+
+✔ benchmark FEN bridge retains every square, side and elephant notation (0.8713ms)
+✔ benchmark bridge calls the real capture engine and restores its position (171.5205ms)
+✔ JS deadline keeps a legal completed iteration or safe fallback (41.227ms)
+✔ Lua wall-clock driver returns a safe restored standard-profile result (139.7846ms)
+✔ standard judge prioritizes no-move loss even at repetition/move-cap boundary (5.8064ms)
+✔ standard benchmark repeats only on the third complete same-side position (7.7983ms)
+[miliastra] Build date (local): 2026-10-24 09:45:43.147 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ single file runs without host loaders, caches nested modules, exposes lifecycle callbacks (61.5195ms)
+✔ ignores require text in comments/strings and preserves source line mapping (28.9207ms)
+[miliastra] Build date (local): 2026-10-24 09:45:43.220 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ preserves lazy loading and isolates locals with the same name (16.9815ms)
+✔ module initialization happens once for nil and false exports (20.7836ms)
+✔ rejects missing modules and cycles with the dependency chain (16.8979ms)
+✔ rejects dynamic/aliased/shadowed require and unsafe module names (43.5567ms)
+✔ Lua syntax errors identify the source and do not overwrite the previous build (25.2922ms)
+✔ build is deterministic and cannot overwrite the source tree (30.6733ms)
+✔ build date uses local system time and startup logs surround OnStart without changing its values (18.7684ms)
+✔ startup logs can be disabled while keeping the build date and original callback (6.837ms)
+✔ failed initialization propagates its error and never logs completion (14.2171ms)
+✔ module-only bundles do not acquire a startup callback (8.2117ms)
+✔ build stays inside the project and does not deploy (35.4669ms)
+✔ dry-run builds but writes neither target nor deployment state (27.0977ms)
+✔ deploys byte-identical Lua only and backs up a previous deployed version (61.6473ms)
+✔ identical deployment is a no-op; externally modified content needs an explicit overwrite (56.5258ms)
+✔ project startupLog setting defaults on and can be disabled (38.5078ms)
+✔ first deployment protects an existing target (38.3653ms)
+✔ failed rebuild cannot publish a stale artifact (25.2936ms)
+✔ build rejects output outside the project; deployment requires an exact absolute Lua path (21.4149ms)
+✔ setup rewrites MCP paths for each clone without a default proxy or target (23.3997ms)
+✔ local proxy survives setup reruns; target setup does not copy files (48.2615ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 491.2824
