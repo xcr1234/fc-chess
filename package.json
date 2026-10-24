@@ -24,6 +24,8 @@
     "test:prototype": "node --test scripts/test-prototype.mjs",
     "test:lua": "node scripts/run-lua-check.mjs tests/lua-regression.lua",
     "test:lua:undo": "node scripts/run-lua-check.mjs tests/lua-undo-confirm.lua",
+    "test:lua:result-review": "node scripts/run-lua-check.mjs tests/lua-result-review.lua",
+    "test:result-review:simulator": "node scripts/test-result-review-layouts.mjs",
     "test:lua:audio": "node scripts/run-lua-check.mjs tests/lua-audio-settings.lua && node scripts/run-lua-check.mjs tests/lua-audio-controller.lua",
     "test:audio:simulator": "node scripts/test-audio-layouts.mjs",
     "test:lua:check-audio": "node scripts/run-lua-check.mjs tests/lua-check-audio.lua",

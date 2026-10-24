@@ -1,0 +1,8 @@
+FAIL winning result can return to a frozen final board without selecting or moving: [string "package.preload["app.log"]=function()..."]:10078: assertion failed!
+FAIL confirming undo after victory restores both kings and permits another move: [string "package.preload["app.log"]=function()..."]:10075: assertion failed!
+FAIL defeat review undoes the final red and black pair and restores prior feedback: [string "package.preload["app.log"]=function()..."]:10075: assertion failed!
+FAIL declining undo keeps final board frozen and resign cannot create another result: [string "package.preload["app.log"]=function()..."]:10099: assertion failed!
+FAIL resigned unfinished AI remains cancelled; undo can continue from its history: [string "package.preload["app.log"]=function()..."]:10075: assertion failed!
+FAIL empty-history resignation can be viewed but cannot resume without an undo: [string "package.preload["app.log"]=function()..."]:10111: assertion failed!
+FAIL return is available only from results; restart still preserves lineup and audio: [string "package.preload["app.log"]=function()..."]:10117: assertion failed!
+[string "package.preload["app.log"]=function()..."]:10119: 7 result review failures

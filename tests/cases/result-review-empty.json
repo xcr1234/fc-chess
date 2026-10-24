@@ -1,0 +1,91 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "result-review-empty",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeFast"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ReturnBoardButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 1.2,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result-review"
+    },
+    {
+      "kind": "control",
+      "at": 1.2,
+      "id": "",
+      "name": "StatusText",
+      "field": "text",
+      "equals": "尚無棋步可悔"
+    },
+    {
+      "kind": "control",
+      "at": 1.2,
+      "id": "",
+      "name": "SelectedSquare",
+      "field": "text",
+      "equals": "none"
+    },
+    {
+      "kind": "control",
+      "at": 1.2,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    }
+  ]
+}

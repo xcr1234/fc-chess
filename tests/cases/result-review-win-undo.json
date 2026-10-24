@@ -1,0 +1,131 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "result-review-win-undo",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_result-review-win-undo"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_5"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_0"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ReturnBoardButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 1.2000000000000002,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_5"
+      }
+    },
+    {
+      "t": 1.4000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_5_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.9,
+      "id": "",
+      "name": "ConfirmTitle",
+      "field": "text",
+      "equals": "要悔棋嗎？"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "Piece_4_0",
+      "field": "text",
+      "equals": "k"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    },
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "Piece_5_5",
+      "field": "text",
+      "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "ai-search"
+    }
+  ]
+}

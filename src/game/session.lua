@@ -18,7 +18,7 @@ function M.start(s,mode,board)
  local red,black=false,false for _,p in ipairs(s.board) do red=red or p=='K';black=black or p=='k' end
  assert(red and black,'Invalid initial board: both kings required')
  s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='請走棋';s.fixture=nil;s.aiInput=nil
- s.aiCounter=Counter.new();s.lastAiMove=nil
+ s.aiCounter=Counter.new();s.lastAiMove=nil;s.resultTitle=nil;s.resultReason=nil
  Log.event('start',mode..' profile='..M.profile(s))
 end
 function M.profile(s) return s.custom and 'custom-capture-free-advisor-elephant-v1' or 'casual-capture-v1' end
@@ -44,6 +44,7 @@ function M.begin(s,side)
  if s.job.done then M.computed(s,s.job.move,s.job.summary) end
 end
 function M.commit(s,m)
+ if s.scene=='result' or s.scene=='result-review' then return false end
  if not m or not B.valid(s.board,m[1],m[2],s.custom) or B.side(s.board[m[1]])~=s.turn then return false end
  if s.turn=='red' then
   s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,bookSeed=s.bookSeed,lastAiMove=s.lastAiMove,aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
@@ -104,6 +105,7 @@ function M.undo(s)
  M.cancel(s,'undo');s.board=B.copy(h.board);s.moves=h.moves;s.black=h.black;s.red=0;s.turn='red';s.scene='player-turn';s.selected=nil;s.status='已悔棋'
  s.bookSeed=h.bookSeed
  s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
+ s.resultTitle=nil;s.resultReason=nil
 end
 function M.action(s,name)
  if Settings.action(s,name) then return end
@@ -129,9 +131,10 @@ function M.action(s,name)
   elseif name=='StartCustomButton' then M.start(s,'custom',s.draft)
   elseif name=='EditBackButton' then M.menu(s) end
  elseif s.scene=='result' then
-  if name=='RestartButton' then M.start(s,s.mode,s.initial) elseif name=='ModeButton' then M.menu(s) end
+  if name=='RestartButton' then M.start(s,s.mode,s.initial) elseif name=='ModeButton' then M.menu(s)
+  elseif name=='ReturnBoardButton' then s.scene='result-review';s.selected=nil;s.status='本局已結束，悔棋後可繼續' end
  elseif name=='UndoButton' then if #s.history>0 then s.modal='undo' else s.status='尚無棋步可悔' end
- elseif name=='ResignButton' then s.modal='resign'
+ elseif name=='ResignButton' and s.scene~='result-review' then s.modal='resign'
  elseif name=='ModeButton' then s.modal='menu' end
 end
 function M.update(s,dt)

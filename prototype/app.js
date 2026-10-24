@@ -165,7 +165,7 @@
     buttons.forEach((label, i) => {
       const y = 122 + i * 21;
       box(204, y, 47, 17, state.zone === 'panel' && state.sideIndex === i ? '#067347' : '#00482f', C.green);
-      text(label, 227, y + 4, C.green, 8, 'center');
+      text(label, 227, y + 4,state.scene==='result-review'&&i===1?'#78909a':C.green, 8, 'center');
     });
     if (state.inputMethod === 'keyboard' && !state.modal && !state.palette) {
       if (state.zone !== 'panel') { ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(gridX + state.cursor.x * step - 8, gridY + state.cursor.y * step - 8, 16, 16); }
@@ -187,9 +187,9 @@
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {
-    box(42, 70, 172, 93, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
+    box(42, 70, 172, 116, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
     text(state.resultReason, 128, 101, C.cyan, 8, 'center');
-    text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
+    text('再來一局', 128, 116, C.green, 11, 'center'); text('模式選擇', 128, 139, C.green, 11, 'center');text('返回棋盤',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
   }
   function finish(title, reason) {
     generation++; clock.stop(performance.now());
@@ -233,6 +233,7 @@
     if (seconds === 0 && !state.modal) demoReply();
   }
   function playSquare() {
+    if(state.scene!=='game')return;
     if (state.turn !== 'red') { announce('老頭正在思考'); return; }
     const i = state.cursor.y * 9 + state.cursor.x, p = state.board[i];
     if (state.selected === null) {
@@ -253,6 +254,7 @@
   }
   function panelAction() {
     clock.update(performance.now());
+    if(state.scene==='result-review'&&state.sideIndex===1)return;
     if (state.scene === 'edit') {
       if (state.sideIndex === 0) { state.board = state.board.map(p => isRed(p) && p !== 'K' ? 'R' : p); announce('己方：1 帥 + 15 車'); }
       if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢復初始棋子'); }
@@ -268,7 +270,7 @@
   function undoMove() {
     const last = state.history.pop();
     if (!last) return;
-    state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
+    state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null;state.scene='game';state.resultTitle=null;state.resultReason=null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
   }
   function input(key) {
     clock.update(performance.now());
@@ -280,8 +282,8 @@
       return;
     }
     if (state.scene === 'result') {
-      if (direction) state.resultIndex = 1 - state.resultIndex;
-      if (key === 'ok' || key === 'start') { if (state.resultIndex === 0) resetGame(state.initial, state.mode); else toMenu(); }
+      if (direction) state.resultIndex = (state.resultIndex + (key==='up'||key==='left'?2:1))%3;
+      if (key === 'ok' || key === 'start') { if (state.resultIndex === 0) resetGame(state.initial, state.mode); else if(state.resultIndex===1)toMenu();else{state.scene='result-review';state.selected=null;state.zone='board';announce('本局已結束，悔棋後可繼續');} }
       if (key === 'cancel') toMenu();
       return;
     }
@@ -312,7 +314,7 @@
       return;
     }
     if (key === 'select') { if (state.selected !== null) return; state.zone = state.zone === 'board' ? 'panel' : 'board'; return; }
-    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'edit' ? '點擊己方棋子，修改棋種' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
+    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review'?'本局已結束，悔棋後可繼續':state.scene === 'edit' ? '點擊己方棋子，修改棋種' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
     if (direction) {
       if (state.zone === 'panel') {
         const count = state.scene === 'edit' ? 4 : 3;
@@ -356,7 +358,7 @@
     } else if (state.palette) {
       choices.forEach((piece, i) => region(list, `piece-${i}`, 64 + (i % 3) * 45, 99 + Math.floor(i / 3) * 28, 43, 27, `改为${glyphs[piece]}`, () => { state.palette.choice = i; input('ok'); }));
     } else if (state.scene === 'result') {
-      ['再来一局', '模式选择'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
+      ['再来一局', '模式选择','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
     } else {
       const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '模式选择'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));

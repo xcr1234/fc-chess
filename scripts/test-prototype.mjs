@@ -118,6 +118,21 @@ test('real preview controller: quick reply has no artificial delay',()=>{
  const h=appHarness();h.state.menu=1;h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);
  assert.equal(h.state.moves,2);assert.equal(h.state.turn,'red');assert.equal(h.state.reply,null);assert.equal(h.clock.red,0);
 });
+test('result review: victory stays frozen until confirmed undo restores the king and permits play',()=>{
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');
+ h.input('down');h.input('down');h.input('ok');assert.equal(h.state.scene,'result-review');const ended=Array.from(h.state.board),times=[h.clock.red,h.clock.black];
+ h.square(4,0);h.square(4,1);h.render(60000);assert.deepEqual(Array.from(h.state.board),ended);assert.deepEqual([h.clock.red,h.clock.black],times);assert.equal(h.state.selected,null);assert.equal(h.sounds.length,1);
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('ok');assert.equal(h.state.scene,'result-review');assert.equal(h.state.moves,1);
+ h.input('ok');h.input('left');h.input('ok');assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(4,0)],'k');assert.equal(h.sounds.length,1);
+ h.square(4,5);h.square(5,5);assert.equal(h.state.moves,1);
+});
+test('result review: defeat restores both final plies and resignation without history stays locked',()=>{
+ const h=appHarness();h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);assert.equal(h.state.scene,'result');assert.equal(h.state.moves,2);
+ h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
+ assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
+ const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
+ r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
+});
 test('real controller: confirmation keeps black clock running and applies ready reply once',()=>{
  const h=appHarness();h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);
  const due=h.state.reply.due;h.state.modal={type:'resign',choice:1};h.render(due+2000);

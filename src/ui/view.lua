@@ -105,6 +105,7 @@ function M.render(s)
  if kind=='audio-settings' or kind=='music-select' then return end
  if kind~='menu' then
   U.set('TurnText',s.turn=='red' and '紅方' or '黑方');U.set('MoveCount',string.format('%03d手',s.moves));U.set('StatusText',s.status)
+  if kind=='board' and U.refs.ResignButtonLabel then U.refs.ResignButtonLabel.fontColor=U.color(s.scene=='result-review' and '78909a' or '3defa0') end
   U.set('RedStepTime',S.format(s.red));U.set('AIThinkingNumber',Counter.format(s.aiCounter))
   for i,frame in ipairs(aiFrames) do
    local square=kind=='board' and s.lastAiMove and s.lastAiMove[i] or nil
@@ -127,7 +128,7 @@ function M.render(s)
    overlay=U.create('container',root,'Overlay',0,0,256,224);overlay.showCursor=true;overlay.disableCursorEventPassthrough=true
    U.hit(overlay,'ModalBlocker',0,0,256,224,function() end)
    local w,h,y=198,72,111
-   if o=='palette' then w,h,y=182,98,108 elseif o=='result' then w,h,y=172,93,107.5 end
+   if o=='palette' then w,h,y=182,98,108 elseif o=='result' then w,h,y=172,116,96 end
    rect('OverlayBorder',128,y,w,h,'28eff0',overlay);rect('OverlayPanel',128,y,w-2,h-2,'193b57',overlay)
    if o=='palette' then
     text('PaletteTitle',128,146,180,16,'改成哪種棋子？','28eff0',11,overlay)
@@ -136,6 +137,7 @@ function M.render(s)
    elseif o=='result' then
     text('ResultTitle',128,139,180,22,s.resultTitle,'fff9e9',16,overlay);text('ResultReason',128,119,180,14,s.resultReason,'28eff0',8,overlay)
     button('RestartButton','再來一局',128,100,96,20,overlay);button('ModeButton','模式選擇',128,77,96,20,overlay)
+    button('ReturnBoardButton','返回棋盤',128,54,96,20,overlay)
    else
     text('ConfirmTitle',128,133,190,20,o=='undo' and '要悔棋嗎？' or (o=='resign' and '要認輸嗎？' or '返回模式選擇？'),'fff9e9',12,overlay)
     if o=='menu' then text('ConfirmHint',128,112,190,14,'選擇後無法恢復對局','28eff0',8,overlay) end

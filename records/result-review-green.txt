@@ -1,0 +1,11 @@
+
+> miliastra-template@0.1.0 test:lua:result-review
+> node scripts/run-lua-check.mjs tests/lua-result-review.lua
+
+PASS winning result can return to a frozen final board without selecting or moving
+PASS confirming undo after victory restores both kings and permits another move
+PASS defeat review undoes the final red and black pair and restores prior feedback
+PASS declining undo keeps final board frozen and resign cannot create another result
+PASS resigned unfinished AI remains cancelled; undo can continue from its history
+PASS empty-history resignation can be viewed but cannot resume without an undo
+PASS return is available only from results; restart still preserves lineup and audio

@@ -1,0 +1,616 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "9e899c49-8cd2-4641-bd0c-f194ea1de528",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-result-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "review",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "ca7ce451-c1a3-4143-863a-31b60954f906",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-review-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "resume",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "已悔棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "8b7deb67-d7e2-48e8-94e2-b56649e33f0f",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "dbfd9e5d-3c2d-4002-9ae4-439631d48c6f",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-result-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "review",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "d5e249a5-98a3-498d-861f-ce80a20b8eb3",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-review-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "resume",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "已悔棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "e21859b7-b020-4bf9-a5bc-bef393958cbd",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "d730c72e-a6f8-4ffc-bc0f-4a2e8e2d106f",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-result-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "review",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "f85a6940-28bf-4efb-b2eb-a47437a168f7",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-review-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "resume",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "已悔棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "017eb3ab-7476-4b1a-8b02-49dafbf4ad25",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "ed58f687-007a-4513-8331-12925f77f16f",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-result-mobile-19.5-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "review",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "181781be-eee7-4c7a-9690-abdf976f8849",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-review-mobile-19.5-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "resume",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "已悔棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "40c84a56-5d87-4832-bfc8-38c3d169f41e",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "186488c6-deee-4390-bec6-2d024e174a27",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-result-mobile-4-3.png"
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "review",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "0e2b3e38-0bd4-42a4-9f97-5b1c6dbe1cb2",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      },
+      "screenshot": "records/screenshots/result-review-mobile-4-3.png"
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "resume",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "已悔棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "audio": {
+        "sessionId": "5015e61c-5ba1-408c-b9ff-201ebefab75d",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 2,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.30000000000000004,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    }
+  ],
+  "luaSHA256": "fbb3d3996260984e0d414e3761d17502ac050fa1f8834cc11611fd4beb1bb5f8"
+}

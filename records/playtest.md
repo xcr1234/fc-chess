@@ -301,3 +301,10 @@
 - runtime=lua-unit/html-controller：9项有效Red→Green，覆盖车炮遮挡、马腿、兵方向/过河、将帅照面、自定义士相、红黑/发现/连续将军、事件队列、静音、吃将及不应将继续走棋。原声音/规则/悔棋/反馈34项、HTML20项通过。
 - runtime=simulator：同次28模块产物SHA-256=386b72a13c16c3413ac095f7f406e3de284a56d42852199675b488dbd3687afc；77用例/305断言通过（records/check-audio-simulator.json）。真实Worker额外PC/手机10场景核对audio.recent音效ID与sequence（records/check-audio-worker.json）：将军只50888一次、普通红步后黑将军顺序50882/50888、悔棋/重复更新不重播、关闭后静音。
 - runtime=device：未执行真实扬声器/真机试听；无画面变化，不重复布局截图，不声称已验真实响度。没有复制外部文件。50888沿用本会话已查资源与官方PlayAudio2D，不增加新API。
+
+## 2026-10-24：结算返回棋盘与悔棋续下
+
+- runtime=lua-unit/html-controller：7项有效Red→Green，覆盖赢棋后冻结/恢复将帅、败局撤红黑两手、取消悔棋、认输取消AI、无历史保持锁定和原重开行为。原Lua规则/悔棋/反馈/声音/将军43项、HTML22项通过。
+- runtime=simulator：同次28模块SHA-256=fbb3d3996260984e0d414e3761d17502ac050fa1f8834cc11611fd4beb1bb5f8，82用例/334断言通过（records/result-review-simulator.json）。首次败局测试结果标题与返回动作相隔不足dt，断言时控件已销毁；加大测试观察窗口后全量重跑通过，非生产缺陷。
+- runtime=simulator-browser-binding-to-worker：五画布15场景通过（records/result-review-layouts.json）；返回按钮以真实浏览器输入绑定转换2px微移pointer事件命中，返回后棋盘点击无效、悔棋后恢复初始棋步；无重复音效。生产存档布局用正常红一步后认输触发结算，不注入夹具。10张结果/查看截图仅游戏画布，PC/手机已目视标题/三按钮/底部提示完整。实际吃将恢复由独立胜败夹具用例验证。
+- runtime=device：未执行；无外部Lua复制，未声称真机通过。新状态不是暂停功能；本局已经结束，只有确认悔棋恢复历史后可继续走。

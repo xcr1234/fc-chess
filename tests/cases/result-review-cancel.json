@@ -1,0 +1,115 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "result-review-cancel",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_result-review-cancel"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_5"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_4_0"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ReturnBoardButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "UndoButton"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    },
+    {
+      "t": 1.2000000000000002,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 1.4000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeButton"
+      }
+    },
+    {
+      "t": 1.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmNo"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result-review"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 1.5,
+      "id": "",
+      "name": "ConfirmTitle",
+      "field": "text",
+      "equals": "返回模式選擇？"
+    },
+    {
+      "kind": "control",
+      "at": 1.7,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "result-review"
+    }
+  ]
+}

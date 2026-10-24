@@ -1752,6 +1752,145 @@
           ]
         }
       }
+    },
+    {
+      "case": "result-review-win",
+      "file": "cases/result-review-win.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "result-review-win-undo",
+      "file": "cases/result-review-win-undo.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "result-review-defeat-undo",
+      "file": "cases/result-review-defeat-undo.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "mode": "difficult",
+        "pieces": [
+          {
+            "file": 3,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 0,
+            "rank": 6,
+            "piece": "P"
+          },
+          {
+            "file": 3,
+            "rank": 8,
+            "piece": "r"
+          }
+        ],
+        "ai": {
+          "computeSeconds": 0.1,
+          "waitSeconds": 0,
+          "replySequence": [
+            [
+              3,
+              8,
+              3,
+              9
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "case": "result-review-cancel",
+      "file": "cases/result-review-cancel.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "pieces": [
+          {
+            "file": 4,
+            "rank": 9,
+            "piece": "K"
+          },
+          {
+            "file": 4,
+            "rank": 0,
+            "piece": "k"
+          },
+          {
+            "file": 4,
+            "rank": 5,
+            "piece": "R"
+          }
+        ],
+        "mode": "difficult",
+        "turn": "red",
+        "ai": "hold"
+      }
+    },
+    {
+      "case": "result-review-empty",
+      "file": "cases/result-review-empty.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
     }
   ]
 }

@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-24 结算返回棋盘
+
+终局保留history；`ReturnBoardButton`仅在result转入`result-review`，不调用begin，不恢复计时或AI。square只接受player-turn、commit拒绝两种终局状态；review可走原悔棋确认与模式确认，认输不再响应。确认悔棋沿用历史快照恢复到上次红方落子前并清除resultTitle/Reason，冻结直到确认是才解除。生命周期和音效/BGM接口未变，review仍使用对局BGM且不生成落子事件。
+
+结算遮罩从93高增到116高，保持顶部不动，底部增加20高“返回棋盤”热区；查看时隐藏结算遮罩，右侧认输文字变灰，底部说明悔棋后可继续。HTML同步第三项与键盘三项循环、终局走棋锁和悔棋续下。契约与证据见`tests/result-review-plan.md`、`records/result-review-*.json`。
+
 ## 2026-10-24 将军音效
 
 `board.threatensKing`检查攻击方按现有基本走法能否吃到对方将帅，完整扫描棋盘以涵盖发现将军；只在session.commit有效落子后运行，不插入AI搜索或限制走法。session按单调递增的落子序号记录`moveSoundChecks`，audio.controller逐事件选择50888/50882，消费后删除，静音时也消费。这样一次同步前有红黑两步也不会丢失各步的将军属性，悔棋/重绘/重开不重播。吃将直接终局不报将军。HTML同步声音优先级；测试见`tests/check-audio-plan.md`。
