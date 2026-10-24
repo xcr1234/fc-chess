@@ -1,0 +1,76 @@
+{
+  "name": "FC 中国象棋 · 真机测试候选",
+  "sourceCommit": "5f7a245",
+  "builtAt": "2026-10-24 15:40:23.240 +08:00",
+  "luaModules": 28,
+  "status": "exported; native device not yet tested",
+  "luaSHA256": "50ba6ea70106f9c615ae9d8ee9a804a22a93e68a1a82a8904298e8937b028d73",
+  "giaSHA256": "162fad1eff6a9c142391c19a905d8865abbfc83a8dfdc172b85c2d2fe5616954",
+  "giaEmbeddedLuaOffset": 652,
+  "roundtrip": {
+    "scripts": 1,
+    "templates": [
+      {
+        "name": "FC_container",
+        "guid": 1073742001
+      },
+      {
+        "name": "FC_image",
+        "guid": 1073742002
+      },
+      {
+        "name": "FC_textbox",
+        "guid": 1073742003
+      },
+      {
+        "name": "FC_cursor",
+        "guid": 1073742004
+      }
+    ],
+    "mountedHost": "FCChessHost",
+    "smokeAssertions": 7,
+    "smokePassed": true
+  },
+  "knownLimitations": [
+    "BGM real server nodes require editor wiring; see audio-integration.md",
+    "Native import, actual indices, local Lua mapping and mounting must be verified",
+    "No external game directory deployment performed"
+  ],
+  "files": [
+    {
+      "path": "LICENSE-XQWLight.txt",
+      "bytes": 18364,
+      "sha256": "94bf48a5601deba3b4be7ddc73b76d937eebf425cc0faff7fbf18fb7f538ec32"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4416,
+      "sha256": "35a9151db1ae272f0dbda697981426803702dcb110b11fef6986b65e036f4de1"
+    },
+    {
+      "path": "audio-integration.md",
+      "bytes": 4179,
+      "sha256": "c2107f40e8b9fe2c80b969546368a0a74fafc5ef2143face1c51bff5b5da3f2a"
+    },
+    {
+      "path": "audio-selection.md",
+      "bytes": 5673,
+      "sha256": "54269d5d8a23ddb096043fd3359e3a054ff4a1bdd04228b8f41d946659ec33c4"
+    },
+    {
+      "path": "fc-chess.gia",
+      "bytes": 898249,
+      "sha256": "162fad1eff6a9c142391c19a905d8865abbfc83a8dfdc172b85c2d2fe5616954"
+    },
+    {
+      "path": "main.lua",
+      "bytes": 893944,
+      "sha256": "50ba6ea70106f9c615ae9d8ee9a804a22a93e68a1a82a8904298e8937b028d73"
+    },
+    {
+      "path": "music-catalog.json",
+      "bytes": 13271,
+      "sha256": "0bb926c534a889720647c8bc1e2993e875ae05694c95899bce5d47a2eb3a66d5"
+    }
+  ]
+}

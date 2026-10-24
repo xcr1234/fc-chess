@@ -1,0 +1,299 @@
+{
+  "runtime": "simulator-gia-export",
+  "sourceCommit": "5f7a245",
+  "toolVersion": "beyond-simulator-web@0.4.1",
+  "exportMode": "资产包 GIA 整合包（控件+脚本）",
+  "migrationWarnings": [],
+  "controlGuidChanges": [],
+  "nativeDeviceVerified": false,
+  "roundtrip": {
+    "format": "qxqy-autotest",
+    "name": "export-roundtrip-device-candidate",
+    "passed": true,
+    "failedAt": null,
+    "frame": 21,
+    "results": [
+      {
+        "kind": "control",
+        "at": 0.1,
+        "ok": true,
+        "actual": "自定義模式",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.1,
+        "ok": true,
+        "actual": "您落敗了",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.1,
+        "ok": true,
+        "actual": "返回棋盤",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.3,
+        "ok": true,
+        "actual": "本局已結束，悔棋後可繼續",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.5,
+        "ok": true,
+        "actual": "要悔棋嗎？",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 1.7,
+        "ok": true,
+        "actual": "000手",
+        "expected": null,
+        "message": ""
+      },
+      {
+        "kind": "control",
+        "at": 2.1,
+        "ok": true,
+        "actual": "001手",
+        "expected": null,
+        "message": ""
+      }
+    ],
+    "snapshot": {
+      "time": 2.1000000000000005,
+      "frame": 21,
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-24 15:40:23.240 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10167 volume=30 enabled=true",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] difficult profile=casual-capture-v1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10029 volume=30 enabled=true",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+          "time": 0.6
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai-position] side=black profile=casual-capture-v1 board=r,n,e,a,k,a,e,n,r,,,,,,,,,,,c,,,,,,c,,p,,p,,p,,p,,p,,,,,,,,,,P,,,,,,,,,,,P,,P,,P,,P,,C,,,,,,C,,,,,,,,,,,R,N,E,A,K,A,E,N,R",
+          "time": 0.6
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=2",
+          "time": 0.9999999999999999
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=1",
+          "time": 0.9999999999999999
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] undo version=3",
+          "time": 1.6000000000000003
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.40 count=1",
+          "time": 2.0000000000000004
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai-position] side=black profile=casual-capture-v1 board=r,n,e,a,k,a,e,n,r,,,,,,,,,,,c,,,,,,c,,p,,p,,p,,p,,p,,,,,,,,,,P,,,,,,,,,,,P,,P,,P,,P,,C,,,,,,C,,,,,,,,,,,R,N,E,A,K,A,E,N,R",
+          "time": 2.0000000000000004
+        }
+      ],
+      "serverLogs": [],
+      "server": {
+        "clock": 2.1000000000000005,
+        "onlineLatencyMs": 0,
+        "playerCount": 1,
+        "viewPlayerIndex": 1,
+        "logic": {
+          "version": 1,
+          "rules": []
+        },
+        "vars": {
+          "Level": {},
+          "PlayerSelf": {},
+          "AvatarSelf": {},
+          "Player1": {},
+          "Avatar1": {}
+        },
+        "inbound": [
+          {
+            "id": 1,
+            "name": "FCChessBGM",
+            "params": [
+              {
+                "type": "Int",
+                "value": 10167
+              },
+              {
+                "type": "Int",
+                "value": 30
+              },
+              {
+                "type": "Float",
+                "value": 117
+              },
+              {
+                "type": "Bool",
+                "value": true
+              }
+            ],
+            "values": [
+              10167,
+              30,
+              117,
+              true
+            ],
+            "time": 0,
+            "playerIndex": 1,
+            "from": "Player1"
+          },
+          {
+            "id": 2,
+            "name": "FCChessBGM",
+            "params": [
+              {
+                "type": "Int",
+                "value": 10029
+              },
+              {
+                "type": "Int",
+                "value": 30
+              },
+              {
+                "type": "Float",
+                "value": 73
+              },
+              {
+                "type": "Bool",
+                "value": true
+              }
+            ],
+            "values": [
+              10029,
+              30,
+              73,
+              true
+            ],
+            "time": 0.2,
+            "playerIndex": 1,
+            "from": "Player1"
+          }
+        ],
+        "outbound": [],
+        "logs": []
+      }
+    }
+  },
+  "warnings": [
+    "整合包并排保存服务端 UIControlGroup 与客户端 UIControlTemplate；模拟器回读拆回两类资产。",
+    "5项新资产Info.related显式为空：客户端控件容器、FC_container、FC_image、FC_textbox、FC_cursor，避免跨沙箱复用伴生资源GUID。",
+    "GIA回读只保留已验证UI字段；未知protobuf字段不进入Authoring JSON。",
+    "实际千星导入、索引、映射文件关联、挂载与可见性仍待真机复核。"
+  ],
+  "exportChecks": {
+    "staleBrowserBuildExcluded": true,
+    "cleanRoundtripScriptCount": 1,
+    "roundtripLuaMatchesBundle": true,
+    "templates": [
+      {
+        "name": "FC_container",
+        "guid": 1073742001
+      },
+      {
+        "name": "FC_image",
+        "guid": 1073742002
+      },
+      {
+        "name": "FC_textbox",
+        "guid": 1073742003
+      },
+      {
+        "name": "FC_cursor",
+        "guid": 1073742004
+      }
+    ],
+    "host": "FCChessHost",
+    "scriptGuid": 1073742005
+  },
+  "builtAt": "2026-10-24 15:40:23.240 +08:00",
+  "luaSHA256": "50ba6ea70106f9c615ae9d8ee9a804a22a93e68a1a82a8904298e8937b028d73",
+  "giaSHA256": "162fad1eff6a9c142391c19a905d8865abbfc83a8dfdc172b85c2d2fe5616954",
+  "giaEmbeddedLuaOffset": 652,
+  "sameProgramAsVerifiedCommitExceptBuildDate": true,
+  "packageDirectory": "export/2026-10-24-device-5f7a245",
+  "screenshot": "records/screenshots/device-export-roundtrip.png",
+  "zip": {
+    "path": "export/fc-chess-device-2026-10-24-5f7a245.zip",
+    "bytes": 373570,
+    "sha256": "e5f2d10a5eb8b3e92eb384a3695603de4b91067adadafd240130880bf53712c0",
+    "entries": 8,
+    "payloadHashesVerified": true
+  }
+}

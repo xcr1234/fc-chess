@@ -1,3 +1,12 @@
+# 真机测试导出（2026-10-24）
+
+- 当前步骤7：用户要求导出，已准备export/fc-chess-device-2026-10-24-5f7a245.zip及解压目录export/2026-10-24-device-5f7a245；操作见docs/device-handoff.md。只准备导入候选，尚未导入真实编辑器或取得真机测试结果。
+- 使用现有beyond-simulator-web@0.4.1编辑工作台导出GIA整合包（控件+脚本），含服务端客户端容器/FCChessHost、四个FC基础客户端模板及唯一入口。工具无MCP导出动作，改用原生编辑工作台导出下载。重新载入最新存档后核对GIA内完整Lua与独立main.lua逐字节一致，排除工作台先前缓存旧构建；未把旧包交付。
+- 28模块重建时间2026-10-24 15:40:23.240 +08:00，Lua SHA-256=50ba6ea70106f9c615ae9d8ee9a804a22a93e68a1a82a8904298e8937b028d73；与此前82用例/334断言通过的5f7a245程序完全相同，仅构建时间变化。正式/测试完整存档均同步同次内联源码，未增加功能代码或外部部署配置。
+- 导出前migrationWarnings/controlGuidChanges为空。保留导出器6项说明（整合包边界/脚本关系及5个资产Info.related空值），记录在records/device-export-2026-10-24.json。GIA在无游戏脚本的空白工程回读后只有1脚本，四模板索引及FCChessHost挂载保持；回读包在手机模拟器启动→落子→认输→返回→悔棋→续下，7断言通过。截图records/screenshots/device-export-roundtrip.png为回读映射证据，不是真机截图。
+- ZIP共8文件，7个载荷SHA-256逐项校验通过，ZIP SHA-256=e5f2d10a5eb8b3e92eb384a3695603de4b91067adadafd240130880bf53712c0。交付包不含src模块、.map.json或本机配置；保留许可/来源，完整开发存档在仓库根。
+- 待用户完成真实导入、四模板实际索引、main.lua本地关联、FCChessHost挂载/容器可见性并保存试玩。BGM服务端节点仍需按audio-integration.md接线。未指定真实游戏Lua目标，故未复制外部目录。原有records/lua-step5-regression.json修改保持并排除提交。
+
 # 结算返回棋盘（2026-10-24）
 
 - 当前完成受影响步骤2/3/5/6，契约tests/result-review-plan.md，HTML演示同步。结算保留再来一局/模式选择，新增返回棋盘；result-review保留最终局面、手数/步时/AI反馈，禁止选子/提交，冻结计时/AI，提示悔棋后可继续。查看时认输置灰，模式选择仍先确认。

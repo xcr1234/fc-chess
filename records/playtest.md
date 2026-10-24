@@ -308,3 +308,10 @@
 - runtime=simulator：同次28模块SHA-256=fbb3d3996260984e0d414e3761d17502ac050fa1f8834cc11611fd4beb1bb5f8，82用例/334断言通过（records/result-review-simulator.json）。首次败局测试结果标题与返回动作相隔不足dt，断言时控件已销毁；加大测试观察窗口后全量重跑通过，非生产缺陷。
 - runtime=simulator-browser-binding-to-worker：五画布15场景通过（records/result-review-layouts.json）；返回按钮以真实浏览器输入绑定转换2px微移pointer事件命中，返回后棋盘点击无效、悔棋后恢复初始棋步；无重复音效。生产存档布局用正常红一步后认输触发结算，不注入夹具。10张结果/查看截图仅游戏画布，PC/手机已目视标题/三按钮/底部提示完整。实际吃将恢复由独立胜败夹具用例验证。
 - runtime=device：未执行；无外部Lua复制，未声称真机通过。新状态不是暂停功能；本局已经结束，只有确认悔棋恢复历史后可继续走。
+
+## 2026-10-24：真机候选导出
+
+- runtime=simulator-export：从0.4.1编辑工作台导出整合GIA，确认新构建15:40:23.240与GIA内Lua/独立文件逐字节匹配。Lua SHA-256=50ba6ea70106f9c615ae9d8ee9a804a22a93e68a1a82a8904298e8937b028d73。程序与5f7a245先前82用例候选仅构建日期不同；没有将新日期冒充新一轮全量回归。
+- runtime=simulator-import-roundtrip：在空白工程回读GIA，保留四模板、单脚本、FCChessHost挂载；导出回读快照与Lua比对后，在手机画布执行启动/落子/认输/返回/悔棋/继续，7断言通过。记录records/device-export-2026-10-24.json，映射截图records/screenshots/device-export-roundtrip.png。直接叠加导入已有相同脚本会在模拟器出现额外未挂载项，独立校验采用无游戏脚本的空白工程，最终交付GIA内只有1份脚本。
+- runtime=filesystem-package：export/fc-chess-device-2026-10-24-5f7a245.zip，8项、7载荷哈希全通过；没有复制千星目录。GIA导出说明、索引、映射/挂载、BGM接线及本轮验证路径见docs/device-handoff.md。
+- runtime=device：用户尚未导入/回传，声音、性能、实际字体/索引和真实BGM节点均未真机验收。
