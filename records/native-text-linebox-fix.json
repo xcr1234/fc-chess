@@ -1,0 +1,66 @@
+{
+  "runtime": "device-feedback-to-ui-compatibility-candidate",
+  "feedback": {
+    "previousBuild": "2026-10-24 19:33:27.044 +08:00",
+    "session": "2026-10-24 19:36:44",
+    "providedLogFontWarnings": 0,
+    "visible": [
+      "settings button",
+      "menu hint",
+      "board buttons"
+    ],
+    "missing": [
+      "title",
+      "mode names",
+      "piece glyphs",
+      "HUD"
+    ],
+    "conclusion": "Small-font warnings resolved in provided log; visual issue only partly improved"
+  },
+  "hypothesis": {
+    "kind": "native-line-metrics-clipping",
+    "visibleUnscaledHeights": [
+      43.75,
+      53.125
+    ],
+    "missingUnscaledHeights": [
+      33,
+      33.3333333333,
+      35,
+      37.5,
+      32.5
+    ],
+    "caveat": "Geometric comparison, not a measured exact native threshold"
+  },
+  "fix": {
+    "fontSize": 25,
+    "minimumUnscaledLineBox": 50,
+    "adaptiveFontSize": false,
+    "centerPreserved": true,
+    "effectiveFontSizePreserved": true,
+    "widthPreserved": true,
+    "heightAllowedToExpand": true,
+    "imagesAndCursorAreasUnchanged": true
+  },
+  "tests": {
+    "red": "records/native-text-linebox-red.txt",
+    "green": "records/native-text-linebox-green.txt",
+    "luaGroups": 4,
+    "matrix": "records/native-text-linebox-layouts.json",
+    "scenes": 40,
+    "assertions": 80,
+    "allPassed": true,
+    "browserPointerJitter": true,
+    "matrixSameProgramAsDeploymentExceptBuildTimestamp": true
+  },
+  "deployment": {
+    "builtAt": "2026-10-24 19:41:52.480 +08:00",
+    "sha256": "d13352144951569d37d3643927dee443b68e2e13e8077df64e6e4cdcca620b1d",
+    "backup": ".lua-deploy-backups/1792842112592-4fffca08-6779-4921-bfad-2c3c2a97e5dd.lua",
+    "targetConfig": "lua.deploy.local.json (gitignored)",
+    "targetSuffix": "external_lua_file/default_import_file/dist/main.lua",
+    "targetAndSavesAndArtifactMatch": true,
+    "editorReloadVerified": false,
+    "nativeRetestPassed": false
+  }
+}

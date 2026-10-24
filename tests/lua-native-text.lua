@@ -21,11 +21,18 @@ check('all game font roles avoid small native font assignments',function()
   assert(c.fontSize>=20 and c.fontSize<=100 and not c.adaptiveFontSize)
  end
 end)
-check('text scale preserves effective font size, position and bounds',function()
+check('text scale preserves effective font size, position and width with vertical headroom',function()
  for _,size in ipairs({6,8,10,15,25}) do
   local c=U.text({},'Geometry'..size,28,-40,142,33,'中國象棋','fff9e9',size)
   assert(math.abs(c.fontSize*c.sx-size)<1e-8 and c.sx==c.sy)
-  assert(math.abs(c.w*c.sx-142)<1e-8 and math.abs(c.h*c.sy-33)<1e-8 and c.x==28 and c.y==-40)
+  assert(math.abs(c.w*c.sx-142)<1e-8 and c.h*c.sy>=33 and c.x==28 and c.y==-40)
+ end
+end)
+check('short title, mode, piece and HUD boxes reserve a conservative two-font line box',function()
+ for _,role in ipairs({{'Title',142,33,25},{'Mode',150,20,15},{'Subtitle',150,12,8},{'Piece',14,14,10},{'HUD',40,13,10},{'Count',56,12,8}}) do
+  local c=U.text({},role[1],5,-7,role[2],role[3],'車','fff9e9',role[4])
+  assert(c.h>=c.fontSize*2,role[1]..' has insufficient line-box headroom: '..c.h)
+  assert(c.x==5 and c.y==-7 and math.abs(c.w*c.sx-role[2])<1e-8)
  end
 end)
 check('dynamic piece labels, counters and manual alignment remain writable',function()

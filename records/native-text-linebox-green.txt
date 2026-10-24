@@ -1,0 +1,8 @@
+
+> miliastra-template@0.1.0 test:lua:native-text
+> node scripts/run-lua-check.mjs tests/lua-native-text.lua
+
+PASS all game font roles avoid small native font assignments
+PASS text scale preserves effective font size, position and width with vertical headroom
+PASS short title, mode, piece and HUD boxes reserve a conservative two-font line box
+PASS dynamic piece labels, counters and manual alignment remain writable

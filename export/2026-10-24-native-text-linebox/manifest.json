@@ -1,0 +1,8 @@
+{
+  "builtAt": "2026-10-24 19:41:52.480 +08:00",
+  "luaSHA256": "d13352144951569d37d3643927dee443b68e2e13e8077df64e6e4cdcca620b1d",
+  "bytes": 894313,
+  "deployed": true,
+  "strategy": "25-point font with leaf scaling; at least 50-unit transparent line box",
+  "nativeRetestPassed": false
+}

@@ -1,0 +1,948 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "kind": "menu",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "困難",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-menu-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-board-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "confirm",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-confirm-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "40%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-settings-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "music",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-music-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "改成哪種棋子？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-palette-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-result-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-undo-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "menu",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "困難",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-menu-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-board-pc-21-9.png"
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "confirm",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "40%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "music",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "改成哪種棋子？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "menu",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "困難",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-menu-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-board-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "confirm",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-confirm-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "40%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-settings-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "music",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-music-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "改成哪種棋子？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-palette-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-result-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-undo-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "menu",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "困難",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-menu-mobile-19.5-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-board-mobile-19.5-9.png"
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "confirm",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "40%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "music",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "改成哪種棋子？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "menu",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "困難",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-menu-mobile-4-3.png"
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "screenshot": "records/screenshots/native-text-linebox-board-mobile-4-3.png"
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "confirm",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "選擇後無法恢復對局",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "40%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "music",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "改成哪種棋子？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "result",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": 25,
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "luaSHA256": "e019296170a2d06e7516545f53b5b9ee419abcbf947fc9c480c1d3528d62c02b"
+}

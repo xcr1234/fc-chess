@@ -19,7 +19,9 @@ function M.text(p,n,x,y,w,h,value,color,size)
   -- 25 is verified visible on native. Keep small logical fonts through leaf
   -- scaling instead of writing sizes rejected by the native font API.
   local scale=(size or 10)/25
-  local c=M.create('textbox',p,n,x,y,w/scale,h/scale)
+  -- Native line metrics need more height than the logical glyph size. Enlarge
+  -- only the transparent line box; middle alignment keeps the same text center.
+  local c=M.create('textbox',p,n,x,y,w/scale,math.max(h/scale,50))
   c:SetLocalScale(scale,scale,1);c.adaptiveFontSize=false;c.fontSize=25;c.text=value
   c.fontColor=M.color(color or '3defa0');c.bgColor=Color(0,0,0,0);c.enableOutline=false
   c.horizontalAlignment=Enum.TextHorizontalAlignment.Middle;c.verticalAlignment=Enum.TextVerticalAlignment.Middle

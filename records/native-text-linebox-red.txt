@@ -1,0 +1,9 @@
+
+> miliastra-template@0.1.0 test:lua:native-text
+> node scripts/run-lua-check.mjs tests/lua-native-text.lua
+
+PASS all game font roles avoid small native font assignments
+PASS text scale preserves effective font size, position and width with vertical headroom
+FAIL short title, mode, piece and HUD boxes reserve a conservative two-font line box: [string "package.preload["app.log"]=function()..."]:10139: Title has insufficient line-box headroom: 33.0
+PASS dynamic piece labels, counters and manual alignment remain writable
+[string "package.preload["app.log"]=function()..."]:10148: 1 native text failures
