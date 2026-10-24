@@ -1,0 +1,26 @@
+
+> miliastra-template@0.1.0 test:simulator-renderer
+> node --test scripts/test-simulator-text-resolution.mjs scripts/test-simulator-input.mjs
+
+✔ small pointer jitter preserves a single click, even when a move throttle fires (4.0318ms)
+✔ the tolerance uses cumulative CSS distance and keeps genuine drags (2.7097ms)
+✔ a large release displacement with no move event is still a drag (1.9767ms)
+✔ dragging out and back never turns into a click (2.1764ms)
+✔ a drag excursion and return within the move throttle is not collapsed into a tap (2.6231ms)
+✔ cancel, lost capture and restart do not poison the next tap; other pointers are ignored (5.998ms)
+✔ hover motion remains available and a new gesture resets drag state (2.051ms)
+✔ rapid alternating taps do not leak delayed movement into the next gesture (2.6295ms)
+✔ the 5px threshold includes diagonal movement and is independent of canvas scaling (5.9329ms)
+✔ a 4x game container rasterizes glyphs at 4x while keeping layout and font size (3.847ms)
+✔ nested rotated and nonuniform parents include device pixel ratio (2.5249ms)
+✔ changing only an ancestor scale refreshes sampling without recreating text (1.799ms)
+✔ flat paint, shrinkage and large scales stay bounded (1.9015ms)
+✔ the project patch is repeatable, reversible and rejects unexpected vendor changes (35.1125ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.4912

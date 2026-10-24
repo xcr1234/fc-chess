@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-24 模拟器浏览器点击容差
+
+`tools/simulator-pointer-slop.mjs`由项目预览补丁嵌入0.4.1的真实`createPlaySession.bindInput`：按下后不足5 CSS px的累计移动不发给Worker，首次达到阈值立即发送，后续沿用原移动合并；释放时补足未收到move的大位移，取消/失去捕获/重启不污染下一次点击。原版Worker任意微移都会阻止CursorClick，此处仅修正浏览器输入，Lua与真机语义保持原实现。棋格热区16×16覆盖整个交点单元；边缘命中、轻点及拖拽证据见`records/simulator-input-native.json`。补丁仍校验固定版本和原始哈希，`npm run preview`自动应用；已有网页需要刷新。
+
+## Lua 模块与挂载
+
 - 维护源：`src/main.lua` 固定平台回调，静态加载 `app.lifecycle`；`src/game/board.lua` 管理游戏侧基本走法与局面；`session.lua` 管理模式、红方步时、AI反馈、悔棋、确认层、版本与提交。`ai.lua` 为新 AI 任务门面，`ai/position.lua`、`movegen.lua`、`evaluate.lua`、`rules.lua`、`order.lua`、`tt.lua`、`search.lua`、`scheduler.lua` 与 `tables.lua` 实现固定 XQWLight JS 1.0 的新内核；三模式共用内核，按规则档适配。`ai/book.lua` 与 `ai/book_data.lua` 负责同源开局数据；`wait.lua` 计算附加等待；`thinking_counter.lua` 管理五位模拟数字。`src/ui/` 创建画布图元、控件和头像，`src/app/log.lua` 输出事件日志。`src/testing/` 仅在测试存档宿主为 `FCChessTestHost` 时创建夹具入口与诊断控件。
 - 单文件构建：`npm run build:game` 生成测试夹具模块、`dist/main.lua`，并把同一产物写入两份存档的 `scripts[].source`；常规维护请勿直接改 `dist` 或存档内联源码。SHA-256 见试玩记录。
 - 正式存档：`fc-chess.save.json`；测试存档：`tests/fc-chess.test.save.json`。两份均为完整 `qxqy-simulator-save`，服务端 UI 容器内的客户端节点分别命名为 `FCChessHost` / `FCChessTestHost`，均挂载单一脚本映射 `dist/main.lua`。模板索引 1073742001–2004 对应容器、图片、文本、光标区；导入千星后需核对实际索引并语义更新引用。服务端无棋规节点或变量；规则与输入在客户端运行。

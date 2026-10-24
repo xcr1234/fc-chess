@@ -1,0 +1,136 @@
+✖ small pointer jitter preserves a single click, even when a move throttle fires (5.0497ms)
+✖ the tolerance uses cumulative CSS distance and keeps genuine drags (2.3551ms)
+✖ a large release displacement with no move event is still a drag (2.0997ms)
+✔ dragging out and back never turns into a click (2.501ms)
+✖ cancel, lost capture and restart do not poison the next tap; other pointers are ignored (2.864ms)
+✖ hover motion remains available and a new gesture resets drag state (2.4338ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.9911
+
+✖ failing tests:
+
+test at scripts\test-simulator-input.mjs:5:1
+✖ small pointer jitter preserves a single click, even when a move throttle fires (5.0497ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'down',
+  +   'move',
+      'up'
+    ]
+
+      at TestContext.<anonymous> (file:///E:/miliastra/fc-chess/scripts/test-simulator-input.mjs:7:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'down', 'move', 'up' ],
+    expected: [ 'down', 'up' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts\test-simulator-input.mjs:9:1
+✖ the tolerance uses cumulative CSS distance and keeps genuine drags (2.3551ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'down',
+      'move',
+      'move',
+  +   'move',
+  +   'move',
+  +   'move',
+  +   'move',
+      'up'
+    ]
+
+      at TestContext.<anonymous> (file:///E:/miliastra/fc-chess/scripts/test-simulator-input.mjs:13:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'down', 'move',
+      'move', 'move',
+      'move', 'move',
+      'move', 'up'
+    ],
+    expected: [ 'down', 'move', 'move', 'up' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts\test-simulator-input.mjs:15:1
+✖ a large release displacement with no move event is still a drag (2.0997ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'down',
+  -   'move',
+      'up'
+    ]
+
+      at TestContext.<anonymous> (file:///E:/miliastra/fc-chess/scripts/test-simulator-input.mjs:17:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'down', 'up' ],
+    expected: [ 'down', 'move', 'up' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts\test-simulator-input.mjs:24:1
+✖ cancel, lost capture and restart do not poison the next tap; other pointers are ignored (2.864ms)
+  AssertionError [ERR_ASSERTION]: pointercancel
+  + actual - expected
+
+    [
+      'down',
+  +   'move',
+      'up'
+    ]
+
+      at TestContext.<anonymous> (file:///E:/miliastra/fc-chess/scripts/test-simulator-input.mjs:31:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'down', 'move', 'up' ],
+    expected: [ 'down', 'up' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts\test-simulator-input.mjs:34:1
+✖ hover motion remains available and a new gesture resets drag state (2.4338ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'down',
+  +   'move',
+      'up'
+    ]
+
+      at TestContext.<anonymous> (file:///E:/miliastra/fc-chess/scripts/test-simulator-input.mjs:39:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'down', 'move', 'up' ],
+    expected: [ 'down', 'up' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

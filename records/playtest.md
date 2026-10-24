@@ -260,3 +260,14 @@
 - runtime=lua-fengari-host，新策略对固定基线的Red见`ai-throughput-policy-red.txt`，仅说明生产路径身份开销，不是用户失误原局。新增4组回归，捉子由16扩展为24组；晚期断言跟踪移动后棋子、验证可信回吃及等值补偿。12/12套件、129条Lua PASS组，另含2次用户原局回放与固定JS核心对照；`ai-throughput-regression.json`。基准驱动/构建工具28/28，`ai-throughput-tool-tests.txt`。
 - runtime=simulator，67/67用例、264断言，`ai-throughput-simulator.json`。最终25模块产物SHA-256=`89d40d9fd440f09c1088522665716b406c96d06ca2f2e2b03cb694119d97722f`，两份存档已同步完整source与路径。短时限对照使用添加会话日志前的产物，引擎模块指纹与最终实现一致，没有篡改测量产物哈希。
 - 本批为现有速度约束内的优化及测试，棋力目标仍未通过；后续从新的局面日志获取失误原局继续复现和修正。无新增视觉、真机或外部部署证据，原有`records/lua-step5-regression.json`改动保留。详见[报告](../docs/ai-throughput-results.md)。
+
+## 2026-10-24 模拟器点击不灵敏
+
+- 来源：用户明确为模拟器预览，选子/落点/悔棋常需多次点击，怀疑只能点中间。runtime=simulator，Codex源码探针确认0.4.1在按住时任意坐标变化就判拖拽并抑制CursorClick；不是游戏设置点击冷却。棋格16×16，棋子15×15，交点间距16。
+- runtime=simulator-browser-binding-to-native-worker：原始真实浏览器绑定生成的带抖动输入，五画布选子/悔棋10项失败，热区四角/四边5项通过，`simulator-input-native-red.json`。最初6项绑定测试5失败/1通过，`simulator-input-red.txt`。驱动早期的stub缺项、断言帧边界与一次Worker超时已修正并重跑，不算目标Red。
+- 修正仅在浏览器输入层：不足5 CSS px的累计位移视为抖动；首次真正拖动立即送出，保留拖出再回、释放大位移、取消、重启、多指隔离与原控件释放命中校验。没有扩大棋格造成重叠，没有加入点击冷却。
+- runtime=node-browser-binding：14/14输入/高清文字/版本保护检查；含连续30次快速轻点、阈值边界/对角、不同显示比例、失去捕获/取消/重启和60ms内拖出再回。`simulator-input-green.txt`。
+- runtime=simulator-browser-binding-to-native-worker：最终20/20、450断言通过，五画布各含带抖动选子→落子、带抖动悔棋、200个棋子角/边点选（另含取消）与真实拖拽，`simulator-input-native.json`。绑定SHA-256=`4a2feb1a0fd6173217f4ec82ab02fcd37a31fa8feac818584ad1a9c2b6d33608`。
+- runtime=simulator：既有67/67用例、264断言通过，`simulator-input-regression.json`。Lua及两存档仍为上一批SHA-256=`89d40d9fd440f09c1088522665716b406c96d06ca2f2e2b03cb694119d97722f`，本次未改Lua或存档。
+- runtime=simulator-browser，Codex实际试玩：本机Live Preview重载最终JS，以约2×1 CSS px按住微移在左边缘选兵、边缘目标格推进，再对悔棋做同样微移，观察red 55→46、undo version=3且回到000手/红方；[画布截图](screenshots/simulator-input-browser.png)保留选中状态。截图裁掉浏览器和等比预览留边，没有把外围工具纳入游戏画面。
+- 状态：项目内补丁已应用，已有页面刷新后加载；`npm run preview`自动恢复此修正。没有外部部署或真机结论；原有`lua-step5-regression.json`改动保持并排除本次提交。

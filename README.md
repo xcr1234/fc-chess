@@ -91,9 +91,9 @@ npm run preview -- --file fc-chess.save.json
 
 访问 [本地模拟器](http://127.0.0.1:4173)，切换“试玩”并点击“▶ 启动”。终端保持运行，结束时按 `Ctrl+C`。修改Lua后先运行 `npm run build:game`，将同次打包产物同步到正式/测试存档，再刷新网页并重新启动试玩。
 
-`preview`会先自动应用项目内的浏览器文字高清修正：`beyond-simulator-web@0.4.1`原本按小字号生成文字贴图后随父控件放大，修正后按完整父级变换与屏幕像素比提高文字采样精度。补丁源码位于`tools/simulator-text-resolution.mjs`，版本和原始文件SHA-256校验在`scripts/patch-simulator-renderer.mjs`；不会改动游戏Lua或存档。重新安装依赖后启动预览会自动重用修正；升级模拟器版本时需核对补丁，不能跳过校验直接套用。
+`preview`会先自动应用项目内的浏览器文字高清与点击修正：`beyond-simulator-web@0.4.1`原本按小字号生成文字贴图后随父控件放大，修正后按完整父级变换与屏幕像素比提高文字采样精度。原版还把按住时任意微移判为拖拽，导致漏掉点击；现在允许不足5个屏幕CSS像素的抖动，达到阈值仍保留拖拽。补丁源码位于`tools/simulator-text-resolution.mjs`与`tools/simulator-pointer-slop.mjs`，版本和原始文件SHA-256校验在`scripts/patch-simulator-renderer.mjs`；不会改动游戏Lua或存档。重新安装依赖后启动预览会自动重用修正；升级模拟器版本时需核对补丁，不能跳过校验直接套用。
 
-可单独运行 `npm run patch:simulator` 应用修正，`npm run test:simulator-renderer` 验证缩放、像素比、文字复用与版本保护。已有网页需刷新以重新加载浏览器代码。
+可单独运行 `npm run patch:simulator` 应用修正，`npm run test:simulator-renderer` 验证缩放、像素比、文字复用、轻点/拖拽与版本保护；`npm run test:simulator-input`另将真实浏览器事件绑定产生的输入回放到原生Worker，验证五画布的选子、落子、悔棋及棋格边缘。已有网页需刷新以重新加载浏览器代码。
 
 ## 编译日期与初始化日志
 

@@ -3,14 +3,36 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { fcChessSyncTextResolution } from '../tools/simulator-text-resolution.mjs';
+import { fcChessCreatePointerSlop } from '../tools/simulator-pointer-slop.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const originalSHA256 = '5871692349ccec947b80a652065a7e084ebd79f8ae65fdb2a33561df9a70752d';
 const start = '/* FC_CHESS_HIDPI_TEXT_V1 */';
 const end = '/* FC_CHESS_HIDPI_TEXT_END */';
+const inputStart = '/* FC_CHESS_POINTER_SLOP_V1 */';
+const inputEnd = '/* FC_CHESS_POINTER_SLOP_END */';
+const inputReplacements = [
+  ['let V=$||F,ht=Z=>', 'let fcChessMotion=fcChessCreatePointerSlop();let V=$||F,ht=Z=>'],
+  ['(x=Z.pointerId,F.setPointerCapture', '(fcChessMotion.down(Z),x=Z.pointerId,F.setPointerCapture'],
+  ['x===Z.pointerId&&(P(),A("pointer",{type:"up",...j(Z,F)}),x=null)',
+    'x===Z.pointerId&&(fcChessMotion.release(Z)&&(P(),A("pointer",{type:"move",...j(Z,F)})),P(),A("pointer",{type:"up",...j(Z,F)}),fcChessMotion.clear(),x=null)'],
+  ['te=Z=>{!c||!h||', 'te=Z=>{let fcChessMove=fcChessMotion.move(Z,x);if(!fcChessMove)return;!c||!h||'],
+  ['||(y=j(Z,F),!g&&', '||(y=j(Z,F),fcChessMove===2?(R(),A("pointer",{type:"move",...y})):!g&&'],
+  ['x===Z.pointerId&&(R(),x=null,', 'x===Z.pointerId&&(R(),fcChessMotion.clear(),x=null,'],
+  ['V.removeEventListener("keyup",Be),R()}', 'V.removeEventListener("keyup",Be),R(),fcChessMotion.clear()}'],
+];
 const hash = source => createHash('sha256').update(source).digest('hex');
 
 export function originalRenderer(source) {
+  if (source.includes(inputStart)) {
+    const a = source.indexOf(inputStart), b = source.indexOf(inputEnd, a);
+    if (b < 0 || source.indexOf(inputStart, a + inputStart.length) >= 0) throw new Error('Malformed simulator input patch');
+    source = source.slice(0, a) + source.slice(b + inputEnd.length);
+    for (const [before, after] of inputReplacements) {
+      if (source.split(after).length !== 2) throw new Error('Simulator input patch anchors changed');
+      source = source.replace(after, before);
+    }
+  }
   if (source.includes(start)) {
     const a = source.indexOf(start), b = source.indexOf(end, a);
     if (b < 0 || source.indexOf(start, a + start.length) >= 0) throw new Error('Malformed simulator text patch');
@@ -24,6 +46,11 @@ export function originalRenderer(source) {
 
 export function patchedRenderer(source) {
   source = originalRenderer(source);
+  for (const [before, after] of inputReplacements) {
+    if (source.split(before).length !== 2) throw new Error('Simulator input patch anchors changed');
+    source = source.replace(before, after);
+  }
+  source = source.replace('function Zw(', inputStart + '\n' + fcChessCreatePointerSlop.toString() + '\n' + inputEnd + 'function Zw(');
   const classStart = source.lastIndexOf('var e1=class');
   const classEnd = source.indexOf('export{', classStart);
   if (classStart < 0 || classEnd < 0) throw new Error('Simulator renderer class not found');
@@ -53,7 +80,7 @@ export function patchSimulator({ check = false } = {}) {
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const result = patchSimulator({ check: process.argv.includes('--check') });
-    console.log(`Simulator HiDPI text patch ${result.changed ? 'applied' : 'ready'} (v${result.version})`);
+    console.log(`Simulator text/input patch ${result.changed ? 'applied' : 'ready'} (v${result.version})`);
   } catch (error) {
     console.error(error.message); process.exitCode = 1;
   }
