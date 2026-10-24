@@ -1,0 +1,18 @@
+PASS 32 pinned-JS positions: safe moves, evaluation, 31-bit hash lanes, incremental make/undo
+PASS 160 arbitrary-army capture profiles: generation and king attacks vs game geometry
+PASS six fixed-depth JS/Lua full-window/PVS root scores and independent optimal-move sets
+PASS TT immutable mate distances, bounds, collisions, capacity, extension/history isolation
+PASS 48 fixed-depth runs: full-window/PVS x TT off/on x one-work-unit/512 slices
+PASS 140 cancellation boundaries restore board, kings, side, evaluation, hash, history and stack
+PASS 12 work-budget aborts preserve identical completed iterations across four slice sizes
+PASS cancellation inside null nodes=5414
+PASS cancellation inside verify nodes=7899
+PASS cancellation inside research nodes=9
+PASS zero-quiescence budget never submits an exposed-king fallback
+PASS counter-capture of enemy king wins before own-king danger
+PASS repetition scoring/undo and dangerous-leaf abort propagation
+TT capacity=16384 entries=928 hits=44 nodes=1724 hostMs=706
+TT capacity=32768 entries=941 hits=44 nodes=1724 hostMs=810
+TT capacity=65536 entries=939 hits=44 nodes=1714 hostMs=752
+JS fork diagnostic: 2-21 nodes=4373
+JS fork diagnostic: 8-25 nodes=4733

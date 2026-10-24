@@ -8,7 +8,7 @@ function M.new(board,side,custom,opts)
  opts=opts or {}
  local job=Search.new(board,side,custom,opts)
  local wins=job.move and string.upper(board[job.move[2]])=='K'
- local choices=not opts.noBook and not wins and M.book(board,custom,side)
+ local choices=not opts.noBook and not job.rules.standard and not wins and M.book(board,custom,side)
  if choices then job.move,job.nextSeed=Book.choose(choices,opts.seed);job.done=true;job.book=true end
  return job
 end

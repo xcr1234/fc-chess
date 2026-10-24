@@ -1,5 +1,8 @@
 -- XQWLight data adapter. Generated data is GPL-2.0-or-later; retain its notices.
 local B=require('game.board')
+local P=require('game.ai.position')
+local G=require('game.ai.movegen')
+local R=require('game.ai.rules')
 local M={}
 local data
 local function mirrorSquare(i) local f,r=B.coords(i);return B.index(8-f,r) end
@@ -26,32 +29,25 @@ function M.key(b,side)
  return direct,false
 end
 function M.enabled(custom) return not custom end
-local function safe(b,m,side)
- if B.side(b[m[1]])~=side or not B.valid(b,m[1],m[2],false) then return false end
- local piece,captured=b[m[1]],b[m[2]];b[m[2]]=piece;b[m[1]]=''
- local kingPiece=side=='red' and 'K' or 'k';local king
- for i=1,90 do if b[i]==kingPiece then king=i;break end end
- local ok=king~=nil
- if ok then
-  for i=1,90 do
-   if B.side(b[i]) and B.side(b[i])~=side and B.valid(b,i,king,false) then ok=false;break end
-  end
- end
- b[m[1]]=piece;b[m[2]]=captured
- return ok
+local function safe(pos,move,legal)
+ local m=P.move(P.from90[move[1]],P.from90[move[2]])
+ if not legal[m] then return false end
+ return G.safe(pos,m)
 end
 function M.candidates(b,side,custom)
  if custom or (side~='red' and side~='black') then return nil end
  data=data or require('game.ai.book_data')
  local key,mirrored=M.key(b,side);local packed=data[key]
  if not packed then return nil end
+ local pos=P.new(b,side,R.get(false));local legal={}
+ for _,m in ipairs(G.generate(pos)) do legal[m]=true end
  local choices={}
  for i=1,#packed,9 do
   local a=tonumber(string.sub(packed,i,i+1));local z=tonumber(string.sub(packed,i+2,i+3));local weight=tonumber(string.sub(packed,i+4,i+8))
   if a and z and weight and a>=1 and a<=90 and z>=1 and z<=90 and weight>0 then
    if mirrored then a=mirrorSquare(a);z=mirrorSquare(z) end
    local move={a,z,weight}
-   if safe(b,move,side) then choices[#choices+1]=move end
+   if safe(pos,move,legal) then choices[#choices+1]=move end
   end
  end
  if #choices>0 then return choices end
