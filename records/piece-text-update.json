@@ -514,7 +514,19 @@
     }
   ],
   "deviceGlyphSupport": "pending",
-  "sha256": "d56c30e9e5419b83df57978258ddce67bec1bb8c8516bdaa361a05dc3332a171",
+  "sha256": "602229b33fbd0ba8027d9a3a02be4ba18b560f2b1c8e317aa26eaffa6be5bdf8",
   "delivery": "export/2026-10-25-piece-text/main.lua",
-  "externalDeployment": "not performed"
+  "externalDeployment": "completed using npm run deploy:lua",
+  "testedSHA256": "d56c30e9e5419b83df57978258ddce67bec1bb8c8516bdaa361a05dc3332a171",
+  "build": "2026-10-25 07:56:35.986 +08:00",
+  "deployment": {
+    "target": "configured game Lua file (private path in lua.deploy.local.json)",
+    "conflict": false,
+    "backup": ".lua-deploy-backups/1792886196095-e4067a31-e1f7-422a-aa3c-b973a57430fb.lua",
+    "targetHashVerified": true,
+    "savesAndDeliveryMatch": true,
+    "sameProgramAsTestedExceptBuildTime": true,
+    "editorReload": "pending",
+    "deviceGlyphSupport": "pending"
+  }
 }

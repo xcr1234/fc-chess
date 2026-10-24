@@ -385,4 +385,4 @@
 - 来源：用户要求黑炮改“包”，红车/红马改“俥 / 傌”，并指出两字需要真机测试。仅改显示映射，Lua棋盘与自定义菜单同步，HTML黑炮同步；未改规则或控件几何。
 - runtime=lua-model/html-controller；执行者Codex；既有原生文字4项、HTML24项通过，未为纯文案修改人为制造Red。
 - runtime=simulator；同次30模块产物，五画布棋盘与棋种菜单10场景55断言通过，包含双方各两枚目标棋子及黑車/馬、红砲保持；records/piece-text-update.json。PC与手机截图为游戏画布，原生字形支持不能由模拟器证明。
-- runtime=filesystem；dist、两存档内联与export/2026-10-25-piece-text/main.lua一致，未复制外部目录。runtime=device：俥/傌是否缺字、空白或方框，仍待用户真实加载并回传。
+- runtime=filesystem；用户持续授权每次更改后deploy，本轮已执行npm run deploy:lua，无冲突备份并复制游戏目标；2026-10-25 07:56:35.986 +08:00，目标/dist/两存档内联与export/2026-10-25-piece-text/main.lua哈希一致。与已测程序仅构建时间不同，归一比较通过；详情见records/piece-text-update.json。runtime=device：编辑器重载及俥/傌是否缺字、空白或方框，仍待用户真实加载并回传。
