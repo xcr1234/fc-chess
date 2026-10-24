@@ -19,6 +19,7 @@ function M.start(s,mode,board)
  assert(red and black,'Invalid initial board: both kings required')
  s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='請走棋';s.fixture=nil;s.aiInput=nil
  s.aiCounter=Counter.new();s.lastAiMove=nil;s.resultTitle=nil;s.resultReason=nil
+ s.positionHistory={B.key(s.board,'red',s.custom)}
  Log.event('start',mode..' profile='..M.profile(s))
 end
 function M.profile(s) return s.custom and 'custom-capture-free-advisor-elephant-v1' or 'casual-capture-v1' end
@@ -34,6 +35,7 @@ function M.begin(s,side)
   side=other(side)
   if #B.moves(s.board,side,s.custom)==0 then M.finish(s,'本局無法繼續','雙方暫無可走棋');return end
   s.turn=side;s[side]=0;Log.event('skip','no basic move; next='..side)
+  if s.positionHistory and #s.positionHistory>0 then s.positionHistory[#s.positionHistory]=B.key(s.board,side,s.custom) end
  end
  if side=='red' then s.scene='player-turn';s.status='請走棋';return end
  s.scene='ai-search';s.status='思考中';s.compute=0;s.replyVersion=s.version
@@ -41,14 +43,14 @@ function M.begin(s,side)
  local a=s.aiInput
  if a=='hold' or (type(a)=='table' and (a.computeSeconds or a.replySequence)) then return end
  Log.event('ai-position','side=black profile='..M.profile(s)..' board='..table.concat(s.board,','))
- s.job=AI.new(s.board,'black',s.custom,{seed=s.bookSeed})
+ s.job=AI.new(s.board,'black',s.custom,{seed=s.bookSeed,positionHistory=s.positionHistory})
  if s.job.done then M.computed(s,s.job.move,s.job.summary) end
 end
 function M.commit(s,m)
  if s.scene=='result' or s.scene=='result-review' then return false end
  if not m or not B.valid(s.board,m[1],m[2],s.custom) or B.side(s.board[m[1]])~=s.turn then return false end
  if s.turn=='red' then
-  s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,bookSeed=s.bookSeed,lastAiMove=s.lastAiMove,aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
+  s.history[#s.history+1]={board=B.copy(s.board),moves=s.moves,black=s.black,bookSeed=s.bookSeed,lastAiMove=s.lastAiMove,positionCount=#(s.positionHistory or {}),aiCounter={elapsed=s.aiCounter.elapsed,value=s.aiCounter.value}}
  else
   if s.job and s.job.nextSeed then s.bookSeed=s.job.nextSeed end
   s.lastAiMove={m[1],m[2]};Counter.finish(s.aiCounter)
@@ -60,7 +62,11 @@ function M.commit(s,m)
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)
  if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將','win')
  elseif captured=='K' then M.finish(s,'您落敗了','帥被吃掉','lose')
- else M.begin(s,other(s.turn)) end
+ else
+  s.positionHistory=s.positionHistory or {}
+  s.positionHistory[#s.positionHistory+1]=B.key(s.board,other(s.turn),s.custom)
+  M.begin(s,other(s.turn))
+ end
  return true
 end
 function M.computed(s,move,summary)
@@ -106,6 +112,7 @@ function M.undo(s)
  M.cancel(s,'undo');s.board=B.copy(h.board);s.moves=h.moves;s.black=h.black;s.red=0;s.turn='red';s.scene='player-turn';s.selected=nil;s.status='已悔棋'
  s.bookSeed=h.bookSeed
  s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
+ while s.positionHistory and #s.positionHistory>(h.positionCount or 0) do table.remove(s.positionHistory) end
  s.resultTitle=nil;s.resultReason=nil
 end
 function M.action(s,name)

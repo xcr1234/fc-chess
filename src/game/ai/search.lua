@@ -9,15 +9,20 @@ local R=require('game.ai.rules')
 local O=require('game.ai.order')
 local TT=require('game.ai.tt')
 local Scheduler=require('game.ai.scheduler')
+local Repetition=require('game.ai.repetition_policy')
 local M={}
 local INF=11000
 local function clear(t) for i=#t,1,-1 do t[i]=nil end end
 local function push(j,move,kind,depth,alpha,beta,ply,ext,q,noNull,trial)
+ local penalty=ply==1 and kind=='move' and (j.rootPenalties[move] or 0) or 0
+ -- Root utility is -childScore-penalty; shift both PVS/full windows accordingly.
+ alpha=alpha-penalty;beta=beta-penalty
  local index=#j.stack+1;local f=j.frames[index]
  if not f then f={moves={},heap={},ranks={},unsafe={},undo={},probe={}};j.frames[index]=f end
  for _,m in ipairs(f.moves) do f.unsafe[m]=nil end
  clear(f.moves);clear(f.heap);clear(f.ranks)
  f.move=move;f.kind=kind;f.depth=depth;f.alpha=alpha;f.originalAlpha=alpha;f.beta=beta;f.ply=ply;f.ext=ext;f.q=q;f.noNull=noNull;f.trial=trial
+ f.rootPenalty=penalty
  f.leaf=j.lightweight and 'static' or 'quiescent'
  f.phase='enter';f.best=-INF;f.bestMove=nil;f.dependent=false;f.heapCount=0;f.safeCount=0;f.count=0;f.tactical=0;f.searched=0;f.preferred=nil;f.danger=false;f.horizon=false
  f.generated=false;f.priorityActive=false;f.priorityIndex=1;f.tried1=nil;f.tried2=nil;f.tried3=nil
@@ -69,7 +74,7 @@ local function pop(j,score,dependent)
    parent.best=score;parent.dependent=true;parent.phase='complete';j.nullCutoffs=j.nullCutoffs+1
   else parent.phase='select' end
  else
-  score=-score
+  score=-score-f.rootPenalty
   parent.dependent=parent.dependent or dependent
   if f.trial and score>parent.alpha and score<parent.beta then
    j.researches=j.researches+1;parent.phase='research'
@@ -244,6 +249,7 @@ function M.new(board,side,custom,opts)
  local light=rules.freeRed and opts.lightweight~=false
  local j={pos=p,board=copy,side=side,custom=custom,rules=rules,lightweight=light,stack={},frames={},history={},killers={},changes={},nodes=0,qnodes=0,mainNodes=0,leafNodes=0,estimatedLeaves=0,depth=0,iteration=1,elapsed=0,done=false,restored=true,partialExact=false,probes=0,researches=0,nullProbes=0,nullVerifications=0,nullCutoffs=0,priorityCutoffs=0,priorityProbes=0,summary={count=0,tactical=0}}
  j.initialKey=p.key;j.initialLock=p.lock;j.initialEval=p.red-p.black;j.initialSide=p.side;j.eval=j.initialEval
+ j.rootPenalties=not rules.standard and Repetition.penalties(copy,side,custom,opts.positionHistory) or {}
  j.kings={red=P.to90[p.kings[0]],black=P.to90[p.kings[1]]}
  j.budget=opts.nodeBudget or (light and 2000 or 16000);j.maxDepth=opts.maxDepth or (light and 2 or 8);j.maxPly=opts.maxPly or 64
  j.qDepth=light and 0 or (opts.qDepth or 16);j.extensions=opts.extensions or (light and 0 or 2)
@@ -254,7 +260,7 @@ function M.new(board,side,custom,opts)
  j.clock=opts.clock~=false and (opts.clock or (os and os.clock)) or nil
  j.sliceSeconds=opts.sliceSeconds or 0.003;j.workBudget=opts.workBudget or math.huge
  -- Establish a verified fallback independent of the deadline: win, then safety.
- local win=G.win(p);local list={};local fallback;local safeFound=false
+ local win=G.win(p);local list={};local fallback;local safeFound=false;local fallbackPenalty=math.huge
  if win then fallback=win
  else
   for _,sq in ipairs(P.squares) do
@@ -262,9 +268,11 @@ function M.new(board,side,custom,opts)
    for _,m in ipairs(list) do
     if not fallback and not rules.standard then fallback=m end
     local safe=G.safe(p,m)
-    if safe then fallback=m;safeFound=true;break end
+    local penalty=j.rootPenalties[m] or 0
+    if safe and (not safeFound or penalty<fallbackPenalty) then fallback=m;safeFound=true;fallbackPenalty=penalty end
+    if safeFound and fallbackPenalty==0 then break end
    end
-   if safeFound then break end
+   if safeFound and fallbackPenalty==0 then break end
   end
  end
  j.move=P.external(fallback);j.bestInternal=fallback

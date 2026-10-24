@@ -8,6 +8,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const read=file=>fs.readFileSync(path.join(root,file));
 const files=[
+ 'tests/lua-ai-repetition.lua',
  'tests/lua-ai-rules.lua','tests/lua-ai-custom-light.lua','tests/lua-ai-generation.lua','tests/lua-ai-threats.lua','tests/lua-regression.lua',
  'tests/lua-ai-tactics.lua','tests/lua-ai-user-cannon.lua','tests/lua-ai-pvs.lua',
  'tests/lua-opening-book.lua','tests/lua-wait-extension.lua','tests/lua-feedback.lua'

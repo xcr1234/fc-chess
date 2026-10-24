@@ -95,3 +95,6 @@ game.ai为书库策略及稳定调用门面；game.ai.search独立负责根/内�
 ## 静态交换与暴露风险
 
 game.ai.exchange提供gain/risk，内部只临时改动传入工作棋盘并完整撤销。game.ai.search在叶子将风险半权重整数化加入位置/子力分，使用最多512项局面评价缓存；风险目标以被吃子价值上界剪除无效SEE。单文件打包新增1模块，不增加映射/挂载。
+# 2026-10-25 AI循环规避补充
+
+`game.session` 新增真实对局 `positionHistory`；红方悔棋快照保存 `positionCount`，恢复时截断。`game.ai.repetition_policy` 生成仅根着法使用的有界重复扣分，`game.ai.search` 同步平移根子节点搜索窗口，`game.ai` 过滤重复开局库着法。此数据流不进入 `game.board.valid` 或胜负结算，不新增平台API、控件或信号。完整规则与边界见 `docs/ai-design.md` 的AI循环规避章节。

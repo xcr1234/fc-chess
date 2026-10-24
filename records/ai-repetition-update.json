@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-25",
+  "runtime": "Fengari + simulator",
+  "red": "Old AI repeated preferred position despite available alternatives",
+  "targetGroups": 8,
+  "suites": 13,
+  "simulatorCases": 82,
+  "simulatorAssertions": 334.0,
+  "sha256": "19b7180f8bcb31516f8298784d2ebd479a4309dcbf65ea6035c36b48fc0b2c87",
+  "artifact": "export/2026-10-25-ai-repetition/main.lua",
+  "deployment": "blocked by automatic approval review; external target unchanged",
+  "device": "not verified",
+  "policy": "AI-only bounded root repetition preference; game rules unchanged"
+}

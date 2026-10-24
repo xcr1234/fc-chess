@@ -1,3 +1,11 @@
+# AI循环将军/追子规避（2026-10-25）
+
+- 当前步骤7反馈的窄修复，按qxqy-game-studio回退步骤2/5/6。用户授权实施，要求规则保持；本轮复用已核对的平台资料，不新增平台API或UI改动。
+- 参考项目内third_party/xqwlight/position.js的repStatus与search.js的重复书着回退；实现真实对局历史、根着法有界扣分、开局库过滤及安全保底选择，悔棋/重开维护历史。覆盖完整局面重复的长将、追子和往返，不是竞赛长捉裁判，不新增判负/判和或玩家禁着。
+- 新测试在旧实现上因有替代着法仍重复而Red；修复后8组Green。最终构建及全量回归记录为records/ai-repetition-regressions.json、records/ai-repetition-simulator.json；产物在export/2026-10-25-ai-repetition/main.lua，同步两份存档的path/source。
+- 外部部署被自动审批拒绝：审批要求本轮明确的完整路径与复制授权，未改动原神外部目标；项目内候选已准备。真机重新加载和效果待用户授权部署后验证。不操作原神窗口。
+- 原有export/2026-10-24-device-5f7a245/audio-integration.md与records/lua-step5-regression.json两份修改排除本次提交。HTML演示未调整，本轮范围为正式Lua AI。
+
 # 胜负结算音效（2026-10-24）
 
 - 当前步骤7，用户最后定案为获胜50228「场景物件_机关交互_宝箱_15」、失败/认输50265「场景物件_机关交互_门_金属_07」，覆盖先前50919/50921候选；按qxqy-game-studio窄回退步骤2/5/6。用户明确不需要悔棋特殊处理，本轮不修改undo、回看或音效停播规则。

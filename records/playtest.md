@@ -373,3 +373,10 @@
 - runtime=lua-model/html-controller；新5项在旧实现Red3→Green5；原音频13项、将军音9项、结果回看7项和HTML24项通过。覆盖吃将/吃帅/确认认输、取消认输、音效关闭、新局重复结束、中性结果及重绘不重复。
 - runtime=simulator-worker-audio；PC/手机各6流程，实际音效序列分别验证胜利[50882,50228]、败局[50882,50882,50265]、认输[50265]、取消[]、关闭[]、两局认输[50265,50265]，再推进帧不新增实例。records/result-audio-worker.json；无原生扬声器或游戏窗口操作。
 - runtime=simulator/filesystem；完整模拟器82用例/334断言通过，records/result-audio-simulator.json。发布备份/哈希见records/result-audio-update.json；用户保存/重新加载及真机结算音效验收仍待完成。
+# 2026-10-25 AI循环规避
+
+- 执行者：Codex。runtime=simulator（L1 Fengari纯Lua与L2真实模拟器Worker分开记录），无device证据。用户反馈可能长将，授权参照项目内小巫师并保持规则。
+- Red：新增实际搜索选步用例在旧实现中返回原重复着法，有效行为失败；非工具/路径故障。Green：8组定向检查通过，含普通/自定义换着、PVS/全窗一致、开局库回退、超时保底、将军/追子循环扣分、唯一安全防守、立即吃将、玩家可重复、悔棋/重开。
+- 最终同一产物13套AI/状态/规则回归全部通过（汇总138个PASS行，包含1个新测试汇总行），完整模拟器82用例/334断言通过。记录：ai-repetition-regressions.json、ai-repetition-simulator.json。曾因dry-run重新构建而触发存档过期保护，重新同步内联源码后完成最终全量回归，不将该保护触发记为游戏失败。
+- 源码、dist、两份存档内联及交付副本核对见ai-repetition-update.json。无UI或平台API变更，复用此前布局证据。此策略只对回到相同完整局面的AI候选做有上限扣分，不保证杜绝所有追击，也不是竞赛长捉判定。
+- 自动审批拒绝外部部署（缺少本轮明确路径/复制授权），外部目标未改；项目内产物已完成。用户真机保存/重新加载与观察仍待部署授权后进行。
