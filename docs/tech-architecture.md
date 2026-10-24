@@ -8,7 +8,7 @@
 
 ## 2026-10-24 结算返回棋盘
 
-终局保留history；`ReturnBoardButton`仅在result转入`result-review`，不调用begin，不恢复计时或AI。square只接受player-turn、commit拒绝两种终局状态；review可走原悔棋确认与模式确认，认输不再响应。确认悔棋沿用历史快照恢复到上次红方落子前并清除resultTitle/Reason，冻结直到确认是才解除。生命周期和音效/BGM接口未变，review仍使用对局BGM且不生成落子事件。
+终局保留history；`ReturnBoardButton`仅在result转入`result-review`，不调用begin，不恢复计时或AI。square只接受player-turn、commit拒绝两种终局状态；review可走原悔棋确认与模式确认，认输不再响应。确认悔棋沿用历史快照恢复到上次红方落子前并清除resultTitle/Reason，冻结直到确认是才解除。生命周期和音效/BGM接口未变，review沿用全场景共用BGM且不生成落子事件。
 
 结算遮罩从93高增到116高，保持顶部不动，底部增加20高“返回棋盤”热区；查看时隐藏结算遮罩，右侧认输文字变灰，底部说明悔棋后可继续。HTML同步第三项与键盘三项循环、终局走棋锁和悔棋续下。契约与证据见`tests/result-review-plan.md`、`records/result-review-*.json`。
 
@@ -18,7 +18,7 @@
 
 ## 2026-10-24 声音设置
 
-`audio.catalog`从项目音乐目录生成，`audio.settings`管理会话偏好/分类分页和输入，`audio.controller`管理音效实例与BGM信号副作用。session仅在真实commit时增加`moveSoundSequence`，lifecycle渲染前同步音频；反复render不重复播放，关闭消耗序列不补播，销毁停止实例。默认title10167/board10029/volume30/sfx=true；音量不用于音效API。
+`audio.catalog`从项目音乐目录生成，`audio.settings`管理会话偏好/分类分页和输入，`audio.controller`管理音效实例与BGM信号副作用。session仅在真实commit时增加`moveSoundSequence`，lifecycle渲染前同步音频；反复render不重复播放，关闭消耗序列不补播，销毁停止实例。默认music10167/volume100/sfx=true；全场景共用music，settingsReturnScene保存设置入口场景，设置/选曲期间不推进对局，返回恢复原工作；音量不用于音效API。
 
 `view`新增audio-settings和music-select全画布页面；原菜单加入设置入口。`build:game`先生成目录再打包28模块，两个存档脚本内容与dist一致。生产存档serverLogic是FCChessBGM四参数接收探针，真实背景音乐节点不能由当前工具写入；[接线与验证边界](audio-integration.md)列出真实节点、变量和参数。测试桥新增偏好/序列探针，生产存档不包含测试UI。
 

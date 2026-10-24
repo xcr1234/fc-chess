@@ -96,23 +96,32 @@ test('check audio: muted checks stay silent and king capture uses normal move so
  const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);r.square(4,5);r.square(4,0);
  assert.equal(r.state.scene,'result');assert.ok(r.sounds[0].endsWith('/50882.mp3'));
 });
-test('settings: independent choices, mute, sound toggle and persistence across a new match',()=>{
+test('settings: shared choice, mute, sound toggle and persistence across a new match',()=>{
  const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
- h.settingsAction('TitleMusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);
- h.settingsAction('PickMusic_10161');h.settingsAction('BoardMusicButton');h.settingsAction('MusicOff');
- assert.equal(h.state.audio.title,10161);assert.equal(h.state.audio.board,0);
+ assert.equal(h.state.audio.volume,100);h.settingsAction('MusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);
+ h.settingsAction('PickMusic_10161');assert.equal(h.state.audio.music,10161);h.settingsAction('MusicButton');h.settingsAction('MusicOff');
+ assert.equal(h.state.audio.music,0);
  for(let i=0;i<20;i++)h.settingsAction('VolumeDown');assert.equal(h.state.audio.volume,0);
  for(let i=0;i<20;i++)h.settingsAction('VolumeUp');assert.equal(h.state.audio.volume,100);
  h.settingsAction('SfxToggle');assert.equal(h.state.audio.sfx,false);h.settingsAction('SettingsBack');h.input('ok');
- assert.equal(h.state.scene,'game');assert.equal(h.state.audio.title,10161);assert.equal(h.state.audio.board,0);assert.equal(h.state.audio.sfx,false);
+ assert.equal(h.state.scene,'game');assert.equal(h.state.audio.music,0);assert.equal(h.state.audio.sfx,false);
+ const board=Array.from(h.state.board);h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');h.settingsAction('MusicButton');h.settingsAction('PickMusic_10161');h.settingsAction('SettingsBack');
+ assert.equal(h.state.scene,'game');assert.deepEqual(Array.from(h.state.board),board);assert.equal(h.state.audio.music,10161);
 });
 test('music picker: pagination clamps, category resets page, invalid sound ID is rejected',()=>{
- const h=appHarness();h.settingsAction('SettingsButton');h.settingsAction('BoardMusicButton');assert.equal(h.musicRows()[0].id,10029);
+ const h=appHarness();h.settingsAction('SettingsButton');h.settingsAction('MusicButton');assert.equal(h.musicRows()[0].id,10167);
  for(let i=0;i<100;i++)h.settingsAction('MusicNext');assert.equal(h.state.musicPage,37);
  h.settingsAction('MusicCategory_2');assert.equal(h.state.musicPage,0);assert.ok(h.musicRows().every(r=>r.category===1));
  for(let i=0;i<100;i++)h.settingsAction('MusicPrevious');assert.equal(h.state.musicPage,0);
- h.settingsAction('PickMusic_50882');assert.equal(h.state.scene,'music-select');assert.equal(h.state.audio.board,10029);
+ h.settingsAction('PickMusic_50882');assert.equal(h.state.scene,'music-select');assert.equal(h.state.audio.music,10167);
  h.settingsAction('MusicBack');h.settingsAction('SettingsBack');assert.equal(h.state.scene,'menu');
+});
+test('live audio settings preserve step time and defer the same pending AI reply',()=>{
+ const h=appHarness();h.input('ok');h.time(2000);h.settingsAction('SettingsButton');h.time(20000);h.settingsAction('SettingsBack');assert.equal(h.clock.red,2000);
+ h.square(0,6);h.square(0,5);const reply=h.state.reply,remaining=reply.due-20000,board=Array.from(h.state.board);
+ h.settingsAction('SettingsButton');h.render(50000);h.settingsAction('MusicButton');h.settingsAction('PickMusic_10161');h.settingsAction('SettingsBack');
+ assert.equal(h.state.reply,reply);assert.equal(reply.due-50000,remaining);assert.deepEqual(Array.from(h.state.board),board);assert.equal(h.state.scene,'game');
+ h.render(reply.due+1);assert.equal(h.state.moves,2);
 });
 test('real preview controller: quick reply has no artificial delay',()=>{
  const h=appHarness();h.state.menu=1;h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);

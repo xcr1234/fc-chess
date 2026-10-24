@@ -18,7 +18,7 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "TitleMusicButton"
+        "name": "MusicButton"
       }
     },
     {
@@ -61,7 +61,7 @@
       "id": "",
       "name": "MusicTitle",
       "field": "text",
-      "equals": "選擇標題音樂"
+      "equals": "選擇背景音樂"
     },
     {
       "kind": "control",

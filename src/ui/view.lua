@@ -31,23 +31,21 @@ local function build(kind,s)
  rect('Background',128,112,256,224,kind=='menu' and '6840fa' or '193b57')
  if kind=='audio-settings' then
   text('SettingsTitle',128,205,190,24,'聲音設定','fff9e9',16)
-  for i,v in ipairs({{'TitleMusicButton','標題音樂',s.audio.title},{'BoardMusicButton','對局音樂',s.audio.board}}) do
-   local y=169-(i-1)*34;text(v[1]..'Caption',39,y,62,16,v[2],'28eff0',9)
-   button(v[1],Settings.name(v[3]),163,y,158,24)
-  end
+  text('MusicCaption',39,162,62,16,'背景音樂','28eff0',9)
+  button('MusicButton',Settings.name(s.audio.music),163,162,158,24)
   text('VolumeCaption',47,101,80,16,'BGM音量','28eff0',9)
   button('VolumeDown','－',109,101,30,24);text('BGMVolume',157,101,55,18,s.audio.volume..'%','fff9e9',11);button('VolumeUp','＋',209,101,30,24)
   text('SfxCaption',47,67,80,16,'走棋音效','28eff0',9);button('SfxToggle',s.audio.sfx and '開啟' or '關閉',163,67,158,24)
   button('SettingsBack','返回',128,28,96,24);return
  elseif kind=='music-select' then
-  text('MusicTitle',113,207,170,20,s.musicTarget=='title' and '選擇標題音樂' or '選擇對局音樂','fff9e9',13)
+  text('MusicTitle',113,207,170,20,'選擇背景音樂','fff9e9',13)
   button('MusicBack','返回',226,207,42,20)
   for i,label in ipairs(Settings.categories) do button('MusicCategory_'..(i-1),(s.musicCategory==i-1 and '·' or '')..label,34+(i-1)*47,182,44,20) end
   button('MusicOff','無BGM',128,157,232,22)
-  local list=Settings.list(s.musicTarget,s.musicCategory)
+  local list=Settings.list(s.musicCategory)
   for row=1,Settings.pageSize do local track=list[s.musicPage*Settings.pageSize+row]
-   if track then local label=(Settings.recommended(s.musicTarget,track.id) and '推薦 · ' or '')..track.name
-    if s.audio[s.musicTarget]==track.id then label='已選 · '..label end
+   if track then local label=(Settings.recommended(track.id) and '推薦 · ' or '')..track.name
+    if s.audio.music==track.id then label='已選 · '..label end
     button('PickMusic_'..track.id,label,128,132-(row-1)*24,232,21)
    end
   end
@@ -94,13 +92,16 @@ local function build(kind,s)
  if kind=='edit' then
   text('EditTitle',128,210,180,14,'自定義棋子','28eff0',10)
   for i,v in ipairs({{'AllRooksButton','全部改車'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
- else for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','模式選擇'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end end
+ else
+  for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','模式選擇'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
+  button('SettingsButton','設定',227.5,23,47,17)
+ end
 end
 function M.render(s)
  local kind=s.scene=='mode-select' and 'menu' or (s.scene=='custom-edit' and 'edit' or ((s.scene=='audio-settings' or s.scene=='music-select') and s.scene or 'board'))
  local key=kind
- if kind=='audio-settings' then key=key..s.audio.title..':'..s.audio.board..':'..s.audio.volume..':'..tostring(s.audio.sfx)
- elseif kind=='music-select' then key=key..s.musicTarget..':'..s.musicCategory..':'..s.musicPage end
+ if kind=='audio-settings' then key=key..s.audio.music..':'..s.audio.volume..':'..tostring(s.audio.sfx)
+ elseif kind=='music-select' then key=key..s.audio.music..':'..s.musicCategory..':'..s.musicPage end
  if key~=pageKind then if overlay then game.DestroyClientUIControl(overlay);overlay=nil end overlayKind=nil;build(kind,s);pageKind=key end
  if kind=='audio-settings' or kind=='music-select' then return end
  if kind~='menu' then

@@ -8,8 +8,7 @@ local function request(id,volume,seconds,enabled)
  Log.event('bgm-request','id='..id..' volume='..volume..' enabled='..tostring(enabled))
 end
 function M.sync(self,s)
- local menu=s.scene=='mode-select' or s.scene=='audio-settings' or s.scene=='music-select' or s.scene=='custom-edit'
- local id=s.audio[menu and 'title' or 'board'];local track=Settings.track(id)
+ local id=s.audio.music;local track=Settings.track(id)
  local enabled=track~=nil and s.audio.volume>0
  local key=id..':'..s.audio.volume
  if self.key~=key then request(id,s.audio.volume,track and track.seconds or 0,enabled);self.key=key end

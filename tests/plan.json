@@ -1625,8 +1625,8 @@
       "fixture": null
     },
     {
-      "case": "audio-choices-independent",
-      "file": "cases/audio-choices-independent.json",
+      "case": "audio-shared-choice",
+      "file": "cases/audio-shared-choice.json",
       "args": {
         "canvasId": "pc-16-9"
       },

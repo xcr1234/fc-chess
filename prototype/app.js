@@ -23,28 +23,33 @@
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
-  state.audio={title:10167,board:10029,volume:30,sfx:true};state.musicTarget='title';state.musicCategory=0;state.musicPage=0;
+  state.audio={music:10167,volume:100,sfx:true};state.musicCategory=0;state.musicPage=0;
   const musicById=new Map(FCChessMusicCatalog.map(([id,name,seconds,category])=>[id,{id,name,seconds,category}]));
-  const recommended={title:[10167,10161],board:[10029,10167]};
+  const recommended=[10167,10029,10161];
   const musicName=id=>musicById.get(id)?.name||'無BGM';
   function musicRows() {
     const rows=FCChessMusicCatalog.map(([id])=>musicById.get(id)).filter(r=>state.musicCategory===0||r.category===state.musicCategory-1);
-    const priority=id=>{const i=recommended[state.musicTarget].indexOf(id);return i<0?2:i;};
+    const priority=id=>{const i=recommended.indexOf(id);return i<0?recommended.length:i;};
     return rows.sort((a,b)=>priority(a.id)-priority(b.id));
   }
   function settingsAction(name) {
-    if(name==='SettingsButton'&&state.scene==='menu'){state.scene='audio-settings';return;}
+    if(name==='SettingsButton'&&!state.modal&&!state.palette&&['menu','game','result-review'].includes(state.scene)){
+      state.settingsReturnScene=state.scene;state.settingsOpenedAt=performance.now();clock.stop(state.settingsOpenedAt);state.scene='audio-settings';return;
+    }
     if(state.scene==='audio-settings'){
-      if(name==='SettingsBack')state.scene='menu';
-      else if(name==='TitleMusicButton'||name==='BoardMusicButton'){state.musicTarget=name==='TitleMusicButton'?'title':'board';state.musicPage=0;state.musicCategory=0;state.scene='music-select';}
+      if(name==='SettingsBack'){
+        state.scene=state.settingsReturnScene||'menu';state.settingsReturnScene=null;
+        if(state.scene==='game'){if(state.reply)state.reply.due+=performance.now()-state.settingsOpenedAt;clock.update(performance.now());clock.side=state.turn;}
+      }
+      else if(name==='MusicButton'){state.musicPage=0;state.musicCategory=0;state.scene='music-select';}
       else if(name==='VolumeDown')state.audio.volume=Math.max(0,state.audio.volume-10);
       else if(name==='VolumeUp')state.audio.volume=Math.min(100,state.audio.volume+10);
       else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx)for(const voice of moveVoices.values())voice.pause();}
     }else if(state.scene==='music-select'){
       const id=Number(name.match(/^PickMusic_(\d+)$/)?.[1]),category=Number(name.match(/^MusicCategory_(\d)$/)?.[1]);
       if(name==='MusicBack')state.scene='audio-settings';
-      else if(name==='MusicOff'){state.audio[state.musicTarget]=0;state.scene='audio-settings';}
-      else if(musicById.has(id)){state.audio[state.musicTarget]=id;state.scene='audio-settings';}
+      else if(name==='MusicOff'){state.audio.music=0;state.scene='audio-settings';}
+      else if(musicById.has(id)){state.audio.music=id;state.scene='audio-settings';}
       else if(Number.isInteger(category)&&category>=0&&category<=4){state.musicCategory=category;state.musicPage=0;}
       else if(name==='MusicNext')state.musicPage=Math.min(Math.ceil(musicRows().length/5)-1,state.musicPage+1);
       else if(name==='MusicPrevious')state.musicPage=Math.max(0,state.musicPage-1);
@@ -107,14 +112,14 @@
   function settingsRegions(){
     const list=[];const add=(id,label,x,y,w,h)=>region(list,id,x-w/2,224-y-h/2,w,h,label,()=>settingsAction(id));
     if(state.scene==='audio-settings'){
-      add('TitleMusicButton',musicName(state.audio.title),163,169,158,24);add('BoardMusicButton',musicName(state.audio.board),163,135,158,24);
+      add('MusicButton',musicName(state.audio.music),163,162,158,24);
       add('VolumeDown','－',109,101,30,24);add('VolumeUp','＋',209,101,30,24);
       add('SfxToggle',state.audio.sfx?'開啟':'關閉',163,67,158,24);add('SettingsBack','返回',128,28,96,24);
     }else{
       add('MusicBack','返回',226,207,42,20);
       ['全部','探索','戰鬥','任務','其他'].forEach((name,i)=>add('MusicCategory_'+i,(state.musicCategory===i?'·':'')+name,34+i*47,182,44,20));
       add('MusicOff','無BGM',128,157,232,22);
-      musicRows().slice(state.musicPage*5,state.musicPage*5+5).forEach((r,i)=>add('PickMusic_'+r.id,(state.audio[state.musicTarget]===r.id?'已選 · ':'')+(recommended[state.musicTarget].includes(r.id)?'推薦 · ':'')+r.name,128,132-i*24,232,21));
+      musicRows().slice(state.musicPage*5,state.musicPage*5+5).forEach((r,i)=>add('PickMusic_'+r.id,(state.audio.music===r.id?'已選 · ':'')+(recommended.includes(r.id)?'推薦 · ':'')+r.name,128,132-i*24,232,21));
       add('MusicPrevious','上一頁',48,14,68,20);add('MusicNext','下一頁',208,14,68,20);
     }
     return list;
@@ -122,16 +127,17 @@
   function settingsScreen(){
     ctx.fillStyle=C.navy;ctx.fillRect(0,0,256,224);
     if(state.scene==='audio-settings'){
-      text('聲音設定',128,9,C.white,16,'center');text('標題音樂',39,50,C.cyan,9,'center');text('對局音樂',39,84,C.cyan,9,'center');
+      text('聲音設定',128,9,C.white,16,'center');text('背景音樂',39,57,C.cyan,9,'center');
       text('BGM音量',47,118,C.cyan,9,'center');text(state.audio.volume+'%',157,117,C.white,11,'center');text('走棋音效',47,152,C.cyan,9,'center');
     }else{
-      text(state.musicTarget==='title'?'選擇標題音樂':'選擇對局音樂',113,10,C.white,13,'center');
+      text('選擇背景音樂',113,10,C.white,13,'center');
       text((state.musicPage+1)+' / '+Math.ceil(musicRows().length/5),128,205,C.cyan,9,'center');
     }
     for(const r of settingsRegions()){box(r.x,r.y,r.w,r.h,'#00482f');text(r.label,r.x+r.w/2,r.y+(r.h-8)/2,C.green,8,'center');}
   }
   function boardScreen(now) {
     ctx.fillStyle = C.navy; ctx.fillRect(0, 0, 256, 224);
+    if(state.scene!=='edit'){box(204,192.5,47,17,'#00482f');text('設定',227.5,197,C.green,8,'center');}
     if (state.scene === 'edit') text('自定義棋子', 128, 9, C.cyan, 10, 'center');
     text('黑方', 8, 42); text('電腦', 8, 56); text('1 級', 8, 72); text(state.scene === 'edit' ? '00:00' : formatStep(clock.black), 5, 94, C.cyan, 8);
     text('紅方', 8, 138); text('人腦', 8, 152); text('9 級', 8, 168); text(state.scene === 'edit' ? '00:00' : formatStep(clock.red), 5, 190, C.cyan, 8);
@@ -362,6 +368,7 @@
     } else {
       const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '模式选择'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));
+      if(state.scene!=='edit')region(list,'SettingsButton',204,192.5,47,17,'設定',()=>settingsAction('SettingsButton'));
     }
     screenActions = new Map(list.map(r => [r.id, r.run]));
     const signature = JSON.stringify(list.map(({run, ...r}) => r));

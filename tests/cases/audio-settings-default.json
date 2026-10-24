@@ -29,7 +29,7 @@
       "id": "",
       "name": "BGMVolume",
       "field": "text",
-      "equals": "30%"
+      "equals": "100%"
     },
     {
       "kind": "control",

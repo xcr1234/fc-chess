@@ -4,6 +4,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { createCanvas, loadImage } from '@napi-rs/canvas';
 import assert from 'node:assert/strict';
+import { inputHarness } from './simulator-input-harness.mjs';
 const client=new Client({name:'audio-settings-layouts',version:'1.0.0'});
 const report={runtime:'simulator',results:[]};let handle;
 async function call(action,args={}){
@@ -18,27 +19,37 @@ try{
  ({handle}=opened.structuredContent??JSON.parse(opened.content.find(c=>c.type==='text').text));
  for(const canvasId of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3']){
   await call('start',{canvasId});
+  const {canvasWidth:width,canvasHeight:height}=await call('get');
   for(const [kind,actions,name,equals] of [
-   ['settings',['SettingsButton'],'BGMVolume','30%'],
-   ['music',['SettingsButton','TitleMusicButton'],'MusicPage','1 / 38']]){
-   const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:1,name,field:'text',equals}]};
+   ['settings',['SettingsButton'],'BGMVolume','100%'],
+   ['music',['SettingsButton','MusicButton'],'MusicPage','1 / 38'],
+   ['board-settings',['ModeFast','SettingsButton'],'BGMVolume','100%'],
+   ['board-return',['ModeFast','Square_0_6','SettingsButton','MusicButton','PickMusic_10161','SettingsBack'],'MoveCount','000手']]){
+   const input=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width});let cursor=0;const events=[];
+   for(const [i,action] of actions.entries()){
+    const t=.1+i*.2;
+    if(action==='SettingsButton'&&kind.startsWith('board-')){
+     input.tap(...input.point(227.5,23));const list=input.pointer();for(const [j,{light,...payload}] of list.slice(cursor).entries())events.push({t:t+j*.02,source:'user',kind:'pointer',payload});cursor=list.length;
+    }else events.push({t,source:'user',kind:'click',payload:{name:action}});
+   }
+   const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events,asserts:[{kind:'control',at:actions.length*.2+.4,name,field:'text',equals}]};
    const result=await call('runCase',{canvasId,case:test});if(!result.passed)throw new Error(JSON.stringify(result));
    const shot=await client.callTool({name:'qxqy_studio_play_screenshot',arguments:{handle}});
    const img=await loadImage(Buffer.from(shot.content.find(c=>c.type==='image').data,'base64'));
    const scale=Math.min(img.width/256,img.height/224),w=Math.round(256*scale),h=Math.round(224*scale),canvas=createCanvas(w,h);
    canvas.getContext('2d').drawImage(img,(img.width-w)/2,(img.height-h)/2,w,h,0,0,w,h);
-   const path=`records/screenshots/audio-${kind}-${canvasId}.png`;await writeFile(path,canvas.toBuffer('image/png'));
+   const path=`records/screenshots/shared-audio-${kind}-${canvasId}.png`;await writeFile(path,canvas.toBuffer('image/png'));
    report.results.push({canvasId,kind,passed:true,screenshot:path,server:await call('serverGet')});console.log('PASS',kind,canvasId);
   }
   await call('stop');
  }
  await call('start',{canvasId:'pc-16-9'});
  for(const [name,actions,index,volume,enabled] of [
-  ['board-route',['ModeFast'],10029,30,true],
-  ['volume-change',['SettingsButton','VolumeUp'],10167,40,true],
-  ['volume-zero',['SettingsButton','VolumeDown','VolumeDown','VolumeDown'],10167,0,false],
-  ['title-off',['SettingsButton','TitleMusicButton','MusicOff'],0,30,false],
-  ['board-off',['SettingsButton','BoardMusicButton','MusicOff','SettingsBack','ModeFast'],0,30,false]
+  ['board-route',['ModeFast'],10167,100,true],
+  ['volume-change',['SettingsButton','VolumeDown'],10167,90,true],
+  ['volume-zero',['SettingsButton',...Array(10).fill('VolumeDown')],10167,0,false],
+  ['title-off',['SettingsButton','MusicButton','MusicOff'],0,100,false],
+  ['board-off',['SettingsButton','MusicButton','MusicOff','SettingsBack','ModeFast'],0,100,false]
  ]){
   const test={format:'qxqy-autotest',version:1,name,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:2,name:'GameRoot',field:'visible',equals:true}]};
   const result=await call('runCase',{canvasId:'pc-16-9',case:test});if(!result.passed)throw new Error(JSON.stringify(result));
@@ -60,4 +71,4 @@ try{
   report.results.push({kind:'sound',name,passed:true,audio:state.audio});console.log('PASS sound',name);
  }
 }catch(e){report.error=e.stack;console.error(e);process.exitCode=1;}
-finally{if(handle)await call('stop').catch(()=>{});await client.close();await writeFile('records/audio-layouts.json',JSON.stringify(report,null,2)+'\n');}
+finally{if(handle)await call('stop').catch(()=>{});await client.close();await writeFile('records/shared-audio-layouts.json',JSON.stringify(report,null,2)+'\n');}

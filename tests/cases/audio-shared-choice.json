@@ -1,12 +1,12 @@
 {
   "format": "qxqy-autotest",
   "version": 1,
-  "name": "audio-choices-independent",
+  "name": "audio-shared-choice",
   "dt": 0.1,
   "playerCount": 1,
   "events": [
     {
-      "t": 0.2,
+      "t": 0.1,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -14,15 +14,15 @@
       }
     },
     {
-      "t": 0.4,
+      "t": 0.30000000000000004,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "TitleMusicButton"
+        "name": "MusicButton"
       }
     },
     {
-      "t": 0.6000000000000001,
+      "t": 0.5,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -30,23 +30,7 @@
       }
     },
     {
-      "t": 0.8,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "BoardMusicButton"
-      }
-    },
-    {
-      "t": 1,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "MusicOff"
-      }
-    },
-    {
-      "t": 1.2,
+      "t": 0.7000000000000001,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -54,38 +38,67 @@
       }
     },
     {
-      "t": 1.4000000000000001,
+      "t": 0.9,
       "source": "user",
       "kind": "click",
       "payload": {
         "name": "ModeFast"
+      }
+    },
+    {
+      "t": 1.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsButton"
+      }
+    },
+    {
+      "t": 1.3000000000000003,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicButton"
+      }
+    },
+    {
+      "t": 1.5000000000000002,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicOff"
+      }
+    },
+    {
+      "t": 1.7000000000000002,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsBack"
       }
     }
   ],
   "asserts": [
     {
       "kind": "control",
-      "at": 1.8000000000000003,
-      "id": "",
-      "name": "TitleMusicChoice",
-      "field": "text",
-      "equals": "10161"
-    },
-    {
-      "kind": "control",
-      "at": 1.8000000000000003,
-      "id": "",
-      "name": "BoardMusicChoice",
+      "at": 2.1,
+      "name": "MusicChoice",
       "field": "text",
       "equals": "0"
     },
     {
       "kind": "control",
-      "at": 1.8000000000000003,
-      "id": "",
+      "at": 2.1,
       "name": "SceneState",
       "field": "text",
       "equals": "player-turn"
+    },
+    {
+      "kind": "control",
+      "at": 2.1,
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
     }
   ]
 }

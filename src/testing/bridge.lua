@@ -16,7 +16,7 @@ function M.init(host,s,render)
  local p=U.create('container',host,'TestBridge',-10000,-10000,1,1)
  p.showCursor=true
  for _,n in ipairs({'SceneState','ModeCount','SelectedSquare','RedRookCount','RedPieceCount','RuleProfile','PendingReply','ExtraWait','BookEnabled','BookUsed','SearchCompleteDepth','WorkingBoardRestored','PartialExactStored','CustomLightSearch','FirstIterationComplete','FixtureReady'}) do U.text(p,n,0,0,1,1,'','ffffff',6) end
- for _,n in ipairs({'TitleMusicChoice','BoardMusicChoice','SfxEnabled','MusicVolumeValue','MoveSoundSequence'}) do U.text(p,n,0,0,1,1,'','ffffff',6) end
+ for _,n in ipairs({'MusicChoice','SfxEnabled','MusicVolumeValue','MoveSoundSequence'}) do U.text(p,n,0,0,1,1,'','ffffff',6) end
  for r=0,9 do for f=0,8 do U.text(p,'Piece_'..f..'_'..r,0,0,1,1,'','ffffff',6) end end
  for n in pairs(F) do U.hit(p,'TestSetup_'..n,0,0,1,1,function() M.setup(s,n);render() end) end
  U.hit(p,'TestComputeSummary',0,0,1,1,function() s.extraWait=Wait.seconds(s.mode,s.fixture.summary);render() end)
@@ -28,7 +28,7 @@ function M.init(host,s,render)
  end)
 end
 function M.render(s)
- U.set('TitleMusicChoice',s.audio.title);U.set('BoardMusicChoice',s.audio.board);U.set('SfxEnabled',s.audio.sfx);U.set('MusicVolumeValue',s.audio.volume);U.set('MoveSoundSequence',s.moveSoundSequence)
+ U.set('MusicChoice',s.audio.music);U.set('SfxEnabled',s.audio.sfx);U.set('MusicVolumeValue',s.audio.volume);U.set('MoveSoundSequence',s.moveSoundSequence)
  U.set('FixtureReady',ready);U.set('SceneState',s.scene);U.set('ModeCount',3)
  local selected='none';if s.selected then local f,r=B.coords(s.selected);selected=f..','..r end U.set('SelectedSquare',selected)
  local count,rooks=0,0
