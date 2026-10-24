@@ -15,7 +15,7 @@ end
 function M.init(host,s,render)
  local p=U.create('container',host,'TestBridge',-10000,-10000,1,1)
  p.showCursor=true
- for _,n in ipairs({'SceneState','ModeCount','SelectedSquare','RedRookCount','RedPieceCount','RuleProfile','PendingReply','ExtraWait','BookEnabled','BookUsed','SearchCompleteDepth','WorkingBoardRestored','PartialExactStored','FixtureReady'}) do U.text(p,n,0,0,1,1,'','ffffff',6) end
+ for _,n in ipairs({'SceneState','ModeCount','SelectedSquare','RedRookCount','RedPieceCount','RuleProfile','PendingReply','ExtraWait','BookEnabled','BookUsed','SearchCompleteDepth','WorkingBoardRestored','PartialExactStored','CustomLightSearch','FirstIterationComplete','FixtureReady'}) do U.text(p,n,0,0,1,1,'','ffffff',6) end
  for r=0,9 do for f=0,8 do U.text(p,'Piece_'..f..'_'..r,0,0,1,1,'','ffffff',6) end end
  for n in pairs(F) do U.hit(p,'TestSetup_'..n,0,0,1,1,function() M.setup(s,n);render() end) end
  U.hit(p,'TestComputeSummary',0,0,1,1,function() s.extraWait=Wait.seconds(s.mode,s.fixture.summary);render() end)
@@ -33,5 +33,6 @@ function M.render(s)
  for i,p in ipairs(s.board) do if B.red(p) then count=count+1 end if p=='R' then rooks=rooks+1 end local f,r=B.coords(i);U.set('Piece_'..f..'_'..r,p) end
  U.set('RedRookCount',rooks);U.set('RedPieceCount',count);U.set('RuleProfile',S.profile(s));U.set('PendingReply',s.reply and 'pending' or 'none');U.set('ExtraWait',s.extraWait);U.set('BookEnabled',AI.bookEnabled(s.custom))
  local job=probe or s.job;U.set('BookUsed',job and job.book or false);U.set('SearchCompleteDepth',job and job.depth or 0);U.set('WorkingBoardRestored',not job or job.restored);U.set('PartialExactStored',job and job.partialExact or false)
+ U.set('CustomLightSearch',job and job.lightweight or false);U.set('FirstIterationComplete',job and job.depth>=1 or false)
 end
 return M

@@ -42,7 +42,7 @@ try{
   report.completed=true;save('records/ai-readiness-performance.json',report);
  }
  if(!process.argv.includes('--performance-only')){
-  const report={...meta,scope:'Real engine on both sides, production 4-second logical/60 FPS budgets; no book or fixture replies. Capture rules do not adjudicate repetition. 80-ply cap is unresolved, not a win/draw.',games:[]};
+  const report={...meta,scope:'Real engine on both sides, production profile defaults at 60 FPS (standard 4 seconds; custom light 1.5 seconds); no book or fixture replies. Capture rules do not adjudicate repetition. 80-ply cap is unresolved, not a win/draw.',games:[]};
   for(const profile of names){
    const board=army(profile);const game={profile,initial:fenFromBoard(board,'red'),plies:[],passes:[],repeatedPositions:0,outcome:'unresolved',maxStepMs:0,firstIterationFallbacks:0};
    const seen=new Map();let side='red',consecutivePasses=0;const started=performance.now();

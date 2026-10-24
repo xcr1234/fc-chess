@@ -97,7 +97,8 @@ function __fc_result()
   assert(B.side(root[job.move[1]])==side and B.valid(root,job.move[1],job.move[2],custom),'illegal basic move')
   if job.rules.standard then assert(G.safe(clean,P.move(P.from90[job.move[1]],P.from90[job.move[2]])),'unsafe standard move') end
  end
- return {move=job.move,score=job.score,depth=job.depth,nodes=job.nodes,qnodes=job.qnodes,mainNodes=job.mainNodes,reason=job.reason,
+ return {move=job.move,score=job.score,depth=job.depth,nodes=job.nodes,qnodes=job.qnodes,mainNodes=job.mainNodes,leafNodes=job.leafNodes,estimatedLeaves=job.estimatedLeaves,
+ lightweight=job.lightweight,timeLimit=job.timeLimit,maxDepth=job.maxDepth,reason=job.reason,
  elapsed=job.elapsed,operations=job.operations or 0,ttEntries=job.transpositions.count,ttHits=job.transpositions.hits,restored=job.restored}
 end
 `;

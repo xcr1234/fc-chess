@@ -1,0 +1,46 @@
+
+> miliastra-template@0.1.0 test
+> node --test scripts/test-lua-bundle.mjs scripts/test-lua-project.mjs scripts/test-setup.mjs scripts/test-ai-test-runtime.mjs
+
+✔ benchmark FEN bridge retains every square, side and elephant notation (0.7804ms)
+✔ benchmark bridge calls the real capture engine and restores its position (164.3065ms)
+✔ JS deadline keeps a legal completed iteration or safe fallback (42.6577ms)
+✔ Lua wall-clock driver returns a safe restored standard-profile result (146.1972ms)
+✔ standard judge prioritizes no-move loss even at repetition/move-cap boundary (14.3829ms)
+✔ standard benchmark repeats only on the third complete same-side position (8.5143ms)
+[miliastra] Build date (local): 2026-10-24 10:01:06.559 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ single file runs without host loaders, caches nested modules, exposes lifecycle callbacks (49.6275ms)
+✔ ignores require text in comments/strings and preserves source line mapping (23.6968ms)
+[miliastra] Build date (local): 2026-10-24 10:01:06.624 +08:00
+[miliastra] Initialization started (OnStart)
+[miliastra] Initialization completed (OnStart)
+✔ preserves lazy loading and isolates locals with the same name (17.0287ms)
+✔ module initialization happens once for nil and false exports (12.1258ms)
+✔ rejects missing modules and cycles with the dependency chain (26.0798ms)
+✔ rejects dynamic/aliased/shadowed require and unsafe module names (41.3021ms)
+✔ Lua syntax errors identify the source and do not overwrite the previous build (16.7113ms)
+✔ build is deterministic and cannot overwrite the source tree (21.0732ms)
+✔ build date uses local system time and startup logs surround OnStart without changing its values (10.1147ms)
+✔ startup logs can be disabled while keeping the build date and original callback (7.4268ms)
+✔ failed initialization propagates its error and never logs completion (14.7728ms)
+✔ module-only bundles do not acquire a startup callback (11.5218ms)
+✔ build stays inside the project and does not deploy (34.3527ms)
+✔ dry-run builds but writes neither target nor deployment state (24.1993ms)
+✔ deploys byte-identical Lua only and backs up a previous deployed version (51.4063ms)
+✔ identical deployment is a no-op; externally modified content needs an explicit overwrite (50.6438ms)
+✔ project startupLog setting defaults on and can be disabled (22.428ms)
+✔ first deployment protects an existing target (44.0535ms)
+✔ failed rebuild cannot publish a stale artifact (28.0329ms)
+✔ build rejects output outside the project; deployment requires an exact absolute Lua path (21.8941ms)
+✔ setup rewrites MCP paths for each clone without a default proxy or target (30.8971ms)
+✔ local proxy survives setup reruns; target setup does not copy files (28.9227ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 498.3997

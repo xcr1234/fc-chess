@@ -8,7 +8,7 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const read=file=>fs.readFileSync(path.join(root,file));
 const files=[
- 'tests/lua-ai-rules.lua','tests/lua-ai-threats.lua','tests/lua-regression.lua',
+ 'tests/lua-ai-rules.lua','tests/lua-ai-custom-light.lua','tests/lua-ai-threats.lua','tests/lua-regression.lua',
  'tests/lua-ai-tactics.lua','tests/lua-ai-user-cannon.lua','tests/lua-ai-pvs.lua',
  'tests/lua-opening-book.lua','tests/lua-wait-extension.lua','tests/lua-feedback.lua'
 ];
@@ -19,6 +19,9 @@ const sourceHashes=Object.fromEntries(sourceFiles.map(file=>['src/'+file.replace
 const report={runtime:'Fengari 0.1.5 / Node '+process.version,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),
  scope:'Rule/engine regressions, not a strength tournament or device result',sourceHashes,sourceFingerprint:hash(JSON.stringify(sourceHashes)),
  bundleSHA256:hash(read('dist/main.lua')),results:[]};
+const outputIndex=process.argv.indexOf('--output');
+const output=outputIndex<0?'ai-rule-regression.json':process.argv[outputIndex+1];
+if(!output || !/^[a-z0-9-]+\.json$/.test(output)) throw Error('--output requires a report filename inside records/');
 for(const save of ['fc-chess.save.json','tests/fc-chess.test.save.json']){
  const script=JSON.parse(read(save)).assets.scripts[0];
  if(script.path!=='dist/main.lua' || hash(script.source)!==report.bundleSHA256) throw Error('Rebuild/sync before testing: '+save);
@@ -47,5 +50,5 @@ try{
   luaPassGroups:report.results.filter(result=>result.file.startsWith('tests/')).reduce((n,result)=>n+result.passGroups,0)};
  console.log('REGRESSION SUMMARY '+JSON.stringify(report.summary));
 }finally{
- fs.writeFileSync(path.join(root,'records/ai-rule-regression.json'),JSON.stringify(report,null,2)+'\n');
+ fs.writeFileSync(path.join(root,'records',output),JSON.stringify(report,null,2)+'\n');
 }

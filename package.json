@@ -26,6 +26,8 @@
     "test:lua:pvs": "node scripts/run-lua-check.mjs tests/lua-ai-pvs.lua && node scripts/run-lua-check.mjs tests/lua-ai-threats.lua",
     "test:lua:tactics": "node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua",
     "test:ai:rules": "node scripts/run-lua-check.mjs tests/lua-ai-rules.lua",
+    "test:ai:custom": "node scripts/run-lua-check.mjs tests/lua-ai-custom-light.lua",
+    "test:ai:custom:profile": "node scripts/test-ai-custom-light.mjs",
     "test:ai:core": "node scripts/verify-ai-core.mjs",
     "test:ai:regression": "node scripts/run-ai-rule-regressions.mjs",
     "test:ai:runtime": "node --test scripts/test-ai-test-runtime.mjs",

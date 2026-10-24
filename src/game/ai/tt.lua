@@ -12,7 +12,7 @@ function M.probe(tt,p,f)
  local e=tt.slots[p.key & tt.mask]
  if not e or e.key~=p.key or e.lock~=p.lock or e.rule~=p.rules.id then return nil,nil end
  -- Different depths/extensions/quiescence/null permissions only offer an ordering move.
- if e.depth~=f.depth or e.ext~=f.ext or e.q~=f.q or e.ply~=f.ply or e.noNull~=f.noNull or e.context~=p.context or e.contextLock~=p.contextLock then return nil,e.move end
+ if e.depth~=f.depth or e.ext~=f.ext or e.q~=f.q or e.leaf~=f.leaf or e.ply~=f.ply or e.noNull~=f.noNull or e.context~=p.context or e.contextLock~=p.contextLock then return nil,e.move end
  local score=M.decode(e.score,f.ply)
  if e.flag=='exact' or (e.flag=='lower' and score>=f.beta) or (e.flag=='upper' and score<=f.alpha) then tt.hits=tt.hits+1;return score,e.move end
  return nil,e.move
@@ -22,7 +22,7 @@ function M.store(tt,p,f,score,move,generation)
  local slot=p.key & tt.mask;local e=tt.slots[slot]
  if e and e.generation==generation and e.depth>f.depth then return end
  if not e then e={};tt.slots[slot]=e;tt.count=tt.count+1 end
- e.key=p.key;e.lock=p.lock;e.rule=p.rules.id;e.depth=f.depth;e.ext=f.ext;e.q=f.q;e.ply=f.ply;e.noNull=f.noNull
+ e.key=p.key;e.lock=p.lock;e.rule=p.rules.id;e.depth=f.depth;e.ext=f.ext;e.q=f.q;e.leaf=f.leaf;e.ply=f.ply;e.noNull=f.noNull
  e.context=p.context;e.contextLock=p.contextLock;e.score=M.encode(score,f.ply);e.move=move;e.generation=generation
  e.flag=score<=f.originalAlpha and 'upper' or (score>=f.beta and 'lower' or 'exact');e.complete=true
  tt.stores=tt.stores+1

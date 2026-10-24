@@ -18,9 +18,10 @@ local function push(j,move,kind,depth,alpha,beta,ply,ext,q,noNull,trial)
  for _,m in ipairs(f.moves) do f.unsafe[m]=nil end
  clear(f.moves);clear(f.heap);clear(f.ranks)
  f.move=move;f.kind=kind;f.depth=depth;f.alpha=alpha;f.originalAlpha=alpha;f.beta=beta;f.ply=ply;f.ext=ext;f.q=q;f.noNull=noNull;f.trial=trial
+ f.leaf=j.lightweight and 'static' or 'quiescent'
  f.phase='enter';f.best=-INF;f.bestMove=nil;f.dependent=false;f.heapCount=0;f.safeCount=0;f.count=0;f.tactical=0;f.searched=0;f.preferred=nil;f.danger=false;f.horizon=false
  f.changed=kind=='move' or kind=='pass' or kind=='null'
- if f.changed then P.make(j.pos,move,f.undo,kind);f.undo.checked=kind~='null' and G.danger(j.pos,j.pos.side) end
+ if f.changed then P.make(j.pos,move,f.undo,kind);f.undo.checked=kind~='null' and (not j.lightweight or depth>0) and G.danger(j.pos,j.pos.side) end
  j.stack[index]=f
  return f
 end
@@ -84,13 +85,21 @@ local function enter(j,f)
  local p=j.pos
  if j.nodes>=j.budget then M.finish(j,'nodes');return end
  j.nodes=j.nodes+1
- if f.depth<=0 then j.qnodes=j.qnodes+1 else j.mainNodes=j.mainNodes+1 end
+ if f.depth<=0 then
+  if j.lightweight then j.leafNodes=j.leafNodes+1 else j.qnodes=j.qnodes+1 end
+ else j.mainNodes=j.mainNodes+1 end
  if not p.kings[p.side] then pop(j,-10000+f.ply);return end
  if not p.kings[1-p.side] then pop(j,10000-f.ply);return end
  local win=G.win(p)
  if win then f.bestMove=win;pop(j,10000-f.ply-1);return end
  local rep=P.repetition(p,f.ply)
  if rep then pop(j,rep,true);return end
+ -- Entertainment custom games use a fixed shallow horizon. Actual king
+ -- captures still take precedence; the static estimate promises no tactical
+ -- resolution and never enters the full-search TT as an exact value.
+ if j.lightweight and f.depth<=0 then
+  j.estimatedLeaves=j.estimatedLeaves+1;pop(j,E.score(p,f.ply),true);return
+ end
  if f.kind=='move' then f.danger=f.undo.checked else f.danger=G.danger(p,p.side) end
  -- A dangerous leaf has no sound stand-pat. Abort instead of fabricating exact data.
  if f.ply>=j.maxPly or (f.depth<=0 and f.q<=0) then
@@ -198,13 +207,15 @@ end
 function M.new(board,side,custom,opts)
  opts=opts or {};local rules=R.get(custom,opts.profile);local p=P.new(board,side,rules)
  local copy={} for i=1,90 do copy[i]=board[i] or '' end
- local j={pos=p,board=copy,side=side,custom=custom,rules=rules,stack={},frames={},history={},killers={},changes={},nodes=0,qnodes=0,mainNodes=0,depth=0,iteration=1,elapsed=0,done=false,restored=true,partialExact=false,probes=0,researches=0,nullProbes=0,nullVerifications=0,nullCutoffs=0,summary={count=0,tactical=0}}
+ local light=rules.freeRed and opts.lightweight~=false
+ local j={pos=p,board=copy,side=side,custom=custom,rules=rules,lightweight=light,stack={},frames={},history={},killers={},changes={},nodes=0,qnodes=0,mainNodes=0,leafNodes=0,estimatedLeaves=0,depth=0,iteration=1,elapsed=0,done=false,restored=true,partialExact=false,probes=0,researches=0,nullProbes=0,nullVerifications=0,nullCutoffs=0,summary={count=0,tactical=0}}
  j.initialKey=p.key;j.initialLock=p.lock;j.initialEval=p.red-p.black;j.initialSide=p.side;j.eval=j.initialEval
  j.kings={red=P.to90[p.kings[0]],black=P.to90[p.kings[1]]}
- j.budget=opts.nodeBudget or 16000;j.maxDepth=opts.maxDepth or 8;j.maxPly=opts.maxPly or 64;j.qDepth=opts.qDepth or 16;j.extensions=opts.extensions or 2
- j.pvs=opts.pvs~=false;j.useTT=opts.tt~=false;j.nullMove=opts.nullMove==true and not rules.freeRed
+ j.budget=opts.nodeBudget or (light and 2000 or 16000);j.maxDepth=opts.maxDepth or (light and 2 or 8);j.maxPly=opts.maxPly or 64
+ j.qDepth=light and 0 or (opts.qDepth or 16);j.extensions=opts.extensions or (light and 0 or 2)
+ j.pvs=opts.pvs~=false;j.useTT=opts.tt==true or (opts.tt~=false and not light);j.nullMove=opts.nullMove==true and not rules.freeRed
  j.transpositions=TT.new(opts.ttSize);j.tt=j.transpositions.slots;j.ttCount=0
- j.operationsPerStep=opts.operationsPerStep or 128;j.nodesPerStep=opts.nodesPerStep or 32;j.timeLimit=opts.timeLimit or 4
+ j.operationsPerStep=opts.operationsPerStep or 128;j.nodesPerStep=opts.nodesPerStep or 32;j.timeLimit=opts.timeLimit or (light and 1.5 or 4)
  j.clock=opts.clock~=false and (opts.clock or (os and os.clock)) or nil
  j.sliceSeconds=opts.sliceSeconds or 0.003;j.workBudget=opts.workBudget or math.huge
  -- Establish a verified fallback independent of the deadline: win, then safety.
