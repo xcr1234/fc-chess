@@ -3,6 +3,7 @@ local P=require('ui.portrait')
 local B=require('game.board')
 local S=require('game.session')
 local Counter=require('game.thinking_counter')
+local Settings=require('audio.settings')
 local M={}
 local glyph={r='車',n='馬',e='象',a='士',k='將',c='砲',p='卒',R='車',N='馬',E='相',A='仕',K='帥',C='砲',P='兵'}
 local root,page,overlay,pageKind,overlayKind,onAction,onSquare
@@ -24,10 +25,34 @@ function M.init(host,action,square)
  M.resize();return root
 end
 function M.resize() local w,h=game.GetUICanvasSize();if w~=lastWidth or h~=lastHeight then local z=math.min(w/256,h/224);root:SetLocalScale(z,z,1);lastWidth=w;lastHeight=h end end
-local function build(kind)
+local function build(kind,s)
  if page then game.DestroyClientUIControl(page) end
  page=U.create('container',root,'Page',0,0,256,224);page.showCursor=true;pieces={}
  rect('Background',128,112,256,224,kind=='menu' and '6840fa' or '193b57')
+ if kind=='audio-settings' then
+  text('SettingsTitle',128,205,190,24,'聲音設定','fff9e9',16)
+  for i,v in ipairs({{'TitleMusicButton','標題音樂',s.audio.title},{'BoardMusicButton','對局音樂',s.audio.board}}) do
+   local y=169-(i-1)*34;text(v[1]..'Caption',39,y,62,16,v[2],'28eff0',9)
+   button(v[1],Settings.name(v[3]),163,y,158,24)
+  end
+  text('VolumeCaption',47,101,80,16,'BGM音量','28eff0',9)
+  button('VolumeDown','－',109,101,30,24);text('BGMVolume',157,101,55,18,s.audio.volume..'%','fff9e9',11);button('VolumeUp','＋',209,101,30,24)
+  text('SfxCaption',47,67,80,16,'走棋音效','28eff0',9);button('SfxToggle',s.audio.sfx and '開啟' or '關閉',163,67,158,24)
+  button('SettingsBack','返回',128,28,96,24);return
+ elseif kind=='music-select' then
+  text('MusicTitle',113,207,170,20,s.musicTarget=='title' and '選擇標題音樂' or '選擇對局音樂','fff9e9',13)
+  button('MusicBack','返回',226,207,42,20)
+  for i,label in ipairs(Settings.categories) do button('MusicCategory_'..(i-1),(s.musicCategory==i-1 and '·' or '')..label,34+(i-1)*47,182,44,20) end
+  button('MusicOff','無BGM',128,157,232,22)
+  local list=Settings.list(s.musicTarget,s.musicCategory)
+  for row=1,Settings.pageSize do local track=list[s.musicPage*Settings.pageSize+row]
+   if track then local label=(Settings.recommended(s.musicTarget,track.id) and '推薦 · ' or '')..track.name
+    if s.audio[s.musicTarget]==track.id then label='已選 · '..label end
+    button('PickMusic_'..track.id,label,128,132-(row-1)*24,232,21)
+   end
+  end
+  button('MusicPrevious','上一頁',48,14,68,20);text('MusicPage',128,14,78,16,(s.musicPage+1)..' / '..Settings.pages(s),'28eff0',9);button('MusicNext','下一頁',208,14,68,20);return
+ end
  if kind=='menu' then
   rect('TitlePanel',128,197.5,142,33,'d60059');text('Title',128,197.5,142,33,'中國象棋','fff2c5',25)
   local names={'ModeDifficult','ModeFast','ModeCustom'};local labels={'困難','快速模式','自定義模式'};local sub={'經典老頭 · 原味等待','經典老頭 · 快速思考','修改己方初始棋子'}
@@ -36,7 +61,7 @@ local function build(kind)
    text(n..'Subtitle',156,y-29,150,12,sub[i],'e2d0ff',8).horizontalAlignment=Enum.TextHorizontalAlignment.Left
    U.hit(page,n,131.5-128,y-18-112,215,44,function() onAction(n) end)
   end
-  text('MenuHint',128,13,240,14,'點擊模式，開始對局','fff9e9',8);return
+  text('MenuHint',100,13,185,14,'點擊模式，開始對局','fff9e9',8);button('SettingsButton','設定',222,15,50,22);return
  end
  rect('BoardPaper',120,104,144,160,'bbc6c8')
  for r=0,9 do line('Rank'..r,120,176-16*r,129,0.8) end
@@ -72,8 +97,12 @@ local function build(kind)
  else for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','模式選擇'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end end
 end
 function M.render(s)
- local kind=s.scene=='mode-select' and 'menu' or (s.scene=='custom-edit' and 'edit' or 'board')
- if kind~=pageKind then if overlay then game.DestroyClientUIControl(overlay);overlay=nil end overlayKind=nil;build(kind);pageKind=kind end
+ local kind=s.scene=='mode-select' and 'menu' or (s.scene=='custom-edit' and 'edit' or ((s.scene=='audio-settings' or s.scene=='music-select') and s.scene or 'board'))
+ local key=kind
+ if kind=='audio-settings' then key=key..s.audio.title..':'..s.audio.board..':'..s.audio.volume..':'..tostring(s.audio.sfx)
+ elseif kind=='music-select' then key=key..s.musicTarget..':'..s.musicCategory..':'..s.musicPage end
+ if key~=pageKind then if overlay then game.DestroyClientUIControl(overlay);overlay=nil end overlayKind=nil;build(kind,s);pageKind=key end
+ if kind=='audio-settings' or kind=='music-select' then return end
  if kind~='menu' then
   U.set('TurnText',s.turn=='red' and '紅方' or '黑方');U.set('MoveCount',string.format('%03d手',s.moves));U.set('StatusText',s.status)
   U.set('RedStepTime',S.format(s.red));U.set('AIThinkingNumber',Counter.format(s.aiCounter))

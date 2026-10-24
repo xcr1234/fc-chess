@@ -24,6 +24,8 @@
     "test:prototype": "node --test scripts/test-prototype.mjs",
     "test:lua": "node scripts/run-lua-check.mjs tests/lua-regression.lua",
     "test:lua:undo": "node scripts/run-lua-check.mjs tests/lua-undo-confirm.lua",
+    "test:lua:audio": "node scripts/run-lua-check.mjs tests/lua-audio-settings.lua && node scripts/run-lua-check.mjs tests/lua-audio-controller.lua",
+    "test:audio:simulator": "node scripts/test-audio-layouts.mjs",
     "test:lua:exchange": "node scripts/run-lua-check.mjs tests/lua-ai-exchange.lua && node scripts/run-lua-check.mjs tests/lua-ai-user-cannon.lua",
     "test:lua:pvs": "node scripts/run-lua-check.mjs tests/lua-ai-pvs.lua && node scripts/run-lua-check.mjs tests/lua-ai-threats.lua",
     "test:lua:tactics": "node scripts/run-lua-check.mjs tests/lua-ai-tactics.lua",
@@ -41,7 +43,7 @@
     "test:lua:soak": "node scripts/run-lua-check.mjs tests/lua-soak.lua",
     "test:lua:performance": "node scripts/profile-lua.mjs",
     "test:simulator": "node scripts/run-simulator-cases.mjs",
-    "build:game": "node scripts/generate-fixtures.mjs && npm run build:lua && node scripts/sync-game-save.mjs"
+    "build:game": "node scripts/generate-audio-catalog.mjs && node scripts/generate-fixtures.mjs && npm run build:lua && node scripts/sync-game-save.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.1",

@@ -1,0 +1,627 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "kind": "settings",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-settings-pc-16-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "music",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-music-pc-16-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "settings",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-settings-pc-21-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "kind": "music",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-music-pc-21-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "settings",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-settings-mobile-16-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "music",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-music-mobile-16-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "settings",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-settings-mobile-19.5-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "kind": "music",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-music-mobile-19.5-9.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "settings",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-settings-mobile-4-3.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "kind": "music",
+      "passed": true,
+      "screenshot": "records/screenshots/audio-music-mobile-4-3.png",
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "kind": "signal",
+      "name": "board-route",
+      "passed": true,
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10029
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 73
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "kind": "signal",
+      "name": "volume-change",
+      "passed": true,
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 40
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "kind": "signal",
+      "name": "volume-zero",
+      "passed": true,
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 10167
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 0
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 117
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "signal",
+      "name": "title-off",
+      "passed": true,
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 0
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 0
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "signal",
+      "name": "board-off",
+      "passed": true,
+      "server": {
+        "vars": [
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicIndex",
+            "type": "Int",
+            "value": 0
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicVolume",
+            "type": "Int",
+            "value": 30
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicSeconds",
+            "type": "Float",
+            "value": 0
+          },
+          {
+            "entityType": "PlayerSelf",
+            "entityLabel": "当前玩家",
+            "name": "FCChessMusicEnabled",
+            "type": "Bool",
+            "value": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "sound",
+      "name": "both-moves",
+      "passed": true,
+      "audio": {
+        "sessionId": "431b1ed5-f60c-44e7-b734-5bfcdf54b5ba",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 4,
+        "active": [],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50882,
+            "startedAt": 3.5000000000000018,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "kind": "sound",
+      "name": "selection-invalid",
+      "passed": true,
+      "audio": {
+        "sessionId": "caa21fd0-9266-4c9b-b925-df37ca0d7203",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "kind": "sound",
+      "name": "sound-disabled",
+      "passed": true,
+      "audio": {
+        "sessionId": "e75a8dce-8fae-48b3-b248-1fb0084abd27",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    }
+  ],
+  "luaSHA256": "14669b22ccb2b804a8cf0d4bcd06986d5fcf869d0a80c350e39e1ad1a73ba3e8"
+}

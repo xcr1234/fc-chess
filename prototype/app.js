@@ -23,6 +23,39 @@
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
+  state.audio={title:10167,board:10029,volume:30,sfx:true};state.musicTarget='title';state.musicCategory=0;state.musicPage=0;
+  const musicById=new Map(FCChessMusicCatalog.map(([id,name,seconds,category])=>[id,{id,name,seconds,category}]));
+  const recommended={title:[10167,10161],board:[10029,10167]};
+  const musicName=id=>musicById.get(id)?.name||'無BGM';
+  function musicRows() {
+    const rows=FCChessMusicCatalog.map(([id])=>musicById.get(id)).filter(r=>state.musicCategory===0||r.category===state.musicCategory-1);
+    const priority=id=>{const i=recommended[state.musicTarget].indexOf(id);return i<0?2:i;};
+    return rows.sort((a,b)=>priority(a.id)-priority(b.id));
+  }
+  function settingsAction(name) {
+    if(name==='SettingsButton'&&state.scene==='menu'){state.scene='audio-settings';return;}
+    if(state.scene==='audio-settings'){
+      if(name==='SettingsBack')state.scene='menu';
+      else if(name==='TitleMusicButton'||name==='BoardMusicButton'){state.musicTarget=name==='TitleMusicButton'?'title':'board';state.musicPage=0;state.musicCategory=0;state.scene='music-select';}
+      else if(name==='VolumeDown')state.audio.volume=Math.max(0,state.audio.volume-10);
+      else if(name==='VolumeUp')state.audio.volume=Math.min(100,state.audio.volume+10);
+      else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx)moveVoice?.pause();}
+    }else if(state.scene==='music-select'){
+      const id=Number(name.match(/^PickMusic_(\d+)$/)?.[1]),category=Number(name.match(/^MusicCategory_(\d)$/)?.[1]);
+      if(name==='MusicBack')state.scene='audio-settings';
+      else if(name==='MusicOff'){state.audio[state.musicTarget]=0;state.scene='audio-settings';}
+      else if(musicById.has(id)){state.audio[state.musicTarget]=id;state.scene='audio-settings';}
+      else if(Number.isInteger(category)&&category>=0&&category<=4){state.musicCategory=category;state.musicPage=0;}
+      else if(name==='MusicNext')state.musicPage=Math.min(Math.ceil(musicRows().length/5)-1,state.musicPage+1);
+      else if(name==='MusicPrevious')state.musicPage=Math.max(0,state.musicPage-1);
+    }
+  }
+  let moveVoice=null;
+  function playMoveSound(){
+    if(!state.audio.sfx||typeof Audio==='undefined')return;
+    moveVoice ||= new Audio('https://oss.070077.xyz/audio/50882.mp3');
+    moveVoice.currentTime=0;moveVoice.play()?.catch(()=>{});
+  }
   function announce(message) { state.message = message; live.textContent = message; }
   function resetGame(board = initialBoard(), mode = state.menu) {
     generation++; clock.reset(performance.now());
@@ -65,7 +98,34 @@
       text(names[i], 81, y + 3, C.white, 15); text(subnames[i], 81, y + 24, '#e2d0ff', 8);
       if (state.inputMethod === 'keyboard' && state.menu === i) focusRect(24, y - 4, 215, 44);
     });
-    text('點擊模式，開始對局', 128, 207, C.white, 8, 'center');
+    text('點擊模式，開始對局', 100, 207, C.white, 8, 'center');
+    box(197,198,50,22,'#00482f');text('設定',222,204,C.green,8,'center');
+  }
+  function settingsRegions(){
+    const list=[];const add=(id,label,x,y,w,h)=>region(list,id,x-w/2,224-y-h/2,w,h,label,()=>settingsAction(id));
+    if(state.scene==='audio-settings'){
+      add('TitleMusicButton',musicName(state.audio.title),163,169,158,24);add('BoardMusicButton',musicName(state.audio.board),163,135,158,24);
+      add('VolumeDown','－',109,101,30,24);add('VolumeUp','＋',209,101,30,24);
+      add('SfxToggle',state.audio.sfx?'開啟':'關閉',163,67,158,24);add('SettingsBack','返回',128,28,96,24);
+    }else{
+      add('MusicBack','返回',226,207,42,20);
+      ['全部','探索','戰鬥','任務','其他'].forEach((name,i)=>add('MusicCategory_'+i,(state.musicCategory===i?'·':'')+name,34+i*47,182,44,20));
+      add('MusicOff','無BGM',128,157,232,22);
+      musicRows().slice(state.musicPage*5,state.musicPage*5+5).forEach((r,i)=>add('PickMusic_'+r.id,(state.audio[state.musicTarget]===r.id?'已選 · ':'')+(recommended[state.musicTarget].includes(r.id)?'推薦 · ':'')+r.name,128,132-i*24,232,21));
+      add('MusicPrevious','上一頁',48,14,68,20);add('MusicNext','下一頁',208,14,68,20);
+    }
+    return list;
+  }
+  function settingsScreen(){
+    ctx.fillStyle=C.navy;ctx.fillRect(0,0,256,224);
+    if(state.scene==='audio-settings'){
+      text('聲音設定',128,9,C.white,16,'center');text('標題音樂',39,50,C.cyan,9,'center');text('對局音樂',39,84,C.cyan,9,'center');
+      text('BGM音量',47,118,C.cyan,9,'center');text(state.audio.volume+'%',157,117,C.white,11,'center');text('走棋音效',47,152,C.cyan,9,'center');
+    }else{
+      text(state.musicTarget==='title'?'選擇標題音樂':'選擇對局音樂',113,10,C.white,13,'center');
+      text((state.musicPage+1)+' / '+Math.ceil(musicRows().length/5),128,205,C.cyan,9,'center');
+    }
+    for(const r of settingsRegions()){box(r.x,r.y,r.w,r.h,'#00482f');text(r.label,r.x+r.w/2,r.y+(r.h-8)/2,C.green,8,'center');}
   }
   function boardScreen(now) {
     ctx.fillStyle = C.navy; ctx.fillRect(0, 0, 256, 224);
@@ -148,6 +208,7 @@
     clock.update(performance.now());
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
+    playMoveSound();
     if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃'); return; }
     beginTurn(side === 'red' ? 'black' : 'red');
   }
@@ -208,6 +269,7 @@
   }
   function input(key) {
     clock.update(performance.now());
+    if(state.scene==='audio-settings'||state.scene==='music-select'){if(key==='cancel')settingsAction(state.scene==='music-select'?'MusicBack':'SettingsBack');return;}
     const direction = ['up', 'down', 'left', 'right'].includes(key);
     if (state.scene === 'menu') {
       if (key === 'up' || key === 'down') { state.menu = (state.menu + (key === 'up' ? 2 : 1)) % 3; announce(names[state.menu]); }
@@ -283,6 +345,9 @@
     const list = [];
     if (state.scene === 'menu') {
       [58, 109, 160].forEach((y, i) => region(list, `mode-${i}`, 24, y - 4, 215, 44, names[i], () => { state.menu = i; input('ok'); }));
+      region(list,'SettingsButton',197,198,50,22,'設定',()=>settingsAction('SettingsButton'));
+    } else if(state.scene==='audio-settings'||state.scene==='music-select'){
+      list.push(...settingsRegions());
     } else if (state.modal) {
       ['是', '否'].forEach((label, i) => region(list, `dialog-${i}`, 62 + i * 72, 119, 60, 23, label, () => { state.modal.choice = i; input('ok'); }));
     } else if (state.palette) {
@@ -319,7 +384,8 @@
     resizeCanvas();
     ctx.setTransform(canvas.width / 256, 0, 0, canvas.height / 224, 0, 0);
     ctx.imageSmoothingEnabled = false;
-    if (state.scene === 'menu') menuScreen();
+    if(state.scene==='audio-settings'||state.scene==='music-select')settingsScreen();
+    else if (state.scene === 'menu') menuScreen();
     else { boardScreen(now); if (state.palette) paletteScreen(); if (state.modal) modalScreen(); if (state.scene === 'result') resultScreen(); }
     updateHotspots();
     const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，紅方步時${formatStep(clock.red)}，黑方步時${formatStep(clock.black)}，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;

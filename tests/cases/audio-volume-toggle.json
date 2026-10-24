@@ -1,0 +1,107 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "audio-volume-toggle",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsButton"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "VolumeDown"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "VolumeDown"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "VolumeDown"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "VolumeDown"
+      }
+    },
+    {
+      "t": 1.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "VolumeDown"
+      }
+    },
+    {
+      "t": 1.4000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SfxToggle"
+      }
+    },
+    {
+      "t": 1.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsBack"
+      }
+    },
+    {
+      "t": 1.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeFast"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 2.2,
+      "id": "",
+      "name": "MusicVolumeValue",
+      "field": "text",
+      "equals": "0"
+    },
+    {
+      "kind": "control",
+      "at": 2.2,
+      "id": "",
+      "name": "SfxEnabled",
+      "field": "text",
+      "equals": "false"
+    },
+    {
+      "kind": "control",
+      "at": 2.2,
+      "id": "",
+      "name": "TitleMusicChoice",
+      "field": "text",
+      "equals": "10167"
+    }
+  ]
+}

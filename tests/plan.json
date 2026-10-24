@@ -1615,6 +1615,38 @@
         "canvasId": "pc-16-9"
       },
       "fixture": null
+    },
+    {
+      "case": "audio-settings-default",
+      "file": "cases/audio-settings-default.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "audio-choices-independent",
+      "file": "cases/audio-choices-independent.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "audio-volume-toggle",
+      "file": "cases/audio-volume-toggle.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "audio-picker-pages",
+      "file": "cases/audio-picker-pages.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
     }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "audio-settings-default",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsButton"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.6000000000000001,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "audio-settings"
+    },
+    {
+      "kind": "control",
+      "at": 0.6000000000000001,
+      "id": "",
+      "name": "BGMVolume",
+      "field": "text",
+      "equals": "30%"
+    },
+    {
+      "kind": "control",
+      "at": 0.6000000000000001,
+      "id": "",
+      "name": "SfxToggleLabel",
+      "field": "text",
+      "equals": "開啟"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+FAIL title settings entry and nested back do not start a game: [string "package.preload["app.log"]=function()..."]:9790: settings entry missing
+FAIL title and board choices and off are independent: [string "package.preload["app.log"]=function()..."]:9795: audio preferences missing
+FAIL volume clamps and mute does not erase chosen music: [string "package.preload["app.log"]=function()..."]:9801: assertion failed!
+FAIL sound toggle is independent of music and persists through a new match: [string "package.preload["app.log"]=function()..."]:9806: assertion failed!
+FAIL settings and music operations cannot change a live game: [string "package.preload["app.log"]=function()..."]:9811: assertion failed!
+FAIL only real commits advance the sound sequence, including both sides: [string "package.preload["app.log"]=function()..."]:9815: sound event sequence missing
+[string "package.preload["app.log"]=function()..."]:9819: 6 audio setting failures

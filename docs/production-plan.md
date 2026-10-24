@@ -1,3 +1,14 @@
+# 声音设置与BGM音量（2026-10-24）
+
+- 当前完成受影响步骤2/3/4/5/6，交付为模拟器候选；设置方案与用例见tests/audio-settings-plan.md，接入见docs/audio-integration.md。用户最终要求：音效固定50882且可开关，BGM自由选择/关闭，若平台支持则允许调音量。
+- 实现标题页设置入口、标题/对局独立选曲、188首分类分页、推荐排前并标记、BGM音量0–100%（默认30%，每次10%）、音效开关。偏好仅当前脚本生命周期保留。目录生成纳入build:game。
+- 官方资料已核验PlayAudio2D/StopAudio/IsAudioAlive、ServerSignal及有类型参数；服务端三个BGM节点支持播放/暂停/音量。音效Lua API没有音量参数，故只开关。音乐索引与音效ID严格分开，BGM不走PlayAudio2D。
+- Red：原session上6项设置用例失败，records/audio-settings-red.txt。Green：7项设置/目录检查+4项音频控制器检查通过；HTML18项、原Lua规则11项、悔棋6项、反馈6项、等待3项通过。
+- 同次28模块构建同步两个存档，SHA-256=14669b22ccb2b804a8cf0d4bcd06986d5fcf869d0a80c350e39e1ad1a73ba3e8。74项模拟器/296断言通过，见records/audio-settings-simulator.json。五画布设置/选曲10项布局与截图、5项真实信号参数检查、3项原生音效检查通过，见records/audio-layouts.json。音效双边例使用明确标注的既有回复夹具，不把它当成自然搜索耗时证据。
+- 浏览器实际点击「設定」→加音量至40%→关闭音效均一次响应，截图records/screenshots/audio-settings-browser.png；截图仅游戏画布。原生输入回归五画布20场景/460断言通过，见records/audio-input-native.json。
+- 限制：现有工具不能写真实服务端节点图，存档serverLogic仅接收探针。BGM选择/音量信号已实现与验证，但真实播放须按docs/audio-integration.md在编辑器接线，再验音量、循环、切曲。没有真机听觉/外部部署结果，不能宣称BGM可听已通过。生产预览已重新加载fc-chess.save.json（revision2、无加载错误）。
+- 保留并排除原有records/lua-step5-regression.json改动。下一步：真实编辑器接BGM节点与真机试听；不把信号或音效请求当成扬声器已播放。
+
 # 内置BGM与走棋音效选材（2026-10-24）
 
 - 当前步骤：受影响的步骤4音频素材选择。用户要求标题页、对局页BGM与走棋音效使用奇域内置资产，先协助确定具体资源；候选和试听入口见[音频选材](audio-selection.md)。未新增标题场景、未修改Lua/存档或启动模拟器。

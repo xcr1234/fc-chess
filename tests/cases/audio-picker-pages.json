@@ -1,0 +1,75 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "audio-picker-pages",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsButton"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TitleMusicButton"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicNext"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicCategory_0"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicPrevious"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 1.4,
+      "id": "",
+      "name": "MusicPage",
+      "field": "text",
+      "equals": "1 / 38"
+    },
+    {
+      "kind": "control",
+      "at": 1.4,
+      "id": "",
+      "name": "MusicTitle",
+      "field": "text",
+      "equals": "選擇標題音樂"
+    },
+    {
+      "kind": "control",
+      "at": 1.4,
+      "id": "",
+      "name": "PickMusic_10167Label",
+      "field": "text",
+      "equals": "已選 · 推薦 · 杯中明月"
+    }
+  ]
+}

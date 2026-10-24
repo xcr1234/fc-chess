@@ -1,0 +1,91 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "audio-choices-independent",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsButton"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TitleMusicButton"
+      }
+    },
+    {
+      "t": 0.6000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "PickMusic_10161"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "BoardMusicButton"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "MusicOff"
+      }
+    },
+    {
+      "t": 1.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "SettingsBack"
+      }
+    },
+    {
+      "t": 1.4000000000000001,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeFast"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 1.8000000000000003,
+      "id": "",
+      "name": "TitleMusicChoice",
+      "field": "text",
+      "equals": "10161"
+    },
+    {
+      "kind": "control",
+      "at": 1.8000000000000003,
+      "id": "",
+      "name": "BoardMusicChoice",
+      "field": "text",
+      "equals": "0"
+    },
+    {
+      "kind": "control",
+      "at": 1.8000000000000003,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    }
+  ]
+}

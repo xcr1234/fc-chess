@@ -3,10 +3,11 @@ local AI=require('game.ai')
 local Wait=require('game.wait')
 local Counter=require('game.thinking_counter')
 local Log=require('app.log')
+local Settings=require('audio.settings')
 local M={}
 local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
-function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0} end
+function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0} end
 function M.cancel(s,reason)
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
@@ -51,6 +52,7 @@ function M.commit(s,m)
   s.lastAiMove={m[1],m[2]};Counter.finish(s.aiCounter)
  end
  local captured=s.board[m[2]];s.board[m[2]]=s.board[m[1]];s.board[m[1]]='';s.moves=s.moves+1;s.selected=nil
+ s.moveSoundSequence=s.moveSoundSequence+1
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)
  if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將')
  elseif captured=='K' then M.finish(s,'您落敗了','帥被吃掉')
@@ -102,6 +104,7 @@ function M.undo(s)
  s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
 end
 function M.action(s,name)
+ if Settings.action(s,name) then return end
  if s.modal then
   if name=='ConfirmNo' then s.modal=nil;if s.ready then M.submitReply(s) end
   elseif name=='ConfirmYes' then

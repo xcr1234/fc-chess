@@ -74,12 +74,31 @@ function appHarness() {
  const scope={performance:{now:()=>now},document:{querySelector:s=>({'#screen':screen,'#status':live,'#hotspots':hotspots}[s]),createElement:()=>({...element(),getContext:()=>ctx})},window:{devicePixelRatio:1,addEventListener(){}},ResizeObserver:class{observe(){}},Image:class{},requestAnimationFrame(){}};
  vm.createContext(scope);
  vm.runInContext(readFileSync(new URL('../prototype/rules.js',import.meta.url),'utf8'),scope);
+ vm.runInContext(readFileSync(new URL('../prototype/audio-catalog.js',import.meta.url),'utf8'),scope);
  const app=readFileSync(new URL('../prototype/app.js',import.meta.url),'utf8');
  // Test-local access to the real controller, not a shipped fixture/debug API.
- vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame};})();'),scope);
+ vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows};})();'),scope);
  const c=scope.controller;
  return {...c,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
 }
+test('settings: independent choices, mute, sound toggle and persistence across a new match',()=>{
+ const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
+ h.settingsAction('TitleMusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);
+ h.settingsAction('PickMusic_10161');h.settingsAction('BoardMusicButton');h.settingsAction('MusicOff');
+ assert.equal(h.state.audio.title,10161);assert.equal(h.state.audio.board,0);
+ for(let i=0;i<20;i++)h.settingsAction('VolumeDown');assert.equal(h.state.audio.volume,0);
+ for(let i=0;i<20;i++)h.settingsAction('VolumeUp');assert.equal(h.state.audio.volume,100);
+ h.settingsAction('SfxToggle');assert.equal(h.state.audio.sfx,false);h.settingsAction('SettingsBack');h.input('ok');
+ assert.equal(h.state.scene,'game');assert.equal(h.state.audio.title,10161);assert.equal(h.state.audio.board,0);assert.equal(h.state.audio.sfx,false);
+});
+test('music picker: pagination clamps, category resets page, invalid sound ID is rejected',()=>{
+ const h=appHarness();h.settingsAction('SettingsButton');h.settingsAction('BoardMusicButton');assert.equal(h.musicRows()[0].id,10029);
+ for(let i=0;i<100;i++)h.settingsAction('MusicNext');assert.equal(h.state.musicPage,37);
+ h.settingsAction('MusicCategory_2');assert.equal(h.state.musicPage,0);assert.ok(h.musicRows().every(r=>r.category===1));
+ for(let i=0;i<100;i++)h.settingsAction('MusicPrevious');assert.equal(h.state.musicPage,0);
+ h.settingsAction('PickMusic_50882');assert.equal(h.state.scene,'music-select');assert.equal(h.state.audio.board,10029);
+ h.settingsAction('MusicBack');h.settingsAction('SettingsBack');assert.equal(h.state.scene,'menu');
+});
 test('real preview controller: quick reply has no artificial delay',()=>{
  const h=appHarness();h.state.menu=1;h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);
  assert.equal(h.state.moves,2);assert.equal(h.state.turn,'red');assert.equal(h.state.reply,null);assert.equal(h.clock.red,0);
