@@ -134,7 +134,9 @@ function M.action(s,name)
   if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='點擊紅方棋子修改'
   elseif name=='ModeDifficult' or name=='ModeFast' then M.start(s,name=='ModeFast' and 'fast' or 'difficult') end
  elseif s.scene=='custom-edit' then
-  if name=='AllRooksButton' then for i,p in ipairs(s.board) do if B.red(p) and p~='K' then s.board[i]='R' end end s.draft=B.copy(s.board)
+  if name=='AllRooksButton' then
+   for i=46,90 do if s.board[i]~='K' then s.board[i]='R' end end
+   s.draft=B.copy(s.board);M.start(s,'custom',s.draft)
   elseif name=='ResetCustomButton' then s.board=B.standard();s.draft=B.copy(s.board)
   elseif name=='StartCustomButton' then M.start(s,'custom',s.draft)
   elseif name=='EditBackButton' then M.menu(s) end

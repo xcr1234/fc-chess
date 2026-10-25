@@ -19,7 +19,10 @@ for(const entry of plan.cases){
  const data=JSON.parse(await readFile(new URL('../tests/'+entry.file,import.meta.url),'utf8'));
  assert.equal(data.format,'qxqy-autotest');assert.equal(data.version,1);assert.equal(data.name,entry.case);
  assert.ok(data.asserts.length>0);
- assert.deepEqual(JSON.parse(JSON.stringify(context.normalizeCase(data))),data,`${entry.case}: ignored or noncanonical fields`);
+ // Name-based control assertions may omit id; the locked parser supplies ''.
+ // Retain the strict comparison for every other field, including unknown keys.
+ const canonical={...data,asserts:data.asserts.map(item=>item.kind==='control'&&!Object.hasOwn(item,'id')?{...item,id:''}:item)};
+ assert.deepEqual(JSON.parse(JSON.stringify(context.normalizeCase(data))),canonical,`${entry.case}: ignored or noncanonical fields`);
  for(const item of [...data.events,...data.asserts])assert.ok((item.t??item.at??0)>=0);
  if(entry.fixture)assert.equal(data.events[0].payload.name,'TestSetup_'+entry.case);
 }

@@ -1,0 +1,37 @@
+{
+  "build": "2026-10-25 09:32:46.710 +08:00",
+  "sha256": "d2cd76c9eb331eb07f1878262c0aeb38dc904a2a8106a02b5f12c747c691347f",
+  "testedLayoutSHA256": "658609cee5101dc9b12281607e7d7c455f023bcdeb4386f1fa29682e61cc8fe1",
+  "sameProgramAsLayoutsExceptBuildTime": true,
+  "modules": 32,
+  "delivery": "export/2026-10-25-44-rooks-volume/main.lua",
+  "externalDeployment": "npm run deploy:lua completed",
+  "conflict": false,
+  "backup": ".lua-deploy-backups/1792891966829-9ca3afaf-eeb6-4c5c-982a-bb247776adfd.lua",
+  "hashesMatch": true,
+  "savesAndDeliveryMatch": true,
+  "layoutScenarios": 40,
+  "layoutAssertions": 830,
+  "checks": {
+    "newRules": 5,
+    "coreLua": 11,
+    "audioLua": 13,
+    "htmlController": 24,
+    "caseSchema": 82
+  },
+  "defaultVolume": 50,
+  "rooks": 44,
+  "redPieces": 45,
+  "blackPieces": 16,
+  "autoStart": true,
+  "permissionReview": "first review timed out; one retry approved and completed",
+  "deviceReloadAndPlaytest": "pending",
+  "fullSimulator": {
+    "cases": 82,
+    "assertions": 338,
+    "passed": true,
+    "sourceSHA256": "d2cd76c9eb331eb07f1878262c0aeb38dc904a2a8106a02b5f12c747c691347f",
+    "workerTimeoutMs": 30000
+  },
+  "testInfrastructure": "Supported simulator worker timeout raised from 8000 to 30000 ms for long clock cases; original event times, dt and assertions preserved. Name control assertions may omit the documented empty id default; all other fields remain strict."
+}

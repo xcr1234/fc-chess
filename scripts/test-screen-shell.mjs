@@ -20,7 +20,7 @@ try{
   for(const [scene,actions,target,equals,color] of [
    ['menu',[],'Title','中國象棋',[104,64,250,255]],
    ['board',['ModeFast'],'MoveCount','000手',[25,59,87,255]],
-   ['settings',['ModeFast','SettingsButton'],'BGMVolume','100%',[25,59,87,255]]
+   ['settings',['ModeFast','SettingsButton'],'BGMVolume','50%',[25,59,87,255]]
   ]){
    const events=actions.map((name,i)=>({t:.1+i*.15,source:'user',kind:'click',payload:{name}}));let t=.5;
    for(const direction of ['Forward','Backward','Left','Right'])for(const phase of ['Down','Up'])events.push({t:t+=.05,source:'user',kind:'key',payload:{typeName:'KeyboardMove'+direction+'Key'+phase}});

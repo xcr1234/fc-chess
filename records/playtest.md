@@ -413,3 +413,12 @@
 - runtime=html-controller/lua-model；HTML24、原生文字4项通过，各层矩形还原与参考色块检查通过。最终同次产物82用例/334断言通过，records/fc-reference-simulator.json。
 - runtime=filesystem；32模块，2026-10-25 08:57:58.922 +08:00，已deploy无冲突备份更新游戏main.lua，目标/dist/两存档/交付副本哈希一致，布局与发布仅构建时间不同且重构哈希核验。records/fc-reference-deploy.json，export/2026-10-25-fc-reference/main.lua。
 - runtime=device-retest：本版外观、走子残留及新控件成本待用户重新加载后验证，不以原图格点一致或模拟器通过冒充真机验收。
+
+# 2026-10-25：BGM50%与44车直开
+
+- 来源：用户要求默认BGM50%；自定义全部改车后44车直接开始，并明确为己方除帅摆满。解释为己方rank5–9的45交叉点保留帅(4,9)，其余44车，黑方半场不变。Lua与HTML同步，手动编辑/重置/开始路径保留。
+- runtime=lua-model；新增5用例旧实现Red→Green5，覆盖默认音量和偏好保留、逐格半场阵容/双方计数/直开、重开/草稿/重置、前排走子和悔棋、真实AI回棋并撤销；44-rooks-{red,green}.txt。核心11、音频13、HTML24通过。
+- runtime=simulator；五画布40流程830断言通过，设置50%、44车直接玩家回合、61子图层可见、10帧空闲无控件增长，返回编辑再重置；6张仅游戏画布截图，手机44车已目视，44-rooks-volume-layouts.json。既有15车引擎诊断夹具继续保留，玩家入口用例改44车及前排走法。
+- runtime=test-infrastructure；82用例静态检查兼容模拟器name控件断言省略空id默认值，其他字段仍严格校验。长时间冻结/数字封顶用例触发Worker原8秒宿主限额；用支持的子进程QXQY_PLAY_TIMEOUT_MS=30000配置，保留原事件、dt和全部断言。最终同次82用例/338断言通过，44-rooks-volume-simulator.json；初次超时记录44-rooks-volume-simulator-initial.json。不将测试期限配置记为游戏帧性能改善。
+- runtime=filesystem；32模块，2026-10-25 09:32:46.710 +08:00，已deploy无冲突备份更新既有游戏main.lua，源/目标/两存档/交付副本哈希一致；与布局版本仅构建时间不同并重构哈希核对。首次权限审核超时，按工具允许重试一次后批准完成。44-rooks-volume-deploy.json，export/2026-10-25-44-rooks-volume/main.lua。
+- runtime=device-retest：本版50%听感、44车直开/回棋/悔棋/重开以及61子流畅度待用户保存重新试玩。

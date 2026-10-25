@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-25 44车直开与50%默认音量
+
+audio.settings.new默认volume=50，控制器仍按现有整数百分比信号发送，范围/步进不变。game.session在custom-edit处理AllRooksButton时填充Lua数组46–90，保留K，复制为draft后调用既有start(custom,draft)，因此initial/board独立复制、历史/计时/异步任务按标准开局流程重置；draft保留供返回编辑，restart仍取initial。HTML按同一rank5–9规则并调用resetGame，手动编辑路径保持。
+
+测试桥接计数循环原本遍历90格，无新增控件/接口。44车加帅/16黑子共61子，1285字形+1220字底+193河界/白影矩形；五画布与10帧空闲稳定通过，不作真机性能保证。测试子进程使用模拟器已提供的30秒Worker限额，以运行长时间冻结/封顶用例；不改变游戏搜索预算或时间步长。
+
 ## 2026-10-25 FC参考字模与阶梯字底
 
 trace-fc-pixel-glyphs.mjs分析原版256×224图的精确调色板，生成glyphs/shadows/discs三层格点以及坐标/哈希。黑字依据已知白底模板排除同色蓝描边；逐字保留字底的细微边缘差异。generate-pixel-glyphs将所有层无损合并矩形，输出Lua/HTML同源数据。棋盘16、菜单12、河界16，颜色同源。

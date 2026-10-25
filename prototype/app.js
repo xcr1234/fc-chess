@@ -31,7 +31,7 @@
   }
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
-  state.audio={music:10167,volume:100,sfx:true};state.musicCategory=0;state.musicPage=0;
+  state.audio={music:10167,volume:50,sfx:true};state.musicCategory=0;state.musicPage=0;
   const musicById=new Map(FCChessMusicCatalog.map(([id,name,seconds,category])=>[id,{id,name,seconds,category}]));
   const recommended=[10167,10029,10161];
   const musicName=id=>musicById.get(id)?.name||'無BGM';
@@ -271,7 +271,7 @@
     clock.update(performance.now());
     if(state.scene==='result-review'&&state.sideIndex===1)return;
     if (state.scene === 'edit') {
-      if (state.sideIndex === 0) { state.board = state.board.map(p => isRed(p) && p !== 'K' ? 'R' : p); announce('己方：1 帥 + 15 車'); }
+      if (state.sideIndex === 0) { for(let i=45;i<90;i++)if(state.board[i]!=='K')state.board[i]='R';draft=state.board.slice();resetGame(state.board,2);return; }
       if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢復初始棋子'); }
       if (state.sideIndex === 2) { draft = state.board.slice(); resetGame(state.board, 2); }
       if (state.sideIndex === 3) toMenu();

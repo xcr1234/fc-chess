@@ -19,10 +19,10 @@
 | [return-mode](cases/return-mode.json) | 菜单独立开始 | ModeDifficult → ModeButton → ConfirmYes | SceneState=mode-select；ModeCount=3 |
 | [restart](cases/restart.json) | 菜单独立开始 | ModeFast → ResignButton → ConfirmYes → RestartButton | MoveCount=000手；TurnText=紅方；AIThinkingNumber=00000 |
 | [edit-lock](cases/edit-lock.json) | 菜单独立开始 | ModeCustom → Square_4_9 | StatusText=帥保留，不能修改；RedPieceCount=16 |
-| [fifteen-rooks](cases/fifteen-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton → StartCustomButton | RedRookCount=15；RedPieceCount=16；MoveCount=000手 |
-| [edit-reset](cases/edit-reset.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ResetCustomButton → StartCustomButton | RedRookCount=2；RedPieceCount=16；RuleProfile=custom-capture-free-advisor-elephant-v1 |
-| [custom-restart](cases/custom-restart.json) | 菜单独立开始 | ModeCustom → AllRooksButton → StartCustomButton → ResignButton → ConfirmYes → RestartButton | RedRookCount=15；MoveCount=000手；TurnText=紅方 |
-| [draft-retained](cases/draft-retained.json) | 菜单独立开始 | ModeCustom → AllRooksButton → EditBackButton → ModeCustom | RedRookCount=15；SceneState=custom-edit |
+| [forty-four-rooks](cases/forty-four-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton | 立即player-turn；44车/45红子；帅和黑将保留；000手；音量50 |
+| [edit-reset](cases/edit-reset.json) | 菜单独立开始 | ModeCustom → Square_0_6 → Choose_R → ResetCustomButton → StartCustomButton | RedRookCount=2；RedPieceCount=16；RuleProfile=custom-capture-free-advisor-elephant-v1 |
+| [custom-restart](cases/custom-restart.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ResignButton → ConfirmYes → RestartButton | RedRookCount=44；MoveCount=000手；TurnText=紅方 |
+| [draft-retained](cases/draft-retained.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ModeButton → ConfirmYes → ModeCustom | RedRookCount=44；SceneState=custom-edit |
 | [mobile-smoke](cases/mobile-smoke.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_5 → ModeButton → ConfirmNo | MoveCount=001手；TurnText=黑方 |
 | [rook-block](cases/rook-block.json) | 定向夹具（见plan.json） | Square_0_5 → Square_0_1 | MoveCount=000手；StatusText=這步不能走 |
 | [horse-leg](cases/horse-leg.json) | 定向夹具（见plan.json） | Square_5_5 → Square_7_4 | MoveCount=000手；StatusText=這步不能走 |
@@ -62,9 +62,9 @@
 
 | case | 操作 | 预期 |
 |---|---|---|
-| search-undo-spam | 15车走子，搜索中连续悔棋，再走最右路后悔棋 | 恢复000手/红方，无旧回棋 |
-| search-resign | 15车搜索期间确认认输，继续推进时间 | 结果保持落败，手数不再变化 |
-| search-leave | 15车搜索期间离局，再开快速 | 新局000手/红方，无旧回棋 |
+| search-undo-spam | 44车走子，搜索中连续悔棋，再走最右路后悔棋 | 恢复000手/红方，无旧回棋 |
+| search-resign | 44车搜索期间确认认输，继续推进时间 | 结果保持落败，手数不再变化 |
+| search-leave | 44车搜索期间离局，再开快速 | 新局000手/红方，无旧回棋 |
 | restart-twice | 两次认输并重开 | 两次经过结果页，新局000手 |
 | edge-contact | 最右路兵非法后退，再前进 | 拒绝非法着法，只计合法一步 |
 | input-spam | 连点取消、空悔棋、取消确认、思考期间点棋、悔棋 | 不重复提交，恢复000手 |

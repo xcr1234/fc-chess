@@ -1,0 +1,7152 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "將",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "帥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946,
+      "screenshot": "records/screenshots/44-rooks-volume-board-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 135,
+      "renderedNodes": 2107,
+      "screenshot": "records/screenshots/44-rooks-volume-palette-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1956
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "replace-back",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "preset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "請走棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "悔棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 1285,
+      "discRectangles": 1220,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 3248,
+      "screenshot": "records/screenshots/44-rooks-volume-preset-pc-16-9.png",
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "將",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "帥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 135,
+      "renderedNodes": 2107
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1956
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "replace-back",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "preset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "請走棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "悔棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 1285,
+      "discRectangles": 1220,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 3248,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "將",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "帥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946,
+      "screenshot": "records/screenshots/44-rooks-volume-board-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 135,
+      "renderedNodes": 2107,
+      "screenshot": "records/screenshots/44-rooks-volume-palette-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1956
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "replace-back",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "preset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "請走棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "悔棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 1285,
+      "discRectangles": 1220,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 3248,
+      "screenshot": "records/screenshots/44-rooks-volume-preset-mobile-16-9.png",
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "將",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "帥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 135,
+      "renderedNodes": 2107
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1956
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "replace-back",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "preset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "請走棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "悔棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 1285,
+      "discRectangles": 1220,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 3248,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "將",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "士",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "象",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "馬",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "包",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "卒",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "炮",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "帥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "仕",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "相",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 135,
+      "renderedNodes": 2107
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1956
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1946
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "replace-back",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "preset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "請走棋",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "悔棋",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 1285,
+      "discRectangles": 1220,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 3248,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9999999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 635,
+      "discRectangles": 655,
+      "riverRectangles": 100,
+      "shadowRectangles": 93,
+      "paletteRectangles": 0,
+      "renderedNodes": 1947
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "settings",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "sha256": "658609cee5101dc9b12281607e7d7c455f023bcdeb4386f1fa29682e61cc8fe1"
+}

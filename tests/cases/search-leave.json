@@ -22,19 +22,11 @@
       }
     },
     {
-      "t": 0.3,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "StartCustomButton"
-      }
-    },
-    {
       "t": 0.4,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_0_6"
+        "name": "Square_0_5"
       }
     },
     {
@@ -42,7 +34,7 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_0_5"
+        "name": "Square_0_4"
       }
     },
     {

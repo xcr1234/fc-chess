@@ -10,7 +10,7 @@ const report={runtime:'simulator',results:[]};let handle;
 async function tool(name,args){const r=await client.callTool({name,arguments:args},undefined,{timeout:120000});if(r.isError)throw Error(JSON.stringify(r.content));return r.structuredContent??JSON.parse(r.content.find(c=>c.type==='text').text);}
 const play=(action,args={})=>tool('qxqy_studio_play',{handle,action,args});
 const control=(name,field,equals)=>({kind:'control',name,field,equals});
-const tag=process.argv[2]??'fc-reference';assert(/^[a-z0-9-]+$/.test(tag));
+const tag=process.argv[2]??'44-rooks-volume';assert(/^[a-z0-9-]+$/.test(tag));
 await import('../prototype/rules.js');
 const initial=globalThis.FCChessPreview.initialBoard();
 const glyphs={r:'車',n:'馬',e:'象',a:'士',k:'將',c:'包',p:'卒',R:'俥',N:'傌',E:'相',A:'仕',K:'帥',C:'炮',P:'兵'};
@@ -28,8 +28,9 @@ try{
    ['move',['ModeFast','Square_1_9','Square_2_7'],[control('PixelGlyph_66','visible',true),control('Glyph_66','text','傌'),control('Glyph_83','visible',false)],635],
    ['undo',['ModeFast','Square_1_9','Square_2_7','UndoButton','ConfirmYes'],[control('PixelGlyph_83','visible',true),control('Glyph_83','text','傌'),control('Glyph_66','visible',false),control('MoveCount','text','000手')],635],
    ['replace-back',['ModeCustom','Square_0_6','Choose_R','Square_0_6','Choose_P'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
-   ['fifteen-rooks',['ModeCustom','AllRooksButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false)],647],
-   ['reset',['ModeCustom','AllRooksButton','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635]
+   ['preset',['ModeCustom','AllRooksButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false),control('StatusText','text','請走棋'),control('UndoButtonLabel','text','悔棋')],1285],
+   ['reset',['ModeCustom','AllRooksButton','ModeButton','ConfirmYes','ModeCustom','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
+   ['settings',['SettingsButton'],[control('BGMVolume','text','50%'),control('SfxToggleLabel','text','開啟')],0]
   ];
   for(const [scene,actions,checks,expectedRects] of cases){
    const h=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width}),events=[];let cursor=0;
@@ -43,27 +44,29 @@ try{
    const result=await play('runCase',{canvasId,case:{format:'qxqy-autotest',version:1,name:'pixel-'+scene+'-'+canvasId,dt:.05,events,asserts:checks.map(c=>({...c,at}))}});
    assert(result.passed,JSON.stringify(result.results));assert.equal(result.results.length,checks.length);
    const view=await play('get',{view:true});assert(!view.mountError);assert(!view.logs.some(l=>l.level==='error'));
+   if(scene==='settings'){report.results.push({canvasId,scene,passed:true,assertions:result.results});console.log('PASS settings',canvasId,checks.length,'assertions');continue;}
    const rectangles=view.scene.nodes.filter(n=>/^PixelGlyph_\d+Run\d+$/.test(n.name));assert.equal(rectangles.length,expectedRects,scene+': stale or missing glyph rectangles');
    if(scene==='move')assert(!rectangles.some(n=>n.name.startsWith('PixelGlyph_83Run')));
    if(scene==='replace-back'||scene==='reset')assert.equal(rectangles.filter(n=>n.name.startsWith('PixelGlyph_55Run')).length,16);
    const river=view.scene.nodes.filter(n=>/^RiverPixel(?:Chu|He|Han|Jie)Run\d+$/.test(n.name));assert.equal(river.length,100);
    const shadow=view.scene.nodes.filter(n=>/^RiverPixel(?:Chu|He|Han|Jie)ShadowRun\d+$/.test(n.name));assert.equal(shadow.length,93);
    const palette=view.scene.nodes.filter(n=>/^Choose_\w+PixelsRun\d+$/.test(n.name));assert.equal(palette.length,scene==='palette'?135:0);
-   const discs=view.scene.nodes.filter(n=>/^DiskArt_\d+(?:Rim|White)\d+$/.test(n.name));assert.equal(discs.length,scene==='fifteen-rooks'?640:655);
+   const discs=view.scene.nodes.filter(n=>/^DiskArt_\d+(?:Rim|White)\d+$/.test(n.name));assert.equal(discs.length,scene==='preset'?1220:655);
+   assert.equal(new Set(rectangles.map(n=>n.name.match(/^PixelGlyph_(\d+)/)[1])).size,scene==='preset'?61:32);
    if(scene==='move')assert(!discs.some(n=>n.name.startsWith('DiskArt_83')));
    assert(discs.every(n=>n.primitive==='rect'&&n.imageId===100001));
    assert(rectangles.every(n=>n.sourceWidth<=16&&n.sourceHeight<=16));
    assert.equal(rectangles.find(n=>n.name==='PixelGlyph_1Run1').imageColor>>>0,0xff24188c);
    assert.equal(shadow[0].imageColor>>>0,0xfffcfcfc);
    const row={canvasId,scene,passed:true,assertions:result.results,rectangles:rectangles.length,discRectangles:discs.length,riverRectangles:river.length,shadowRectangles:shadow.length,paletteRectangles:palette.length,renderedNodes:view.scene.count};
-   if(['board','palette','fifteen-rooks'].includes(scene)&&['pc-16-9','mobile-16-9'].includes(canvasId)){
+   if(['board','palette','preset'].includes(scene)&&['pc-16-9','mobile-16-9'].includes(canvasId)){
     const shot=await client.callTool({name:'qxqy_studio_play_screenshot',arguments:{handle}});assert(!shot.isError);
     const img=await loadImage(Buffer.from(shot.content.find(c=>c.type==='image').data,'base64')),z=Math.min(img.width/256,img.height/224),w=Math.round(256*z),height=Math.round(224*z),canvas=createCanvas(w,height);
     canvas.getContext('2d').drawImage(img,(img.width-w)/2,(img.height-height)/2,w,height,0,0,w,height);
     row.screenshot=`records/screenshots/${tag}-${scene}-${canvasId}.png`;await writeFile(row.screenshot,canvas.toBuffer('image/png'));
    }
-   // Idle redraws must not accumulate controls; no AI is active in custom edit.
-   if(scene==='fifteen-rooks'){for(let frame=0;frame<10;frame++)await play('step',{dt:.1});const after=await play('get',{view:true});assert.equal(after.scene.count,view.scene.count);row.idleControlCountStable=true;row.idleFrames=10;}
+   // The preset starts on red's turn; idle redraws must not allocate more controls.
+   if(scene==='preset'){for(let frame=0;frame<10;frame++)await play('step',{dt:.1});const after=await play('get',{view:true});assert.equal(after.scene.count,view.scene.count);row.idleControlCountStable=true;row.idleFrames=10;}
    report.results.push(row);console.log('PASS',scene,canvasId,checks.length,'assertions',rectangles.length,'rectangles');
   }
   await play('stop');

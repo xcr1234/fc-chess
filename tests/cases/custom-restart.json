@@ -22,14 +22,6 @@
       }
     },
     {
-      "t": 0.6,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "StartCustomButton"
-      }
-    },
-    {
       "t": 0.8,
       "source": "user",
       "kind": "click",
@@ -38,7 +30,7 @@
       }
     },
     {
-      "t": 1.0,
+      "t": 1,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -61,7 +53,7 @@
       "id": "",
       "name": "RedRookCount",
       "field": "text",
-      "equals": "15"
+      "equals": "44"
     },
     {
       "kind": "control",

@@ -1,0 +1,5 @@
+PASS BGM starts at 50 and user changes survive the preset
+PASS one preset click fills the own half and starts a red custom turn
+PASS restart and returning to edit preserve the 44-rook draft; reset clears it
+PASS front rook can move and undo cancels search and restores all 44 rooks
+PASS real custom AI completes a reply on the 61-piece board

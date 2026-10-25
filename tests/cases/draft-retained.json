@@ -22,15 +22,23 @@
       }
     },
     {
-      "t": 0.6,
+      "t": 0.6000000000000001,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "EditBackButton"
+        "name": "ModeButton"
       }
     },
     {
       "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 1,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -41,15 +49,15 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 0.9,
+      "at": 1.1,
       "id": "",
       "name": "RedRookCount",
       "field": "text",
-      "equals": "15"
+      "equals": "44"
     },
     {
       "kind": "control",
-      "at": 0.9,
+      "at": 1.1,
       "id": "",
       "name": "SceneState",
       "field": "text",

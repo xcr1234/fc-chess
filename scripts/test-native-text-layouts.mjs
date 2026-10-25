@@ -17,7 +17,7 @@ try{
  const scenes=[
   ['menu',[],'ModeDifficultTitle','困難'],['board',['ModeDifficult'],'Glyph_55','兵'],
   ['confirm',['ModeDifficult','ModeButton'],'ConfirmHint','返回後無法恢復當前對局'],
-  ['settings',['SettingsButton','VolumeDown'],'BGMVolume','90%'],
+  ['settings',['SettingsButton','VolumeDown'],'BGMVolume','40%'],
   ['music',['SettingsButton','MusicButton'],'MusicPage','1 / 38'],
   ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪種棋子？'],
   ['result',['ModeFast','ResignButton','ConfirmYes'],'ReturnBoardButtonLabel','返回棋盤'],

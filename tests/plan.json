@@ -90,8 +90,8 @@
       "fixture": null
     },
     {
-      "case": "fifteen-rooks",
-      "file": "cases/fifteen-rooks.json",
+      "case": "forty-four-rooks",
+      "file": "cases/forty-four-rooks.json",
       "args": {
         "canvasId": "pc-16-9"
       },

@@ -7,7 +7,7 @@ import { createCanvas, loadImage } from '@napi-rs/canvas';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = async path => JSON.parse(await readFile(new URL('../' + path, import.meta.url), 'utf8'));
 const client = new Client({ name: 'fc-chess-regression', version: '1.0.0' });
-const report = { runtime: 'simulator', sourceSHA256: '', results: [] };
+const report = { runtime: 'simulator', sourceSHA256: '', workerTimeoutMs: 30000, results: [] };
 const layouts = process.argv.includes('--layouts');
 const matrix = process.argv.includes('--matrix');
 const outputArg=process.argv.indexOf('--output');
@@ -25,7 +25,9 @@ try {
     const save = await read(path);
     if (save.assets.scripts[0].source !== source || save.assets.scripts[0].path !== 'dist/main.lua') throw new Error('Stale script: ' + path);
   }
-  await client.connect(new StdioClientTransport({ command: process.execPath, args: [root + 'node_modules/beyond-simulator-mcp/dist/index.js', '--workspace', root], cwd: root }));
+  // Long simulated clock cases render hundreds of frames. Use the simulator's
+  // supported per-worker deadline rather than changing their input or asserts.
+  await client.connect(new StdioClientTransport({ command: process.execPath, args: [root + 'node_modules/beyond-simulator-mcp/dist/index.js', '--workspace', root], cwd: root, env: { QXQY_PLAY_TIMEOUT_MS: '30000' } }));
   ({ handle } = await call('qxqy_project_open', { path: 'tests/fc-chess.test.save.json' }));
   await call('qxqy_studio_play', { handle, action: 'start', args: { canvasId: 'pc-16-9' } });
   for (const row of layouts || matrix ? [] : (await read('tests/plan.json')).cases) {

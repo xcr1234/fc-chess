@@ -1,0 +1,6 @@
+FAIL BGM starts at 50 and user changes survive the preset: [string "package.preload["app.log"]=function()..."]:11120: assertion failed!
+FAIL one preset click fills the own half and starts a red custom turn: [string "package.preload["app.log"]=function()..."]:11113: own half not full at 46
+FAIL restart and returning to edit preserve the 44-rook draft; reset clears it: [string "package.preload["app.log"]=function()..."]:11113: own half not full at 46
+FAIL front rook can move and undo cancels search and restores all 44 rooks: [string "package.preload["app.log"]=function()..."]:11133: assertion failed!
+FAIL real custom AI completes a reply on the 61-piece board: [string "package.preload["app.log"]=function()..."]:11137: assertion failed!
+[string "package.preload["app.log"]=function()..."]:11143: 5 44-rook failures

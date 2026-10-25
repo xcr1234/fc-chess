@@ -21,9 +21,9 @@ try{
   await call('start',{canvasId});
   const {canvasWidth:width,canvasHeight:height}=await call('get');
   for(const [kind,actions,name,equals] of [
-   ['settings',['SettingsButton'],'BGMVolume','100%'],
+   ['settings',['SettingsButton'],'BGMVolume','50%'],
    ['music',['SettingsButton','MusicButton'],'MusicPage','1 / 38'],
-   ['board-settings',['ModeFast','SettingsButton'],'BGMVolume','100%'],
+   ['board-settings',['ModeFast','SettingsButton'],'BGMVolume','50%'],
    ['board-return',['ModeFast','Square_0_6','SettingsButton','MusicButton','PickMusic_10161','SettingsBack'],'MoveCount','000手']]){
    const input=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width});let cursor=0;const events=[];
    for(const [i,action] of actions.entries()){
@@ -45,11 +45,11 @@ try{
  }
  await call('start',{canvasId:'pc-16-9'});
  for(const [name,actions,index,volume,enabled] of [
-  ['board-route',['ModeFast'],10167,100,true],
-  ['volume-change',['SettingsButton','VolumeDown'],10167,90,true],
+  ['board-route',['ModeFast'],10167,50,true],
+  ['volume-change',['SettingsButton','VolumeDown'],10167,40,true],
   ['volume-zero',['SettingsButton',...Array(10).fill('VolumeDown')],10167,0,false],
-  ['title-off',['SettingsButton','MusicButton','MusicOff'],0,100,false],
-  ['board-off',['SettingsButton','MusicButton','MusicOff','SettingsBack','ModeFast'],0,100,false]
+  ['title-off',['SettingsButton','MusicButton','MusicOff'],0,50,false],
+  ['board-off',['SettingsButton','MusicButton','MusicOff','SettingsBack','ModeFast'],0,50,false]
  ]){
   const test={format:'qxqy-autotest',version:1,name,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:2,name:'GameRoot',field:'visible',equals:true}]};
   const result=await call('runCase',{canvasId:'pc-16-9',case:test});if(!result.passed)throw new Error(JSON.stringify(result));

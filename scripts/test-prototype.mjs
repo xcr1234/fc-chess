@@ -99,7 +99,7 @@ test('check audio: muted checks stay silent and king capture uses normal move so
 });
 test('settings: shared choice, mute, sound toggle and persistence across a new match',()=>{
  const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
- assert.equal(h.state.audio.volume,100);h.settingsAction('MusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);
+ assert.equal(h.state.audio.volume,50);h.settingsAction('MusicButton');assert.equal(h.musicRows().length,188);assert.equal(h.musicRows()[0].id,10167);
  h.settingsAction('PickMusic_10161');assert.equal(h.state.audio.music,10161);h.settingsAction('MusicButton');h.settingsAction('MusicOff');
  assert.equal(h.state.audio.music,0);
  for(let i=0;i<20;i++)h.settingsAction('VolumeDown');assert.equal(h.state.audio.volume,0);
@@ -184,9 +184,12 @@ test('real controller: capture ends game, decline capture does not; result clock
 });
 test('real controller: custom draft and initial lineup survive return/restart',()=>{
  const h=appHarness();h.state.menu=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');
- h.state.sideIndex=3;h.input('ok');h.state.menu=2;h.input('ok');assert.equal(h.state.board.filter(p=>p==='R').length,15);
+ assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,44);
+ assert.deepEqual(Array.from(h.state.board.slice(0,45)),initialBoard().slice(0,45));
+ for(let i=45;i<90;i++)assert.equal(h.state.board[i],i===85?'K':'R');
+ h.state.zone='panel';h.state.sideIndex=2;h.input('ok');h.input('left');h.input('ok');h.state.menu=2;h.input('ok');assert.equal(h.state.scene,'edit');assert.equal(h.state.board.filter(p=>p==='R').length,44);
  h.state.zone='panel';h.state.sideIndex=2;h.input('ok');h.state.modal={type:'resign',choice:0};h.input('ok');h.input('ok');
- assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,15);assert.equal(h.state.moves,0);
+ assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,44);assert.equal(h.state.moves,0);
 });
 
 test('real controller: identical positions may repeat without draw or perpetual-check result',()=>{
