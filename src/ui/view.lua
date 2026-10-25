@@ -5,6 +5,7 @@ local S=require('game.session')
 local Counter=require('game.thinking_counter')
 local Settings=require('audio.settings')
 local Screen=require('ui.screen')
+local Pixels=require('ui.pixel_glyphs')
 local M={}
 local glyph={r='車',n='馬',e='象',a='士',k='將',c='包',p='卒',R='俥',N='傌',E='相',A='仕',K='帥',C='砲',P='兵'}
 local root,screen,page,overlay,pageKind,overlayKind,onAction,onSquare
@@ -14,7 +15,10 @@ local function text(n,x,y,w,h,v,c,z,p) return U.text(p or page,n,x-128,y-112,w,h
 local function rect(n,x,y,w,h,c,p) return U.image(p or page,n,x-128,y-112,w,h,c) end
 local function button(n,label,x,y,w,h,p)
  p=p or page;U.image(p,n..'Border',x-128,y-112,w,h,'3defa0');U.image(p,n..'Fill',x-128,y-112,w-1,h-1,'00482f')
- text(n..'Label',x,y,w-2,h,label,'3defa0',n=='ModeButton' and w<60 and 7 or 8,p)
+ local labelControl=text(n..'Label',x,y,w-2,h,label,'3defa0',n=='ModeButton' and w<60 and 7 or 8,p)
+ if Pixels.has(label) then
+  labelControl:SetVisible(false);Pixels.draw(p,n..'Pixels',x-128,y-112,10,label,'3defa0')
+ end
  return U.hit(p,n,x-128,y-112,w,h,function() onAction(n) end)
 end
 local function line(n,x,y,w,h,angle)
@@ -119,7 +123,17 @@ function M.render(s)
    end
   end
   for i,p in ipairs(s.board) do local c=pieces[i]
-   if c.last~=p then c[1]:SetVisible(p~='');c[2]:SetVisible(p~='');c[2].text=glyph[p] or '';c[2].fontColor=U.color(B.red(p) and 'f33d43' or '2818a0');c.last=p end
+   if c.last~=p then
+    if c.pixels then game.DestroyClientUIControl(c.pixels);c.pixels=nil end
+    local value=glyph[p] or '';local color=B.red(p) and 'f33d43' or '2818a0'
+    c[1]:SetVisible(p~='');c[2].text=value;c[2].fontColor=U.color(color)
+    c[2]:SetVisible(p~='' and not Pixels.has(value))
+    if Pixels.has(value) then
+     local f,r=B.coords(i)
+     c.pixels=Pixels.draw(page,'PixelGlyph_'..i,56+16*f-128,176-16*r-112,12,value,color)
+    end
+    c.last=p
+   end
    local selected=s.selected==i;if c.selected~=selected then c[3]:SetVisible(selected);c.selected=selected end
   end
  end

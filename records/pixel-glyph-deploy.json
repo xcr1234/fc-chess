@@ -1,0 +1,34 @@
+{
+  "build": "2026-10-25 08:15:11.444 +08:00",
+  "sha256": "2f172988167fc0f53b4047446a2a086281a6399931825bf6fa7321eac0f2d20f",
+  "testedSHA256": "2f172988167fc0f53b4047446a2a086281a6399931825bf6fa7321eac0f2d20f",
+  "sameProgramAsLayoutsExceptBuildTime": false,
+  "modules": 32,
+  "source": "dist/main.lua",
+  "delivery": "export/2026-10-25-pixel-glyphs/main.lua",
+  "externalDeployment": "npm run deploy:lua completed",
+  "conflict": false,
+  "backup": ".lua-deploy-backups/1792887311562-c2e9f46e-ebef-405c-afb1-53d1e83556e4.lua",
+  "hashesMatch": true,
+  "savesAndDeliveryMatch": true,
+  "layoutScenarios": 35,
+  "layoutAssertions": 175,
+  "checks": {
+    "nativeText": 4,
+    "screenShell": 4,
+    "htmlController": 24,
+    "buildTools": 28
+  },
+  "testEnvironmentNote": "npm test initially hit sandbox temporary-file rename EPERM; all 28 passed on host retry",
+  "editorReload": "pending",
+  "deviceVisualAndPerformance": "pending",
+  "fullSimulator": {
+    "cases": 82,
+    "assertions": 334,
+    "passed": true,
+    "sourceSHA256": "2f172988167fc0f53b4047446a2a086281a6399931825bf6fa7321eac0f2d20f"
+  },
+  "previousLayoutSHA256": "acea2c558233855783787748b92f0d68c60a6a46c198457e1dd1a31a22af7254",
+  "sameProgramAsLayouts": true,
+  "earlierLayoutNormalizedBuildTimeVerified": true
+}

@@ -21,6 +21,12 @@
   const subnames = ['经典老头 · 原味等待', '经典老头 · 快速思考', '修改己方初始棋子'];
   const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '包', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
+  function pieceGlyph(value,x,y,color,size,fallbackSize) {
+    const data=globalThis.FCChessPixelGlyphs,rects=data?.glyphs[value];
+    if(!rects){text(value,x,y-fallbackSize/2,color,fallbackSize,'center');return;}
+    ctx.fillStyle=color;const scale=size/data.size;
+    for(const [px,py,w,h] of rects)ctx.fillRect(x-size/2+px*scale,y-size/2+py*scale,w*scale,h*scale);
+  }
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
   state.audio={music:10167,volume:100,sfx:true};state.musicCategory=0;state.musicPage=0;
@@ -160,7 +166,7 @@
       if (!p) return;
       const x = gridX + (i % 9) * step, y = gridY + Math.floor(i / 9) * step;
       ctx.beginPath(); ctx.arc(x, y, 7.5, 0, Math.PI * 2); ctx.fillStyle = '#fffdef'; ctx.fill(); ctx.strokeStyle = isRed(p) ? C.red : C.blue; ctx.stroke();
-      text(glyphs[p], x, y - 5, isRed(p) ? C.red : C.blue, 10, 'center');
+      pieceGlyph(glyphs[p],x,y,isRed(p)?C.red:C.blue,12,10);
       if (i === state.selected) {
         ctx.strokeStyle = '#fff29a'; ctx.lineWidth = 1; ctx.strokeRect(x - 8, y - 8, 16, 16);
         ctx.strokeStyle = '#685419'; ctx.lineWidth = .5; ctx.strokeRect(x - 8.5, y - 8.5, 17, 17);
@@ -181,7 +187,7 @@
     box(37, 67, 182, 98, C.navy, C.cyan); text('改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
     choices.forEach((piece, i) => {
       const x = 86 + (i % 3) * 45, y = 105 + Math.floor(i / 3) * 28;
-      text(glyphs[piece], x, y, C.white, 15, 'center'); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
+      pieceGlyph(glyphs[piece],x,y+7.5,C.white,15,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
     });
   }
   function modalScreen() {

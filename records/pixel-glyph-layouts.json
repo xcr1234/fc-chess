@@ -1,0 +1,1737 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577,
+      "screenshot": "records/screenshots/pixel-glyph-board-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 649,
+      "screenshot": "records/screenshots/pixel-glyph-palette-pc-16-9.png"
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 587
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "fallback",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "fifteen-rooks",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 386,
+      "renderedNodes": 816,
+      "screenshot": "records/screenshots/pixel-glyph-fifteen-rooks-pc-16-9.png",
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 649
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 587
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "fallback",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "fifteen-rooks",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 386,
+      "renderedNodes": 816,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "pc-21-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577,
+      "screenshot": "records/screenshots/pixel-glyph-board-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 649,
+      "screenshot": "records/screenshots/pixel-glyph-palette-mobile-16-9.png"
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 587
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "fallback",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "fifteen-rooks",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 386,
+      "renderedNodes": 816,
+      "screenshot": "records/screenshots/pixel-glyph-fifteen-rooks-mobile-16-9.png",
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 649
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 587
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "fallback",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "fifteen-rooks",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 386,
+      "renderedNodes": 816,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "board",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.25,
+          "ok": true,
+          "actual": "車",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "palette",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 649
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "move",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 587
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "undo",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "傌",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 577
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "fallback",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "fifteen-rooks",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "俥",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 386,
+      "renderedNodes": 816,
+      "idleControlCountStable": true,
+      "idleFrames": 10
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "scene": "reset",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5499999999999999,
+          "ok": true,
+          "actual": "兵",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "rectangles": 148,
+      "renderedNodes": 578
+    }
+  ],
+  "sha256": "2f172988167fc0f53b4047446a2a086281a6399931825bf6fa7321eac0f2d20f"
+}

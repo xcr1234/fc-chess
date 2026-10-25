@@ -11,4 +11,4 @@
 
 复核与重新生成：在仓库根目录运行`node scripts/preview-piece-pixels.mjs`。脚本检查每字恰好16×16且只包含两种格点；PNG与SVG均由同一JSON生成。生成不依赖外部图片服务或全局安装。
 
-本轮范围为步骤4的字形试稿。未修改Lua显示、HTML游戏、模拟器存档或游戏目标文件；正式接入时再决定图元合并/素材映射，核对目标尺寸与控件预算，按步骤5–7构建、回归并deploy。现有PNG/SVG未分配千星imageId，不声称能直接作为原生图片导入。原先“文字无需拟合”的素材方案在这四字上开始试验替代方向，其余文字继续原生文本。
+用户随后授权接入，四字已替换Lua棋盘和对应棋种菜单，HTML同步。`scripts/generate-pixel-glyphs.mjs`从JSON无损合并连续格点，生成Lua/HTML矩形数据；build和deploy自动运行。每字分别15、22、24、26个矩形，使用现有100001基础图元，不依赖单字PNG/SVG导入或新的imageId。PNG/SVG继续作为可编辑素材交付；其余文字保持原生。测试与部署见`records/pixel-glyph-layouts.json`、`records/pixel-glyph-deploy.json`，真机效果仍待验证。

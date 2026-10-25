@@ -77,6 +77,7 @@ function appHarness({audio=false}={}) {
  if(audio)scope.Audio=class{constructor(src){this.src=src;}play(){sounds.push(this.src);return Promise.resolve();}pause(){}};
  vm.runInContext(readFileSync(new URL('../prototype/rules.js',import.meta.url),'utf8'),scope);
  vm.runInContext(readFileSync(new URL('../prototype/audio-catalog.js',import.meta.url),'utf8'),scope);
+ vm.runInContext(readFileSync(new URL('../prototype/pixel-glyphs.js',import.meta.url),'utf8'),scope);
  const app=readFileSync(new URL('../prototype/app.js',import.meta.url),'utf8');
  // Test-local access to the real controller, not a shipped fixture/debug API.
  vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows};})();'),scope);
