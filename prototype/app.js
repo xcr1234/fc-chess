@@ -24,7 +24,9 @@
   function pieceGlyph(value,x,y,color,size,fallbackSize) {
     const data=globalThis.FCChessPixelGlyphs,rects=data?.glyphs[value];
     if(!rects){text(value,x,y-fallbackSize/2,color,fallbackSize,'center');return;}
-    ctx.fillStyle=color;const scale=size/data.size;
+    const scale=size/data.size;
+    if(data.shadows[value]){ctx.fillStyle='#'+data.colors.shadow;for(const [px,py,w,h] of data.shadows[value])ctx.fillRect(x-size/2+px*scale,y-size/2+py*scale,w*scale,h*scale);}
+    ctx.fillStyle=color;
     for(const [px,py,w,h] of rects)ctx.fillRect(x-size/2+px*scale,y-size/2+py*scale,w*scale,h*scale);
   }
   const gridX = 56, gridY = 48, step = 16;
@@ -161,12 +163,13 @@
     [0, 7].forEach(y => {
       ctx.beginPath(); ctx.moveTo(gridX + 48.5, gridY + y * step + .5); ctx.lineTo(gridX + 80.5, gridY + (y + 2) * step + .5); ctx.moveTo(gridX + 80.5, gridY + y * step + .5); ctx.lineTo(gridX + 48.5, gridY + (y + 2) * step + .5); ctx.stroke();
     });
-    for(const [value,x] of [['楚',80],['河',92],['漢',144],['界',156]])pieceGlyph(value,x,120,C.line,globalThis.FCChessPixelGlyphs.riverSize,11);
+    for(const [value,x] of [['楚',80],['河',96],['漢',144],['界',160]])pieceGlyph(value,x,120,'#'+globalThis.FCChessPixelGlyphs.colors.river,globalThis.FCChessPixelGlyphs.riverSize,11);
     state.board.forEach((p, i) => {
       if (!p) return;
       const x = gridX + (i % 9) * step, y = gridY + Math.floor(i / 9) * step;
-      ctx.beginPath(); ctx.arc(x, y, 7.5, 0, Math.PI * 2); ctx.fillStyle = '#fffdef'; ctx.fill(); ctx.strokeStyle = isRed(p) ? C.red : C.blue; ctx.stroke();
-      pieceGlyph(glyphs[p],x,y,isRed(p)?C.red:C.blue,globalThis.FCChessPixelGlyphs.boardSize,10);
+      const art=globalThis.FCChessPixelGlyphs;
+      for(const [part,color] of [['rim',art.colors.black],['white',art.colors.shadow]]){ctx.fillStyle='#'+color;for(const [px,py,w,h] of art.discs[glyphs[p]][part])ctx.fillRect(x-8+px,y-8+py,w,h);}
+      pieceGlyph(glyphs[p],x,y,'#'+(isRed(p)?globalThis.FCChessPixelGlyphs.colors.red:globalThis.FCChessPixelGlyphs.colors.black),globalThis.FCChessPixelGlyphs.boardSize,10);
       if (i === state.selected) {
         ctx.strokeStyle = '#fff29a'; ctx.lineWidth = 1; ctx.strokeRect(x - 8, y - 8, 16, 16);
         ctx.strokeStyle = '#685419'; ctx.lineWidth = .5; ctx.strokeRect(x - 8.5, y - 8.5, 17, 17);

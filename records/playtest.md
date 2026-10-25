@@ -404,3 +404,12 @@
 - runtime=lua-model/html-controller；原生文字4项、HTML24项通过；字体生成与渲染复用已核对官方API，无新增接口/图片索引。完整同次产物82用例/334断言通过，见records/pixel-font-complete-simulator.json。
 - runtime=filesystem；32模块，2026-10-25 08:30:07.250 +08:00，deploy无冲突备份并复制游戏目标，dist/目标/两存档/交付副本SHA-256一致；布局程序与发布仅构建时间不同，重构原SHA-256核对通过。records/pixel-font-complete-deploy.json，export/2026-10-25-pixel-font-complete/main.lua。
 - runtime=device-retest：新版本的全套字形、留白大小、红炮/河界和15俥流畅度待用户保存重新试玩。
+
+# 2026-10-25：改用FC原版字模
+
+- 来源：用户反馈自绘像素字与FC原版差距大，并明确较小尺寸不是硬要求、原版相似度才是硬要求。按步骤4–7覆盖先前自绘/缩小方向，维持棋子及河界范围。
+- runtime=reference-analysis；对仓库256×224原版图按精确调色板分析，取18字、各棋种白底/蓝边和4河界白影。14棋种可绘制色块与参考逐格核对通过，fc-trace-verification.json；不再猜字形笔画。棋盘16、菜单12、河界16，红d82800/蓝24188c/白fcfcfc，红炮为炮、黑炮为包。
+- runtime=simulator；五画布35流程810断言通过，覆盖32字模/字底/语义、6菜单、河界、原色、走子/悔棋/换字/空闲稳定。初始635字形+655字底+193河界/白影，15俥647+640+193，菜单额外135。6张仅画布截图，手机/PC棋盘与菜单目视；records/fc-reference-layouts.json。旧498计数更新后重跑通过，该预期变化不记为规则Red。
+- runtime=html-controller/lua-model；HTML24、原生文字4项通过，各层矩形还原与参考色块检查通过。最终同次产物82用例/334断言通过，records/fc-reference-simulator.json。
+- runtime=filesystem；32模块，2026-10-25 08:57:58.922 +08:00，已deploy无冲突备份更新游戏main.lua，目标/dist/两存档/交付副本哈希一致，布局与发布仅构建时间不同且重构哈希核验。records/fc-reference-deploy.json，export/2026-10-25-fc-reference/main.lua。
+- runtime=device-retest：本版外观、走子残留及新控件成本待用户重新加载后验证，不以原图格点一致或模拟器通过冒充真机验收。

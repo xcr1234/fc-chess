@@ -75,8 +75,8 @@ local function build(kind,s)
  for i,y in ipairs({160,48}) do line('PalaceA'..i,120,y,math.sqrt(2)*32,.8,45);line('PalaceB'..i,120,y,math.sqrt(2)*32,.8,-45) end
  text('RiverLeft',86,104,40,15,'楚河','352599',11):SetVisible(false)
  text('RiverRight',150,104,40,15,'漢界','352599',11):SetVisible(false)
- for _,v in ipairs({{'Chu','楚',80},{'He','河',92},{'Han','漢',144},{'Jie','界',156}}) do
-  Pixels.draw(page,'RiverPixel'..v[1],v[3]-128,104-112,Pixels.riverSize,v[2],'352599')
+ for _,v in ipairs({{'Chu','楚',80},{'He','河',96},{'Han','漢',144},{'Jie','界',160}}) do
+  Pixels.draw(page,'RiverPixel'..v[1],v[3]-128,104-112,Pixels.riverSize,v[2],Pixels.colors.river)
  end
  for _,v in ipairs({{'BlackLabel','黑方',174},{'ComputerLabel','電腦',160},{'BlackLevel','1 級',144},{'RedLabel','紅方',78},{'HumanLabel','人腦',64},{'RedLevel','9 級',48}}) do text(v[1],22,v[3],40,13,v[2],'3defa0',10) end
  text('TurnText',226,201,52,14,'紅方','3defa0',10);text('MoveCount',226,184,56,12,'000手','3defa0',8)
@@ -84,7 +84,7 @@ local function build(kind,s)
  text('StatusText',128,10,248,12,'','28eff0',8)
  P.draw(page,'OldManPortrait',226-128,152-112,32)
  for r=0,9 do for f=0,8 do local i=B.index(f,r);local x,y=56+16*f-128,176-16*r-112
-  local disk=U.image(page,'Disk_'..i,x,y,15,15,'fffdef',100002)
+  local disk=U.create('container',page,'Disk_'..i,x,y,16,16)
   local label=U.text(page,'Glyph_'..i,x,y,14,14,'','f33d43',10)
   local focus=U.create('container',page,'Selection_'..i,x,y,17,17)
   for j,v in ipairs({{0,8,17,.7},{0,-8,17,.7},{8,0,.7,17},{-8,0,.7,17}}) do U.image(focus,'SelectionEdge'..i..'_'..j,v[1],v[2],v[3],v[4],'fff29a') end
@@ -129,7 +129,9 @@ function M.render(s)
   for i,p in ipairs(s.board) do local c=pieces[i]
    if c.last~=p then
     if c.pixels then game.DestroyClientUIControl(c.pixels);c.pixels=nil end
-    local value=glyph[p] or '';local color=B.red(p) and 'f33d43' or '2818a0'
+    local value=glyph[p] or '';local color=B.red(p) and Pixels.colors.red or Pixels.colors.black
+    if c.diskArt then game.DestroyClientUIControl(c.diskArt);c.diskArt=nil end
+    if p~='' then c.diskArt=Pixels.disc(c[1],'DiskArt_'..i,value) end
     c[1]:SetVisible(p~='');c[2].text=value;c[2].fontColor=U.color(color)
     c[2]:SetVisible(p~='' and not Pixels.has(value))
     if Pixels.has(value) then

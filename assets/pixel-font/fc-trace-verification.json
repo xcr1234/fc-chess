@@ -1,0 +1,78 @@
+{
+  "source": "prototype/assets/original-screen.png",
+  "sha256": "5738fa68296d470b745223f3b69eff71d813b7707b146ee038b43f2140be9045",
+  "cellSize": 16,
+  "glyphs": [
+    {
+      "glyph": "車",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "馬",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "象",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "士",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "將",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "包",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "卒",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "俥",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "傌",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "相",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "仕",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "帥",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "炮",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    },
+    {
+      "glyph": "兵",
+      "matchingNativeColoredPixels": 202,
+      "passed": true
+    }
+  ],
+  "river": "Blue and white pixels extracted from native rows 114–127; board separator excluded"
+}

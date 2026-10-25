@@ -10,11 +10,11 @@ const report={runtime:'simulator',results:[]};let handle;
 async function tool(name,args){const r=await client.callTool({name,arguments:args},undefined,{timeout:120000});if(r.isError)throw Error(JSON.stringify(r.content));return r.structuredContent??JSON.parse(r.content.find(c=>c.type==='text').text);}
 const play=(action,args={})=>tool('qxqy_studio_play',{handle,action,args});
 const control=(name,field,equals)=>({kind:'control',name,field,equals});
-const tag=process.argv[2]??'pixel-font-complete';assert(/^[a-z0-9-]+$/.test(tag));
+const tag=process.argv[2]??'fc-reference';assert(/^[a-z0-9-]+$/.test(tag));
 await import('../prototype/rules.js');
 const initial=globalThis.FCChessPreview.initialBoard();
 const glyphs={r:'車',n:'馬',e:'象',a:'士',k:'將',c:'包',p:'卒',R:'俥',N:'傌',E:'相',A:'仕',K:'帥',C:'炮',P:'兵'};
-const boardChecks=initial.flatMap((p,i)=>p?[control('PixelGlyph_'+(i+1),'visible',true),control('Glyph_'+(i+1),'visible',false),control('Glyph_'+(i+1),'text',glyphs[p])]:[]);
+const boardChecks=initial.flatMap((p,i)=>p?[control('PixelGlyph_'+(i+1),'visible',true),control('DiskArt_'+(i+1),'visible',true),control('Glyph_'+(i+1),'visible',false),control('Glyph_'+(i+1),'text',glyphs[p])]:[]);
 try{
  const source=await readFile('dist/main.lua','utf8');report.sha256=createHash('sha256').update(source).digest('hex');
  for(const path of ['fc-chess.save.json','tests/fc-chess.test.save.json'])assert.equal(JSON.parse(await readFile(path,'utf8')).assets.scripts[0].source,source);
@@ -23,13 +23,13 @@ try{
  for(const canvasId of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3']){
   await play('start',{canvasId});const {canvasWidth:width,canvasHeight:height}=await play('get');
   const cases=[
-   ['board',['ModeFast'],[...boardChecks,control('RiverLeft','visible',false),control('RiverRight','visible',false),...['Chu','He','Han','Jie'].map(n=>control('RiverPixel'+n,'visible',true))],498],
-   ['palette',['ModeCustom','Square_0_6'],['R','N','C','E','A','P'].flatMap(p=>[control('Choose_'+p+'Pixels','visible',true),control('Choose_'+p+'Label','visible',false)]),498],
-   ['move',['ModeFast','Square_1_9','Square_2_7'],[control('PixelGlyph_66','visible',true),control('Glyph_66','text','傌'),control('Glyph_83','visible',false)],498],
-   ['undo',['ModeFast','Square_1_9','Square_2_7','UndoButton','ConfirmYes'],[control('PixelGlyph_83','visible',true),control('Glyph_83','text','傌'),control('Glyph_66','visible',false),control('MoveCount','text','000手')],498],
-   ['replace-back',['ModeCustom','Square_0_6','Choose_R','Square_0_6','Choose_P'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],498],
-   ['fifteen-rooks',['ModeCustom','AllRooksButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false)],572],
-   ['reset',['ModeCustom','AllRooksButton','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],498]
+   ['board',['ModeFast'],[...boardChecks,control('RiverLeft','visible',false),control('RiverRight','visible',false),...['Chu','He','Han','Jie'].map(n=>control('RiverPixel'+n,'visible',true))],635],
+   ['palette',['ModeCustom','Square_0_6'],['R','N','C','E','A','P'].flatMap(p=>[control('Choose_'+p+'Pixels','visible',true),control('Choose_'+p+'Label','visible',false)]),635],
+   ['move',['ModeFast','Square_1_9','Square_2_7'],[control('PixelGlyph_66','visible',true),control('Glyph_66','text','傌'),control('Glyph_83','visible',false)],635],
+   ['undo',['ModeFast','Square_1_9','Square_2_7','UndoButton','ConfirmYes'],[control('PixelGlyph_83','visible',true),control('Glyph_83','text','傌'),control('Glyph_66','visible',false),control('MoveCount','text','000手')],635],
+   ['replace-back',['ModeCustom','Square_0_6','Choose_R','Square_0_6','Choose_P'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
+   ['fifteen-rooks',['ModeCustom','AllRooksButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false)],647],
+   ['reset',['ModeCustom','AllRooksButton','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635]
   ];
   for(const [scene,actions,checks,expectedRects] of cases){
    const h=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width}),events=[];let cursor=0;
@@ -45,11 +45,17 @@ try{
    const view=await play('get',{view:true});assert(!view.mountError);assert(!view.logs.some(l=>l.level==='error'));
    const rectangles=view.scene.nodes.filter(n=>/^PixelGlyph_\d+Run\d+$/.test(n.name));assert.equal(rectangles.length,expectedRects,scene+': stale or missing glyph rectangles');
    if(scene==='move')assert(!rectangles.some(n=>n.name.startsWith('PixelGlyph_83Run')));
-   if(scene==='replace-back'||scene==='reset')assert.equal(rectangles.filter(n=>n.name.startsWith('PixelGlyph_55Run')).length,14);
-   const river=view.scene.nodes.filter(n=>/^RiverPixel\w+Run\d+$/.test(n.name));assert.equal(river.length,79);
-   const palette=view.scene.nodes.filter(n=>/^Choose_\w+PixelsRun\d+$/.test(n.name));assert.equal(palette.length,scene==='palette'?107:0);
-   assert(rectangles.every(n=>n.sourceWidth<=10.5&&n.sourceHeight<=10.5));
-   const row={canvasId,scene,passed:true,assertions:result.results,rectangles:rectangles.length,riverRectangles:river.length,paletteRectangles:palette.length,renderedNodes:view.scene.count};
+   if(scene==='replace-back'||scene==='reset')assert.equal(rectangles.filter(n=>n.name.startsWith('PixelGlyph_55Run')).length,16);
+   const river=view.scene.nodes.filter(n=>/^RiverPixel(?:Chu|He|Han|Jie)Run\d+$/.test(n.name));assert.equal(river.length,100);
+   const shadow=view.scene.nodes.filter(n=>/^RiverPixel(?:Chu|He|Han|Jie)ShadowRun\d+$/.test(n.name));assert.equal(shadow.length,93);
+   const palette=view.scene.nodes.filter(n=>/^Choose_\w+PixelsRun\d+$/.test(n.name));assert.equal(palette.length,scene==='palette'?135:0);
+   const discs=view.scene.nodes.filter(n=>/^DiskArt_\d+(?:Rim|White)\d+$/.test(n.name));assert.equal(discs.length,scene==='fifteen-rooks'?640:655);
+   if(scene==='move')assert(!discs.some(n=>n.name.startsWith('DiskArt_83')));
+   assert(discs.every(n=>n.primitive==='rect'&&n.imageId===100001));
+   assert(rectangles.every(n=>n.sourceWidth<=16&&n.sourceHeight<=16));
+   assert.equal(rectangles.find(n=>n.name==='PixelGlyph_1Run1').imageColor>>>0,0xff24188c);
+   assert.equal(shadow[0].imageColor>>>0,0xfffcfcfc);
+   const row={canvasId,scene,passed:true,assertions:result.results,rectangles:rectangles.length,discRectangles:discs.length,riverRectangles:river.length,shadowRectangles:shadow.length,paletteRectangles:palette.length,renderedNodes:view.scene.count};
    if(['board','palette','fifteen-rooks'].includes(scene)&&['pc-16-9','mobile-16-9'].includes(canvasId)){
     const shot=await client.callTool({name:'qxqy_studio_play_screenshot',arguments:{handle}});assert(!shot.isError);
     const img=await loadImage(Buffer.from(shot.content.find(c=>c.type==='image').data,'base64')),z=Math.min(img.width/256,img.height/224),w=Math.round(256*z),height=Math.round(224*z),canvas=createCanvas(w,height);

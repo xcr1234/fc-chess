@@ -1,19 +1,21 @@
-# 棋子与河界像素字
+# FC参考字模、棋子字底与河界
 
-2026-10-25，受用户提供的FC原版截图启发，先试画“包 / 俥 / 傌 / 將”四字，用户真机试玩回报正常后补齐18字。每字16×16，人工编排格点，保留阶梯边缘、粗细变化、字内空隙及四周1格透明留白；不嵌入截图或字体文件。
+2026-10-25，用户明确原版相似度优先、较小尺寸不是硬要求。当前18字来自仓库256×224原版参考图的精确调色板分析，取代按汉字结构自绘的版本。保留原字格的偏旁、转折、错位、字底及河界白影；游戏只使用生成的矩形数据。
 
 - 黑方：車、馬、象、士、將、包、卒。
 - 红方：俥、傌、相、仕、帥、炮、兵。红炮使用火字旁“炮”，不使用“砲”。
 - 河界：楚、河、漢、界。
-- JSON同源尺寸：棋盘10.5（原12，缩小12.5%）、菜单9（原10）、河界11。
+- JSON同源尺寸：棋盘16、菜单12、河界16；红d82800、蓝24188c、白fcfcfc。
 
-- `glyphs-16.json`：维护源；每字16行，每行16格，`#`为着色像素，`.`为透明。
-- `包.svg`等：可编辑的矩形格点，颜色为`currentColor`。
-- `包.png`等：16×16白色透明底像素素材；查看器需使用最近邻放大。
-- `comparison.png`：每组六字上排是本机Noto Sans SC原生文字示意，下排是像素字；**原生排并非真机字体截图**，用于字形方向比较。
+- `glyphs-16.json`：维护源；每字16行16格，`#`为着色像素，`.`为透明，另含阴影/字底图层和原图坐标/哈希。
+- `fc-trace-verification.json`：14种棋子的可绘制色块与原图逐格核对结果。
+- `previous-draft.json`：前版自绘格点，只供对照，不参与游戏构建。
+- `包.svg`等：可编辑的矩形格点，字色为`currentColor`，河界保留白影。
+- `包.png`等：16×16透明素材；棋子字为白色单色字模，河界为蓝字白影。查看器用最近邻放大。
+- `comparison.png`：每组六字上排为上一版自绘/圆底，下排为当前参考字模/阶梯字底；离线对照，不是真机截图。
 - `grid.png`：18字12倍网格，供逐格精修。
 - `board-strip.png`：14种棋子字在棋子和棋线上的离线示意，黑/红各一排；非运行截图，也不表示真实开局位置。
 
-复核与重新生成：在仓库根目录运行`node scripts/preview-piece-pixels.mjs`。脚本检查每字恰好16×16且只包含两种格点；PNG与SVG均由同一JSON生成。生成不依赖外部图片服务或全局安装。
+复核：`node scripts/trace-fc-pixel-glyphs.mjs`按原图重取格点并核对色块；`node scripts/generate-pixel-glyphs.mjs`将各层合并为无损矩形并重新栅格化核对；`node scripts/preview-piece-pixels.mjs`更新PNG/SVG/对照。原图为`prototype/assets/original-screen.png`，不依赖字体替换或在线图片服务。
 
-全套已用于Lua棋盘/对应棋种菜单及河界，HTML同步。`scripts/generate-pixel-glyphs.mjs`校验18字齐全、火字旁炮、四周留白并无损合并连续格点，生成Lua/HTML矩形数据；build和deploy自动运行。使用既有100001基础图元，无需导入单字PNG/SVG或新imageId；PNG/SVG继续保留供编辑。其余HUD/按钮文字仍原生。最新测试与部署见`records/pixel-font-complete-layouts.json`、`records/pixel-font-complete-deploy.json`；前版四字有用户真机正常反馈，本次全套新尺寸仍待复测。
+全套用于Lua棋盘/棋种菜单/河界，HTML同步。build和deploy自动生成矩形，使用既有100001图元，无新imageId或字体导入。字底随棋种重建/销毁，保留原图边缘差异。最新证据见`records/fc-reference-layouts.json`、`records/fc-reference-deploy.json`；本版真机外观与性能待重新加载后验证。
