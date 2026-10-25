@@ -1,0 +1,37 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 21:17:34.354 +08:00",
+  "modules": 34,
+  "sha256": "d5941ef1726feecf174698776e29ecbb782413499aa73a0e296970ea6f07554a",
+  "action": "replace",
+  "conflict": false,
+  "backup": ".lua-deploy-backups/1792934254462-86e5ba21-d818-42da-93dd-ea8667be9095.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-audio-animation/main.lua"
+  ],
+  "testedBuild": "2026-10-25 21:14:01.168 +08:00",
+  "testedSHA256": "7198ec1e4e50929c15889da9ba4b1527bcfc51d5edd8591d3c464865f4a453ec",
+  "onlyBuildTimestampChanged": true,
+  "targetedRed": "move sounds played before either piece landed",
+  "checks": {
+    "audioAnimationLua": 7,
+    "animationLua": 7,
+    "checkAudioLua": 9,
+    "audioLua": 13,
+    "resultAudioLua": 5,
+    "coreLua": 11,
+    "prototype": 28,
+    "staticCases": 85,
+    "simulatorCases": 85,
+    "simulatorAssertions": 344,
+    "audioCanvases": 5,
+    "audioFlows": 30
+  },
+  "nativeRetest": "pending editor reload and actual mixing/listening",
+  "finalSimulatorSHA256": "d5941ef1726feecf174698776e29ecbb782413499aa73a0e296970ea6f07554a",
+  "finalAudioSimulatorSHA256": "d5941ef1726feecf174698776e29ecbb782413499aa73a0e296970ea6f07554a"
+}

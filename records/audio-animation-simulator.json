@@ -1,0 +1,876 @@
+{
+  "runtime": "simulator-worker-audio",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "name": "normal then check at distinct landings",
+      "passed": true,
+      "audio": {
+        "sessionId": "8df8d51c-52ad-4419-b748-2b956b449fb3",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "ordinary move yields during active check",
+      "passed": true,
+      "audio": {
+        "sessionId": "8df8d51c-52ad-4419-b748-2b956b449fb3",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "large frame prioritizes checking landing",
+      "passed": true,
+      "audio": {
+        "sessionId": "5e4a8d66-a5ad-4b29-9bc9-37bba10b783c",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "undo before landing discards pending sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "09860525-38a6-44ee-9c34-75fdcada8378",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "settings and mute never replay interrupted sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "1796e519-0df4-47c9-b832-bbcb24885ae4",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "name": "victory follows final landing and stops movement tail",
+      "passed": true,
+      "audio": {
+        "sessionId": "bc6968f6-8f2f-4e71-bfee-043642f310cc",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": true
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "normal then check at distinct landings",
+      "passed": true,
+      "audio": {
+        "sessionId": "37e8db7b-62b4-46f7-8993-561b1e18592e",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "ordinary move yields during active check",
+      "passed": true,
+      "audio": {
+        "sessionId": "37e8db7b-62b4-46f7-8993-561b1e18592e",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "large frame prioritizes checking landing",
+      "passed": true,
+      "audio": {
+        "sessionId": "e2853d61-57ba-4467-98b8-02eb81bb8ae3",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "undo before landing discards pending sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "e71fadeb-e37c-4343-a072-ab28f5abce60",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "settings and mute never replay interrupted sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "a2853f75-e1b4-44ee-a116-302ca7bfad9c",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "pc-21-9",
+      "name": "victory follows final landing and stops movement tail",
+      "passed": true,
+      "audio": {
+        "sessionId": "d55fc4e4-4d93-45e1-94d1-124a786304a7",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": true
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "normal then check at distinct landings",
+      "passed": true,
+      "audio": {
+        "sessionId": "b3a5fee7-bdc5-44b4-883a-90b28968c5f9",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "ordinary move yields during active check",
+      "passed": true,
+      "audio": {
+        "sessionId": "b3a5fee7-bdc5-44b4-883a-90b28968c5f9",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "large frame prioritizes checking landing",
+      "passed": true,
+      "audio": {
+        "sessionId": "c13c17d5-ad59-4d0e-acfc-a39385b61bd5",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "undo before landing discards pending sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "4b7330cc-7ab1-48ae-a13e-9080d482c056",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "settings and mute never replay interrupted sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "f8ca620a-a2d5-470c-9ed9-fb76fe3a1d3c",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "name": "victory follows final landing and stops movement tail",
+      "passed": true,
+      "audio": {
+        "sessionId": "eb6b7052-9c16-469e-8b08-492d5773a08c",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": true
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "normal then check at distinct landings",
+      "passed": true,
+      "audio": {
+        "sessionId": "64530c19-9e37-4dc5-8705-5565bcb095c7",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "ordinary move yields during active check",
+      "passed": true,
+      "audio": {
+        "sessionId": "64530c19-9e37-4dc5-8705-5565bcb095c7",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "large frame prioritizes checking landing",
+      "passed": true,
+      "audio": {
+        "sessionId": "60072292-4368-4358-b0a1-146404e36570",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "undo before landing discards pending sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "288fd21f-fd1b-4d40-8a1b-ef7d3bfca845",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "settings and mute never replay interrupted sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "af8a74b0-d30e-4cbb-8d07-741c490f14b8",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "victory follows final landing and stops movement tail",
+      "passed": true,
+      "audio": {
+        "sessionId": "566f74ff-d792-492b-829b-699123a86c7e",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": true
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "normal then check at distinct landings",
+      "passed": true,
+      "audio": {
+        "sessionId": "849e683f-a3ba-4f10-968d-8533789d8845",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "ordinary move yields during active check",
+      "passed": true,
+      "audio": {
+        "sessionId": "849e683f-a3ba-4f10-968d-8533789d8845",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.17,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": false
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50888,
+            "startedAt": 0.55,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "large frame prioritizes checking landing",
+      "passed": true,
+      "audio": {
+        "sessionId": "22eb1f5f-5c19-4bd9-a7e4-696ada28f85f",
+        "playerIndex": 1,
+        "sequence": 1,
+        "revision": 1,
+        "active": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50888,
+            "startedAt": 2.1,
+            "duration": 0.495,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "undo before landing discards pending sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "2d060cdd-023d-430f-b948-66d59f3abeec",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "settings and mute never replay interrupted sound",
+      "passed": true,
+      "audio": {
+        "sessionId": "fb5bdee6-9cb5-478e-887f-a7c4ba340c5f",
+        "playerIndex": 1,
+        "sequence": 0,
+        "revision": 0,
+        "active": [],
+        "recent": []
+      }
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "name": "victory follows final landing and stops movement tail",
+      "passed": true,
+      "audio": {
+        "sessionId": "ca2ffe9e-3c74-4576-93a8-3e02e81ef067",
+        "playerIndex": 1,
+        "sequence": 2,
+        "revision": 3,
+        "active": [
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ],
+        "recent": [
+          {
+            "instanceId": 1,
+            "audioId": 50882,
+            "startedAt": 0.5,
+            "duration": 0.151,
+            "alive": false,
+            "stopped": true
+          },
+          {
+            "instanceId": 2,
+            "audioId": 50228,
+            "startedAt": 0.5,
+            "duration": 3.09,
+            "alive": true,
+            "stopped": false
+          }
+        ]
+      }
+    }
+  ],
+  "sha256": "d5941ef1726feecf174698776e29ecbb782413499aa73a0e296970ea6f07554a"
+}

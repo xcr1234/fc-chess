@@ -173,5 +173,6 @@ function M.render(s)
 end
 function M.update(dt) if motion then Motion.update(motion,dt) end end
 function M.busy() return Motion.busy(motion) end
+function M.soundState() return Motion.soundState(motion) end
 function M.destroy() Screen.destroy(screen);screen=nil;root=nil;page=nil;overlay=nil;pageKind=nil;overlayKind=nil;motion=nil;moving=nil;movingArt=nil;movingGlyph=nil;movingSequence=nil;U.refs={} end
 return M

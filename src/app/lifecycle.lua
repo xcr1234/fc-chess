@@ -6,7 +6,7 @@ local Audio=require('audio.controller')
 local Completion=require('app.completion')
 local M={}
 local state,test,audio,completion
-local function render() Completion.sync(completion,state);Audio.sync(audio,state);View.render(state);if test then Bridge.render(state) end end
+local function render() Completion.sync(completion,state);View.render(state);Audio.sync(audio,state,View.soundState());if test then Bridge.render(state) end end
 function M.start()
  script:EnableUpdate(true)
  state=Session.new();audio=Audio.new();completion=Completion.new();test=script.object.name=='FCChessTestHost'

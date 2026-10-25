@@ -77,7 +77,8 @@ function appHarness({audio=false}={}) {
  const live=element(),hotspots=element();
  const scope={performance:{now:()=>now},document:{querySelector:s=>({'#screen':screen,'#status':live,'#hotspots':hotspots}[s]),createElement:()=>({...element(),getContext:()=>ctx})},window:{devicePixelRatio:1,addEventListener(){}},ResizeObserver:class{observe(){}},Image:class{},requestAnimationFrame(){}};
  vm.createContext(scope);
- if(audio)scope.Audio=class{constructor(src){this.src=src;}play(){sounds.push(this.src);return Promise.resolve();}pause(){}};
+ const voices=[];
+ if(audio)scope.Audio=class{constructor(src){this.src=src;this.paused=true;this.ended=false;voices.push(this);}play(){this.paused=false;this.ended=false;sounds.push(this.src);return Promise.resolve();}pause(){this.paused=true;}};
  vm.runInContext(readFileSync(new URL('../prototype/rules.js',import.meta.url),'utf8'),scope);
  vm.runInContext(readFileSync(new URL('../prototype/audio-catalog.js',import.meta.url),'utf8'),scope);
  vm.runInContext(readFileSync(new URL('../prototype/pixel-glyphs.js',import.meta.url),'utf8'),scope);
@@ -85,20 +86,20 @@ function appHarness({audio=false}={}) {
  // Test-local access to the real controller, not a shipped fixture/debug API.
  vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows,motionFrame};})();'),scope);
  const c=scope.controller;
- return {...c,sounds,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
+ return {...c,sounds,voices,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},settle(){now=c.state.motion.at(-1)?.end??now;c.frame(now);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
 }
 test('check audio: red and black checking moves replace ordinary move sounds',()=>{
  const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[0,8,'r']]),0);
- h.square(0,6);h.square(0,5);h.state.reply.move={from:pos(0,8),to:pos(3,8)};h.render(h.state.reply.due+1);
+ h.square(0,6);h.square(0,5);h.state.reply.move={from:pos(0,8),to:pos(3,8)};h.render(h.state.reply.due+1);h.settle();
  assert.deepEqual(h.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50888.mp3']);h.render(60000);assert.equal(h.sounds.length,2);
- const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);r.square(0,5);r.square(4,5);
+ const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);r.square(0,5);r.square(4,5);r.settle();
  assert.ok(r.sounds[0].endsWith('/50888.mp3'));
 });
 test('check audio: muted checks stay silent and king capture uses normal move sound',()=>{
  const h=appHarness({audio:true});h.settingsAction('SettingsButton');h.settingsAction('SfxToggle');h.settingsAction('SettingsBack');
  h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,5,'R']]),0);h.square(0,5);h.square(4,5);assert.equal(h.sounds.length,0);
  const r=appHarness({audio:true});r.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);r.square(4,5);r.square(4,0);
- assert.equal(r.state.scene,'result');assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50228.mp3']);
+ assert.equal(r.state.scene,'result');r.settle();assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50228.mp3']);
 });
 test('settings: shared choice, mute, sound toggle and persistence across a new match',()=>{
  const h=appHarness();h.settingsAction('SettingsButton');assert.equal(h.state.scene,'audio-settings');
@@ -147,7 +148,7 @@ test('result review: defeat restores both final plies and resignation without hi
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
 });
 test('result audio: defeated king and confirmed resignation use the metal door sound; mute stays silent',()=>{
- const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);assert.ok(h.sounds.at(-1).endsWith('/50265.mp3'));
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);h.settle();assert.ok(h.sounds.at(-1).endsWith('/50265.mp3'));
  const r=appHarness({audio:true});r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('cancel');assert.equal(r.sounds.length,0);
  r.input('ok');r.input('left');r.input('ok');assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50265.mp3']);r.render(5000);assert.equal(r.sounds.length,1);
  const m=appHarness({audio:true});m.state.audio.sfx=false;m.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);m.square(4,5);m.square(4,0);assert.equal(m.sounds.length,0);
@@ -226,4 +227,21 @@ test('move animation: capture target lasts until landing and result input waits 
  const m=h.state.motion[0];assert.equal(h.motionFrame(m.start+100).board[pos(4,0)],'k');
  h.state.resultIndex=2;h.input('ok');assert.equal(h.state.scene,'result');
  h.render(m.end);assert.equal(h.motionFrame().board[pos(4,0)],'R');h.input('ok');assert.equal(h.state.scene,'result-review');
+});
+
+test('audio animation: near-instant reply sounds at separate landings and check stops ordinary tail',()=>{
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[0,8,'r']]),0);
+ h.square(0,6);h.square(0,5);h.state.reply.move={from:pos(0,8),to:pos(3,8)};h.state.reply.due=0;h.render(0);
+ assert.equal(h.state.motion.length,2);assert.equal(h.sounds.length,0);
+ h.render(160);assert.deepEqual(h.sounds.map(s=>s.split('/').at(-1)),['50882.mp3']);
+ h.settle();assert.deepEqual(h.sounds.map(s=>s.split('/').at(-1)),['50882.mp3','50888.mp3']);
+ assert.equal(h.voices.find(v=>v.src.endsWith('/50882.mp3')).paused,true);
+ h.square(0,5);h.square(0,4);h.settle();assert.equal(h.sounds.length,2,'ordinary sound overlapped check tail');
+});
+
+test('audio animation: large frame gives check priority and mute never replays pending sound',()=>{
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[0,8,'r']]),0);
+ h.square(0,6);h.square(0,5);h.state.reply.move={from:pos(0,8),to:pos(3,8)};h.state.reply.due=0;h.render(0);h.settle();
+ assert.deepEqual(h.sounds.map(s=>s.split('/').at(-1)),['50888.mp3']);
+ const m=appHarness({audio:true});m.input('ok');m.square(0,6);m.square(0,5);m.settingsAction('SettingsButton');m.settingsAction('SfxToggle');m.settingsAction('SfxToggle');m.settingsAction('SettingsBack');m.render(1000);assert.equal(m.sounds.length,0);
 });

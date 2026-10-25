@@ -462,3 +462,9 @@
 - runtime=simulator；完整85用例/349断言通过，fc-wait-simulator.json。新增中点30、书库未知30、手机计算3秒后13秒前不落子/23秒后落子；范围探针只校验10–20整数，不改变随机值。初测书库悔棋旧20秒应已回棋的预期失效，fc-wait-initial-simulator.json；保留全部动作/棋形校验，增加20秒仍等待、31秒已回棋，dt=.1后通过。原有快棋/自定义/音效/结算回归通过。
 - runtime=filesystem；33模块，2026-10-25 18:21:31.248 +08:00，已deploy无冲突备份替换既定游戏main.lua，源/目标/两存档/交付副本SHA-256一致。模拟器与发布仅生成时间戳不同，替换全部时间戳后哈希核验通过。fc-wait-deploy.json，export/2026-10-25-fc-wait/main.lua。
 - runtime=device-pending；沿用挂载/索引/FCChessWin，不需新GIA或服务端接线。用户保存重新试玩，观察单着随机、一般复杂局面节奏及等待期取消；真实整局均值/中位数未采样，不由20–40范围或30中点推定。
+
+# 2026-10-25：落定音效和将军优先
+
+- runtime=lua；旧实现有效Red“move sounds played before either piece landed”→新7项Green：分时落定、将军停止普通尾音、将军存活时普通声让位、同批合并优先、途中撤销、静音不补播、结果延后、真实Motion进度接入。动画7、将军9、音频13、结果音5、核心11、HTML28和静态85通过。
+- runtime=simulator；五画布30声音流程通过，records/audio-animation-simulator.json；固定回复夹具只验证调度，不作自然AI棋力证据。示例普通声startedAt=0.17，将军声0.55；之后普通走棋不会插入仍活跃的将军声。大dt同时落定只响将军，途中悔棋/设置静音不补播旧步；吃将结果声在最后动画完成时发出，旧普通实例有stopped记录。完整85用例344断言通过，audio-animation-regression.json。
+- runtime=filesystem；34模块，2026-10-25 21:17:34.354 +08:00已deploy无冲突备份替换既定游戏目标，同步两存档和交付副本并核对SHA-256，见audio-animation-deploy.json。仅核验请求/顺序/时刻/实例状态，未将模拟器记录当作实际声音；编辑器重新加载与真机混音听感待用户试听。

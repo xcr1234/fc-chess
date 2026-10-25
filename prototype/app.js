@@ -33,7 +33,11 @@
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
   state.motion=[];
   function advanceMotion(now=performance.now()) {
-    while(state.motion[0]&&now>=state.motion[0].end)state.motion.shift();
+    const landed=[];
+    while(state.motion[0]&&now>=state.motion[0].end)landed.push(state.motion.shift());
+    const hasCheck=landed.some(m=>m.checking&&m.soundEnabled);
+    for(const m of landed)if(m.soundEnabled&&(m.checking||!hasCheck))playMoveSound(m.checking);
+    if(!state.motion.length&&state.pendingResultSound){const id=state.pendingResultSound;state.pendingResultSound=null;playEffect(id);}
   }
   function motionFrame(now=performance.now()) {
     advanceMotion(now);const m=state.motion[0];
@@ -69,7 +73,7 @@
       else if(name==='MusicButton'){state.musicPage=0;state.musicCategory=0;state.scene='music-select';}
       else if(name==='VolumeDown')state.audio.volume=Math.max(0,state.audio.volume-10);
       else if(name==='VolumeUp')state.audio.volume=Math.min(100,state.audio.volume+10);
-      else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx)for(const voice of moveVoices.values())voice.pause();}
+      else if(name==='SfxToggle'){state.audio.sfx=!state.audio.sfx;if(!state.audio.sfx){for(const voice of moveVoices.values())voice.pause();for(const m of state.motion)m.soundEnabled=false;state.pendingResultSound=null;}}
     }else if(state.scene==='music-select'){
       const id=Number(name.match(/^PickMusic_(\d+)$/)?.[1]),category=Number(name.match(/^MusicCategory_(\d)$/)?.[1]);
       if(name==='MusicBack')state.scene='audio-settings';
@@ -83,6 +87,8 @@
   const moveVoices=new Map();
   function playEffect(id){
     if(!state.audio.sfx||typeof Audio==='undefined')return;
+    if(id===50882){const check=moveVoices.get(50888);if(check?.paused===false&&!check.ended)return;}
+    else if([50888,50228,50265].includes(id))for(const sound of [50882,50888])moveVoices.get(sound)?.pause();
     if(!moveVoices.has(id))moveVoices.set(id,new Audio(`https://oss.070077.xyz/audio/${id}.mp3`));
     const voice=moveVoices.get(id);
     voice.currentTime=0;voice.play()?.catch(()=>{});
@@ -90,19 +96,19 @@
   function playMoveSound(checking){playEffect(checking?50888:50882);}
   function announce(message) { state.message = message; live.textContent = message; }
   function resetGame(board = initialBoard(), mode = state.menu) {
-    state.motion=[];
+    state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now());
     Object.assign(state, { scene: 'game', mode, board: board.slice(), initial: board.slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, moves: 0 });
     announce('紅方走棋');
   }
   function enterEdit() {
-    state.motion=[];
+    state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now()); clock.stop(performance.now());
     Object.assign(state, {scene: 'edit', mode: 2, board: (draft || initialBoard()).slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', reply: null, history: [], moves: 0, modal: null, palette: null});
     announce('點擊己方棋子，修改棋種');
   }
   function toMenu() {
-    state.motion=[];
+    state.motion=[];state.pendingResultSound=null;
     if (state.scene === 'edit') draft = state.board.slice();
     generation++; clock.stop(performance.now());
     Object.assign(state, {scene: 'menu', selected: null, reply: null, modal: null, palette: null, zone: 'board'});
@@ -222,7 +228,7 @@
     generation++; clock.stop(performance.now());
     Object.assign(state, {reply: null, selected: null, scene: 'result', resultIndex: 0, modal: null, resultTitle: title, resultReason: reason});
     announce(`${title}，${reason}`);
-    if(outcome)playEffect(outcome==='win'?50228:50265);
+    if(outcome&&state.audio.sfx){state.pendingResultSound=outcome==='win'?50228:50265;if(!state.motion.length)advanceMotion();}
   }
   function beginTurn(side) {
     state.turn = side; clock.start(side, performance.now());
@@ -243,7 +249,7 @@
     state.motion.push({from,to,piece:state.board[from],before:state.board.slice(),start,end:start+duration});
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
-    playMoveSound(!capturedKing && threatensKing(state.board,side,state.mode===2));
+    const sound=state.motion.at(-1);sound.checking=!capturedKing&&threatensKing(state.board,side,state.mode===2);sound.soundEnabled=state.audio.sfx;
     if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃',side==='red'?'win':'lose'); return; }
     beginTurn(side === 'red' ? 'black' : 'red');
   }
