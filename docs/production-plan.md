@@ -1,9 +1,9 @@
-# 完成通知简化（2026-10-25）
+# 只处理胜利完成（2026-10-25）
 
-- 用户要求服务端只做最简单的直接调用，所有逻辑放Lua。本次窄修复覆盖旧FCChessCompletion(Bool,Int)+服务端变量/分支方案；沿用步骤5/6/7，不改UI和规则。
-- Lua选择无参数FCChessWin/FCChessLose/FCChessDraw；初始化/重连/重开不发重置，不需要服务端记忆变量。每个真实监听只设固定结算枚举和逃跑合法性为是，不连接结算关卡。当前API和节点参数经miliastra-toolbox官方正文复核，无新增接口。
-- 完成Lua7项新契约Red→Green，回看Lua7、音频Lua13通过。模拟器使用发布同次产物，PC/手机各10流程记录completion-simple-simulator.json；原生ESC和平台重连属性待用户接线后验证。旧82用例/338断言是上一版历史证据，不算本轮运行。
-- 已deploy，33模块，构建2026-10-25 10:29:31.739 +08:00，无冲突备份替换；交付export/2026-10-25-completion-simple/main.lua，哈希记录completion-simple-deploy.json。当前步骤7：按completion-integration.md接三条直接调用链、保存重新试玩，无新GIA或映射。
+- 最新用户要求：只在胜利时通知，没胜利则认输/失败/ESC沿用默认未完成。覆盖旧三信号及未交付的一信号胜负参数方案。窄修复步骤5/6/7，不改UI与棋规。
+- Lua只有completedOutcome=1时发无参数FCChessWin并去重；服务端一条链设固定胜利与合法退出，无参数、变量、分支和结算关卡。赢过后回看/重开/后来失败不撤销本次游玩已获得资格。
+- 7项新契约测试旧实现6个失败→新实现7项Green，回看7项回归通过。PC/手机各10流程见victory-only-simulator.json，区分失败/认输0次、胜利1次及胜后失败不撤销。旧82/338及声音13为历史证据，本次不重复无关测试。
+- 单文件交付export/2026-10-25-victory-only/main.lua，发布校验victory-only-deploy.json。当前步骤7：已deploy并同步存档，真实编辑器只需接FCChessWin这一条链并核验ESC，无新GIA或映射。
 
 # BGM50%与44车一键开局（2026-10-25）
 

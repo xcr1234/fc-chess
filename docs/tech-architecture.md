@@ -1,12 +1,10 @@
 # 第 5 步 Lua 架构与挂载
 
-## 2026-10-25 完成请求简化
+## 2026-10-25 仅胜利通知
 
-`game.session`保留completionSequence（初始0）及completedOutcome（初始nil）。finish按win/lose/中性设置1/2/0并增序。`app.completion`按结果选择无参数FCChessWin/FCChessLose/FCChessDraw；每序号只尝试一次，pcall处理信号未配置，后续终局可再发送。声音消费独立，不调用结束关卡。
+`app.completion.sync`只处理session.completedOutcome=1，按completionSequence去重，发送无参数FCChessWin；其余结果立即返回。pcall处理信号缺失，每个胜利序号只尝试一次，下次胜利可再尝试；声音事件消费独立。初始化、重连、重开、悔棋和destroy不发撤销通知，因此不清除平台已有胜利。
 
-冷启动/客户端重建的completedOutcome为nil，sync立即返回，不写服务端状态。start/menu/undo/restart/destroy均不撤销已有完成，因此删除原先初始化否请求及服务端标记保护。客户端不重置平台属性；平台自身重连保留行为待真机核验。
-
-服务端各监听只设置固定结算枚举，再设置逃跑合法性为是；无变量、条件或分支。[接线说明](completion-integration.md)。模拟器FCChessCompletionFlag/Outcome是3条无条件记录动作产生的探针，与真实属性区分。
+服务端只监听并设置两个固定值：结算状态胜利、逃跑合法性是，无变量/分支/结束关卡。[接线说明](completion-integration.md)。模拟器FCChessVictoryReceived为接收请求探针，与真实平台属性区分。平台自身重连时是否保留属性仍须真机核验。
 
 ## 2026-10-25 44车直开与50%默认音量
 

@@ -439,3 +439,11 @@
 - runtime=simulator；发布同次SHA-256，PC/手机各10流程通过，completion-simple-simulator.json；冷启动/未完成/取消认输0通知，首次终局1次，连下两盘2次，继续操作不重复。接收探针仅常量记录，无动态参数或分支；原生属性仍未模拟。本次无UI或规则修改，复用原布局证据，上一版82/338为历史结果。
 - runtime=filesystem；33模块，2026-10-25 10:29:31.739 +08:00，已deploy无冲突备份替换，源/目标/两存档/交付副本/20流程报告SHA-256一致。export/2026-10-25-completion-simple/main.lua，completion-simple-deploy.json。
 - runtime=device-pending；真实编辑器仍需接上三条固定调用链，旧FCChessCompletion监听/FCChessHasFinishedRound不用。开局/重连不发重置，因此无需服务端变量；平台自身重连保留属性、玩家绑定及ESC标签待真实验证。
+
+# 2026-10-25：仅胜利完成
+
+- 最新用户明确只处理胜利，没胜利则认输/失败/ESC默认未完成；覆盖旧三信号方案。未交付的胜负布尔参数草稿已移除。Lua只在completedOutcome=1发送无参数FCChessWin，失败/认输/中性/初始化/重连均0通知。曾赢过后不主动撤销本次完成资格。
+- runtime=lua-model；新契约7项旧实现6失败→新实现7通过，victory-only-red/green.txt。覆盖真实吃将/失帅、认输取消及确认、回看/悔棋/重开/后来失败保持已有胜利、中性不覆盖以及缺信号下次胜利可重试；预期故障注入错误1次。回看7项回归通过，无无关规则或UI变化。
+- runtime=simulator；PC/手机各10流程通过，victory-only-simulator.json。未结束/失败/认输0通知，胜利1次，胜后再输仍只有1次；继续操作/重绘不重复。探针只记胜利请求，不代表已设置平台属性。
+- runtime=filesystem；33模块，2026-10-25 17:39:26.443 +08:00，已deploy无冲突备份替换，dist/游戏目标/两存档/交付副本SHA-256一致；模拟器版本与发布仅所有生成时间戳不同，替换全部时间戳后哈希核验通过（首次仅替换文件头比对不通过，修正核验方式后通过，游戏源码未变）。export/2026-10-25-victory-only/main.lua，victory-only-deploy.json。
+- runtime=device-pending；原生编辑器仅需FCChessWin一条监听，固定设置胜利和逃跑合法性是，无参数/变量/分支/结算关卡。真实节点尚待用户接线保存，ESC未获胜默认未完成与胜后正常退出待真机验证。

@@ -1,0 +1,31 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 17:39:26.443 +08:00",
+  "modules": 33,
+  "sha256": "d2e609614ff57431fb81b21d75ddf9c3d946159121b5cd56de2e453f710fb2fc",
+  "action": "replace",
+  "conflict": false,
+  "dryRun": false,
+  "backup": ".lua-deploy-backups/1792921166553-21563321-d728-44b8-891e-888c1a137f84.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-victory-only/main.lua"
+  ],
+  "checks": {
+    "completionLua": 7,
+    "resultReviewLua": 7,
+    "completionSimulatorScenarios": 20
+  },
+  "simulatorSHA256": "311f890f1a9e7f5ae0c12f816594db8b1c72569d8b90e4c6de5fb05f83baafaa",
+  "testedBuild": "2026-10-25 17:38:15.714 +08:00",
+  "onlyBuildTimestampChanged": true,
+  "signal": "FCChessWin",
+  "parameters": 0,
+  "serverBranches": 0,
+  "nativeGraph": "pending manual wiring: fixed victory then legal exit",
+  "nativeESC": "not verified",
+  "forcedLevelSettlement": false
+}

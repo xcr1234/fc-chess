@@ -1,19 +1,13 @@
-# 完成通知：Lua判断，服务端直接调用
+# 只在胜利时允许完成退出
 
-新建以下3个信号，**全部不加参数**。每个监听事件只串联两个设置节点：
+只建一个**无参数**信号 `FCChessWin`，放在同一个服务端节点图里即可：
 
-| 监听信号 | 设置玩家结算成功状态 | 设置玩家逃跑合法性 |
-| --- | --- | --- |
-| `FCChessWin` | 胜利 | 是 |
-| `FCChessLose` | 失败 | 是 |
-| `FCChessDraw` | 未定 | 是 |
+**监听FCChessWin → 设置玩家结算成功状态=胜利 → 设置玩家逃跑合法性=是**
 
-接线顺序：**监听信号 → 设置玩家结算成功状态 → 设置玩家逃跑合法性**。两个节点的玩家实体均接本次发信号的玩家，沿用已接通BGM链路的玩家取法。
+两个设置节点的玩家实体接本次发信号的玩家，沿用BGM链路的玩家取法。不需要参数、变量或分支，**不连接「结算关卡」**。
 
-服务端不需要参数、变量、判断或分支；不要连接「结算关卡」。原方案的`FCChessCompletion`监听及`FCChessHasFinishedRound`标记不再使用，可删除。
+Lua只在玩家获胜时发送一次。认输、失败、中性结束、未结束、重开及重连均不发送，不修改平台默认状态；本次游玩没赢过时，ESC仍按默认显示未完成。赢过后回看、悔棋或再开一盘不撤销已经获得的完成资格。
 
-Lua负责判断胜负、认输及中性结束，选择信号，并防止重绘重复发送。初次启动、重连、重开、悔棋和返回标题均不发重置信号，因此不会主动清除服务端已有完成状态；下一盘结束时直接更新最近结果。销毁也不重置。
+旧FCChessLose/FCChessDraw/FCChessResult/FCChessCompletion监听和完成标记变量不再使用。Lua已deploy，服务端仍需手动接上面这一条链，保存重新试玩检查胜利和未获胜两种ESC结果。
 
-Lua已通过deploy复制，真实服务端仍需手动接上上述三条链。保存重新试玩：未结束时保持当前关卡默认状态，胜/负/确认认输后能回看、再来并正常ESC退出；取消认输不发通知。重连后客户端不发通知覆盖旧结果，平台自身是否保留玩家属性需真机核验。
-
-参考：[客户端控件API](https://act.mihoyo.com/ys/ugc/tutorial/detail/mhtakr07vej4)的ServerSignal/SendSignal，[执行节点](https://act.mihoyo.com/ys/ugc/tutorial/detail/mhw66orrrfkm)的两个玩家设置节点。
+依据：[客户端控件API](https://act.mihoyo.com/ys/ugc/tutorial/detail/mhtakr07vej4)的ServerSignal/SendSignal，[执行节点](https://act.mihoyo.com/ys/ugc/tutorial/detail/mhw66orrrfkm)的两个玩家设置节点。

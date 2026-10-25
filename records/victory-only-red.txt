@@ -1,0 +1,13 @@
+
+> miliastra-template@0.1.0 test:lua:completion
+> node scripts/run-lua-check.mjs tests/lua-completion.lua
+
+PASS cold session menus and starting send no reset or completion
+FAIL real king capture sends victory once even after result audio has consumed its events: [string "package.preload["app.log"]=function()..."]:11155: wrong victory signal
+FAIL real defeat never notifies the server: [string "package.preload["app.log"]=function()..."]:11177: assertion failed!
+FAIL cancelled and confirmed resignation never notify the server: [string "package.preload["app.log"]=function()..."]:11182: assertion failed!
+FAIL review undo restart menu and later loss cannot revoke a victory: [string "package.preload["app.log"]=function()..."]:11155: wrong victory signal
+FAIL neutral result sends nothing and cannot overwrite an earlier win: [string "package.preload["app.log"]=function()..."]:11155: wrong victory signal
+[fc-chess][error] completion-request failed: [string "package.preload["app.log"]=function()..."]:11143: unconfigured signal
+FAIL missing signal cannot crash or retry every frame; next victory can retry: [string "package.preload["app.log"]=function()..."]:11155: wrong victory signal
+[string "package.preload["app.log"]=function()..."]:11201: 6 completion failures
