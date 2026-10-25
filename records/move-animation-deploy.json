@@ -1,0 +1,41 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 20:57:05.820 +08:00",
+  "modules": 34,
+  "sha256": "00da7d5664a201463f5096b0142fe723b9d43a9bd08c71283096f7baec75151b",
+  "action": "replace",
+  "conflict": false,
+  "dryRun": false,
+  "deployedAt": "2026-10-25T12:57:05.952Z",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-move-animation/main.lua"
+  ],
+  "testedBuild": "2026-10-25 20:50:54.358 +08:00",
+  "testedSHA256": "6aee85bf85521113c15f4bd7900085c356776486aa8e5bc440ba5d0c061ca366",
+  "onlyBuildTimestampChanged": true,
+  "checks": {
+    "animationLua": 7,
+    "coreLua": 11,
+    "feedbackLua": 6,
+    "audioLua": 13,
+    "resultReviewLua": 7,
+    "screenLua": 4,
+    "prototype": 26,
+    "staticCases": 85,
+    "motionCanvases": 5,
+    "artFlows": 40,
+    "artAssertions": 830,
+    "simulatorCases": 85,
+    "simulatorAssertions": 344
+  },
+  "targetedRed": "selected square frame still drawn; old production UI failed the new selection test",
+  "initialRegression": "records/move-animation-initial.json documents old frame expectations and input/result timings, subsequently updated for animation",
+  "preexistingTestFix": "lua-feedback growth test also failed with HEAD session; set explicit 4-second fixture wait to isolate counter from current random 10-20-second difficulty wait",
+  "nativeRetest": "pending editor save/reload and device observation",
+  "finalSimulatorSHA256": "00da7d5664a201463f5096b0142fe723b9d43a9bd08c71283096f7baec75151b",
+  "backup": ".lua-deploy-backups/1792933025935-e3d9f32e-beb2-4c39-b8ff-943e5eb9f0cb.lua"
+}

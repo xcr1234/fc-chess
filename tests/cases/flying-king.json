@@ -57,7 +57,7 @@
     },
     {
       "kind": "control",
-      "at": 0.5,
+      "at": 1,
       "id": "",
       "name": "ResultTitle",
       "field": "text",

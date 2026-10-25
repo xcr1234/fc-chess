@@ -30,7 +30,7 @@
       }
     },
     {
-      "t": 0.6000000000000001,
+      "t": 1.4,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "t": 0.8,
+      "t": 1.6,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -46,7 +46,7 @@
       }
     },
     {
-      "t": 1,
+      "t": 1.8,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -57,7 +57,7 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 0.5,
+      "at": 1.3,
       "id": "",
       "name": "ReturnBoardButtonLabel",
       "field": "text",
@@ -65,7 +65,7 @@
     },
     {
       "kind": "control",
-      "at": 1.2,
+      "at": 2,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -73,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 1.2,
+      "at": 2,
       "id": "",
       "name": "SelectedSquare",
       "field": "text",
@@ -81,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 1.2,
+      "at": 2,
       "id": "",
       "name": "Piece_4_0",
       "field": "text",
@@ -89,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 1.2,
+      "at": 2,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -97,7 +97,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.8,
       "id": "",
       "name": "RedStepTime",
       "field": "text",
@@ -105,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.8,
       "id": "",
       "name": "StatusText",
       "field": "text",

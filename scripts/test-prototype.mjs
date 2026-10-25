@@ -83,7 +83,7 @@ function appHarness({audio=false}={}) {
  vm.runInContext(readFileSync(new URL('../prototype/pixel-glyphs.js',import.meta.url),'utf8'),scope);
  const app=readFileSync(new URL('../prototype/app.js',import.meta.url),'utf8');
  // Test-local access to the real controller, not a shipped fixture/debug API.
- vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows};})();'),scope);
+ vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows,motionFrame};})();'),scope);
  const c=scope.controller;
  return {...c,sounds,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
 }
@@ -133,7 +133,7 @@ test('real preview controller: quick reply has no artificial delay',()=>{
 });
 test('result review: victory stays frozen until confirmed undo restores the king and permits play',()=>{
  const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');
- h.input('down');h.input('down');h.input('ok');assert.equal(h.state.scene,'result-review');const ended=Array.from(h.state.board),times=[h.clock.red,h.clock.black];
+ h.render(1000);h.input('down');h.input('down');h.input('ok');assert.equal(h.state.scene,'result-review');const ended=Array.from(h.state.board),times=[h.clock.red,h.clock.black];
  h.square(4,0);h.square(4,1);h.render(60000);assert.deepEqual(Array.from(h.state.board),ended);assert.deepEqual([h.clock.red,h.clock.black],times);assert.equal(h.state.selected,null);assert.equal(h.sounds.length,2);
  h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('ok');assert.equal(h.state.scene,'result-review');assert.equal(h.state.moves,1);
  h.input('ok');h.input('left');h.input('ok');assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(4,0)],'k');assert.equal(h.sounds.length,2);
@@ -141,7 +141,7 @@ test('result review: victory stays frozen until confirmed undo restores the king
 });
 test('result review: defeat restores both final plies and resignation without history stays locked',()=>{
  const h=appHarness();h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);assert.equal(h.state.scene,'result');assert.equal(h.state.moves,2);
- h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
+ h.render(1000);h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
  const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
@@ -201,6 +201,7 @@ test('real controller: identical positions may repeat without draw or perpetual-
   const a=i%2===0?0:1,b=1-a;h.square(a,5);h.square(b,5);
   h.state.reply.move={from:pos(i%2===0?8:7,3),to:pos(i%2===0?7:8,3)};
   h.render(h.state.reply.due+1);
+  h.render(h.state.motion.at(-1)?.end||h.state.reply?.due||0);
  }
  assert.equal(h.state.moves,12);assert.equal(h.state.scene,'game');assert.equal(h.state.turn,'red');assert.equal(h.state.board[pos(0,5)],'R');
 });
@@ -208,4 +209,21 @@ test('real controller: exposed red king is captured and produces defeat',()=>{
  const h=appHarness();h.resetGame(board([[4,9,'K'],[0,0,'k'],[4,5,'r'],[0,6,'P']]),1);
  h.square(0,6);h.square(0,5);
  assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您落敗了');assert.equal(h.state.resultReason,'紅帥被吃');assert.equal(h.state.moves,2);
+});
+
+test('move animation: both sides queue, intermediate position, input lock and undo cancellation',()=>{
+ const h=appHarness();h.state.menu=1;h.input('ok');h.square(0,6);h.square(0,5);
+ assert.equal(h.state.moves,2);assert.equal(h.state.motion.length,2);
+ const first=h.state.motion[0],middle=(first.start+first.end)/2;
+ let f=h.motionFrame(middle);assert.equal(f.x,56);assert.equal(f.y,136);assert.equal(f.piece,'P');assert.equal(f.board[pos(0,6)],null);
+ h.time(middle);h.square(2,6);assert.equal(h.state.selected,null);assert.equal(h.state.moves,2);
+ h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
+ assert.equal(h.state.motion.length,0);assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(0,6)],'P');
+});
+
+test('move animation: capture target lasts until landing and result input waits for final frame',()=>{
+ const h=appHarness();h.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);h.square(4,5);h.square(4,0);
+ const m=h.state.motion[0];assert.equal(h.motionFrame(m.start+100).board[pos(4,0)],'k');
+ h.state.resultIndex=2;h.input('ok');assert.equal(h.state.scene,'result');
+ h.render(m.end);assert.equal(h.motionFrame().board[pos(4,0)],'R');h.input('ok');assert.equal(h.state.scene,'result-review');
 });

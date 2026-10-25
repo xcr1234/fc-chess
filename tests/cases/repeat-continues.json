@@ -30,47 +30,15 @@
       }
     },
     {
-      "t": 0.6,
+      "t": 1,
       "source": "user",
       "kind": "click",
       "payload": {
         "name": "Square_1_5"
-      }
-    },
-    {
-      "t": 0.8,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_0_5"
-      }
-    },
-    {
-      "t": 1.0,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_0_5"
       }
     },
     {
       "t": 1.2,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_1_5"
-      }
-    },
-    {
-      "t": 1.4,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_1_5"
-      }
-    },
-    {
-      "t": 1.6,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -86,7 +54,7 @@
       }
     },
     {
-      "t": 2.0,
+      "t": 2,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -94,7 +62,7 @@
       }
     },
     {
-      "t": 2.2,
+      "t": 2.6,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -102,7 +70,39 @@
       }
     },
     {
-      "t": 2.4,
+      "t": 2.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 3.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 3.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_1_5"
+      }
+    },
+    {
+      "t": 4.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_1_5"
+      }
+    },
+    {
+      "t": 4.4,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -121,7 +121,7 @@
     },
     {
       "kind": "control",
-      "at": 2.5,
+      "at": 5,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -129,7 +129,7 @@
     },
     {
       "kind": "control",
-      "at": 2.5,
+      "at": 5,
       "id": "",
       "name": "MoveCount",
       "field": "text",

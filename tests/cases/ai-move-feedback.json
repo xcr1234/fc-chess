@@ -67,7 +67,7 @@
       "kind": "control",
       "at": 0.1,
       "id": "",
-      "name": "AILastFrom",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },
@@ -75,7 +75,7 @@
       "kind": "control",
       "at": 0.6,
       "id": "",
-      "name": "AILastTo",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },
@@ -91,41 +91,9 @@
       "kind": "control",
       "at": 3.5,
       "id": "",
-      "name": "AILastFrom",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": true
-    },
-    {
-      "kind": "control",
-      "at": 3.5,
-      "id": "",
-      "name": "AILastTo",
-      "field": "visible",
-      "equals": true
-    },
-    {
-      "kind": "control",
-      "at": 3.5,
-      "id": "",
-      "name": "AILastFrom",
-      "field": "anchoredPositionX",
-      "equals": -72
-    },
-    {
-      "kind": "control",
-      "at": 3.5,
-      "id": "",
-      "name": "AILastFrom",
-      "field": "anchoredPositionY",
-      "equals": 16
-    },
-    {
-      "kind": "control",
-      "at": 3.5,
-      "id": "",
-      "name": "AILastTo",
-      "field": "anchoredPositionY",
-      "equals": 0
     },
     {
       "kind": "control",
@@ -139,23 +107,15 @@
       "kind": "control",
       "at": 4.1,
       "id": "",
-      "name": "Selection_57",
-      "field": "visible",
-      "equals": true
+      "name": "SelectedSquare",
+      "field": "text",
+      "equals": "2,6"
     },
     {
       "kind": "control",
       "at": 4.1,
       "id": "",
-      "name": "AILastTo",
-      "field": "visible",
-      "equals": true
-    },
-    {
-      "kind": "control",
-      "at": 4.4,
-      "id": "",
-      "name": "AILastFrom",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },
@@ -163,7 +123,7 @@
       "kind": "control",
       "at": 4.4,
       "id": "",
-      "name": "AILastTo",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },

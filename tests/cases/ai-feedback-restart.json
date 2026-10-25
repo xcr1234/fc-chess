@@ -99,9 +99,9 @@
       "kind": "control",
       "at": 1.6,
       "id": "",
-      "name": "AILastTo",
+      "name": "MovingPiece",
       "field": "visible",
-      "equals": true
+      "equals": false
     },
     {
       "kind": "control",
@@ -115,7 +115,7 @@
       "kind": "control",
       "at": 2.6,
       "id": "",
-      "name": "AILastTo",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },
@@ -131,7 +131,7 @@
       "kind": "control",
       "at": 3.6,
       "id": "",
-      "name": "AILastFrom",
+      "name": "MovingPiece",
       "field": "visible",
       "equals": false
     },

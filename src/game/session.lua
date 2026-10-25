@@ -9,6 +9,7 @@ local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
 function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={},completionSequence=0} end
 function M.cancel(s,reason)
+ if reason~='result' then s.visualEpoch=(s.visualEpoch or 0)+1;s.visualMoves={} end
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
 end
@@ -58,8 +59,12 @@ function M.commit(s,m)
   if s.job and s.job.nextSeed then s.bookSeed=s.job.nextSeed end
   s.lastAiMove={m[1],m[2]};Counter.finish(s.aiCounter)
  end
- local captured=s.board[m[2]];s.board[m[2]]=s.board[m[1]];s.board[m[1]]='';s.moves=s.moves+1;s.selected=nil
+ local before=B.copy(s.board);local piece=s.board[m[1]]
+ local captured=s.board[m[2]];s.board[m[2]]=piece;s.board[m[1]]='';s.moves=s.moves+1;s.selected=nil
  s.moveSoundSequence=s.moveSoundSequence+1
+ s.visualMoves=s.visualMoves or {}
+ s.visualMoves[#s.visualMoves+1]={sequence=s.moveSoundSequence,from=m[1],to=m[2],piece=piece,before=before}
+ if #s.visualMoves>8 then table.remove(s.visualMoves,1) end
  s.moveSoundChecks[s.moveSoundSequence]=captured~='k' and captured~='K' and B.threatensKing(s.board,s.turn,s.custom)
  if s.moveSoundChecks[s.moveSoundSequence] then Log.event('check',s.turn..' count='..s.moves) end
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)

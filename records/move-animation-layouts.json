@@ -1,0 +1,167 @@
+{
+  "runtime": "simulator",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "checks": [
+        "pointer selects dark background, no frames",
+        "deselect restores white",
+        "midpoint y=-24; rapid click ignored; landing not painted",
+        "undo during movement cancels old artwork",
+        "10 idle redraws keep control count"
+      ],
+      "screenshots": [
+        "records/screenshots/move-animation-selected-pc-16-9.png",
+        "records/screenshots/move-animation-midpoint-pc-16-9.png"
+      ],
+      "midpoint": {
+        "id": 1839,
+        "parent": 933,
+        "z": 16,
+        "group": false,
+        "matrix": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1,
+          "tx": -72,
+          "ty": -24
+        },
+        "kind": "container",
+        "name": "MovingPiece",
+        "sourceWidth": 16,
+        "sourceHeight": 16,
+        "pressed": false
+      },
+      "passed": true
+    },
+    {
+      "canvasId": "pc-21-9",
+      "checks": [
+        "pointer selects dark background, no frames",
+        "deselect restores white",
+        "midpoint y=-24; rapid click ignored; landing not painted",
+        "undo during movement cancels old artwork",
+        "10 idle redraws keep control count"
+      ],
+      "screenshots": [],
+      "midpoint": {
+        "id": 1839,
+        "parent": 933,
+        "z": 16,
+        "group": false,
+        "matrix": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1,
+          "tx": -72,
+          "ty": -24
+        },
+        "kind": "container",
+        "name": "MovingPiece",
+        "sourceWidth": 16,
+        "sourceHeight": 16,
+        "pressed": false
+      },
+      "passed": true
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "checks": [
+        "pointer selects dark background, no frames",
+        "deselect restores white",
+        "midpoint y=-24; rapid click ignored; landing not painted",
+        "undo during movement cancels old artwork",
+        "10 idle redraws keep control count"
+      ],
+      "screenshots": [
+        "records/screenshots/move-animation-selected-mobile-16-9.png",
+        "records/screenshots/move-animation-midpoint-mobile-16-9.png"
+      ],
+      "midpoint": {
+        "id": 1839,
+        "parent": 933,
+        "z": 16,
+        "group": false,
+        "matrix": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1,
+          "tx": -72,
+          "ty": -24
+        },
+        "kind": "container",
+        "name": "MovingPiece",
+        "sourceWidth": 16,
+        "sourceHeight": 16,
+        "pressed": false
+      },
+      "passed": true
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "checks": [
+        "pointer selects dark background, no frames",
+        "deselect restores white",
+        "midpoint y=-24; rapid click ignored; landing not painted",
+        "undo during movement cancels old artwork",
+        "10 idle redraws keep control count"
+      ],
+      "screenshots": [],
+      "midpoint": {
+        "id": 1839,
+        "parent": 933,
+        "z": 16,
+        "group": false,
+        "matrix": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1,
+          "tx": -72,
+          "ty": -24
+        },
+        "kind": "container",
+        "name": "MovingPiece",
+        "sourceWidth": 16,
+        "sourceHeight": 16,
+        "pressed": false
+      },
+      "passed": true
+    },
+    {
+      "canvasId": "mobile-4-3",
+      "checks": [
+        "pointer selects dark background, no frames",
+        "deselect restores white",
+        "midpoint y=-24; rapid click ignored; landing not painted",
+        "undo during movement cancels old artwork",
+        "10 idle redraws keep control count"
+      ],
+      "screenshots": [],
+      "midpoint": {
+        "id": 1839,
+        "parent": 933,
+        "z": 16,
+        "group": false,
+        "matrix": {
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1,
+          "tx": -72,
+          "ty": -24
+        },
+        "kind": "container",
+        "name": "MovingPiece",
+        "sourceWidth": 16,
+        "sourceHeight": 16,
+        "pressed": false
+      },
+      "passed": true
+    }
+  ],
+  "sha256": "6aee85bf85521113c15f4bd7900085c356776486aa8e5bc440ba5d0c061ca366"
+}

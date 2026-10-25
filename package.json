@@ -55,6 +55,8 @@
     "test:lua:wait": "node scripts/run-lua-check.mjs tests/lua-wait-extension.lua",
     "test:lua:fc-wait": "node scripts/run-lua-check.mjs tests/lua-fc-wait.lua",
     "test:lua:feedback": "node scripts/run-lua-check.mjs tests/lua-feedback.lua",
+    "test:lua:animation": "node scripts/run-lua-check.mjs tests/lua-move-animation.lua",
+    "test:animation:simulator": "node scripts/test-move-animation.mjs",
     "test:lua:soak": "node scripts/run-lua-check.mjs tests/lua-soak.lua",
     "test:lua:performance": "node scripts/profile-lua.mjs",
     "test:simulator": "node scripts/run-simulator-cases.mjs",

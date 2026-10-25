@@ -49,7 +49,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1.2,
       "id": "",
       "name": "ResultTitle",
       "field": "text",
@@ -57,7 +57,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1.2,
       "id": "",
       "name": "ResultReason",
       "field": "text",

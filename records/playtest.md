@@ -1,5 +1,12 @@
 # HTML 原型检查记录
 
+## 2026-10-25：选中深底色与走棋动画
+
+- runtime=lua / Agent：旧UI有效Red为“selected square frame still drawn”；新7项Green覆盖选中/切换/取消、途中坐标、字底同父组、吃子保留到落定、吃将结果延后、红黑顺播、途中悔棋、设置/菜单/重开及0/大dt。核心11、反馈6、声音13、结果回看7、屏幕4通过。
+- runtime=html / Agent：26项通过，新增即时红黑动画队列、中间位置、连点不选子、悔棋清理、吃将目标保留到最后及结果输入等待；旧回看/循环用例增加真实动画耗时后保留原断言。
+- runtime=simulator / Agent：85用例344断言通过；首轮旧边框/即时下一步/即时结果层预期的失败与时序调整记录records/move-animation-initial.json。五画布动画检查通过，真实pointer选中、底色恢复、半程y=-24、连点屏蔽、移动中悔棋、10帧空闲控件数稳定；records/move-animation-layouts.json。四张画布截图中目视PC移动途中及手机深底色，底图/棋字重合，无方框。美术五画布40流程830断言、61子计数和空闲重绘通过，records/move-animation-art-layouts.json。
+- runtime=filesystem / Agent：2026-10-25 20:57:05.820 +08:00构建，34模块，已deploy无冲突、备份旧目标并校验SHA-256。布局与发布版本只差构建时间，已还原逐字比较；两存档及交付副本同步，records/move-animation-deploy.json。编辑器重新加载与真机速度、颜色及性能未验证。
+
 ## 2026-10-22：移除手形图标与接收用户头像素材
 
 - runtime=html；Agent应用内浏览器检查：菜单按下方向键后仍可切换模式，当前行以边框指示；截图实看无手形，三个头像/文字和原构图保留。原型不再请求手形参考图片。节点/素材未在模拟器运行。

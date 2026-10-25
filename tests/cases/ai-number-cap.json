@@ -59,9 +59,9 @@
       "kind": "control",
       "at": 40,
       "id": "",
-      "name": "AILastTo",
+      "name": "MovingPiece",
       "field": "visible",
-      "equals": true
+      "equals": false
     }
   ]
 }

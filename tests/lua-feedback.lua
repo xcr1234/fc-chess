@@ -34,7 +34,8 @@ check('longer actual AI wait raises the final number, with a five-digit ceiling'
  local values={}
  for _,elapsed in ipairs({0,.2,1,4,8,16,30,10000}) do
   local s=thinking();S.update(s,elapsed)
-  S.computed(s,{28,37},{count=1});S.update(s,4)
+  -- Isolate counter growth from the difficulty's random 10-20 second wait.
+  s.aiInput={waitSeconds=4};S.computed(s,{28,37},{count=1});S.update(s,4)
   assert(s.moves==2 and s.aiCounter.value>=1000 and s.aiCounter.value<=40000)
   values[#values+1]=s.aiCounter.value
  end

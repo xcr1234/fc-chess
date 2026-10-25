@@ -6,11 +6,12 @@ local Counter=require('game.thinking_counter')
 local Settings=require('audio.settings')
 local Screen=require('ui.screen')
 local Pixels=require('ui.pixel_glyphs')
+local Motion=require('ui.move_animation')
 local M={}
 local glyph={r='車',n='馬',e='象',a='士',k='將',c='包',p='卒',R='俥',N='傌',E='相',A='仕',K='帥',C='炮',P='兵'}
 local root,screen,page,overlay,pageKind,overlayKind,onAction,onSquare
 local pieces={}
-local aiFrames={}
+local motion, moving, movingArt, movingGlyph, movingSequence
 local function text(n,x,y,w,h,v,c,z,p) return U.text(p or page,n,x-128,y-112,w,h,v,c,z) end
 local function rect(n,x,y,w,h,c,p) return U.image(p or page,n,x-128,y-112,w,h,c) end
 local function button(n,label,x,y,w,h,p)
@@ -25,6 +26,7 @@ local function line(n,x,y,w,h,angle)
  local c=rect(n,x,y,w,h,'352599');if angle then c:SetLocalRotation(0,0,angle) end
 end
 function M.init(host,action,square)
+ motion=Motion.new()
  onAction=action;onSquare=square;screen=Screen.new(host);root=screen.content
  M.resize();return root
 end
@@ -84,21 +86,13 @@ local function build(kind,s)
  text('StatusText',128,10,248,12,'','28eff0',8)
  P.draw(page,'OldManPortrait',226-128,152-112,32)
  for r=0,9 do for f=0,8 do local i=B.index(f,r);local x,y=56+16*f-128,176-16*r-112
-  local disk=U.create('container',page,'Disk_'..i,x,y,16,16)
-  local label=U.text(page,'Glyph_'..i,x,y,14,14,'','f33d43',10)
-  local focus=U.create('container',page,'Selection_'..i,x,y,17,17)
-  for j,v in ipairs({{0,8,17,.7},{0,-8,17,.7},{8,0,.7,17},{-8,0,.7,17}}) do U.image(focus,'SelectionEdge'..i..'_'..j,v[1],v[2],v[3],v[4],'fff29a') end
-  focus:SetVisible(false)
-  pieces[i]={disk,label,focus};U.hit(page,'Square_'..f..'_'..r,x,y,16,16,function() onSquare(i) end)
+  local group=U.create('container',page,'Piece_'..i,x,y,16,16)
+  local disk=U.create('container',group,'Disk_'..i,0,0,16,16)
+  local label=U.text(group,'Glyph_'..i,0,0,14,14,'','f33d43',10)
+  pieces[i]={disk,label,root=group};U.hit(page,'Square_'..f..'_'..r,x,y,16,16,function() onSquare(i) end)
  end end
- -- Two reusable frames above the pieces; cursor hit areas remain unchanged.
- aiFrames={}
- for i,n in ipairs({'AILastFrom','AILastTo'}) do
-  local frame=U.create('container',page,n,0,0,17,17)
-  local thickness=i==1 and .8 or 1.3
-  for j,v in ipairs({{0,8,17,thickness},{0,-8,17,thickness},{8,0,thickness,17},{-8,0,thickness,17}}) do U.image(frame,n..'Edge'..j,v[1],v[2],v[3],v[4],'28eff0') end
-  frame:SetVisible(false);aiFrames[i]={control=frame}
- end
+ moving=U.create('container',page,'MovingPiece',0,0,16,16);moving:SetVisible(false)
+ movingArt=nil;movingGlyph=nil;movingSequence=nil
  if kind=='edit' then
   text('EditTitle',128,210,180,14,'自定義棋子','28eff0',10)
   for i,v in ipairs({{'AllRooksButton','全部改車'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
@@ -113,37 +107,45 @@ function M.render(s)
  if kind=='audio-settings' then key=key..s.audio.music..':'..s.audio.volume..':'..tostring(s.audio.sfx)
  elseif kind=='music-select' then key=key..s.audio.music..':'..s.musicCategory..':'..s.musicPage end
  if key~=pageKind then if overlay then game.DestroyClientUIControl(overlay);overlay=nil end overlayKind=nil;build(kind,s);pageKind=key end
+ Motion.sync(motion,s,kind=='board')
  if kind=='audio-settings' or kind=='music-select' then return end
  if kind~='menu' then
   U.set('TurnText',s.turn=='red' and '紅方' or '黑方');U.set('MoveCount',string.format('%03d手',s.moves));U.set('StatusText',s.status)
   if kind=='board' and U.refs.ResignButtonLabel then U.refs.ResignButtonLabel.fontColor=U.color(s.scene=='result-review' and '78909a' or '3defa0') end
   U.set('RedStepTime',S.format(s.red));U.set('AIThinkingNumber',Counter.format(s.aiCounter))
-  for i,frame in ipairs(aiFrames) do
-   local square=kind=='board' and s.lastAiMove and s.lastAiMove[i] or nil
-   if frame.square~=square then
-    frame.control:SetVisible(square~=nil)
-    if square then local f,r=B.coords(square);frame.control:SetAnchoredPosition(56+16*f-128,176-16*r-112) end
-    frame.square=square
+  local board,flight=Motion.frame(motion,s)
+  moving:SetVisible(flight~=nil)
+  if flight then
+   if movingSequence~=flight.sequence then
+    if movingArt then game.DestroyClientUIControl(movingArt) end
+    if movingGlyph then game.DestroyClientUIControl(movingGlyph) end
+    movingArt=Pixels.disc(moving,'MovingDisc',glyph[flight.piece])
+    movingGlyph=Pixels.draw(moving,'MovingGlyph',0,0,Pixels.boardSize,glyph[flight.piece],B.red(flight.piece) and Pixels.colors.red or Pixels.colors.black)
+    movingSequence=flight.sequence
    end
+   moving:SetAnchoredPosition(flight.x,flight.y)
+  elseif movingArt then
+   game.DestroyClientUIControl(movingArt);game.DestroyClientUIControl(movingGlyph)
+   movingArt=nil;movingGlyph=nil;movingSequence=nil
   end
-  for i,p in ipairs(s.board) do local c=pieces[i]
+  for i,p in ipairs(board) do local c=pieces[i]
    if c.last~=p then
     if c.pixels then game.DestroyClientUIControl(c.pixels);c.pixels=nil end
     local value=glyph[p] or '';local color=B.red(p) and Pixels.colors.red or Pixels.colors.black
     if c.diskArt then game.DestroyClientUIControl(c.diskArt);c.diskArt=nil end
-    if p~='' then c.diskArt=Pixels.disc(c[1],'DiskArt_'..i,value) end
+    if p~='' then c.diskArt,c.whites=Pixels.disc(c[1],'DiskArt_'..i,value) else c.whites=nil end
     c[1]:SetVisible(p~='');c[2].text=value;c[2].fontColor=U.color(color)
     c[2]:SetVisible(p~='' and not Pixels.has(value))
     if Pixels.has(value) then
-     local f,r=B.coords(i)
-     c.pixels=Pixels.draw(page,'PixelGlyph_'..i,56+16*f-128,176-16*r-112,Pixels.boardSize,value,color)
+     c.pixels=Pixels.draw(c.root,'PixelGlyph_'..i,0,0,Pixels.boardSize,value,color)
     end
     c.last=p
+    c.selected=nil
    end
-   local selected=s.selected==i;if c.selected~=selected then c[3]:SetVisible(selected);c.selected=selected end
+   local selected=s.selected==i and not flight;if c.selected~=selected then Pixels.tintDisc(c.whites,selected);c.selected=selected end
   end
  end
- local o=s.modal or (s.palette and 'palette') or (s.scene=='result' and 'result') or ''
+ local o=s.modal or (s.palette and 'palette') or (s.scene=='result' and not M.busy() and 'result') or ''
  if o~=overlayKind then
   if overlay then game.DestroyClientUIControl(overlay);overlay=nil end
   overlayKind=o
@@ -169,5 +171,7 @@ function M.render(s)
   end
  end
 end
-function M.destroy() Screen.destroy(screen);screen=nil;root=nil;page=nil;overlay=nil;pageKind=nil;overlayKind=nil;U.refs={} end
+function M.update(dt) if motion then Motion.update(motion,dt) end end
+function M.busy() return Motion.busy(motion) end
+function M.destroy() Screen.destroy(screen);screen=nil;root=nil;page=nil;overlay=nil;pageKind=nil;overlayKind=nil;motion=nil;moving=nil;movingArt=nil;movingGlyph=nil;movingSequence=nil;U.refs={} end
 return M

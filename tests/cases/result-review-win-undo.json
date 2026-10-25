@@ -30,7 +30,7 @@
       }
     },
     {
-      "t": 0.6000000000000001,
+      "t": 1.4,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "t": 0.8,
+      "t": 1.6,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -46,7 +46,7 @@
       }
     },
     {
-      "t": 1,
+      "t": 1.8,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -54,7 +54,7 @@
       }
     },
     {
-      "t": 1.2000000000000002,
+      "t": 2,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -62,7 +62,7 @@
       }
     },
     {
-      "t": 1.4000000000000001,
+      "t": 2.2,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -73,7 +73,7 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 0.9,
+      "at": 1.7,
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
@@ -81,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 1.1,
+      "at": 1.9,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -89,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 1.1,
+      "at": 1.9,
       "id": "",
       "name": "Piece_4_0",
       "field": "text",
@@ -97,7 +97,7 @@
     },
     {
       "kind": "control",
-      "at": 1.1,
+      "at": 1.9,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -105,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 1.5,
+      "at": 2.3,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -113,7 +113,7 @@
     },
     {
       "kind": "control",
-      "at": 1.5,
+      "at": 2.3,
       "id": "",
       "name": "Piece_5_5",
       "field": "text",
@@ -121,7 +121,7 @@
     },
     {
       "kind": "control",
-      "at": 1.5,
+      "at": 2.3,
       "id": "",
       "name": "SceneState",
       "field": "text",

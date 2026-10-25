@@ -31,6 +31,23 @@
   }
   const gridX = 56, gridY = 48, step = 16;
   const state = { scene: 'menu', menu: 0, mode: 0, board: [], initial: [], cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, message: '请选择模式', resultIndex: 0, moves: 0, inputMethod: 'pointer' };
+  state.motion=[];
+  function advanceMotion(now=performance.now()) {
+    while(state.motion[0]&&now>=state.motion[0].end)state.motion.shift();
+  }
+  function motionFrame(now=performance.now()) {
+    advanceMotion(now);const m=state.motion[0];
+    if(!m)return {board:state.board};
+    const t=Math.max(0,Math.min(1,(now-m.start)/(m.end-m.start))),board=m.before.slice();board[m.from]=null;
+    return {board,piece:m.piece,x:Math.round(gridX+step*((m.from%9)+((m.to%9)-(m.from%9))*t)),y:Math.round(gridY+step*(Math.floor(m.from/9)+(Math.floor(m.to/9)-Math.floor(m.from/9))*t))};
+  }
+  function drawPiece(p,x,y,selected=false) {
+    const art=globalThis.FCChessPixelGlyphs;
+    for(const [part,color] of [['rim',art.colors.black],['white',selected?'b4b4b4':art.colors.shadow]]){
+      ctx.fillStyle='#'+color;for(const [px,py,w,h] of art.discs[glyphs[p]][part])ctx.fillRect(x-8+px,y-8+py,w,h);
+    }
+    pieceGlyph(glyphs[p],x,y,'#'+(isRed(p)?art.colors.red:art.colors.black),art.boardSize,10);
+  }
   state.audio={music:10167,volume:50,sfx:true};state.musicCategory=0;state.musicPage=0;
   const musicById=new Map(FCChessMusicCatalog.map(([id,name,seconds,category])=>[id,{id,name,seconds,category}]));
   const recommended=[10167,10029,10161];
@@ -42,7 +59,7 @@
   }
   function settingsAction(name) {
     if(name==='SettingsButton'&&!state.modal&&!state.palette&&['menu','game','result-review'].includes(state.scene)){
-      state.settingsReturnScene=state.scene;state.settingsOpenedAt=performance.now();clock.stop(state.settingsOpenedAt);state.scene='audio-settings';return;
+      state.motion=[];state.settingsReturnScene=state.scene;state.settingsOpenedAt=performance.now();clock.stop(state.settingsOpenedAt);state.scene='audio-settings';return;
     }
     if(state.scene==='audio-settings'){
       if(name==='SettingsBack'){
@@ -73,16 +90,19 @@
   function playMoveSound(checking){playEffect(checking?50888:50882);}
   function announce(message) { state.message = message; live.textContent = message; }
   function resetGame(board = initialBoard(), mode = state.menu) {
+    state.motion=[];
     generation++; clock.reset(performance.now());
     Object.assign(state, { scene: 'game', mode, board: board.slice(), initial: board.slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, moves: 0 });
     announce('紅方走棋');
   }
   function enterEdit() {
+    state.motion=[];
     generation++; clock.reset(performance.now()); clock.stop(performance.now());
     Object.assign(state, {scene: 'edit', mode: 2, board: (draft || initialBoard()).slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', reply: null, history: [], moves: 0, modal: null, palette: null});
     announce('點擊己方棋子，修改棋種');
   }
   function toMenu() {
+    state.motion=[];
     if (state.scene === 'edit') draft = state.board.slice();
     generation++; clock.stop(performance.now());
     Object.assign(state, {scene: 'menu', selected: null, reply: null, modal: null, palette: null, zone: 'board'});
@@ -164,26 +184,19 @@
       ctx.beginPath(); ctx.moveTo(gridX + 48.5, gridY + y * step + .5); ctx.lineTo(gridX + 80.5, gridY + (y + 2) * step + .5); ctx.moveTo(gridX + 80.5, gridY + y * step + .5); ctx.lineTo(gridX + 48.5, gridY + (y + 2) * step + .5); ctx.stroke();
     });
     for(const [value,x] of [['楚',80],['河',96],['漢',144],['界',160]])pieceGlyph(value,x,120,'#'+globalThis.FCChessPixelGlyphs.colors.river,globalThis.FCChessPixelGlyphs.riverSize,11);
-    state.board.forEach((p, i) => {
+    const flight=motionFrame();
+    flight.board.forEach((p, i) => {
       if (!p) return;
       const x = gridX + (i % 9) * step, y = gridY + Math.floor(i / 9) * step;
-      const art=globalThis.FCChessPixelGlyphs;
-      for(const [part,color] of [['rim',art.colors.black],['white',art.colors.shadow]]){ctx.fillStyle='#'+color;for(const [px,py,w,h] of art.discs[glyphs[p]][part])ctx.fillRect(x-8+px,y-8+py,w,h);}
-      pieceGlyph(glyphs[p],x,y,'#'+(isRed(p)?globalThis.FCChessPixelGlyphs.colors.red:globalThis.FCChessPixelGlyphs.colors.black),globalThis.FCChessPixelGlyphs.boardSize,10);
-      if (i === state.selected) {
-        ctx.strokeStyle = '#fff29a'; ctx.lineWidth = 1; ctx.strokeRect(x - 8, y - 8, 16, 16);
-        ctx.strokeStyle = '#685419'; ctx.lineWidth = .5; ctx.strokeRect(x - 8.5, y - 8.5, 17, 17);
-      }
+      drawPiece(p,x,y,i===state.selected&&!flight.piece);
     });
+    if(flight.piece)drawPiece(flight.piece,flight.x,flight.y);
     const buttons = state.scene === 'edit' ? ['全部改車', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '返回標題界面'];
     buttons.forEach((label, i) => {
       const y = 122 + i * 21;
       box(204, y, 47, 17, state.zone === 'panel' && state.sideIndex === i ? '#067347' : '#00482f', C.green);
       text(label, 227, y + 4,state.scene==='result-review'&&i===1?'#78909a':C.green, state.scene!=='edit'&&i===2?7:8, 'center');
     });
-    if (state.inputMethod === 'keyboard' && !state.modal && !state.palette) {
-      if (state.zone !== 'panel') { ctx.strokeStyle = '#ffeda3'; ctx.lineWidth = .7; ctx.strokeRect(gridX + state.cursor.x * step - 8, gridY + state.cursor.y * step - 8, 16, 16); }
-    }
     text(state.message, 128, 210, C.cyan, 8, 'center');
   }
   function paletteScreen() {
@@ -224,6 +237,10 @@
   }
   function commitMove(from, to) {
     clock.update(performance.now());
+    advanceMotion();
+    const start=Math.max(performance.now(),state.motion.at(-1)?.end||0);
+    const duration=Math.min(.42,Math.max(.16,Math.hypot((to%9)-(from%9),Math.floor(to/9)-Math.floor(from/9))*16/128))*1000;
+    state.motion.push({from,to,piece:state.board[from],before:state.board.slice(),start,end:start+duration});
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
     playMoveSound(!capturedKing && threatensKing(state.board,side,state.mode===2));
@@ -248,6 +265,7 @@
     if (seconds === 0 && !state.modal) demoReply();
   }
   function playSquare() {
+    advanceMotion();if(state.motion.length)return;
     if(state.scene!=='game')return;
     if (state.turn !== 'red') { announce('老頭正在思考'); return; }
     const i = state.cursor.y * 9 + state.cursor.x, p = state.board[i];
@@ -283,6 +301,7 @@
     } else state.modal = {type: state.sideIndex === 1 ? 'resign' : 'menu', choice: 1};
   }
   function undoMove() {
+    state.motion=[];
     const last = state.history.pop();
     if (!last) return;
     state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null;state.scene='game';state.resultTitle=null;state.resultReason=null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
@@ -297,6 +316,7 @@
       return;
     }
     if (state.scene === 'result') {
+      advanceMotion();if(state.motion.length)return;
       if (direction) state.resultIndex = (state.resultIndex + (key==='up'||key==='left'?2:1))%3;
       if (key === 'ok' || key === 'start') { if (state.resultIndex === 0) resetGame(state.initial, state.mode); else if(state.resultIndex===1)toMenu();else{state.scene='result-review';state.selected=null;state.zone='board';announce('本局已結束，悔棋後可繼續');} }
       if (key === 'cancel') toMenu();
@@ -373,7 +393,7 @@
     } else if (state.palette) {
       choices.forEach((piece, i) => region(list, `piece-${i}`, 64 + (i % 3) * 45, 99 + Math.floor(i / 3) * 28, 43, 27, `改为${glyphs[piece]}`, () => { state.palette.choice = i; input('ok'); }));
     } else if (state.scene === 'result') {
-      ['再来一局', '返回标题界面','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
+      if(!state.motion.length)['再来一局', '返回标题界面','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
     } else {
       const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));
@@ -400,6 +420,7 @@
     canvas.focus({preventScroll: true}); input('ok');
   });
   function frame(now) {
+    advanceMotion(now);
     clock.update(now);
     if (state.scene === 'game' && !state.modal && state.reply && now >= state.reply.due) demoReply();
     resizeCanvas();
@@ -407,7 +428,7 @@
     ctx.imageSmoothingEnabled = false;
     if(state.scene==='audio-settings'||state.scene==='music-select')settingsScreen();
     else if (state.scene === 'menu') menuScreen();
-    else { boardScreen(now); if (state.palette) paletteScreen(); if (state.modal) modalScreen(); if (state.scene === 'result') resultScreen(); }
+    else { boardScreen(now); if (state.palette) paletteScreen(); if (state.modal) modalScreen(); if (state.scene === 'result'&&!state.motion.length) resultScreen(); }
     updateHotspots();
     const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，紅方步時${formatStep(clock.red)}，黑方步時${formatStep(clock.black)}，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;
     if (canvas.getAttribute('aria-label') !== description) canvas.setAttribute('aria-label', description);

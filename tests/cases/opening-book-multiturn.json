@@ -30,7 +30,7 @@
       }
     },
     {
-      "t": 0.5,
+      "t": 1.5,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -38,7 +38,7 @@
       }
     },
     {
-      "t": 0.6,
+      "t": 1.6,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -81,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 1.7,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -89,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 1.7,
       "id": "",
       "name": "BookUsed",
       "field": "text",
@@ -97,7 +97,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 1.7,
       "id": "",
       "name": "Piece_0_1",
       "field": "text",
@@ -105,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 1.7,
       "id": "",
       "name": "TurnText",
       "field": "text",

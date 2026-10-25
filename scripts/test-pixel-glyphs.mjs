@@ -40,7 +40,7 @@ try{
     if(points[name]){h.tap(...h.point(...points[name]));const list=h.pointer();for(const [j,{light,...payload}] of list.slice(cursor).entries())events.push({t:t+j*.02,source:'user',kind:'pointer',payload});cursor=list.length;}
     else events.push({t,source:'user',kind:'click',payload:{name}});
    }
-   const at=.1+actions.length*.15;
+   const at=.1+actions.length*.15+(scene==='move'?.5:0);
    const result=await play('runCase',{canvasId,case:{format:'qxqy-autotest',version:1,name:'pixel-'+scene+'-'+canvasId,dt:.05,events,asserts:checks.map(c=>({...c,at}))}});
    assert(result.passed,JSON.stringify(result.results));assert.equal(result.results.length,checks.length);
    const view=await play('get',{view:true});assert(!view.mountError);assert(!view.logs.some(l=>l.level==='error'));
