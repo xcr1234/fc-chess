@@ -35,9 +35,9 @@
       "kind": "control",
       "at": 0.3,
       "id": "",
-      "name": "ExtraWait",
+      "name": "ExtraWaitInBounds",
       "field": "text",
-      "equals": "4"
+      "equals": "true"
     }
   ]
 }

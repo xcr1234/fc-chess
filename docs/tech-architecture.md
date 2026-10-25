@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-25 FC困难等待节奏
+
+game.wait将困难默认值20/40和自定义4/16分开。困难count=1时用Lua标准math.random(10,20)抽一次整数；书库/无摘要count=0取30，普通多着仍按根分支数、战术占比、候选分差和变化率归一化，映射20+20C。显式waitPolicy保留原min/max覆盖语义，不强制套用随机单着；快速恒0。
+
+Session.computed仍原样把Wait.seconds写入extraWait/remaining，未扣compute；此后update只减倒计时，不重新抽签。引擎已有书库种子独立于math.random，无搜索内核/预算/棋力变更。HTML同规则，测试可向waitingSeconds注入随机函数验证两端。测试桥新增ExtraWaitInBounds，只读取fixture.waitRange判范围/整数，不影响生产入口；不新增平台API或图元。
+
 ## 2026-10-25 仅胜利通知
 
 `app.completion.sync`只处理session.completedOutcome=1，按completionSequence去重，发送无参数FCChessWin；其余结果立即返回。pcall处理信号缺失，每个胜利序号只尝试一次，下次胜利可再尝试；声音事件消费独立。初始化、重连、重开、悔棋和destroy不发撤销通知，因此不清除平台已有胜利。

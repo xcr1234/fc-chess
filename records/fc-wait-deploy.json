@@ -1,0 +1,48 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 18:21:31.248 +08:00",
+  "modules": 33,
+  "sha256": "00209271b38f54527de6cc688065ddce06ed3c5874f1aa44a63ccc028a229a2d",
+  "action": "replace",
+  "conflict": false,
+  "dryRun": false,
+  "backup": ".lua-deploy-backups/1792923691357-7fec0c12-15c5-422d-8c05-126ed9fa3e25.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-fc-wait/main.lua"
+  ],
+  "checks": {
+    "fcWaitLua": 7,
+    "coreLua": 11,
+    "waitExtensionLua": 3,
+    "prototype": 24,
+    "staticCases": 85,
+    "simulatorCases": 85,
+    "simulatorAssertions": 349
+  },
+  "simulatorSHA256": "8acf0dafff343f01b666899eee40c3bf02d74cadcdf6d8029062d38e947a44f1",
+  "testedBuild": "2026-10-25 18:18:26.855 +08:00",
+  "onlyBuildTimestampChanged": true,
+  "difficultWait": {
+    "normal": [
+      20,
+      40
+    ],
+    "midpoint": 30,
+    "oneMoveRandomInteger": [
+      10,
+      20
+    ],
+    "missingSummary": 30,
+    "deductCompute": false
+  },
+  "customWait": [
+    4,
+    16
+  ],
+  "fastWait": 0,
+  "nativeRetest": "pending user reload and timing observations"
+}

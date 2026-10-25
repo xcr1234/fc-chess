@@ -1,0 +1,12 @@
+
+> miliastra-template@0.1.0 test:lua:fc-wait
+> node scripts/run-lua-check.mjs tests/lua-fc-wait.lua
+
+PASS ordinary difficult targets span 20 to 40 with a 30 second midpoint
+FAIL one available move draws one integer from ten through twenty: [string "package.preload["app.log"]=function()..."]:11160: assertion failed!
+PASS unknown book metrics use thirty seconds; partial summaries are reweighted
+PASS custom and fast retain their original timing and policy overrides still work
+FAIL difficult waits the full ten seconds after three seconds of calculation: [string "package.preload["app.log"]=function()..."]:11184: assertion failed!
+PASS even a long calculation does not consume the artificial wait
+PASS custom still adds its delay after compute and diagnostic wait overrides remain exact
+[string "package.preload["app.log"]=function()..."]:11197: 2 FC wait failures

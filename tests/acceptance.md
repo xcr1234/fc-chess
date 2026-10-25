@@ -47,11 +47,11 @@
 | [step-stop](cases/step-stop.json) | 定向夹具（见plan.json） | Square_4_5 → Square_4_0 | RedStepTime=00:00；AIThinkingNumber=00000；SceneState=result |
 | [counter](cases/counter.json) | 定向夹具（见plan.json） | Square_0_6 → Square_0_5 | MoveCount=1000手 |
 | [modal-ready](cases/modal-ready.json) | 定向夹具（见plan.json） | ResignButton → ConfirmNo | MoveCount=002手；TurnText=紅方 |
-| [wait-simple](cases/wait-simple.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=4 |
-| [wait-complex](cases/wait-complex.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
+| [wait-simple](cases/wait-simple.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWaitInBounds=true（10–20秒整数） |
+| [wait-complex](cases/wait-complex.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=40 |
 | [wait-custom](cases/wait-custom.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
 | [wait-fast](cases/wait-fast.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=0 |
-| [wait-missing](cases/wait-missing.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=9 |
+| [wait-missing](cases/wait-missing.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=29 |
 | [wait-saturation](cases/wait-saturation.json) | 定向夹具（见plan.json） | TestComputeSummary | ExtraWait=16 |
 | [ai-custom-book](cases/ai-custom-book.json) | 定向夹具（见plan.json） | TestProbeBook | BookEnabled=false |
 | [ai-budget](cases/ai-budget.json) | 定向夹具（见plan.json） | TestRunBudget | SearchCompleteDepth=2；WorkingBoardRestored=true；PartialExactStored=false |
@@ -93,3 +93,11 @@
 | ai-feedback-restart | AI落子、认输重开、返回自定义 | 新局与编辑均清空数字及上手边框 |
 
 `lua-feedback.lua`另验20Hz连续增长、计算/等待/确认均增长、分帧等价、即时书库回棋至少01000、连续两轮悔棋恢复上一组标记/数字、撤销旧任务，以及实际吃帅后的反馈定格。以上均走生产session逻辑；有效Red为原实现缺少对应状态，测试环境错误不计Red。
+
+## FC困难回棋节奏补充（2026-10-25）
+
+| 用例 | 操作与预期 |
+| --- | --- |
+| wait-midpoint | 中等复杂度目标30秒 |
+| wait-book-unknown | 缺书库复杂度时目标30秒 |
+| wait-extra-delay | 手机：计算3秒后完整再等随机10–20秒，总计13–23秒，不扣计算耗时 |

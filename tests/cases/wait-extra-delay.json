@@ -1,0 +1,83 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "wait-extra-delay",
+  "dt": 0.1,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "TestSetup_wait-extra-delay"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_6"
+      }
+    },
+    {
+      "t": 0.3,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.1,
+      "id": "",
+      "name": "FixtureReady",
+      "field": "text",
+      "equals": "wait-extra-delay"
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "ai-wait"
+    },
+    {
+      "kind": "control",
+      "at": 3.5,
+      "id": "",
+      "name": "ExtraWaitInBounds",
+      "field": "text",
+      "equals": "true"
+    },
+    {
+      "kind": "control",
+      "at": 12.9,
+      "id": "",
+      "name": "Piece_0_3",
+      "field": "text",
+      "equals": "p"
+    },
+    {
+      "kind": "control",
+      "at": 23.5,
+      "id": "",
+      "name": "Piece_0_4",
+      "field": "text",
+      "equals": "p"
+    },
+    {
+      "kind": "control",
+      "at": 23.5,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    }
+  ]
+}

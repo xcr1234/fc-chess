@@ -53,6 +53,7 @@
     "test:ai:readiness": "node scripts/test-ai-readiness.mjs",
     "test:ai:smoke": "node scripts/test-ai-strength-smoke.mjs",
     "test:lua:wait": "node scripts/run-lua-check.mjs tests/lua-wait-extension.lua",
+    "test:lua:fc-wait": "node scripts/run-lua-check.mjs tests/lua-fc-wait.lua",
     "test:lua:feedback": "node scripts/run-lua-check.mjs tests/lua-feedback.lua",
     "test:lua:soak": "node scripts/run-lua-check.mjs tests/lua-soak.lua",
     "test:lua:performance": "node scripts/profile-lua.mjs",

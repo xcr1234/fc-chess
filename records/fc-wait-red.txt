@@ -1,0 +1,8 @@
+FAIL ordinary difficult targets span 20 to 40 with a 30 second midpoint: [string "package.preload["app.log"]=function()..."]:11178: assertion failed!
+FAIL one available move draws one integer from ten through twenty: [string "package.preload["app.log"]=function()..."]:11174: [string "package.preload["app.log"]=function()..."]:11183: assertion failed!
+FAIL unknown book metrics use thirty seconds; partial summaries are reweighted: [string "package.preload["app.log"]=function()..."]:11191: assertion failed!
+PASS custom and fast retain their original timing and policy overrides still work
+FAIL difficult waits the full ten seconds after three seconds of calculation: [string "package.preload["app.log"]=function()..."]:11208: assertion failed!
+FAIL even a long calculation does not consume the artificial wait: [string "package.preload["app.log"]=function()..."]:11214: assertion failed!
+PASS custom still adds its delay after compute and diagnostic wait overrides remain exact
+[string "package.preload["app.log"]=function()..."]:11221: 5 FC wait failures

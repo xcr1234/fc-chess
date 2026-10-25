@@ -758,7 +758,11 @@
           "count": 1,
           "tactical": 1
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          20
+        ]
       }
     },
     {
@@ -1891,6 +1895,66 @@
         "canvasId": "pc-16-9"
       },
       "fixture": null
+    },
+    {
+      "case": "wait-midpoint",
+      "file": "cases/wait-midpoint.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "summary": {
+          "count": 30,
+          "tactical": 15,
+          "gap": 75,
+          "instability": 0.5
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-book-unknown",
+      "file": "cases/wait-book-unknown.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "summary": {
+          "count": 0,
+          "tactical": 0
+        },
+        "ai": "summary-only"
+      }
+    },
+    {
+      "case": "wait-extra-delay",
+      "file": "cases/wait-extra-delay.json",
+      "args": {
+        "canvasId": "mobile-16-9"
+      },
+      "fixture": {
+        "standard": true,
+        "mode": "difficult",
+        "ai": {
+          "computeSeconds": 3,
+          "replySequence": [
+            [
+              0,
+              3,
+              0,
+              4
+            ]
+          ]
+        },
+        "waitRange": [
+          10,
+          20
+        ]
+      }
     }
   ]
 }

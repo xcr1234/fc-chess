@@ -55,12 +55,15 @@ test('step clock resets the new mover, keeps only opposite previous step and sto
 });
 test('complexity changes wait; fast adds zero; bounds and missing metrics are safe', () => {
  assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},1),0);
- assert.equal(waitingSeconds({count:1,tactical:1,gap:0,instability:1},0),4);
- assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},0),16);
+ assert.equal(waitingSeconds({count:1,tactical:1,gap:0,instability:1},0,()=>0),10);
+ assert.equal(waitingSeconds({count:1},0,()=>1-Number.EPSILON),20);
+ assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},0),40);
  assert.equal(waitingSeconds({count:300,tactical:300,gap:0,instability:1},2),16);
  assert.ok(waitingSeconds({count:30,tactical:10,gap:10},0)>waitingSeconds({count:30,tactical:10,gap:150},0));
- const metrics={count:30,tactical:10}; assert.equal(waitingSeconds(metrics,0),waitingSeconds(metrics,2));
- assert.ok(waitingSeconds(metrics,0)>=4 && waitingSeconds(metrics,0)<=16);
+ const metrics={count:30,tactical:10}; assert.equal(waitingSeconds(metrics,0),29);assert.equal(waitingSeconds(metrics,2),9);
+ assert.equal(waitingSeconds({count:30,tactical:15,gap:75,instability:.5},0),30);
+ assert.equal(waitingSeconds({count:0},0),30);
+ assert.ok(waitingSeconds(metrics,0)>=20 && waitingSeconds(metrics,0)<=40);
 });
 
 import vm from 'node:vm';

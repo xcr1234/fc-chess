@@ -2,7 +2,7 @@
   "format": "qxqy-autotest",
   "version": 1,
   "name": "opening-book-undo",
-  "dt": 0.05,
+  "dt": 0.1,
   "playerCount": 1,
   "events": [
     {
@@ -109,11 +109,19 @@
       "id": "",
       "name": "MoveCount",
       "field": "text",
+      "equals": "001手"
+    },
+    {
+      "kind": "control",
+      "at": 31.05,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
       "equals": "002手"
     },
     {
       "kind": "control",
-      "at": 20.05,
+      "at": 31.05,
       "id": "",
       "name": "Piece_6_2",
       "field": "text",
