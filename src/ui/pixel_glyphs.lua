@@ -1,6 +1,6 @@
 local U=require('ui.primitives')
 local D=require('ui.pixel_glyph_data')
-local M={}
+local M={boardSize=D.boardSize,paletteSize=D.paletteSize,riverSize=D.riverSize}
 function M.has(value) return D.glyphs[value]~=nil end
 function M.draw(parent,name,x,y,size,value,color)
  local rects=D.glyphs[value]

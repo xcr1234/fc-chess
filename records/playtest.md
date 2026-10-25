@@ -395,3 +395,12 @@
 - runtime=lua-model/html-controller；执行者Codex；既有原生文字4项、HTML24项通过，未为纯文案修改人为制造Red。
 - runtime=simulator；同次30模块产物，五画布棋盘与棋种菜单10场景55断言通过，包含双方各两枚目标棋子及黑車/馬、红砲保持；records/piece-text-update.json。PC与手机截图为游戏画布，原生字形支持不能由模拟器证明。
 - runtime=filesystem；用户持续授权每次更改后deploy，本轮已执行npm run deploy:lua，无冲突备份并复制游戏目标；2026-10-25 07:56:35.986 +08:00，目标/dist/两存档内联与export/2026-10-25-piece-text/main.lua哈希一致。与已测程序仅构建时间不同，归一比较通过；详情见records/piece-text-update.json。runtime=device：编辑器重载及俥/傌是否缺字、空白或方框，仍待用户真实加载并回传。
+
+# 2026-10-25：全套棋子与楚河漢界像素字
+
+- runtime=device；执行者用户；来源为聊天明确回报“试玩发现像素字正常工作”，指前版四字渲染路径。用户要求精修/稍缩小/补齐，确认只改棋子，再追加楚河漢界，并指定红方用炮、黑方用包。未据此推断本次18字及尺寸已真机通过。
+- runtime=geometry-generator；18字16×16格点、四周1格留白，完善包的底弯、俥右缘、傌下部、將结构与兵的斜顶丘部；棋盘12→10.5、菜单10→9、河界11。验证字符齐全、火字旁炮、留白及合并矩形无损覆盖。
+- runtime=simulator；五画布35流程650断言通过：32棋子字值/像素可见/原生隐藏、6项菜单、4河界字、pointer走傌/悔棋、变子恢复和10帧重绘稳定。初始498棋子+79河界矩形，15俥572+79，菜单额外107；不是平台预算上限。6张仅画布截图，PC与手机棋盘/菜单已目视，records/pixel-font-complete-layouts.json。
+- runtime=lua-model/html-controller；原生文字4项、HTML24项通过；字体生成与渲染复用已核对官方API，无新增接口/图片索引。完整同次产物82用例/334断言通过，见records/pixel-font-complete-simulator.json。
+- runtime=filesystem；32模块，2026-10-25 08:30:07.250 +08:00，deploy无冲突备份并复制游戏目标，dist/目标/两存档/交付副本SHA-256一致；布局程序与发布仅构建时间不同，重构原SHA-256核对通过。records/pixel-font-complete-deploy.json，export/2026-10-25-pixel-font-complete/main.lua。
+- runtime=device-retest：新版本的全套字形、留白大小、红炮/河界和15俥流畅度待用户保存重新试玩。

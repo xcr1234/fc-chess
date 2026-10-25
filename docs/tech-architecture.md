@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-25 全套棋子与河界精修
+
+像素数据扩为14棋子字+楚河漢界，尺寸由同一JSON的boardSize=10.5、paletteSize=9、riverSize=11生成到Lua/HTML；`ui.pixel_glyphs`对外提供这些尺寸。所有32枚棋子及6项棋种菜单命中像素路径，红方C映射改为炮，黑方c为包。原生Glyph文本仍保留字值并隐藏；空格不留像素子控件，变子销毁重建规则保持。
+
+河界保留RiverLeft/Right语义控件但隐藏，在原位置绘制4个固定像素容器RiverPixelChu/He/Han/Jie；随Page统一销毁。初始498个棋子矩形+79河界矩形，15俥572+79，菜单额外107。32模块/单文件映射保持，新增矩形不登记全局refs；控件数由35场景回归检查，无新API或索引。
+
 ## 2026-10-25 四字像素字
 
 `assets/pixel-font/glyphs-16.json`为16×16格点维护源；构建及deploy前由`generate-pixel-glyphs.mjs`生成`ui.pixel_glyph_data`和HTML同源数据，逐格还原校验合并矩形无损。`ui.pixel_glyphs`只负责字形查询与绘制，使用原容器/矩形模板。棋盘字框12、棋种菜单10逻辑单位，Y从源格点向下转为父容器中心向上。

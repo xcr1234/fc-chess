@@ -161,12 +161,12 @@
     [0, 7].forEach(y => {
       ctx.beginPath(); ctx.moveTo(gridX + 48.5, gridY + y * step + .5); ctx.lineTo(gridX + 80.5, gridY + (y + 2) * step + .5); ctx.moveTo(gridX + 80.5, gridY + y * step + .5); ctx.lineTo(gridX + 48.5, gridY + (y + 2) * step + .5); ctx.stroke();
     });
-    text('楚河', 73, 116, C.line, 11); text('漢界', 137, 116, C.line, 11);
+    for(const [value,x] of [['楚',80],['河',92],['漢',144],['界',156]])pieceGlyph(value,x,120,C.line,globalThis.FCChessPixelGlyphs.riverSize,11);
     state.board.forEach((p, i) => {
       if (!p) return;
       const x = gridX + (i % 9) * step, y = gridY + Math.floor(i / 9) * step;
       ctx.beginPath(); ctx.arc(x, y, 7.5, 0, Math.PI * 2); ctx.fillStyle = '#fffdef'; ctx.fill(); ctx.strokeStyle = isRed(p) ? C.red : C.blue; ctx.stroke();
-      pieceGlyph(glyphs[p],x,y,isRed(p)?C.red:C.blue,12,10);
+      pieceGlyph(glyphs[p],x,y,isRed(p)?C.red:C.blue,globalThis.FCChessPixelGlyphs.boardSize,10);
       if (i === state.selected) {
         ctx.strokeStyle = '#fff29a'; ctx.lineWidth = 1; ctx.strokeRect(x - 8, y - 8, 16, 16);
         ctx.strokeStyle = '#685419'; ctx.lineWidth = .5; ctx.strokeRect(x - 8.5, y - 8.5, 17, 17);
@@ -187,7 +187,7 @@
     box(37, 67, 182, 98, C.navy, C.cyan); text('改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
     choices.forEach((piece, i) => {
       const x = 86 + (i % 3) * 45, y = 105 + Math.floor(i / 3) * 28;
-      pieceGlyph(glyphs[piece],x,y+7.5,C.white,15,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
+      pieceGlyph(glyphs[piece],x,y+7.5,C.white,globalThis.FCChessPixelGlyphs.paletteSize,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
     });
   }
   function modalScreen() {

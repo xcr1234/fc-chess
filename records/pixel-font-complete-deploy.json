@@ -1,0 +1,54 @@
+{
+  "build": "2026-10-25 08:30:07.250 +08:00",
+  "sha256": "8076f782be8062bfe175877e07f52de9a0260d8e6fde62bbe897dea540c9ac16",
+  "testedLayoutSHA256": "7ea402d8440217a4f25b3aadc0425917eaaed421a96c3d935ab86cafbe3d0357",
+  "sameProgramAsLayoutsExceptBuildTime": true,
+  "modules": 32,
+  "glyphs": [
+    "車",
+    "馬",
+    "象",
+    "士",
+    "將",
+    "包",
+    "卒",
+    "俥",
+    "傌",
+    "相",
+    "仕",
+    "帥",
+    "炮",
+    "兵",
+    "楚",
+    "河",
+    "漢",
+    "界"
+  ],
+  "boardSize": 10.5,
+  "paletteSize": 9,
+  "riverSize": 11,
+  "delivery": "export/2026-10-25-pixel-font-complete/main.lua",
+  "externalDeployment": "npm run deploy:lua completed",
+  "conflict": false,
+  "backup": ".lua-deploy-backups/1792888207362-0a7f735b-66e8-41ff-83ff-6b2c2cda04af.lua",
+  "targetHashVerified": true,
+  "savesAndDeliveryMatch": true,
+  "layoutScenarios": 35,
+  "layoutAssertions": 650,
+  "checks": {
+    "htmlController": 24,
+    "nativeText": 4,
+    "generator": "18 glyphs, inset, exact rectangle rasterization, red cannon spelling checked"
+  },
+  "deviceEvidence": {
+    "previousFourGlyphVersion": "User reports pixel glyphs work normally; source: chat on 2026-10-25",
+    "currentCompleteVersion": "pending editor reload and device visual/performance validation"
+  },
+  "finalRefinement": "兵: open diagonal top for readability",
+  "fullSimulator": {
+    "cases": 82,
+    "assertions": 334,
+    "passed": true,
+    "sourceSHA256": "8076f782be8062bfe175877e07f52de9a0260d8e6fde62bbe897dea540c9ac16"
+  }
+}

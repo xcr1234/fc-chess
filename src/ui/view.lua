@@ -7,7 +7,7 @@ local Settings=require('audio.settings')
 local Screen=require('ui.screen')
 local Pixels=require('ui.pixel_glyphs')
 local M={}
-local glyph={r='車',n='馬',e='象',a='士',k='將',c='包',p='卒',R='俥',N='傌',E='相',A='仕',K='帥',C='砲',P='兵'}
+local glyph={r='車',n='馬',e='象',a='士',k='將',c='包',p='卒',R='俥',N='傌',E='相',A='仕',K='帥',C='炮',P='兵'}
 local root,screen,page,overlay,pageKind,overlayKind,onAction,onSquare
 local pieces={}
 local aiFrames={}
@@ -17,7 +17,7 @@ local function button(n,label,x,y,w,h,p)
  p=p or page;U.image(p,n..'Border',x-128,y-112,w,h,'3defa0');U.image(p,n..'Fill',x-128,y-112,w-1,h-1,'00482f')
  local labelControl=text(n..'Label',x,y,w-2,h,label,'3defa0',n=='ModeButton' and w<60 and 7 or 8,p)
  if Pixels.has(label) then
-  labelControl:SetVisible(false);Pixels.draw(p,n..'Pixels',x-128,y-112,10,label,'3defa0')
+  labelControl:SetVisible(false);Pixels.draw(p,n..'Pixels',x-128,y-112,Pixels.paletteSize,label,'3defa0')
  end
  return U.hit(p,n,x-128,y-112,w,h,function() onAction(n) end)
 end
@@ -73,7 +73,11 @@ local function build(kind,s)
   if f==0 or f==8 then line('File'..f,x,104,.8,144) else line('FileTop'..f,x,144,.8,64);line('FileBottom'..f,x,64,.8,64) end
  end
  for i,y in ipairs({160,48}) do line('PalaceA'..i,120,y,math.sqrt(2)*32,.8,45);line('PalaceB'..i,120,y,math.sqrt(2)*32,.8,-45) end
- text('RiverLeft',86,104,40,15,'楚河','352599',11);text('RiverRight',150,104,40,15,'漢界','352599',11)
+ text('RiverLeft',86,104,40,15,'楚河','352599',11):SetVisible(false)
+ text('RiverRight',150,104,40,15,'漢界','352599',11):SetVisible(false)
+ for _,v in ipairs({{'Chu','楚',80},{'He','河',92},{'Han','漢',144},{'Jie','界',156}}) do
+  Pixels.draw(page,'RiverPixel'..v[1],v[3]-128,104-112,Pixels.riverSize,v[2],'352599')
+ end
  for _,v in ipairs({{'BlackLabel','黑方',174},{'ComputerLabel','電腦',160},{'BlackLevel','1 級',144},{'RedLabel','紅方',78},{'HumanLabel','人腦',64},{'RedLevel','9 級',48}}) do text(v[1],22,v[3],40,13,v[2],'3defa0',10) end
  text('TurnText',226,201,52,14,'紅方','3defa0',10);text('MoveCount',226,184,56,12,'000手','3defa0',8)
  text('AIThinkingNumber',22,126,42,12,'00000','28eff0',8);text('RedStepTime',22,30,42,12,'00:00','28eff0',8)
@@ -130,7 +134,7 @@ function M.render(s)
     c[2]:SetVisible(p~='' and not Pixels.has(value))
     if Pixels.has(value) then
      local f,r=B.coords(i)
-     c.pixels=Pixels.draw(page,'PixelGlyph_'..i,56+16*f-128,176-16*r-112,12,value,color)
+     c.pixels=Pixels.draw(page,'PixelGlyph_'..i,56+16*f-128,176-16*r-112,Pixels.boardSize,value,color)
     end
     c.last=p
    end
