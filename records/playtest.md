@@ -431,3 +431,11 @@
 - runtime=simulator；PC/手机各10流程通过（completion-simulator.json），核对实际生命周期请求、Bool/Int接收探针、次数去重、结算后继续运行和连下更新。探针仅记录请求，未模拟原生ESC属性。完整82用例/338断言通过（completion-regression.json），静态82通过；同本次发布SHA-256，无UI变化，不重复无关截图矩阵。
 - runtime=filesystem；33模块，2026-10-25 10:20:39.625 +08:00，已deploy无冲突备份替换指定游戏main.lua；源/目标/两存档/交付副本哈希一致。20场景版仅构建时间不同，重构哈希核对通过。交付export/2026-10-25-completion/main.lua，completion-deploy.json记录核验与备份。
 - runtime=device-pending；真实服务端需新增FCChessCompletion两参数监听、FCChessHasFinishedRound玩家标记及两个玩家设置节点，全部不连接结算关卡。工具未写入真实服务端图；编辑器保存重载、玩家实体绑定、重连保护和原生ESC提示待用户接线后验收，不能以Lua复制或模拟器通过代替。
+
+# 2026-10-25：完成通知全部由Lua判断
+
+- 来源：用户要求服务端事件只处理最简单调用，逻辑全部放Lua。覆盖上一版双参数通知与服务端标记/分支方案；改3个无参数FCChessWin/FCChessLose/FCChessDraw，由Lua选择并按终局序号去重。每个服务端事件只设固定胜负枚举，再设逃跑合法性为是，禁止结算关卡。
+- runtime=lua-model；新契约7项在旧实现Red7→新实现Green7（completion-simple-red/green.txt），验证无初始化请求/无参数、真实胜负和认输、中性结束、回看/重开保持、客户端重建不重置、缺失信号容错。预期故障注入错误一次，非运行故障；回看7、音频13回归通过。
+- runtime=simulator；发布同次SHA-256，PC/手机各10流程通过，completion-simple-simulator.json；冷启动/未完成/取消认输0通知，首次终局1次，连下两盘2次，继续操作不重复。接收探针仅常量记录，无动态参数或分支；原生属性仍未模拟。本次无UI或规则修改，复用原布局证据，上一版82/338为历史结果。
+- runtime=filesystem；33模块，2026-10-25 10:29:31.739 +08:00，已deploy无冲突备份替换，源/目标/两存档/交付副本/20流程报告SHA-256一致。export/2026-10-25-completion-simple/main.lua，completion-simple-deploy.json。
+- runtime=device-pending；真实编辑器仍需接上三条固定调用链，旧FCChessCompletion监听/FCChessHasFinishedRound不用。开局/重连不发重置，因此无需服务端变量；平台自身重连保留属性、玩家绑定及ESC标签待真实验证。

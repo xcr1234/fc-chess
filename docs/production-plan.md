@@ -1,10 +1,9 @@
-# 下完一盘后正常ESC退出（2026-10-25）
+# 完成通知简化（2026-10-25）
 
-- 用户选择第二种方案，明确禁止「结算关卡」。窄修复按步骤2/5/6补完成通知，交付步骤7；棋盘规则、字模与UI保持。完成任意一盘（胜、负、确认认输或中性结束）后保留本次游玩完成资格，复盘/悔棋/重开/返回标题不撤销，后续终局更新最近结果。
-- 本会话miliastra-toolbox官方资料已核对：客户端API的ServerSignal/AddBool/AddInt/SendSignal；客户端指南的重连/容器重建会重置Lua；服务端节点「设置玩家逃跑合法性」「设置玩家结算成功状态」及结算状态枚举。来源链接、参数和服务端玩家标记保护详见completion-integration.md；无新增未核验平台API。
-- 新app.completion与session独立状态完成通知；未配置原生信号时不阻断棋盘、不逐帧重试，销毁不撤销结果。真实节点图须用户手动配置；存档serverLogic仅记录请求探针，不代表已设置原生退出属性。
-- Lua完成逻辑7项有效Red→Green；结果回看7、音频13、结算音5、44车5项通过。PC/手机各10流程通过，覆盖实际生命周期信号、请求变量、去重、继续操作及后续结果；records/completion-simulator.json。当前步骤7：Lua已deploy，33模块，构建2026-10-25 10:20:39.625 +08:00；原生节点接线、编辑器重载与真实ESC验收待用户完成。
-- 产物export/2026-10-25-completion/main.lua；发布与完整回归分别记录completion-deploy.json、completion-regression.json。完整82用例/338断言及静态82用例通过，完整回归使用发布同次SHA-256；20流程版与发布仅构建时间不同且重构哈希核对通过。此版不重新导入GIA或改索引；服务端新增FCChessCompletion两参数和FCChessHasFinishedRound玩家布尔变量。
+- 用户要求服务端只做最简单的直接调用，所有逻辑放Lua。本次窄修复覆盖旧FCChessCompletion(Bool,Int)+服务端变量/分支方案；沿用步骤5/6/7，不改UI和规则。
+- Lua选择无参数FCChessWin/FCChessLose/FCChessDraw；初始化/重连/重开不发重置，不需要服务端记忆变量。每个真实监听只设固定结算枚举和逃跑合法性为是，不连接结算关卡。当前API和节点参数经miliastra-toolbox官方正文复核，无新增接口。
+- 完成Lua7项新契约Red→Green，回看Lua7、音频Lua13通过。模拟器使用发布同次产物，PC/手机各10流程记录completion-simple-simulator.json；原生ESC和平台重连属性待用户接线后验证。旧82用例/338断言是上一版历史证据，不算本轮运行。
+- 已deploy，33模块，构建2026-10-25 10:29:31.739 +08:00，无冲突备份替换；交付export/2026-10-25-completion-simple/main.lua，哈希记录completion-simple-deploy.json。当前步骤7：按completion-integration.md接三条直接调用链、保存重新试玩，无新GIA或映射。
 
 # BGM50%与44车一键开局（2026-10-25）
 

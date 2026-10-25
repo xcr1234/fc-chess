@@ -1,12 +1,12 @@
 # 第 5 步 Lua 架构与挂载
 
-## 2026-10-25 完成请求与原生退出
+## 2026-10-25 完成请求简化
 
-`game.session`新增completionSequence（初始0）及completedOutcome（初始nil），finish按win/lose/中性设置1/2/0并增序。start/menu/undo/restart不清除本次游玩完成资格；M.new才创建新会话。结果独立于声音事件消费，避免音效同步清空结果通知。
+`game.session`保留completionSequence（初始0）及completedOutcome（初始nil）。finish按win/lose/中性设置1/2/0并增序。`app.completion`按结果选择无参数FCChessWin/FCChessLose/FCChessDraw；每序号只尝试一次，pcall处理信号未配置，后续终局可再发送。声音消费独立，不调用结束关卡。
 
-`app.completion`在lifecycle.start创建、每次render先sync；初次发FCChessCompletion(Bool否,Int0)，新finish序号发是及结果。每序号只尝试一次，pcall处理缺失/错类型信号；后续终局可再次尝试，不逐帧重发。destroy释放本地控制器而不发送撤销完成。该模块只使用已核验ServerSignal/AddBool/AddInt/SendSignal，没有结束关卡调用。
+冷启动/客户端重建的completedOutcome为nil，sync立即返回，不写服务端状态。start/menu/undo/restart/destroy均不撤销已有完成，因此删除原先初始化否请求及服务端标记保护。客户端不重置平台属性；平台自身重连保留行为待真机核验。
 
-存档serverLogic的FCChessCompletionFlag/Outcome仅为模拟器原始请求探针。原生服务端另用普通玩家变量FCChessHasFinishedRound：完成请求置是，初始化否请求先检查该标记，已有完成则不覆盖平台状态，以保护客户端重连/容器重建。真实逃跑合法性、结算枚举和发送玩家实体均由[服务端接线](completion-integration.md)配置；不能把探针值或Lua日志当作原生ESC通过证据。
+服务端各监听只设置固定结算枚举，再设置逃跑合法性为是；无变量、条件或分支。[接线说明](completion-integration.md)。模拟器FCChessCompletionFlag/Outcome是3条无条件记录动作产生的探针，与真实属性区分。
 
 ## 2026-10-25 44车直开与50%默认音量
 

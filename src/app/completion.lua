@@ -1,18 +1,19 @@
 local Log=require('app.log')
-local M={signalName='FCChessCompletion'}
+local M={signalNames={[0]='FCChessDraw',[1]='FCChessWin',[2]='FCChessLose'}}
 function M.new() return {} end
 function M.sync(self,s)
+ -- Only completed rounds write server state. Startup/reconnect never resets it.
+ if s.completedOutcome==nil then return end
  if self.attemptedSequence==s.completionSequence then return end
  self.attemptedSequence=s.completionSequence
- local completed=s.completedOutcome~=nil
- local outcome=s.completedOutcome or 0
+ local outcome=s.completedOutcome
+ local signalName=M.signalNames[outcome]
  local ok,err=pcall(function()
-  local signal=game.ServerSignal(M.signalName)
-  signal:AddBool(completed);signal:AddInt(outcome);signal:SendSignal()
+  game.ServerSignal(signalName):SendSignal()
  end)
  if ok then
   self.sentSequence=s.completionSequence
-  Log.event('completion-request','completed='..tostring(completed)..' outcome='..outcome..' sequence='..s.completionSequence)
+  Log.event('completion-request','signal='..signalName..' outcome='..outcome..' sequence='..s.completionSequence)
  else
   -- Native signal definitions are connected in the editor. A missing/mistyped
   -- definition must not stop the board or generate an error on every redraw.

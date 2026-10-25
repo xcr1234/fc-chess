@@ -1,0 +1,35 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 10:29:31.739 +08:00",
+  "modules": 33,
+  "sha256": "b4bf2ef89a78901a14b71b8d25edca7c2a6f178704d15e6bab6f9501f00fa0a4",
+  "action": "replace",
+  "conflict": false,
+  "dryRun": false,
+  "backup": ".lua-deploy-backups/1792895371848-955b7c9d-e785-44d0-9a6c-e8f830ca6657.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-completion-simple/main.lua"
+  ],
+  "checks": {
+    "completionLua": 7,
+    "resultReviewLua": 7,
+    "audioLua": 13,
+    "completionSimulatorScenarios": 20
+  },
+  "simulatorSHA256": "b4bf2ef89a78901a14b71b8d25edca7c2a6f178704d15e6bab6f9501f00fa0a4",
+  "signals": [
+    "FCChessWin",
+    "FCChessLose",
+    "FCChessDraw"
+  ],
+  "parametersPerSignal": 0,
+  "serverBranches": 0,
+  "serverStateVariables": 0,
+  "nativeGraph": "pending manual wiring: three fixed two-node chains",
+  "nativeESC": "not verified",
+  "forcedLevelSettlement": false
+}

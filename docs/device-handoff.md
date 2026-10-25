@@ -1,6 +1,6 @@
 # FC 中国象棋 · 真机导入说明
 
-最新完成通知版（2026-10-25）：`export/2026-10-25-completion/main.lua`，33模块，构建`2026-10-25 10:20:39.625 +08:00`。已deploy备份更新既定游戏main.lua，沿用现有映射/挂载/索引，不需要新GIA。**还须在真实编辑器按[完成接线说明](completion-integration.md)添加FCChessCompletion信号和服务端玩家设置节点，Lua复制本身不会改变原生ESC状态。** 参数依次Bool已完成、Int结果0/1/2；完成后设置玩家逃跑合法性为是，并按结果设置胜利/失败/未定，所有分支均不连接「结算关卡」。配置普通玩家变量FCChessHasFinishedRound保护重连后的完成状态。保存重新试玩，验证胜/负/认输后仍可回看或再来，最后ESC正常退出；未结束或取消认输保持未完成。Lua/模拟器已测，真实平台状态与ESC尚待接线验收，记录见records/completion-deploy.json。
+最新完成通知简化版（2026-10-25）：`export/2026-10-25-completion-simple/main.lua`，33模块，构建`2026-10-25 10:29:31.739 +08:00`，已deploy。沿用映射/挂载/索引。真实服务端按[接线说明](completion-integration.md)建3个无参数信号：FCChessWin、FCChessLose、FCChessDraw；每个事件只接「设置玩家结算成功状态」的固定枚举，再接「设置玩家逃跑合法性=是」。判断、选信号与去重均在Lua；无服务端变量或分支，无结算关卡。旧FCChessCompletion监听/玩家标记不用。保存重新试玩核对正常ESC；Lua复制和模拟器通过不代表真实节点已接入。校验见records/completion-simple-deploy.json。
 
 最新50%音量/44车版（2026-10-25）：`export/2026-10-25-44-rooks-volume/main.lua`，32模块，构建`2026-10-25 09:32:46.710 +08:00`。已deploy备份并更新既有main.lua，哈希见records/44-rooks-volume-deploy.json，沿用映射/索引及FC字模，无需导入新GIA。保存重新试玩：设置默认50%；自定义点击“全部改車”立即进入己方半场44车+帅对局，黑方原阵容；从前排车(0,5)走至(0,4)，检查回棋与悔棋；认输重开、返回标题再进编辑保留44车，恢复初始回标准阵容。用户调过的音量在本次会话开局/重开时保留；新启动默认50%。新规则/音量及61子布局流畅度待真机验收。
 
