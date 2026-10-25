@@ -7,7 +7,7 @@ local Settings=require('audio.settings')
 local M={}
 local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
-function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={}} end
+function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={},completionSequence=0} end
 function M.cancel(s,reason)
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
  Log.event('cancel',reason..' version='..s.version)
@@ -25,6 +25,9 @@ end
 function M.profile(s) return s.custom and 'custom-capture-free-advisor-elephant-v1' or 'casual-capture-v1' end
 function M.finish(s,title,reason,outcome)
  M.cancel(s,'result');s.scene='result';s.modal=nil;s.selected=nil;s.resultTitle=title;s.resultReason=reason;s.status=reason
+ -- Completion belongs to this play session, so undo/menu/restart keep it.
+ s.completionSequence=s.completionSequence+1
+ s.completedOutcome=outcome=='win' and 1 or (outcome=='lose' and 2 or 0)
  if outcome=='win' or outcome=='lose' then s.resultSoundSequence=s.resultSoundSequence+1;s.resultSoundOutcomes[s.resultSoundSequence]=outcome end
  Log.event('result',title..' '..reason..' moves='..s.moves)
 end

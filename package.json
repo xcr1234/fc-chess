@@ -33,6 +33,8 @@
     "test:result-review:simulator": "node scripts/test-result-review-layouts.mjs",
     "test:lua:audio": "node scripts/run-lua-check.mjs tests/lua-audio-settings.lua && node scripts/run-lua-check.mjs tests/lua-audio-controller.lua",
     "test:lua:44": "node scripts/run-lua-check.mjs tests/lua-44-rooks.lua",
+    "test:lua:completion": "node scripts/run-lua-check.mjs tests/lua-completion.lua",
+    "test:completion:simulator": "node scripts/test-completion-simulator.mjs",
     "test:audio:simulator": "node scripts/test-audio-layouts.mjs",
     "test:lua:check-audio": "node scripts/run-lua-check.mjs tests/lua-check-audio.lua",
     "test:lua:result-audio": "node scripts/run-lua-check.mjs tests/lua-result-audio.lua",

@@ -1,5 +1,13 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-25 完成请求与原生退出
+
+`game.session`新增completionSequence（初始0）及completedOutcome（初始nil），finish按win/lose/中性设置1/2/0并增序。start/menu/undo/restart不清除本次游玩完成资格；M.new才创建新会话。结果独立于声音事件消费，避免音效同步清空结果通知。
+
+`app.completion`在lifecycle.start创建、每次render先sync；初次发FCChessCompletion(Bool否,Int0)，新finish序号发是及结果。每序号只尝试一次，pcall处理缺失/错类型信号；后续终局可再次尝试，不逐帧重发。destroy释放本地控制器而不发送撤销完成。该模块只使用已核验ServerSignal/AddBool/AddInt/SendSignal，没有结束关卡调用。
+
+存档serverLogic的FCChessCompletionFlag/Outcome仅为模拟器原始请求探针。原生服务端另用普通玩家变量FCChessHasFinishedRound：完成请求置是，初始化否请求先检查该标记，已有完成则不覆盖平台状态，以保护客户端重连/容器重建。真实逃跑合法性、结算枚举和发送玩家实体均由[服务端接线](completion-integration.md)配置；不能把探针值或Lua日志当作原生ESC通过证据。
+
 ## 2026-10-25 44车直开与50%默认音量
 
 audio.settings.new默认volume=50，控制器仍按现有整数百分比信号发送，范围/步进不变。game.session在custom-edit处理AllRooksButton时填充Lua数组46–90，保留K，复制为draft后调用既有start(custom,draft)，因此initial/board独立复制、历史/计时/异步任务按标准开局流程重置；draft保留供返回编辑，restart仍取initial。HTML按同一rank5–9规则并调用resetGame，手动编辑路径保持。

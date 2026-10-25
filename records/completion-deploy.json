@@ -1,0 +1,35 @@
+{
+  "runtime": "filesystem",
+  "build": "2026-10-25 10:20:39.625 +08:00",
+  "modules": 33,
+  "sha256": "92979732908a6996f60d14af12be55ae0aacc715a2791c0503be1cd108432cff",
+  "action": "replace",
+  "conflict": false,
+  "dryRun": false,
+  "backup": ".lua-deploy-backups/1792894839736-27b9c845-2450-460e-8d3d-48741614acca.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target",
+    "fc-chess.save.json inline source",
+    "tests/fc-chess.test.save.json inline source",
+    "export/2026-10-25-completion/main.lua"
+  ],
+  "testedSimulatorBuild": "2026-10-25 10:12:15.246 +08:00",
+  "testedSimulatorSHA256": "5da983e078ca4296be8ae622d5437fdf891eeb898e2a44123d38b60aca31c200",
+  "onlyBuildTimestampChanged": true,
+  "checks": {
+    "completionLua": 7,
+    "resultReviewLua": 7,
+    "audioLua": 13,
+    "resultAudioLua": 5,
+    "fortyFourRooksLua": 5,
+    "completionSimulatorScenarios": 20,
+    "fullSimulatorCases": 82,
+    "fullSimulatorAssertions": 338,
+    "staticCases": 82
+  },
+  "nativeGraph": "pending user wiring: docs/completion-integration.md",
+  "nativeESC": "not verified",
+  "forcedLevelSettlement": false,
+  "fullSimulatorSHA256": "92979732908a6996f60d14af12be55ae0aacc715a2791c0503be1cd108432cff"
+}

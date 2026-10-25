@@ -1,0 +1,723 @@
+{
+  "runtime": "simulator",
+  "nativeExitState": "not modeled; receiver only records requests",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "scene": "initial",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "unfinished",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "win",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "defeat",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=1",
+          "time": 0.6
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "resign-cancel",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "resign",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "review-undo",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.4000000000000001,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "restart",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "menu",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "scene": "win-then-lose",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 3,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.4000000000000001,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=2",
+          "time": 1.1000000000000003
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "initial",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "unfinished",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "win",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "defeat",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=1",
+          "time": 0.6
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "resign-cancel",
+      "passed": true,
+      "completed": false,
+      "outcome": 0,
+      "signals": 1,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        }
+      ],
+      "requestVars": {
+        "completed": false,
+        "outcome": 0
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "resign",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "review-undo",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.4000000000000001,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "restart",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "menu",
+      "passed": true,
+      "completed": true,
+      "outcome": 1,
+      "signals": 2,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "自定義模式",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 1
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "scene": "win-then-lose",
+      "passed": true,
+      "completed": true,
+      "outcome": 2,
+      "signals": 3,
+      "workerStillRunning": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.4000000000000001,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "completionLogs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=false outcome=0 sequence=0",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=1 sequence=1",
+          "time": 0.49999999999999994
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][completion-request] completed=true outcome=2 sequence=2",
+          "time": 1.1000000000000003
+        }
+      ],
+      "requestVars": {
+        "completed": true,
+        "outcome": 2
+      }
+    }
+  ],
+  "sha256": "5da983e078ca4296be8ae622d5437fdf891eeb898e2a44123d38b60aca31c200"
+}

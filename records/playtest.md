@@ -422,3 +422,12 @@
 - runtime=test-infrastructure；82用例静态检查兼容模拟器name控件断言省略空id默认值，其他字段仍严格校验。长时间冻结/数字封顶用例触发Worker原8秒宿主限额；用支持的子进程QXQY_PLAY_TIMEOUT_MS=30000配置，保留原事件、dt和全部断言。最终同次82用例/338断言通过，44-rooks-volume-simulator.json；初次超时记录44-rooks-volume-simulator-initial.json。不将测试期限配置记为游戏帧性能改善。
 - runtime=filesystem；32模块，2026-10-25 09:32:46.710 +08:00，已deploy无冲突备份更新既有游戏main.lua，源/目标/两存档/交付副本哈希一致；与布局版本仅构建时间不同并重构哈希核对。首次权限审核超时，按工具允许重试一次后批准完成。44-rooks-volume-deploy.json，export/2026-10-25-44-rooks-volume/main.lua。
 - runtime=device-retest：本版50%听感、44车直开/回棋/悔棋/重开以及61子流畅度待用户保存重新试玩。
+
+# 2026-10-25：下完一盘后允许正常ESC退出
+
+- 来源：用户选择第二种方案，明确不要结算关卡。单局胜/负/确认认输均通知完成，中性结果保留未定；回看/悔棋/重开/回标题保留本次完成，后续终局更新最近结果。没有新增自动结束或原生窗口操作。
+- runtime=official-docs；miliastra-toolbox已核对ServerSignal/AddBool/AddInt/SendSignal、客户端重建会重置Lua，以及玩家逃跑合法性/结算成功状态节点和平台枚举；docs/completion-integration.md列出官方来源与手动接线。服务端普通玩家变量保护重连时初始化否请求。
+- runtime=lua-model；新增7项缺行为Red→Green7（completion-red/green.txt），真实吃将、AI吃帅、取消/确认认输、后续结果、回看/重开保持、中性结果及信号缺失容错。预期故障注入产生一次unconfigured signal错误，验证不崩溃/不逐帧重发；测试拒绝意外平台调用。结果回看7、音频13、结算音5、44车5项通过。
+- runtime=simulator；PC/手机各10流程通过（completion-simulator.json），核对实际生命周期请求、Bool/Int接收探针、次数去重、结算后继续运行和连下更新。探针仅记录请求，未模拟原生ESC属性。完整82用例/338断言通过（completion-regression.json），静态82通过；同本次发布SHA-256，无UI变化，不重复无关截图矩阵。
+- runtime=filesystem；33模块，2026-10-25 10:20:39.625 +08:00，已deploy无冲突备份替换指定游戏main.lua；源/目标/两存档/交付副本哈希一致。20场景版仅构建时间不同，重构哈希核对通过。交付export/2026-10-25-completion/main.lua，completion-deploy.json记录核验与备份。
+- runtime=device-pending；真实服务端需新增FCChessCompletion两参数监听、FCChessHasFinishedRound玩家标记及两个玩家设置节点，全部不连接结算关卡。工具未写入真实服务端图；编辑器保存重载、玩家实体绑定、重连保护和原生ESC提示待用户接线后验收，不能以Lua复制或模拟器通过代替。

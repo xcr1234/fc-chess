@@ -1,0 +1,8 @@
+FAIL cold session sends incomplete once; menus and starting do not complete it: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+FAIL real king capture sends victory once even after result audio has consumed its events: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+FAIL real defeat reports loss: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+FAIL cancelled resignation stays incomplete; confirmed resignation completes as loss: [string "package.preload["app.log"]=function()..."]:11158: assertion failed!
+FAIL review undo restart menu and cancellation keep completion; next result updates it: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+FAIL neutral terminal result is completed without being reported as victory: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+FAIL missing native signal cannot crash gameplay or retry every frame; next result can send: [string "package.preload["app.log"]=function()..."]:11131: missing completion signal
+[string "package.preload["app.log"]=function()..."]:11176: 7 completion failures

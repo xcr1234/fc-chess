@@ -1,0 +1,12 @@
+
+> miliastra-template@0.1.0 test:lua:completion
+> node scripts/run-lua-check.mjs tests/lua-completion.lua
+
+PASS cold session sends incomplete once; menus and starting do not complete it
+PASS real king capture sends victory once even after result audio has consumed its events
+PASS real defeat reports loss
+PASS cancelled resignation stays incomplete; confirmed resignation completes as loss
+PASS review undo restart menu and cancellation keep completion; next result updates it
+PASS neutral terminal result is completed without being reported as victory
+[fc-chess][error] completion-request failed: [string "package.preload["app.log"]=function()..."]:11141: unconfigured signal
+PASS missing native signal cannot crash gameplay or retry every frame; next result can send
