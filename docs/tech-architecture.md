@@ -1,5 +1,9 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-10-26 存档引用构建产物
+
+正式与测试存档保留UI、脚本索引和挂载，`assets.scripts[0].path=dist/main.lua`、`source=""`。模拟器启动时按工作区路径读取单文件；存档不再保存生成代码。维护源仍为 `src/`，打包产物仅在已忽略的 `dist/`。`build:game` 构建后整理两份存档引用，`preview` 自动先构建；测试通过 `scripts/game-save-script.mjs` 拒绝内嵌脚本并检查实际文件。修改Lua后重启试玩加载新文件，单独分享存档需另带产物。
+
 ## 2026-10-25 落定音效与将军优先级
 
 显示层Motion维护landed/discard序号；每次动画结束推进landed，悔棋/开局/离局或设置页清除动画时以discard截断未播事件。View.render先同步显示队列，再由Audio.sync按View.soundState消费已落定声音；规则和AI仍即时提交，无额外计算或等待。

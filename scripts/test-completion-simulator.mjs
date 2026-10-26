@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
 import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
 import {readFile,writeFile} from 'node:fs/promises';
@@ -11,7 +12,7 @@ const play=(action,args={})=>tool('qxqy_studio_play',{handle,action,args});
 const win=['TestSetup_result-review-win','Square_4_5','Square_4_0'];
 try{
  const source=await readFile('dist/main.lua','utf8');report.sha256=createHash('sha256').update(source).digest('hex');
- for(const path of ['fc-chess.save.json','tests/fc-chess.test.save.json'])assert.equal(JSON.parse(await readFile(path,'utf8')).assets.scripts[0].source,source);
+ for(const path of ['fc-chess.save.json','tests/fc-chess.test.save.json'])assert.equal(readGameScript(JSON.parse(await readFile(path,'utf8'))),source);
  await client.connect(new StdioClientTransport({command:process.execPath,args:['node_modules/beyond-simulator-mcp/dist/index.js','--workspace',process.cwd()],env:{QXQY_PLAY_TIMEOUT_MS:'30000'}}));
  ({handle}=await tool('qxqy_project_open',{path:'tests/fc-chess.test.save.json'}));
  for(const canvasId of ['pc-16-9','mobile-16-9']){

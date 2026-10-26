@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -23,7 +24,7 @@ try {
   report.sourceSHA256 = createHash('sha256').update(source).digest('hex');
   for (const path of ['fc-chess.save.json', 'tests/fc-chess.test.save.json']) {
     const save = await read(path);
-    if (save.assets.scripts[0].source !== source || save.assets.scripts[0].path !== 'dist/main.lua') throw new Error('Stale script: ' + path);
+    if (readGameScript(save) !== source || save.assets.scripts[0].path !== 'dist/main.lua') throw new Error('Stale script: ' + path);
   }
   // Long simulated clock cases render hundreds of frames. Use the simulator's
   // supported per-worker deadline rather than changing their input or asserts.

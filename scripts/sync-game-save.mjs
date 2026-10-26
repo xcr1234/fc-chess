@@ -13,6 +13,8 @@ s.serverLogic.rules=s.serverLogic.rules.filter(r=>!r.id.startsWith('fc-chess-com
 s.serverLogic.rules.push({id:'fc-chess-completion-win',signalName:'FCChessWin',actions:[
  {kind:'setCustomVariable',entityType:'PlayerSelf',name:'FCChessVictoryReceived',variableType:'Bool',value:true}
 ]});
-s.assets.scripts[0].path='dist/main.lua';s.assets.scripts[0].source=source;s.assets.server.root.children[0].name='FCChessHost';
+if(!source.trim())throw new Error('Build the Lua bundle before syncing saves');
+// Keep generated code out of Git. The simulator reads path when source is empty.
+s.assets.scripts[0].path='dist/main.lua';s.assets.scripts[0].source='';s.assets.server.root.children[0].name='FCChessHost';
 fs.writeFileSync(path,JSON.stringify(s,null,2)+'\n');
 s.meta.name='FC 中国象棋 · 测试桥接';s.assets.server.root.children[0].name='FCChessTestHost';fs.writeFileSync('tests/fc-chess.test.save.json',JSON.stringify(s,null,2)+'\n');

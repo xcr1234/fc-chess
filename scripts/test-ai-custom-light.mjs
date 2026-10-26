@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 // Custom entertainment policy: production defaults, serial host samples/soak.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
@@ -25,7 +26,7 @@ for(const profile of ['free-pieces','standard-army']){
 }
 const bundleSHA256=digest(fs.readFileSync('dist/main.lua'));
 for(const file of ['fc-chess.save.json','tests/fc-chess.test.save.json']){
- const script=JSON.parse(fs.readFileSync(file)).assets.scripts[0];assert.equal(digest(script.source),bundleSHA256);assert.equal(script.path,'dist/main.lua');
+ const save=JSON.parse(fs.readFileSync(file));assert.equal(digest(readGameScript(save)),bundleSHA256);
 }
 const report={runtime:'Fengari 0.1.5 / Node '+process.version,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),
  bundleSHA256,engineModulesSHA256:digest(preloadModules(['game.ai'])),starts,

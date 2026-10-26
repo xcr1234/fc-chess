@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 // Current-engine host readiness only. No legacy comparison or device claims.
 import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -20,7 +21,7 @@ function afterPlayerMove(name){
 const meta={runtime:'Fengari 0.1.5 / Node '+process.version,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),
  bundleSHA256:digest(fs.readFileSync('dist/main.lua')),engineModulesSHA256:digest(preloadModules(['game.ai']))};
 for(const file of ['fc-chess.save.json','tests/fc-chess.test.save.json']){
- const script=JSON.parse(fs.readFileSync(file)).assets.scripts[0];assert.equal(digest(script.source),meta.bundleSHA256);assert.equal(script.path,'dist/main.lua');
+ const save=JSON.parse(fs.readFileSync(file));assert.equal(digest(readGameScript(save)),meta.bundleSHA256);
 }
 const engine=createLuaEngine();
 const quantile=(samples,q)=>{const values=[...samples].sort((a,b)=>a-b);return values[Math.max(0,Math.ceil(values.length*q)-1)]??0;};

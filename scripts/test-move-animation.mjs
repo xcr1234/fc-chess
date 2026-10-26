@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
 import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
 import {readFile,writeFile} from 'node:fs/promises';
@@ -14,7 +15,7 @@ function assertNode(n,name){assert(n,'Missing '+name);return n;}
 async function shot(label){const r=await client.callTool({name:'qxqy_studio_play_screenshot',arguments:{handle}});assert(!r.isError);const img=await loadImage(Buffer.from(r.content.find(c=>c.type==='image').data,'base64')),z=Math.min(img.width/256,img.height/224),w=Math.round(256*z),h=Math.round(224*z),c=createCanvas(w,h);c.getContext('2d').drawImage(img,(img.width-w)/2,(img.height-h)/2,w,h,0,0,w,h);const path=`records/screenshots/move-animation-${label}.png`;await writeFile(path,c.toBuffer('image/png'));return path;}
 try{
  const source=await readFile('dist/main.lua','utf8');report.sha256=createHash('sha256').update(source).digest('hex');
- for(const p of ['fc-chess.save.json','tests/fc-chess.test.save.json'])assert.equal(JSON.parse(await readFile(p,'utf8')).assets.scripts[0].source,source);
+ for(const p of ['fc-chess.save.json','tests/fc-chess.test.save.json'])assert.equal(readGameScript(JSON.parse(await readFile(p,'utf8'))),source);
  await client.connect(new StdioClientTransport({command:process.execPath,args:['node_modules/beyond-simulator-mcp/dist/index.js','--workspace',process.cwd()]}));
  ({handle}=await tool('qxqy_project_open',{path:'fc-chess.save.json'}));
  for(const canvasId of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3']){

@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -24,7 +25,7 @@ try {
   const binding = await fs.readFile('node_modules/beyond-simulator-web/dist/public/play-renderer.js', 'utf8');
   report.bindingSHA256 = createHash('sha256').update(original ? originalRenderer(binding) : binding).digest('hex');
   const save = JSON.parse(await fs.readFile('tests/fc-chess.test.save.json', 'utf8'));
-  if (save.assets.scripts[0].source !== source) throw new Error('Stale save');
+  if (readGameScript(save) !== source) throw new Error('Stale save');
   await client.connect(new StdioClientTransport({ command: process.execPath,
     args: [root + 'node_modules/beyond-simulator-mcp/dist/index.js', '--workspace', root], cwd: root }));
   ({ handle } = await call('qxqy_project_open', { path: 'tests/fc-chess.test.save.json' }));

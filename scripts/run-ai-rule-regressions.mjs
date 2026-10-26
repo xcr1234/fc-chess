@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 // Serial, isolated regression processes. A failure never hides later suites.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,8 +25,8 @@ const outputIndex=process.argv.indexOf('--output');
 const output=outputIndex<0?'ai-rule-regression.json':process.argv[outputIndex+1];
 if(!output || !/^[a-z0-9-]+\.json$/.test(output)) throw Error('--output requires a report filename inside records/');
 for(const save of ['fc-chess.save.json','tests/fc-chess.test.save.json']){
- const script=JSON.parse(read(save)).assets.scripts[0];
- if(script.path!=='dist/main.lua' || hash(script.source)!==report.bundleSHA256) throw Error('Rebuild/sync before testing: '+save);
+ const archive=JSON.parse(read(save));
+ if(hash(readGameScript(archive))!==report.bundleSHA256) throw Error('Rebuild/sync before testing: '+save);
 }
 function execute(task){
  return new Promise(resolve=>{

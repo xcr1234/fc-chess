@@ -1,0 +1,146 @@
+{
+  "runtime": "simulator",
+  "date": "2026-10-26",
+  "executor": "Agent / qxqy-simulator MCP",
+  "save": "fc-chess.save.json",
+  "sourceMode": "source empty; read dist/main.lua",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "name": "file-backed-production-pc-16-9",
+      "passed": true,
+      "frame": 2,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-26 19:22:03.660 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10167 volume=50 enabled=true",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-19.5-9",
+      "name": "file-backed-production-mobile-19.5-9",
+      "passed": true,
+      "frame": 2,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-10-26 19:22:03.660 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10167 volume=50 enabled=true",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        }
+      ]
+    }
+  ],
+  "limitations": "Simulator only; editor reload and device validation not performed."
+}

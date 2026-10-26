@@ -81,7 +81,11 @@ node tools/bundle-lua.mjs --root src --entry main --out dist/main.lua --startup-
 
 ## 模拟器与编辑器
 
-模拟器的脚本路径指向 `dist/main.lua`。若 `scripts[].source` 非空，应更新为同次打包的完整内容，再显式保存和回归。发布命令不修改模拟器存档，也不创建脚本挂载关系。
+Git 中的正式/测试存档只保存 UI、脚本索引与挂载关系：脚本 `path` 指向 `dist/main.lua`，`source` 保持空字符串。模拟器在启动试玩时读取该路径；非空 `source` 会优先于路径，因此不向存档内嵌生成代码。`src/` 是维护源，`dist/` 已被 Git 忽略，构建时间和打包代码不会再造成存档差异。
+
+首次 clone 后或修改 Lua 后执行 `npm run build:game`，生成本机 `dist/main.lua` 并整理存档引用；`npm run preview -- --file fc-chess.save.json` 会自动先执行此构建。已有试玩需要停止并重新启动才会加载新产物。`npm run build:lua` 只构建 Lua，`npm run deploy:lua` 构建并复制到游戏目标；两者都不创建挂载关系。分享可独立运行的工程时，另外携带构建后的 `dist/main.lua`，仅复制存档不再包含脚本。
+
+模拟器回归通过 `scripts/game-save-script.mjs` 检查空 `source` 和固定路径，并校验实际磁盘产物；`npm test` 验证构建内容/时间变化不会改变存档。若编辑器将源码重新写入存档，提交前运行 `npm run build:game` 清理并核对差异。
 
 千星编辑器只映射并挂载目标单文件，不分别映射开发模块或上传 `.map.json`。后续更新同一路径，编辑器保存/重新加载后试玩。复制成功、模拟器通过与真机通过分别记录。
 

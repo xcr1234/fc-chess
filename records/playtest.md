@@ -1,5 +1,11 @@
 # HTML 原型检查记录
 
+## 2026-10-26：存档移除内嵌 Lua
+
+- runtime=node / Agent：存档约束和同步稳定性2项旧版Red→Green；`npm test`共30项通过。两次不同打包内容不会改变存档字节；内嵌源码和错误路径被拒绝。
+- runtime=simulator / Agent：按磁盘路径加载Lua，完整85用例344断言通过（records/file-backed-save-regression.json，保留断言/错误，省略完整快照）；正式存档PC16:9、手机19.5:9快速开局各2断言通过，日志显示test=false及本次构建时间（records/file-backed-save-production.json）。两份存档仅清空source，索引/挂载/UI保持；重新打包与此前内嵌代码仅构建时间不同。
+- runtime=filesystem / Agent：正式/测试存档995217/995237→30043/30063字节。部署dry-run因本机未配置`lua.deploy.local.json`而停止，无外部复制；编辑器重载与真机未验证。本轮只改工程存储与读取方式。
+
 ## 2026-10-25：选中深底色与走棋动画
 
 - runtime=lua / Agent：旧UI有效Red为“selected square frame still drawn”；新7项Green覆盖选中/切换/取消、途中坐标、字底同父组、吃子保留到落定、吃将结果延后、红黑顺播、途中悔棋、设置/菜单/重开及0/大dt。核心11、反馈6、声音13、结果回看7、屏幕4通过。

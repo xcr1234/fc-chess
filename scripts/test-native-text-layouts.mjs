@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import {Client} from '@modelcontextprotocol/sdk/client/index.js';
 import {StdioClientTransport} from '@modelcontextprotocol/sdk/client/stdio.js';
 import {readFile,writeFile} from 'node:fs/promises';
@@ -11,7 +12,7 @@ const report={runtime:'simulator',results:[]};let handle;
 async function call(action,args={}){const r=await client.callTool({name:'qxqy_studio_play',arguments:{handle,action,args}},undefined,{timeout:120000});if(r.isError)throw new Error(JSON.stringify(r.content));return r.structuredContent??JSON.parse(r.content.find(c=>c.type==='text').text);}
 try{
  const lua=await readFile('dist/main.lua','utf8');report.luaSHA256=createHash('sha256').update(lua).digest('hex');
- assert.equal(JSON.parse(await readFile('fc-chess.save.json','utf8')).assets.scripts[0].source,lua);
+ assert.equal(readGameScript(JSON.parse(await readFile('fc-chess.save.json','utf8'))),lua);
  await client.connect(new StdioClientTransport({command:process.execPath,args:['node_modules/beyond-simulator-mcp/dist/index.js','--workspace',process.cwd()]}));
  const opened=await client.callTool({name:'qxqy_project_open',arguments:{path:'fc-chess.save.json'}});({handle}=opened.structuredContent??JSON.parse(opened.content.find(c=>c.type==='text').text));
  const scenes=[

@@ -1,3 +1,4 @@
+import { readGameScript } from './game-save-script.mjs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -12,7 +13,7 @@ async function call(action,args={}){
 try{
  const source=await readFile('dist/main.lua','utf8');report.luaSHA256=createHash('sha256').update(source).digest('hex');
  for(const file of ['fc-chess.save.json','tests/fc-chess.test.save.json']){
-  const save=JSON.parse(await readFile(file,'utf8'));assert.equal(save.assets.scripts[0].source,source);assert.equal(save.assets.scripts[0].path,'dist/main.lua');
+  const save=JSON.parse(await readFile(file,'utf8'));assert.equal(readGameScript(save),source);assert.equal(save.assets.scripts[0].path,'dist/main.lua');
  }
  await client.connect(new StdioClientTransport({command:process.execPath,args:['node_modules/beyond-simulator-mcp/dist/index.js','--workspace',process.cwd()]}));
  const opened=await client.callTool({name:'qxqy_project_open',arguments:{path:'tests/fc-chess.test.save.json'}});
