@@ -105,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 20.05,
+      "at": 1.05,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -113,7 +113,7 @@
     },
     {
       "kind": "control",
-      "at": 31.05,
+      "at": 5.05,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -121,7 +121,7 @@
     },
     {
       "kind": "control",
-      "at": 31.05,
+      "at": 5.05,
       "id": "",
       "name": "Piece_6_2",
       "field": "text",

@@ -1,0 +1,53 @@
+{
+  "runtime": "filesystem",
+  "date": "2026-11-07",
+  "build": "2026-11-07 15:43:05.543 +08:00",
+  "sha256": "b76b4aea15e33d57e195217ef800178b3014dd83eda5ffdfd5ac330bdd839e07",
+  "conflict": false,
+  "action": "replace",
+  "backup": ".lua-deploy-backups/1794037385680-6c69f6fe-ecb7-4956-942a-0a56207eb6a7.lua",
+  "testedBuild": "2026-11-07 15:39:33.155 +08:00",
+  "simulatorSHA256": "568104d107142ce0c945b196f3027d656c37392eac11bc90968765f60b74c0cd",
+  "onlyBuildTimestampChanged": true,
+  "sourceMode": "Both tracked saves have empty source and read dist/main.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target"
+  ],
+  "checks": {
+    "fcWaitLua": 9,
+    "waitExtensionLua": 3,
+    "coreLua": 11,
+    "prototype": 28,
+    "staticCases": 85,
+    "simulatorCases": 85,
+    "simulatorAssertions": 344
+  },
+  "wait": {
+    "ordinaryShortProbability": 0.15,
+    "shortSeconds": [
+      10,
+      20
+    ],
+    "normalProbability": 0.85,
+    "normalSeconds": [
+      20,
+      40
+    ],
+    "normalDistribution": "symmetric triangular, mode 30",
+    "ordinaryMean": 27.75,
+    "singleMoveSeconds": [
+      10,
+      20
+    ],
+    "deductCompute": false
+  },
+  "nativeReload": "not performed",
+  "nativeTiming": "pending user playtest",
+  "deployedAt": "2026-11-07T07:43:05.697Z",
+  "releaseSmoke": {
+    "cases": 3,
+    "assertions": 6,
+    "sourceSHA256": "b76b4aea15e33d57e195217ef800178b3014dd83eda5ffdfd5ac330bdd839e07"
+  }
+}

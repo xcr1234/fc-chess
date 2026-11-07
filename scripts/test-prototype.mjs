@@ -53,17 +53,28 @@ test('step clock resets the new mover, keeps only opposite previous step and sto
  c.undo(2000,75000); c.update(76000); assert.equal(c.red,1000); assert.equal(c.black,2000);
  assert.equal(formatStep(59900),'00:59'); assert.equal(formatStep(60000),'01:00'); assert.equal(formatStep(6000000),'100:00');
 });
-test('complexity changes wait; fast adds zero; bounds and missing metrics are safe', () => {
+test('difficult wait probabilities include books; custom complexity and fast timing remain', () => {
  assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},1),0);
  assert.equal(waitingSeconds({count:1,tactical:1,gap:0,instability:1},0,()=>0),10);
  assert.equal(waitingSeconds({count:1},0,()=>1-Number.EPSILON),20);
- assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},0),40);
+ for(const summary of [undefined,{}, {count:0}, {count:2}, {count:60,tactical:60,gap:0,instability:1}]) {
+  for(const [roll,seconds] of [[1,10],[1500,20],[1501,20],[5750,30],[10000,40]]) {
+   let calls=0;
+   assert.equal(waitingSeconds(summary,0,()=>{calls++;return (roll-.5)/10000;}),seconds);
+   assert.equal(calls,1);
+  }
+ }
  assert.equal(waitingSeconds({count:300,tactical:300,gap:0,instability:1},2),16);
- assert.ok(waitingSeconds({count:30,tactical:10,gap:10},0)>waitingSeconds({count:30,tactical:10,gap:150},0));
- const metrics={count:30,tactical:10}; assert.equal(waitingSeconds(metrics,0),29);assert.equal(waitingSeconds(metrics,2),9);
- assert.equal(waitingSeconds({count:30,tactical:15,gap:75,instability:.5},0),30);
- assert.equal(waitingSeconds({count:0},0),30);
- assert.ok(waitingSeconds(metrics,0)>=20 && waitingSeconds(metrics,0)<=40);
+ assert.ok(waitingSeconds({count:30,tactical:10,gap:10},2)>waitingSeconds({count:30,tactical:10,gap:150},2));
+ assert.equal(waitingSeconds({count:30,tactical:10},2),9);
+ let total=0,normal=0;
+ for(let roll=1;roll<=10000;roll++) {
+  const n=waitingSeconds({count:30},0,()=>(roll-.5)/10000);
+  assert.ok(Number.isInteger(n) && n>=10 && n<=40);
+  if(roll<=1500) assert.ok(n<=20);else {assert.ok(n>=20);normal+=n;}
+  total+=n;
+ }
+ assert.ok(Math.abs(normal/8500-30)<.01 && Math.abs(total/10000-27.75)<.01);
 });
 
 import vm from 'node:vm';

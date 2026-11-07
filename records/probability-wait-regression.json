@@ -1,0 +1,3611 @@
+{
+  "runtime": "simulator",
+  "sourceSHA256": "568104d107142ce0c945b196f3027d656c37392eac11bc90968765f60b74c0cd",
+  "workerTimeoutMs": 30000,
+  "results": [
+    {
+      "format": "qxqy-autotest",
+      "name": "boot",
+      "passed": true,
+      "failedAt": null,
+      "frame": 1,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "first-success",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "first-fail",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "fast-immediate",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "selection",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "switch-selection",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "2,6",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "resign",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "主動認輸",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "modal-cancel",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "return-mode",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "mode-select",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "3",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "restart",
+      "passed": true,
+      "failedAt": null,
+      "frame": 9,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.9,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "edit-lock",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "帥保留，不能修改",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "forty-four-rooks",
+      "passed": true,
+      "failedAt": null,
+      "frame": 7,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "44",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "45",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "K",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "50",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "edit-reset",
+      "passed": true,
+      "failedAt": null,
+      "frame": 13,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "2",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "custom-capture-free-advisor-elephant-v1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "custom-restart",
+      "passed": true,
+      "failedAt": null,
+      "frame": 13,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "44",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "draft-retained",
+      "passed": true,
+      "failedAt": null,
+      "frame": 11,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "44",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "custom-edit",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "mobile-smoke",
+      "passed": true,
+      "failedAt": null,
+      "frame": 11,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "黑方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "rook-block",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "rook-block",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "horse-leg",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "horse-leg",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "cannon-screen",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "cannon-screen",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "C",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "elephant-eye",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "elephant-eye",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "standard-zones",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "standard-zones",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "pawn-river",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "pawn-river",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "free-advisor",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "free-advisor",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "A",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "free-elephant",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "free-elephant",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "E",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "expose-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "expose-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ignore-threat",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ignore-threat",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "capture-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 10,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "capture-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "吃掉黑將",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "decline-capture",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "decline-capture",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "flying-king",
+      "passed": true,
+      "failedAt": null,
+      "frame": 10,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "flying-king",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "您獲勝了",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "repeat-continues",
+      "passed": true,
+      "failedAt": null,
+      "frame": 50,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "repeat-continues",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "012手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-wait",
+      "passed": true,
+      "failedAt": null,
+      "frame": 181,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "undo-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-pair",
+      "passed": true,
+      "failedAt": null,
+      "frame": 8,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "undo-pair",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "stale-version",
+      "passed": true,
+      "failedAt": null,
+      "frame": 180,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "stale-version",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-only",
+      "passed": true,
+      "failedAt": null,
+      "frame": 144,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-only",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 14.4,
+          "ok": true,
+          "actual": "00:03",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 14.4,
+          "ok": true,
+          "actual": "11800",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-invalid",
+      "passed": true,
+      "failedAt": null,
+      "frame": 72,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-invalid",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 7.2,
+          "ok": true,
+          "actual": "00:07",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 7.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-format",
+      "passed": true,
+      "failedAt": null,
+      "frame": 2,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-format",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "100:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "step-stop",
+      "passed": true,
+      "failedAt": null,
+      "frame": 600,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "step-stop",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 60,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "counter",
+      "passed": true,
+      "failedAt": null,
+      "frame": 5,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "counter",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "1000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "modal-ready",
+      "passed": true,
+      "failedAt": null,
+      "frame": 32,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "modal-ready",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-simple",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-simple",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-complex",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-complex",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-custom",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-custom",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-fast",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-fast",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-missing",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-missing",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-saturation",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-saturation",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "16",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-book",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-book",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-budget",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-budget",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "2",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "search-undo-spam",
+      "passed": true,
+      "failedAt": null,
+      "frame": 102,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.1,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.1,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "search-resign",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.65,
+          "ok": true,
+          "actual": "要認輸嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.8,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "search-leave",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.55,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "restart-twice",
+      "passed": true,
+      "failedAt": null,
+      "frame": 20,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.65,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "edge-contact",
+      "passed": true,
+      "failedAt": null,
+      "frame": 10,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "這步不能走",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.5,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "input-spam",
+      "passed": true,
+      "failedAt": null,
+      "frame": 25,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.65,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.05,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.25,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-move-feedback",
+      "passed": true,
+      "failedAt": null,
+      "frame": 44,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-move-feedback",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.6,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.5,
+          "ok": true,
+          "actual": true,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.5,
+          "ok": true,
+          "actual": "06400",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.1,
+          "ok": true,
+          "actual": "2,6",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.1,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.4,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.4,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-number-long-wait",
+      "passed": true,
+      "failedAt": null,
+      "frame": 200,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-number-long-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 9.5,
+          "ok": true,
+          "actual": "17200",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "17200",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-number-cap",
+      "passed": true,
+      "failedAt": null,
+      "frame": 400,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-number-cap",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 31,
+          "ok": true,
+          "actual": "40000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 40,
+          "ok": true,
+          "actual": "40000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 40,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-feedback-restart",
+      "passed": true,
+      "failedAt": null,
+      "frame": 36,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-feedback-restart",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.6,
+          "ok": true,
+          "actual": "02800",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.6,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.6,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.6,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.6,
+          "ok": true,
+          "actual": "自定義棋子",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.6,
+          "ok": true,
+          "actual": false,
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.6,
+          "ok": true,
+          "actual": "00000",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "opening-book-multiturn",
+      "passed": true,
+      "failedAt": null,
+      "frame": 34,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "opening-book-multiturn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "n",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "004手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "r",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "opening-book-fallback",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "opening-book-fallback",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.35,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "opening-book-undo",
+      "passed": true,
+      "failedAt": null,
+      "frame": 51,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "opening-book-undo",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "ai-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.6,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.85,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.05,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.05,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.05,
+          "ok": true,
+          "actual": "n",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "user-cannon-recapture",
+      "passed": true,
+      "failedAt": null,
+      "frame": 151,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "008手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "N",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-counter-capture-priority",
+      "passed": true,
+      "failedAt": null,
+      "frame": 24,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-counter-capture-priority",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "result",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "r",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "帥被吃掉",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-advisor-defence",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-advisor-defence",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "custom-capture-free-advisor-elephant-v1",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "A",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-elephant-defence",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-elephant-defence",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "custom-capture-free-advisor-elephant-v1",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "E",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-no-basic-move-skip",
+      "passed": true,
+      "failedAt": null,
+      "frame": 8,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-no-basic-move-skip",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "K",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "P",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-standard-army-search",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-standard-army-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "custom-capture-free-advisor-elephant-v1",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "ai-custom-fifteen-rooks-search",
+      "passed": true,
+      "failedAt": null,
+      "frame": 100,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "ai-custom-fifteen-rooks-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "15",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.4,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-confirm-cancel",
+      "passed": true,
+      "failedAt": null,
+      "frame": 13,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.1,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-confirm-ready-yes",
+      "passed": true,
+      "failedAt": null,
+      "frame": 200,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4,
+          "ok": true,
+          "actual": "pending",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "undo-confirm-ready-no",
+      "passed": true,
+      "failedAt": null,
+      "frame": 200,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4,
+          "ok": true,
+          "actual": "pending",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.3,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 4.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 20,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "audio-settings-default",
+      "passed": true,
+      "failedAt": null,
+      "frame": 6,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.6000000000000001,
+          "ok": true,
+          "actual": "audio-settings",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.6000000000000001,
+          "ok": true,
+          "actual": "50%",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.6000000000000001,
+          "ok": true,
+          "actual": "開啟",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "audio-shared-choice",
+      "passed": true,
+      "failedAt": null,
+      "frame": 21,
+      "results": [
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "audio-volume-toggle",
+      "passed": true,
+      "failedAt": null,
+      "frame": 22,
+      "results": [
+        {
+          "kind": "control",
+          "at": 2.2,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.2,
+          "ok": true,
+          "actual": "false",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.2,
+          "ok": true,
+          "actual": "10167",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "audio-picker-pages",
+      "passed": true,
+      "failedAt": null,
+      "frame": 14,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.4,
+          "ok": true,
+          "actual": "1 / 38",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.4,
+          "ok": true,
+          "actual": "選擇背景音樂",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.4,
+          "ok": true,
+          "actual": "已選 · 推薦 · 杯中明月",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "check-audio-red",
+      "passed": true,
+      "failedAt": null,
+      "frame": 15,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "check-audio-discovered",
+      "passed": true,
+      "failedAt": null,
+      "frame": 15,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] red count=1",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "check-audio-black",
+      "passed": true,
+      "failedAt": null,
+      "frame": 15,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "log",
+          "at": 1.5,
+          "ok": true,
+          "actual": "[fc-chess][check] black count=2",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "result-review-win",
+      "passed": true,
+      "failedAt": null,
+      "frame": 58,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "返回棋盤",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.8,
+          "ok": true,
+          "actual": "00:00",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 5.8,
+          "ok": true,
+          "actual": "本局已結束，悔棋後可繼續",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "result-review-win-undo",
+      "passed": true,
+      "failedAt": null,
+      "frame": 23,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.7,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "R",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "ai-search",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "result-review-defeat-undo",
+      "passed": true,
+      "failedAt": null,
+      "frame": 23,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.5,
+          "ok": true,
+          "actual": "您落敗了",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.9,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "要悔棋嗎？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "K",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "r",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "result-review-cancel",
+      "passed": true,
+      "failedAt": null,
+      "frame": 25,
+      "results": [
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.1,
+          "ok": true,
+          "actual": "001手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.3,
+          "ok": true,
+          "actual": "返回標題界面？",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 2.5,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "result-review-empty",
+      "passed": true,
+      "failedAt": null,
+      "frame": 12,
+      "results": [
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "result-review",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "尚無棋步可悔",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-midpoint",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-midpoint",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-book-unknown",
+      "passed": true,
+      "failedAt": null,
+      "frame": 3,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-book-unknown",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "format": "qxqy-autotest",
+      "name": "wait-extra-delay",
+      "passed": true,
+      "failedAt": null,
+      "frame": 235,
+      "results": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-extra-delay",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.5,
+          "ok": true,
+          "actual": "ai-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.5,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 12.9,
+          "ok": true,
+          "actual": "p",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 23.5,
+          "ok": true,
+          "actual": "p",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 23.5,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "testedBuild": "2026-11-07 15:39:33.155 +08:00",
+  "snapshotPolicy": "Retain assertions and runtime errors; omit complete UI snapshots"
+}

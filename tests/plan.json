@@ -780,7 +780,11 @@
           "gap": 0,
           "instability": 1
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          40
+        ]
       }
     },
     {
@@ -832,7 +836,11 @@
           "count": 30,
           "tactical": 10
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          40
+        ]
       }
     },
     {
@@ -1064,7 +1072,8 @@
       "fixture": {
         "standard": true,
         "mode": "difficult",
-        "bookSeed": 17
+        "bookSeed": 17,
+        "waitSeconds": 4
       }
     },
     {
@@ -1911,7 +1920,11 @@
           "gap": 75,
           "instability": 0.5
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          40
+        ]
       }
     },
     {
@@ -1927,7 +1940,11 @@
           "count": 0,
           "tactical": 0
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          40
+        ]
       }
     },
     {

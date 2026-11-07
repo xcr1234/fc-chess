@@ -1,0 +1,119 @@
+{
+  "runtime": "simulator",
+  "date": "2026-11-07",
+  "sourceSHA256": "b76b4aea15e33d57e195217ef800178b3014dd83eda5ffdfd5ac330bdd839e07",
+  "build": "2026-11-07 15:43:05.543 +08:00",
+  "results": [
+    {
+      "canvasId": "pc-16-9",
+      "save": "fc-chess.save.json",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-11-07 15:43:05.543 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "save": "fc-chess.save.json",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.2,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-11-07 15:43:05.543 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "save": "tests/fc-chess.test.save.json",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-book-unknown",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-11-07 15:43:05.543 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=true",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}
