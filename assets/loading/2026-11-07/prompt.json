@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-07",
+  "tool": "built-in image_gen",
+  "file": "loading-fc-wide.png",
+  "requestedAspect": "16:9 landscape",
+  "pixelDimensions": [
+    1672,
+    941
+  ],
+  "reference": "assets/covers/2026-11-07/cover-02-opponent.png",
+  "prompt": "Use case: ads-marketing / game loading background.\nEdit and recompose the supplied reference cover into ONE finished loading-screen illustration for this same Chinese chess game. Required canvas: horizontal 16:9 widescreen, ideally 1920 x 1080. Reference image is the existing game's approved-style cover; preserve its recognizable bald elderly opponent with white eyebrows, black eyes, moustache and pointed white beard, its FC-era pixel-art identity, navy background, cream and orange-red chess pieces with blue glyphs, and mint accents.\nComposition: a calmer and more balanced loading screen, not the crowded promotional thumbnail. Large exact pixel title “中国象棋” in the upper-left/upper-middle, small exact “FC” above. The familiar elderly opponent as a substantial but not overwhelming bust on the right, comfortably within the frame, retaining the pink stepped pixel backing. A cropped diagonal Chinese-chess board occupies the middle-left below the title, using the reference's flat cream stepped disc sprites and blue/orange-red glyphs; it should clearly evoke the actual FC Chinese chess game, with the river and red/blue armies recognizable. Use restrained mint pixel accents rather than dense action rays. Deep navy full-bleed background; readable limited-palette chunky square pixels and crisp pixel edges, flat sprite shading.\nCRITICAL loading-layout requirement: reserve the full bottom 18 percent as a clean, uninterrupted, quiet navy area for the platform's real loading text/progress overlay. No chess pieces, portrait, borders, title or decorative rays in that bottom reserved band. Blend that reserved area naturally with the background, without drawing an outlined box.\nText: only “FC” and “中国象棋”. Do not draw any loading text, loading percentage, progress bar, buttons, menu, gameplay HUD, screenshots of a browser, logos, watermarks or explanatory labels. No claims or additional slogan. No photorealism, painted textures, blur, glossy 3D chess pieces or modern UI. Output one polished complete background image, not a mockup shown on a screen and not multiple variants.",
+  "notes": "Loading background candidate; bottom reserved for the platform loading overlay. No static progress bar or percentage. Not wired into the game."
+}
