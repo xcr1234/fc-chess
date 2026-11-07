@@ -1,0 +1,39 @@
+{
+  "runtime": "filesystem",
+  "date": "2026-11-07",
+  "build": "2026-11-07 16:07:12.766 +08:00",
+  "sha256": "4e3c88ead33b8dd993e5d55b446bcb3f73ab4a071c17864ebb5df22459d43c38",
+  "conflict": false,
+  "action": "replace",
+  "backup": ".lua-deploy-backups/1794038832883-da48dc19-a43b-4e91-b7af-c2714afd5039.lua",
+  "equalCopies": [
+    "dist/main.lua",
+    "configured game target"
+  ],
+  "saveSource": "empty; read dist/main.lua",
+  "testedBuild": "2026-11-07 16:03:46.439 +08:00",
+  "testedSHA256": "7f8e3a093cab185b24c4bbbca66d1c634f483991ff0e757491cab683726b40c9",
+  "onlyBuildTimestampChanged": true,
+  "checks": {
+    "waitLua": 13,
+    "waitExtensionLua": 3,
+    "coreLua": 11,
+    "animationLua": 8,
+    "audioAnimationLua": 7,
+    "prototype": 28,
+    "staticCases": 85,
+    "simulatorCases": 85,
+    "simulatorAssertions": 347,
+    "releaseCases": 2,
+    "releaseAssertions": 12
+  },
+  "fastMinimumThinking": 0.6,
+  "fastPadding": "max(0, 0.6 - compute)",
+  "animationSeconds": [
+    0.16,
+    0.42
+  ],
+  "difficultAndCustom": "full probability wait still added after calculation",
+  "nativeReload": "not performed",
+  "nativeTiming": "pending user playtest"
+}

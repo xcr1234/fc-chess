@@ -57,7 +57,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1.05,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -73,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1.05,
       "id": "",
       "name": "Piece_6_2",
       "field": "text",
@@ -81,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 1.7,
+      "at": 2.35,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -89,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 1.7,
+      "at": 2.35,
       "id": "",
       "name": "BookUsed",
       "field": "text",
@@ -97,7 +97,7 @@
     },
     {
       "kind": "control",
-      "at": 1.7,
+      "at": 2.35,
       "id": "",
       "name": "Piece_0_1",
       "field": "text",
@@ -105,7 +105,7 @@
     },
     {
       "kind": "control",
-      "at": 1.7,
+      "at": 2.35,
       "id": "",
       "name": "TurnText",
       "field": "text",

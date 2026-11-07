@@ -254,6 +254,7 @@
     beginTurn(side === 'red' ? 'black' : 'red');
   }
   function planReply() {
+    const thinkStarted = performance.now();
     // One-ply demonstration choice, shared by all modes; not the production AI.
     const candidates = movesFor(state.board, 'black', state.mode === 2);
     const values = {k: 100000, r: 900, n: 400, c: 450, e: 200, a: 200, p: 100};
@@ -265,8 +266,9 @@
       m.score = (target ? values[target.toLowerCase()] : 0) + (m.from === 19 && m.to === 22 ? 20 : 0) + (state.board[m.from] === 'p' && m.to > m.from ? 10 : 0);
     }
     candidates.sort((a, b) => b.score - a.score || a.from - b.from || a.to - b.to);
-    const seconds = waitingSeconds({count: candidates.length, tactical}, state.mode);
-    state.reply = {move: candidates[0], due: performance.now() + seconds * 1000, generation};
+    const computedAt = performance.now();
+    const seconds = state.mode === 1 ? Math.max(0, .6 - (computedAt - thinkStarted) / 1000) : waitingSeconds({count: candidates.length, tactical}, state.mode);
+    state.reply = {move: candidates[0], due: computedAt + seconds * 1000, generation};
     announce('老頭正在思考');
     if (seconds === 0 && !state.modal) demoReply();
   }

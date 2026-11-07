@@ -15,6 +15,6 @@ for _,mode in ipairs({'difficult','custom'}) do
  s=setup(mode);assert(not S.extendWait(s,-1));assert(not S.extendWait(s,0/0));S.undo(s);assert(not S.extendWait(s,5) and s.remaining==0)
  print('PASS '..mode..' configurable wait, extension, modal, undo')
 end
-local s=setup('fast');assert(s.moves==2 and not S.extendWait(s,5))
+local s=setup('fast');assert(s.moves==1 and not S.extendWait(s,5));S.update(s,.6);assert(s.moves==2)
 assert(W.seconds('fast',{count=60},{minSeconds=100,maxSeconds=200})==0)
-print('PASS fast has no artificial delay')
+print('PASS fast minimum interval cannot be extended as a mode wait')

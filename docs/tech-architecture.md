@@ -1,5 +1,11 @@
 # 第 5 步 Lua 架构与挂载
 
+## 2026-11-07 快速模式最短思考间隔
+
+Session.begin已将compute清零，搜索期间按dt累计；书库同步完成时为0。Session.computed仅在fast默认等待上补`max(0,0.6-compute)`秒，写入extraWait/remaining，复用确认、悔棋、版本和取消流程；诊断waitSeconds覆盖仍精确生效。日志既有compute/wait字段可区分计算与补齐，不新增平台计时API、控件或信号。Wait.seconds('fast')的概率等待基值仍0，补齐属于会话最短间隔，extendWait仍拒绝快速。困难/自定义仍完整追加概率等待，不扣计算时间。
+
+Motion仍按距离限制0.16–0.42秒，不随思考时长缩短或压缩队列。0.6秒最短间隔覆盖最长红方动画并留出间隙。HTML以performance.now记录本次演示计算起止，同样仅补差值；预览仍为演示AI。无新增映射/挂载。
+
 ## 2026-10-26 存档引用构建产物
 
 正式与测试存档保留UI、脚本索引和挂载，`assets.scripts[0].path=dist/main.lua`、`source=""`。模拟器启动时按工作区路径读取单文件；存档不再保存生成代码。维护源仍为 `src/`，打包产物仅在已忽略的 `dist/`。`build:game` 构建后整理两份存档引用，`preview` 自动先构建；测试通过 `scripts/game-save-script.mjs` 拒绝内嵌脚本并检查实际文件。修改Lua后重启试玩加载新文件，单独分享存档需另带产物。

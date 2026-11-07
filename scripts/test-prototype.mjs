@@ -151,9 +151,11 @@ test('live audio settings preserve step time and defer the same pending AI reply
  assert.equal(h.state.reply,reply);assert.equal(reply.due-50000,remaining);assert.deepEqual(Array.from(h.state.board),board);assert.equal(h.state.scene,'game');
  h.render(reply.due+1);assert.equal(h.state.moves,2);
 });
-test('real preview controller: quick reply has no artificial delay',()=>{
+test('real preview controller: fast reply pads thinking to six tenths once',()=>{
  const h=appHarness();h.state.menu=1;h.input('ok');h.time(5000);h.square(0,6);h.square(0,5);
+ assert.equal(h.state.moves,1);assert.equal(h.state.reply.due,5600);h.render(5599);assert.equal(h.state.moves,1);h.render(5600);
  assert.equal(h.state.moves,2);assert.equal(h.state.turn,'red');assert.equal(h.state.reply,null);assert.equal(h.clock.red,0);
+ h.render(6000);assert.equal(h.state.moves,2);
 });
 test('result review: victory stays frozen until confirmed undo restores the king and permits play',()=>{
  const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');
@@ -164,14 +166,14 @@ test('result review: victory stays frozen until confirmed undo restores the king
  h.square(4,5);h.square(5,5);assert.equal(h.state.moves,1);
 });
 test('result review: defeat restores both final plies and resignation without history stays locked',()=>{
- const h=appHarness();h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);assert.equal(h.state.scene,'result');assert.equal(h.state.moves,2);
+ const h=appHarness();h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);h.render(h.state.reply.due);assert.equal(h.state.scene,'result');assert.equal(h.state.moves,2);
  h.render(1000);h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
  const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
 });
 test('result audio: defeated king and confirmed resignation use the metal door sound; mute stays silent',()=>{
- const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);h.settle();assert.ok(h.sounds.at(-1).endsWith('/50265.mp3'));
+ const h=appHarness({audio:true});h.resetGame(board([[3,9,'K'],[4,0,'k'],[0,6,'P'],[3,8,'r']]),1);h.square(0,6);h.square(0,5);h.render(h.state.reply.due);h.settle();assert.ok(h.sounds.at(-1).endsWith('/50265.mp3'));
  const r=appHarness({audio:true});r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('cancel');assert.equal(r.sounds.length,0);
  r.input('ok');r.input('left');r.input('ok');assert.deepEqual(r.sounds.map(s=>s.split('/').at(-1)),['50265.mp3']);r.render(5000);assert.equal(r.sounds.length,1);
  const m=appHarness({audio:true});m.state.audio.sfx=false;m.resetGame(board([[3,9,'K'],[4,0,'k'],[4,5,'R']]),0);m.square(4,5);m.square(4,0);assert.equal(m.sounds.length,0);
@@ -232,11 +234,13 @@ test('real controller: identical positions may repeat without draw or perpetual-
 test('real controller: exposed red king is captured and produces defeat',()=>{
  const h=appHarness();h.resetGame(board([[4,9,'K'],[0,0,'k'],[4,5,'r'],[0,6,'P']]),1);
  h.square(0,6);h.square(0,5);
+ h.render(h.state.reply.due);
  assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您落敗了');assert.equal(h.state.resultReason,'紅帥被吃');assert.equal(h.state.moves,2);
 });
 
 test('move animation: both sides queue, intermediate position, input lock and undo cancellation',()=>{
  const h=appHarness();h.state.menu=1;h.input('ok');h.square(0,6);h.square(0,5);
+ h.state.reply.due=0;h.render(0); // Force queued moves to test animation independently of the fast interval.
  assert.equal(h.state.moves,2);assert.equal(h.state.motion.length,2);
  const first=h.state.motion[0],middle=(first.start+first.end)/2;
  let f=h.motionFrame(middle);assert.equal(f.x,56);assert.equal(f.y,136);assert.equal(f.piece,'P');assert.equal(f.board[pos(0,6)],null);

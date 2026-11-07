@@ -5,6 +5,7 @@ local Counter=require('game.thinking_counter')
 local Log=require('app.log')
 local Settings=require('audio.settings')
 local M={}
+local FAST_MIN_THINK_SECONDS=.6
 local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
 function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={},completionSequence=0} end
@@ -79,6 +80,8 @@ function M.commit(s,m)
 end
 function M.computed(s,move,summary)
  s.reply=move;s.replyVersion=s.version;s.extraWait=Wait.seconds(s.mode,summary,s.waitPolicy)
+ -- Fast replies only pad an unusually short computation, including book hits.
+ if s.mode=='fast' then s.extraWait=math.max(0,FAST_MIN_THINK_SECONDS-(s.compute or 0)) end
  local a=s.aiInput
  if type(a)=='table' and a.waitSeconds then s.extraWait=a.waitSeconds elseif s.fixture and s.fixture.waitSeconds then s.extraWait=s.fixture.waitSeconds end
  s.remaining=s.extraWait;s.scene='ai-wait'

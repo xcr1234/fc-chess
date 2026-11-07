@@ -41,7 +41,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -65,7 +65,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -73,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1,
       "id": "",
       "name": "Piece_4_0",
       "field": "text",
@@ -81,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1,
       "id": "",
       "name": "Piece_4_9",
       "field": "text",
@@ -89,11 +89,18 @@
     },
     {
       "kind": "control",
-      "at": 0.4,
+      "at": 1,
       "id": "",
       "name": "Piece_4_2",
       "field": "text",
       "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 0.4,
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "001手"
     }
   ]
 }
