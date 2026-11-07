@@ -1,0 +1,6 @@
+FAIL every empty own-half square accepts all six red piece types: [string "package.preload["app.log"]=function()..."]:11241: empty square blocked: 46
+FAIL cancel leaves an empty square and draft unchanged: [string "package.preload["app.log"]=function()..."]:11248: assertion failed!
+PASS king and every black-half square remain protected
+FAIL added piece can be replaced; draft survives menu, start, move, undo and restart: [string "package.preload["app.log"]=function()..."]:11259: assertion failed!
+FAIL reset discards additions; all-rooks still fills 44 and starts immediately: [string "package.preload["app.log"]=function()..."]:11268: assertion failed!
+[string "package.preload["app.log"]=function()..."]:11273: 4 custom empty-square failures

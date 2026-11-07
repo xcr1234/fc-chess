@@ -108,7 +108,7 @@ function M.square(s,i)
  if s.modal or s.palette or s.scene=='result' or s.scene=='mode-select' then return end
  if s.scene=='custom-edit' then
   if s.board[i]=='K' then s.status='帥保留，不能修改'
-  elseif B.red(s.board[i]) then s.palette=i else s.status='只能修改紅方棋子' end
+  elseif B.red(s.board[i]) or (i>=46 and i<=90 and s.board[i]=='') then s.palette=i else s.status='只能修改紅方棋子或己方半場空位' end
   return
  end
  if s.scene~='player-turn' then return end
@@ -142,7 +142,7 @@ function M.action(s,name)
   return
  end
  if s.scene=='mode-select' then
-  if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='點擊紅方棋子修改'
+  if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='點擊紅子或己方空位改子'
   elseif name=='ModeDifficult' or name=='ModeFast' then M.start(s,name=='ModeFast' and 'fast' or 'difficult') end
  elseif s.scene=='custom-edit' then
   if name=='AllRooksButton' then

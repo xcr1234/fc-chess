@@ -1,0 +1,35 @@
+{
+  "source": "dist/main.lua",
+  "target": "C:/Users/xcr_1/AppData/LocalLow/miHoYo/原神/BeyondLocal/176163508/Beyond_Local_Save_Level/1073741833/external_lua_file/default_import_file/dist/main.lua",
+  "sourceSHA256": "b40352ab98b75f23dcd57c29cb8049a5bfb0ef647dcacaa4aacc27fd47dd0945",
+  "targetSHA256": "b40352ab98b75f23dcd57c29cb8049a5bfb0ef647dcacaa4aacc27fd47dd0945",
+  "backup": ".lua-deploy-backups/1794039992344-5494090c-c46e-4dcb-93b8-3af235bbc150.lua",
+  "conflict": false,
+  "build": "-- Build date (local): 2026-11-07 16:26:32.208 +08:00",
+  "deployedAt": "2026-11-07T08:26:32.363Z",
+  "simulatorSHA256": "b40352ab98b75f23dcd57c29cb8049a5bfb0ef647dcacaa4aacc27fd47dd0945",
+  "flows": 25,
+  "assertions": 185,
+  "saves": [
+    {
+      "path": "fc-chess.save.json",
+      "scripts": [
+        {
+          "path": "dist/main.lua",
+          "sourceEmpty": true
+        }
+      ]
+    },
+    {
+      "path": "tests/fc-chess.test.save.json",
+      "scripts": [
+        {
+          "path": "dist/main.lua",
+          "sourceEmpty": true
+        }
+      ]
+    }
+  ],
+  "editorReloaded": false,
+  "deviceValidated": false
+}

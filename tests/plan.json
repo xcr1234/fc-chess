@@ -1980,6 +1980,22 @@
           20
         ]
       }
+    },
+    {
+      "case": "custom-empty-add",
+      "file": "cases/custom-empty-add.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "custom-empty-protect",
+      "file": "cases/custom-empty-protect.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
     }
   ]
 }

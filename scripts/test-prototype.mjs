@@ -211,6 +211,25 @@ test('real controller: capture ends game, decline capture does not; result clock
  h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您獲勝了');assert.equal(h.state.board[4],'R');
  const times=[h.clock.red,h.clock.black];h.render(60000);assert.deepEqual([h.clock.red,h.clock.black],times);
 });
+test('real controller: own-half empty squares use the six-piece palette and preserve draft',()=>{
+ for(const [choice,piece] of ['R','N','C','E','A','P'].entries()) {
+  const h=appHarness();h.state.menu=2;h.input('ok');h.state.cursor={x:0,y:5};h.input('ok');
+  assert.equal(h.state.palette?.square,45);h.state.palette.choice=choice;h.input('ok');
+  assert.equal(h.state.board[45],piece);assert.equal(h.state.moves,0);
+  h.state.zone='panel';h.state.sideIndex=3;h.input('ok');h.state.menu=2;h.input('ok');
+  assert.equal(h.state.board[45],piece);
+  h.state.zone='panel';h.state.sideIndex=2;h.input('ok');assert.equal(h.state.initial[45],piece);
+ }
+});
+test('real controller: empty-square cancel, king and black half protection, reset',()=>{
+ const h=appHarness();const click=(x,y)=>{h.state.cursor={x,y};h.input('ok');};h.state.menu=2;h.input('ok');click(0,5);assert.ok(h.state.palette);
+ h.input('cancel');assert.equal(h.state.board[45],null);
+ click(4,9);assert.equal(h.state.palette,null);
+ click(0,4);assert.equal(h.state.palette,null);
+ click(0,3);assert.equal(h.state.palette,null);
+ click(0,5);h.input('ok');assert.equal(h.state.board[45],'R');
+ h.state.zone='panel';h.state.sideIndex=1;h.input('ok');assert.equal(h.state.board[45],null);
+});
 test('real controller: custom draft and initial lineup survive return/restart',()=>{
  const h=appHarness();h.state.menu=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,44);

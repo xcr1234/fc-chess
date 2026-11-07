@@ -1,0 +1,163 @@
+{
+  "format": "qxqy-autotest",
+  "version": 1,
+  "name": "custom-empty-add",
+  "dt": 0.05,
+  "playerCount": 1,
+  "events": [
+    {
+      "t": 0.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeCustom"
+      }
+    },
+    {
+      "t": 0.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.4,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Choose_N"
+      }
+    },
+    {
+      "t": 0.5,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_5"
+      }
+    },
+    {
+      "t": 0.6,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Choose_R"
+      }
+    },
+    {
+      "t": 0.7,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "EditBackButton"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ModeCustom"
+      }
+    },
+    {
+      "t": 0.9,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "StartCustomButton"
+      }
+    },
+    {
+      "t": 1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 1.1,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 1.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "RestartButton"
+      }
+    }
+  ],
+  "asserts": [
+    {
+      "kind": "control",
+      "at": 0.3,
+      "id": "",
+      "name": "PaletteTitle",
+      "field": "text",
+      "equals": "改成哪種棋子？"
+    },
+    {
+      "kind": "control",
+      "at": 0.45,
+      "id": "",
+      "name": "Piece_0_5",
+      "field": "text",
+      "equals": "N"
+    },
+    {
+      "kind": "control",
+      "at": 0.65,
+      "id": "",
+      "name": "Piece_0_5",
+      "field": "text",
+      "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 0.85,
+      "id": "",
+      "name": "Piece_0_5",
+      "field": "text",
+      "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 0.95,
+      "id": "",
+      "name": "SceneState",
+      "field": "text",
+      "equals": "player-turn"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "Piece_0_5",
+      "field": "text",
+      "equals": "R"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "RedPieceCount",
+      "field": "text",
+      "equals": "17"
+    },
+    {
+      "kind": "control",
+      "at": 1.3,
+      "id": "",
+      "name": "MoveCount",
+      "field": "text",
+      "equals": "000手"
+    }
+  ]
+}

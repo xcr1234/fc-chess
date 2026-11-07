@@ -105,7 +105,7 @@
     state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now()); clock.stop(performance.now());
     Object.assign(state, {scene: 'edit', mode: 2, board: (draft || initialBoard()).slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', reply: null, history: [], moves: 0, modal: null, palette: null});
-    announce('點擊己方棋子，修改棋種');
+    announce('點擊紅子或己方空位改子');
   }
   function toMenu() {
     state.motion=[];state.pendingResultSound=null;
@@ -357,7 +357,7 @@
       return;
     }
     if (key === 'select') { if (state.selected !== null) return; state.zone = state.zone === 'board' ? 'panel' : 'board'; return; }
-    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review'?'本局已結束，悔棋後可繼續':state.scene === 'edit' ? '點擊己方棋子，修改棋種' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
+    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review'?'本局已結束，悔棋後可繼續':state.scene === 'edit' ? '點擊紅子或己方空位改子' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
     if (direction) {
       if (state.zone === 'panel') {
         const count = state.scene === 'edit' ? 4 : 3;
@@ -374,8 +374,8 @@
       if (state.scene === 'edit') {
         const square = state.cursor.y * 9 + state.cursor.x, p = state.board[square];
         if (p === 'K') announce('帥保留，不能修改');
-        else if (isRed(p)) state.palette = {square, choice: Math.max(0, choices.indexOf(p))};
-        else announce('只能修改己方棋子');
+        else if (isRed(p) || (!p && square >= 45 && square < 90)) state.palette = {square, choice: Math.max(0, choices.indexOf(p))};
+        else announce('只能修改紅方棋子或己方半場空位');
       } else playSquare();
     }
   }
