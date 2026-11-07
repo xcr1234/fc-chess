@@ -162,3 +162,7 @@ game.ai.exchange提供gain/risk，内部只临时改动传入工作棋盘并完�
 # 2026-10-25 AI循环规避补充
 
 `game.session` 新增真实对局 `positionHistory`；红方悔棋快照保存 `positionCount`，恢复时截断。`game.ai.repetition_policy` 生成仅根着法使用的有界重复扣分，`game.ai.search` 同步平移根子节点搜索窗口，`game.ai` 过滤重复开局库着法。此数据流不进入 `game.board.valid` 或胜负结算，不新增平台API、控件或信号。完整规则与边界见 `docs/ai-design.md` 的AI循环规避章节。
+
+## 批量改子面板（2026-11-07）
+
+Session.palette用数字索引表示单点目标，用字符串all表示己方半场批量目标。AllRooksButton兼容原控件名、显示“全部改子”，只设置批量目标；Choose_R/N/C/E/A/P执行选择，批量目标填满rank5–9除帅外44点并保存草稿、调用start，单点目标只改该点。PaletteCancel清除目标且不改棋盘。View按palette-all/palette区分标题并复用同套六棋种/返回控件；生命周期、平台API、索引及脚本挂载不变。

@@ -22,19 +22,11 @@
       }
     },
     {
-      "t": 0.4,
+      "t": 0.3,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_0_5"
-      }
-    },
-    {
-      "t": 0.5,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_0_4"
+        "name": "Choose_R"
       }
     },
     {
@@ -42,19 +34,19 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "UndoButton"
+        "name": "Square_0_5"
       }
     },
     {
-      "t": 0.65,
+      "t": 0.7,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "ConfirmYes"
+        "name": "Square_0_4"
       }
     },
     {
-      "t": 0.75,
+      "t": 0.8,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -66,7 +58,7 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_8_5"
+        "name": "ConfirmYes"
       }
     },
     {
@@ -74,7 +66,7 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_8_4"
+        "name": "UndoButton"
       }
     },
     {
@@ -82,11 +74,27 @@
       "source": "user",
       "kind": "click",
       "payload": {
+        "name": "Square_8_5"
+      }
+    },
+    {
+      "t": 1.15,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_8_4"
+      }
+    },
+    {
+      "t": 1.25,
+      "source": "user",
+      "kind": "click",
+      "payload": {
         "name": "UndoButton"
       }
     },
     {
-      "t": 1.1,
+      "t": 1.3,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -97,7 +105,7 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 0.55,
+      "at": 0.75,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -105,7 +113,7 @@
     },
     {
       "kind": "control",
-      "at": 5.1,
+      "at": 5.3,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -113,7 +121,7 @@
     },
     {
       "kind": "control",
-      "at": 5.1,
+      "at": 5.3,
       "id": "",
       "name": "TurnText",
       "field": "text",
@@ -121,7 +129,7 @@
     },
     {
       "kind": "control",
-      "at": 5.1,
+      "at": 5.3,
       "id": "",
       "name": "PendingReply",
       "field": "text",

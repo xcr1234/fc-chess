@@ -1,0 +1,5 @@
+FAIL bulk button opens palette without changing board or starting: [string "package.preload["app.log"]=function()..."]:11241: bulk button must wait for choice
+FAIL all six choices fill 44 own-half points, keep king/black army, and start once: [string "package.preload["app.log"]=function()..."]:11251: wrong piece at 46 for N
+FAIL cancel keeps a manually edited draft and later single edits stay local: [string "package.preload["app.log"]=function()..."]:11259: assertion failed!
+FAIL non-rook bulk lineup survives restart/menu and reset returns to standard: [string "package.preload["app.log"]=function()..."]:11264: assertion failed!
+[string "package.preload["app.log"]=function()..."]:11270: 4 bulk piece failures

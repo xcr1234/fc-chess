@@ -137,17 +137,20 @@ function M.action(s,name)
   return
  end
  if s.palette then
-  local p=name:match('^Choose_(%u)$')
-  if p and p~='K' then s.board[s.palette]=p;s.draft=B.copy(s.board);s.palette=nil elseif name=='PaletteCancel' then s.palette=nil end
+  local p=name:match('^Choose_([RNCEAP])$')
+  if p then
+   if s.palette=='all' then
+    for i=46,90 do if s.board[i]~='K' then s.board[i]=p end end
+    s.draft=B.copy(s.board);M.start(s,'custom',s.draft)
+   else s.board[s.palette]=p;s.draft=B.copy(s.board);s.palette=nil end
+  elseif name=='PaletteCancel' then s.palette=nil end
   return
  end
  if s.scene=='mode-select' then
   if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='點擊紅子或己方空位改子'
   elseif name=='ModeDifficult' or name=='ModeFast' then M.start(s,name=='ModeFast' and 'fast' or 'difficult') end
  elseif s.scene=='custom-edit' then
-  if name=='AllRooksButton' then
-   for i=46,90 do if s.board[i]~='K' then s.board[i]='R' end end
-   s.draft=B.copy(s.board);M.start(s,'custom',s.draft)
+  if name=='AllRooksButton' then s.palette='all'
   elseif name=='ResetCustomButton' then s.board=B.standard();s.draft=B.copy(s.board)
   elseif name=='StartCustomButton' then M.start(s,'custom',s.draft)
   elseif name=='EditBackButton' then M.menu(s) end

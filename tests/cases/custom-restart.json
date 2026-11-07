@@ -22,11 +22,11 @@
       }
     },
     {
-      "t": 0.8,
+      "t": 0.5,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "ResignButton"
+        "name": "Choose_R"
       }
     },
     {
@@ -34,11 +34,19 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "ConfirmYes"
+        "name": "ResignButton"
       }
     },
     {
       "t": 1.2,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ConfirmYes"
+      }
+    },
+    {
+      "t": 1.4,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -49,7 +57,7 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 1.3,
+      "at": 1.5,
       "id": "",
       "name": "RedRookCount",
       "field": "text",
@@ -57,7 +65,7 @@
     },
     {
       "kind": "control",
-      "at": 1.3,
+      "at": 1.5,
       "id": "",
       "name": "MoveCount",
       "field": "text",
@@ -65,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 1.3,
+      "at": 1.5,
       "id": "",
       "name": "TurnText",
       "field": "text",

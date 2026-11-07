@@ -197,7 +197,7 @@
       drawPiece(p,x,y,i===state.selected&&!flight.piece);
     });
     if(flight.piece)drawPiece(flight.piece,flight.x,flight.y);
-    const buttons = state.scene === 'edit' ? ['全部改車', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '返回標題界面'];
+    const buttons = state.scene === 'edit' ? ['全部改子', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '返回標題界面'];
     buttons.forEach((label, i) => {
       const y = 122 + i * 21;
       box(204, y, 47, 17, state.zone === 'panel' && state.sideIndex === i ? '#067347' : '#00482f', C.green);
@@ -206,11 +206,12 @@
     text(state.message, 128, 210, C.cyan, 8, 'center');
   }
   function paletteScreen() {
-    box(37, 67, 182, 98, C.navy, C.cyan); text('改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
+    box(37, 67, 182, 98, C.navy, C.cyan); text(state.palette.all ? '全部改成哪種棋子？' : '改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
     choices.forEach((piece, i) => {
-      const x = 86 + (i % 3) * 45, y = 105 + Math.floor(i / 3) * 28;
-      pieceGlyph(glyphs[piece],x,y+7.5,C.white,globalThis.FCChessPixelGlyphs.paletteSize,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 21, y - 6, 43, 27);
+      const x = 83 + (i % 3) * 45, y = 104 + Math.floor(i / 3) * 25;
+      pieceGlyph(glyphs[piece],x,y,C.white,globalThis.FCChessPixelGlyphs.paletteSize,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 19, y - 10, 38, 20);
     });
+    box(104,143,48,14,'#00482f');text('返回',128,146,C.green,8,'center');
   }
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
@@ -297,7 +298,7 @@
     clock.update(performance.now());
     if(state.scene==='result-review'&&state.sideIndex===1)return;
     if (state.scene === 'edit') {
-      if (state.sideIndex === 0) { for(let i=45;i<90;i++)if(state.board[i]!=='K')state.board[i]='R';draft=state.board.slice();resetGame(state.board,2);return; }
+      if (state.sideIndex === 0) { state.palette = {all: true, choice: 0}; return; }
       if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢復初始棋子'); }
       if (state.sideIndex === 2) { draft = state.board.slice(); resetGame(state.board, 2); }
       if (state.sideIndex === 3) toMenu();
@@ -352,7 +353,13 @@
         if (key === 'up' || key === 'down') index = (index + 3) % 6;
         state.palette.choice = index;
       }
-      if (key === 'ok') { state.board[state.palette.square] = choices[state.palette.choice]; state.palette = null; announce('已修改棋子'); }
+      if (key === 'ok') {
+        const piece = choices[state.palette.choice];
+        if (state.palette.all) {
+          for(let i=45;i<90;i++)if(state.board[i]!=='K')state.board[i]=piece;
+          draft=state.board.slice();resetGame(state.board,2);
+        } else { state.board[state.palette.square] = piece; state.palette = null; announce('已修改棋子'); }
+      }
       if (key === 'cancel') state.palette = null;
       return;
     }
@@ -399,11 +406,12 @@
     } else if (state.modal) {
       ['是', '否'].forEach((label, i) => region(list, `dialog-${i}`, 62 + i * 72, 119, 60, 23, label, () => { state.modal.choice = i; input('ok'); }));
     } else if (state.palette) {
-      choices.forEach((piece, i) => region(list, `piece-${i}`, 64 + (i % 3) * 45, 99 + Math.floor(i / 3) * 28, 43, 27, `改为${glyphs[piece]}`, () => { state.palette.choice = i; input('ok'); }));
+      choices.forEach((piece, i) => region(list, `piece-${i}`, 64 + (i % 3) * 45, 94 + Math.floor(i / 3) * 25, 38, 20, `改为${glyphs[piece]}`, () => { state.palette.choice = i; input('ok'); }));
+      region(list,'PaletteCancel',104,143,48,14,'返回',()=>input('cancel'));
     } else if (state.scene === 'result') {
       if(!state.motion.length)['再来一局', '返回标题界面','返回棋盘'].forEach((label, i) => region(list, `result-${i}`, 80, 109 + i * 23, 96, 23, label, () => { state.resultIndex = i; input('ok'); }));
     } else {
-      const labels = state.scene === 'edit' ? ['全部改车', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
+      const labels = state.scene === 'edit' ? ['全部改子', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));
       if(state.scene!=='edit')region(list,'SettingsButton',204,192.5,47,17,'設定',()=>settingsAction('SettingsButton'));
     }

@@ -20,12 +20,20 @@
       "payload": {
         "name": "AllRooksButton"
       }
+    },
+    {
+      "t": 0.5,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Choose_R"
+      }
     }
   ],
   "asserts": [
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "RedRookCount",
       "field": "text",
       "equals": "44",
@@ -33,7 +41,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "RedPieceCount",
       "field": "text",
       "equals": "45",
@@ -41,7 +49,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "Piece_4_9",
       "field": "text",
       "equals": "K",
@@ -49,7 +57,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "Piece_4_0",
       "field": "text",
       "equals": "k",
@@ -57,7 +65,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "SceneState",
       "field": "text",
       "equals": "player-turn",
@@ -65,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "MoveCount",
       "field": "text",
       "equals": "000手",
@@ -73,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 0.7,
+      "at": 0.9,
       "name": "MusicVolumeValue",
       "field": "text",
       "equals": "50",

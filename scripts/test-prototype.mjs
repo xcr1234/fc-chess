@@ -107,7 +107,7 @@ function appHarness({audio=false}={}) {
  vm.runInContext(readFileSync(new URL('../prototype/pixel-glyphs.js',import.meta.url),'utf8'),scope);
  const app=readFileSync(new URL('../prototype/app.js',import.meta.url),'utf8');
  // Test-local access to the real controller, not a shipped fixture/debug API.
- vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows,motionFrame};})();'),scope);
+ vm.runInContext(app.replace(/\}\)\(\);\s*$/, 'globalThis.controller={state,clock,input,playSquare,frame,resetGame,settingsAction,musicRows,motionFrame,hotspot(id){updateHotspots();const run=screenActions.get(id);if(!run)throw Error("Missing hotspot: "+id);run();}};})();'),scope);
  const c=scope.controller;
  return {...c,sounds,voices,time(t){now=t;c.clock.update(t);},render(t){now=t;c.frame(t);},settle(){now=c.state.motion.at(-1)?.end??now;c.frame(now);},square(x,y){c.state.cursor={x,y};c.playSquare();}};
 }
@@ -231,13 +231,32 @@ test('real controller: empty-square cancel, king and black half protection, rese
  h.state.zone='panel';h.state.sideIndex=1;h.input('ok');assert.equal(h.state.board[45],null);
 });
 test('real controller: custom draft and initial lineup survive return/restart',()=>{
- const h=appHarness();h.state.menu=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');
+ const h=appHarness();h.state.menu=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,44);
  assert.deepEqual(Array.from(h.state.board.slice(0,45)),initialBoard().slice(0,45));
  for(let i=45;i<90;i++)assert.equal(h.state.board[i],i===85?'K':'R');
  h.state.zone='panel';h.state.sideIndex=2;h.input('ok');h.input('left');h.input('ok');h.state.menu=2;h.input('ok');assert.equal(h.state.scene,'edit');assert.equal(h.state.board.filter(p=>p==='R').length,44);
  h.state.zone='panel';h.state.sideIndex=2;h.input('ok');h.state.modal={type:'resign',choice:0};h.input('ok');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.board.filter(p=>p==='R').length,44);assert.equal(h.state.moves,0);
+});
+
+test('bulk edit: opening waits for selection; all six pieces fill own half and start',()=>{
+ for(const [choice,piece] of ['R','N','C','E','A','P'].entries()) {
+  const h=appHarness();h.state.menu=2;h.input('ok');const before=Array.from(h.state.board);
+  h.state.zone='panel';h.state.sideIndex=0;h.input('ok');
+  assert.equal(h.state.scene,'edit');assert.equal(h.state.palette.all,true);assert.deepEqual(Array.from(h.state.board),before);
+  h.hotspot('piece-'+choice);assert.equal(h.state.scene,'game');assert.equal(h.state.palette,null);
+  assert.deepEqual(Array.from(h.state.board.slice(0,45)),before.slice(0,45));
+  for(let i=45;i<90;i++)assert.equal(h.state.board[i],i===85?'K':piece);
+  assert.deepEqual(Array.from(h.state.initial),Array.from(h.state.board));assert.equal(h.state.moves,0);
+ }
+});
+test('bulk edit: cancelling preserves edited draft and single-point scope',()=>{
+ const h=appHarness();h.state.menu=2;h.input('ok');h.state.cursor={x:0,y:5};h.input('ok');h.state.palette.choice=1;h.input('ok');
+ const before=Array.from(h.state.board);h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.hotspot('PaletteCancel');
+ assert.equal(h.state.scene,'edit');assert.equal(h.state.palette,null);assert.deepEqual(Array.from(h.state.board),before);
+ h.state.zone='board';h.state.cursor={x:1,y:5};h.input('ok');assert.equal(h.state.palette.all,undefined);
+ h.input('ok');assert.equal(h.state.board[45],'N');assert.equal(h.state.board[46],'R');assert.equal(h.state.board[47],null);
 });
 
 test('real controller: identical positions may repeat without draw or perpetual-check result',()=>{

@@ -19,10 +19,12 @@
 | [return-mode](cases/return-mode.json) | 菜单独立开始 | ModeDifficult → ModeButton → ConfirmYes | SceneState=mode-select；ModeCount=3 |
 | [restart](cases/restart.json) | 菜单独立开始 | ModeFast → ResignButton → ConfirmYes → RestartButton | MoveCount=000手；TurnText=紅方；AIThinkingNumber=00000 |
 | [edit-lock](cases/edit-lock.json) | 菜单独立开始 | ModeCustom → Square_4_9 | StatusText=帥保留，不能修改；RedPieceCount=16 |
-| [forty-four-rooks](cases/forty-four-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton | 立即player-turn；44车/45红子；帅和黑将保留；000手；音量50 |
+| [forty-four-rooks](cases/forty-four-rooks.json) | 菜单独立开始 | ModeCustom → AllRooksButton → Choose_R | 选车后player-turn；44车/45红子；帅和黑将保留；000手；音量50 |
+| [bulk-pieces-select](cases/bulk-pieces-select.json) | 菜单独立开始 | ModeCustom → AllRooksButton → Choose_N → 认输重开 → 返回编辑 → 恢复初始 | 打开仍16红子/编辑；选后44马+帅开局；重开和草稿保留；恢复16子 |
+| [bulk-pieces-cancel](cases/bulk-pieces-cancel.json) | 菜单独立开始 | 空点改马 → AllRooksButton → PaletteCancel → 另一空点改仕 → 开始 | 取消保留原17子；后续单点范围不串成批量；开局18红子 |
 | [edit-reset](cases/edit-reset.json) | 菜单独立开始 | ModeCustom → Square_0_6 → Choose_R → ResetCustomButton → StartCustomButton | RedRookCount=2；RedPieceCount=16；RuleProfile=custom-capture-free-advisor-elephant-v1 |
-| [custom-restart](cases/custom-restart.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ResignButton → ConfirmYes → RestartButton | RedRookCount=44；MoveCount=000手；TurnText=紅方 |
-| [draft-retained](cases/draft-retained.json) | 菜单独立开始 | ModeCustom → AllRooksButton → ModeButton → ConfirmYes → ModeCustom | RedRookCount=44；SceneState=custom-edit |
+| [custom-restart](cases/custom-restart.json) | 菜单独立开始 | ModeCustom → AllRooksButton → Choose_R → ResignButton → ConfirmYes → RestartButton | RedRookCount=44；MoveCount=000手；TurnText=紅方 |
+| [draft-retained](cases/draft-retained.json) | 菜单独立开始 | ModeCustom → AllRooksButton → Choose_R → ModeButton → ConfirmYes → ModeCustom | RedRookCount=44；SceneState=custom-edit |
 | [mobile-smoke](cases/mobile-smoke.json) | 菜单独立开始 | ModeDifficult → Square_0_6 → Square_0_5 → ModeButton → ConfirmNo | MoveCount=001手；TurnText=黑方 |
 | [rook-block](cases/rook-block.json) | 定向夹具（见plan.json） | Square_0_5 → Square_0_1 | MoveCount=000手；StatusText=這步不能走 |
 | [horse-leg](cases/horse-leg.json) | 定向夹具（见plan.json） | Square_5_5 → Square_7_4 | MoveCount=000手；StatusText=這步不能走 |

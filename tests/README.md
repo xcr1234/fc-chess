@@ -43,7 +43,7 @@
 
 ## 稳定控件契约（步骤5已实现）
 
-画布内玩家动作采用：ModeDifficult、ModeFast、ModeCustom、Square_file_rank、UndoButton、ResignButton、ModeButton、ConfirmYes、ConfirmNo、RestartButton、AllRooksButton、ResetCustomButton、StartCustomButton、EditBackButton。名字是本项目已实现的控件契约，不是官方API。
+画布内玩家动作采用：ModeDifficult、ModeFast、ModeCustom、Square_file_rank、UndoButton、ResignButton、ModeButton、ConfirmYes、ConfirmNo、RestartButton、AllRooksButton、ResetCustomButton、StartCustomButton、EditBackButton。名字是本项目已实现的控件契约，不是官方API。AllRooksButton保留兼容名称，界面为“全部改子”，点击后须Choose_R/N/C/E/A/P选择棋种，再批量填满己方半场并开局；PaletteCancel取消。
 
 原生断言优先检查可见的TurnText、MoveCount、StatusText、RedStepTime、AIThinkingNumber（五位模拟数字）、MovingPiece（动画坐标/可见性）、ResultTitle、ResultReason。2026-10-25已按要求移除AILastFrom/AILastTo及选中方框，动画检查见move-animation-plan.md；需要结果按钮或下一次选子的用例应等动画落定。棋子原始类型用Piece_file_rank诊断值（R/N/C/E/A/P/K及小写黑子，空格为""）；不要用字体/位图相似度测试棋规。
 

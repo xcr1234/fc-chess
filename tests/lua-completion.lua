@@ -29,7 +29,7 @@ end
 check('cold session menus and starting send no reset or completion',function()
  local s=S.new();local c=C.new();C.sync(c,s);assert(#requests==0)
  for i=1,10 do C.sync(c,s) end
- S.action(s,'ModeCustom');S.action(s,'AllRooksButton');C.sync(c,s);S.menu(s);C.sync(c,s)
+ S.action(s,'ModeCustom');S.action(s,'AllRooksButton');S.action(s,'Choose_R');C.sync(c,s);S.menu(s);C.sync(c,s)
  assert(#requests==0 and attempts==0)
 end)
 check('real king capture sends victory once even after result audio has consumed its events',function()

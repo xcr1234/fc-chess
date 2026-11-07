@@ -22,19 +22,11 @@
       }
     },
     {
-      "t": 0.4,
+      "t": 0.3,
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "Square_0_5"
-      }
-    },
-    {
-      "t": 0.5,
-      "source": "user",
-      "kind": "click",
-      "payload": {
-        "name": "Square_0_4"
+        "name": "Choose_R"
       }
     },
     {
@@ -42,11 +34,27 @@
       "source": "user",
       "kind": "click",
       "payload": {
-        "name": "ResignButton"
+        "name": "Square_0_5"
       }
     },
     {
       "t": 0.7,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "Square_0_4"
+      }
+    },
+    {
+      "t": 0.8,
+      "source": "user",
+      "kind": "click",
+      "payload": {
+        "name": "ResignButton"
+      }
+    },
+    {
+      "t": 0.9,
       "source": "user",
       "kind": "click",
       "payload": {
@@ -57,7 +65,7 @@
   "asserts": [
     {
       "kind": "control",
-      "at": 0.65,
+      "at": 0.85,
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
@@ -65,7 +73,7 @@
     },
     {
       "kind": "control",
-      "at": 0.8,
+      "at": 1,
       "id": "",
       "name": "SceneState",
       "field": "text",
@@ -73,7 +81,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.2,
       "id": "",
       "name": "ResultTitle",
       "field": "text",
@@ -81,7 +89,7 @@
     },
     {
       "kind": "control",
-      "at": 5,
+      "at": 5.2,
       "id": "",
       "name": "MoveCount",
       "field": "text",

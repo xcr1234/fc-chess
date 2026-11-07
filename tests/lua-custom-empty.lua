@@ -35,7 +35,7 @@ end)
 check('reset discards additions; all-rooks still fills 44 and starts immediately',function()
  local s=edit();S.square(s,46);assert(s.palette==46);S.action(s,'Choose_A');S.action(s,'ResetCustomButton')
  assert(table.concat(s.board,',')==table.concat(B.standard(),',') and s.draft[46]=='')
- S.action(s,'AllRooksButton');local rooks=0;for _,p in ipairs(s.board) do if p=='R' then rooks=rooks+1 end end
+ S.action(s,'AllRooksButton');S.action(s,'Choose_R');local rooks=0;for _,p in ipairs(s.board) do if p=='R' then rooks=rooks+1 end end
  assert(rooks==44 and s.scene=='player-turn' and s.board[86]=='K')
 end)
 assert(failures==0,tostring(failures)..' custom empty-square failures')

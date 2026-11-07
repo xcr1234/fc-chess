@@ -3,7 +3,7 @@ local B=require('game.board')
 require('app.log').enabled=false
 local failures=0
 local function check(name,fn)local ok,err=pcall(fn);print((ok and 'PASS ' or 'FAIL ')..name..(ok and '' or ': '..tostring(err)));if not ok then failures=failures+1 end end
-local function preset(s)S.action(s,'ModeCustom');S.action(s,'AllRooksButton') end
+local function preset(s)S.action(s,'ModeCustom');S.action(s,'AllRooksButton');S.action(s,'Choose_R') end
 local function verify(s)
  local standard=B.standard();local rooks,kings,red,black=0,0,0,0
  for i,p in ipairs(s.board) do
@@ -17,7 +17,7 @@ end
 check('BGM starts at 50 and user changes survive the preset',function()
  local s=S.new();assert(s.audio.volume==50);s.audio.volume=70;preset(s);assert(s.audio.volume==70)
 end)
-check('one preset click fills the own half and starts a red custom turn',function()
+check('choosing rook from the bulk palette fills the own half and starts a red custom turn',function()
  local s=S.new();preset(s);verify(s)
  assert(s.scene=='player-turn' and s.custom and s.turn=='red' and s.moves==0 and #s.history==0)
  assert(table.concat(s.draft,',')==table.concat(s.board,',') and table.concat(s.initial,',')==table.concat(s.board,','))

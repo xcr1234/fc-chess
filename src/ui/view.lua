@@ -95,7 +95,7 @@ local function build(kind,s)
  movingArt=nil;movingGlyph=nil;movingSequence=nil
  if kind=='edit' then
   text('EditTitle',128,210,180,14,'自定義棋子','28eff0',10)
-  for i,v in ipairs({{'AllRooksButton','全部改車'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
+  for i,v in ipairs({{'AllRooksButton','全部改子'},{'ResetCustomButton','恢復初始'},{'StartCustomButton','開始對局'},{'EditBackButton','返回'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
  else
   for i,v in ipairs({{'UndoButton','悔棋'},{'ResignButton','認輸'},{'ModeButton','返回標題界面'}}) do button(v[1],v[2],227.5,93.5-(i-1)*21,47,17) end
   button('SettingsButton','設定',227.5,23,47,17)
@@ -145,7 +145,7 @@ function M.render(s)
    local selected=s.selected==i and not flight;if c.selected~=selected then Pixels.tintDisc(c.whites,selected);c.selected=selected end
   end
  end
- local o=s.modal or (s.palette and 'palette') or (s.scene=='result' and not M.busy() and 'result') or ''
+ local o=s.modal or (s.palette and (s.palette=='all' and 'palette-all' or 'palette')) or (s.scene=='result' and not M.busy() and 'result') or ''
  if o~=overlayKind then
   if overlay then game.DestroyClientUIControl(overlay);overlay=nil end
   overlayKind=o
@@ -153,10 +153,10 @@ function M.render(s)
    overlay=U.create('container',root,'Overlay',0,0,256,224);overlay.showCursor=true;overlay.disableCursorEventPassthrough=true
    U.hit(overlay,'ModalBlocker',0,0,256,224,function() end)
    local w,h,y=198,72,111
-   if o=='palette' then w,h,y=182,98,108 elseif o=='result' then w,h,y=172,116,96 end
+   if o=='palette' or o=='palette-all' then w,h,y=182,98,108 elseif o=='result' then w,h,y=172,116,96 end
    rect('OverlayBorder',128,y,w,h,'28eff0',overlay);rect('OverlayPanel',128,y,w-2,h-2,'193b57',overlay)
-   if o=='palette' then
-    text('PaletteTitle',128,146,180,16,'改成哪種棋子？','28eff0',11,overlay)
+   if o=='palette' or o=='palette-all' then
+    text('PaletteTitle',128,146,180,16,o=='palette-all' and '全部改成哪種棋子？' or '改成哪種棋子？','28eff0',11,overlay)
     for i,p in ipairs({'R','N','C','E','A','P'}) do button('Choose_'..p,glyph[p],83+((i-1)%3)*45,120-math.floor((i-1)/3)*25,38,20,overlay) end
     button('PaletteCancel','返回',128,74,48,14,overlay)
    elseif o=='result' then

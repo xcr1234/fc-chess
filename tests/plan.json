@@ -1996,6 +1996,22 @@
         "canvasId": "pc-16-9"
       },
       "fixture": null
+    },
+    {
+      "case": "bulk-pieces-select",
+      "file": "cases/bulk-pieces-select.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
+    },
+    {
+      "case": "bulk-pieces-cancel",
+      "file": "cases/bulk-pieces-cancel.json",
+      "args": {
+        "canvasId": "pc-16-9"
+      },
+      "fixture": null
     }
   ]
 }

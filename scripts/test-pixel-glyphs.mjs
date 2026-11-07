@@ -29,8 +29,8 @@ try{
    ['move',['ModeFast','Square_1_9','Square_2_7'],[control('PixelGlyph_66','visible',true),control('Glyph_66','text','傌'),control('Glyph_83','visible',false)],635],
    ['undo',['ModeFast','Square_1_9','Square_2_7','UndoButton','ConfirmYes'],[control('PixelGlyph_83','visible',true),control('Glyph_83','text','傌'),control('Glyph_66','visible',false),control('MoveCount','text','000手')],635],
    ['replace-back',['ModeCustom','Square_0_6','Choose_R','Square_0_6','Choose_P'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
-   ['preset',['ModeCustom','AllRooksButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false),control('StatusText','text','請走棋'),control('UndoButtonLabel','text','悔棋')],1285],
-   ['reset',['ModeCustom','AllRooksButton','ModeButton','ConfirmYes','ModeCustom','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
+   ['preset',['ModeCustom','AllRooksButton','Choose_R'],[control('PixelGlyph_55','visible',true),control('Glyph_55','text','俥'),control('Glyph_55','visible',false),control('StatusText','text','請走棋'),control('UndoButtonLabel','text','悔棋')],1285],
+   ['reset',['ModeCustom','AllRooksButton','Choose_R','ModeButton','ConfirmYes','ModeCustom','ResetCustomButton'],[control('PixelGlyph_55','visible',true),control('Glyph_55','visible',false),control('Glyph_55','text','兵')],635],
    ['settings',['SettingsButton'],[control('BGMVolume','text','50%'),control('SfxToggleLabel','text','開啟')],0]
   ];
   for(const [scene,actions,checks,expectedRects] of cases){

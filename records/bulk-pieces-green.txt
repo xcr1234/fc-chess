@@ -1,0 +1,33 @@
+PASS bulk button opens palette without changing board or starting
+PASS all six choices fill 44 own-half points, keep king/black army, and start once
+PASS cancel keeps a manually edited draft and later single edits stay local
+PASS non-rook bulk lineup survives restart/menu and reset returns to standard
+PASS every empty own-half square accepts all six red piece types
+PASS cancel leaves an empty square and draft unchanged
+PASS king and every black-half square remain protected
+PASS added piece can be replaced; draft survives menu, start, move, undo and restart
+PASS reset discards additions; all-rooks still fills 44 and starts immediately
+PASS BGM starts at 50 and user changes survive the preset
+PASS one preset click fills the own half and starts a red custom turn
+PASS restart and returning to edit preserve the 44-rook draft; reset clears it
+PASS front rook can move and undo cancels search and restores all 44 rooks
+PASS real custom AI completes a reply on the 61-piece board
+PASS move generator matches exhaustive validator across seeded boards and both profiles
+PASS AI captures king before material, including fifteen rooks
+PASS real budget abort retains a completed iteration and unwinds board
+PASS cancel mid-search unwinds private board and leaves visible board untouched
+PASS mode-independent search, legal opening book, custom disables book
+PASS restart retains initial custom board; undo cancels real unfinished search
+PASS both empty move lists produce no win, loss or draw adjudication
+PASS invalid initial data is rejected instead of awarded a win
+PASS waiting limits and missing fields stay in bounds
+PASS timeout before first iteration still takes an available king
+PASS large frame delta counts step time and confirmation delays only submission
+PASS cold session menus and starting send no reset or completion
+PASS real king capture sends victory once even after result audio has consumed its events
+PASS real defeat never notifies the server
+PASS cancelled and confirmed resignation never notify the server
+PASS review undo restart menu and later loss cannot revoke a victory
+PASS neutral result sends nothing and cannot overwrite an earlier win
+[fc-chess][error] completion-request failed: [string "package.preload["app.log"]=function()..."]:11244: unconfigured signal
+PASS missing signal cannot crash or retry every frame; next victory can retry

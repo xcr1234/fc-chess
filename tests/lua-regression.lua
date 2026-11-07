@@ -44,7 +44,7 @@ check('mode-independent search, legal opening book, custom disables book',functi
  assert(W.seconds('fast',one.summary)==0 and W.seconds('difficult',one.summary)>=4)
 end)
 check('restart retains initial custom board; undo cancels real unfinished search',function()
- local s=S.new();S.action(s,'ModeCustom');S.action(s,'AllRooksButton');S.action(s,'StartCustomButton')
+ local s=S.new();S.action(s,'ModeCustom');S.action(s,'AllRooksButton');S.action(s,'Choose_R')
  local initial=B.key(s.initial,'red',true);S.square(s,46);S.square(s,37);assert(s.scene=='ai-search');S.update(s,.01)
  S.undo(s);assert(s.moves==0 and s.turn=='red' and not s.job and not s.reply);assert(B.key(s.board,'red',true)==initial)
  S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton');assert(B.key(s.board,'red',true)==initial)
