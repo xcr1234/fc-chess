@@ -1,0 +1,248 @@
+{
+  "runtime": "simulator",
+  "date": "2026-11-07",
+  "sourceSHA256": "8cd09aaa6ed65afbeb1cecf54fd04d8dbd59841055ada900aed96826e3cec0e0",
+  "build": "2026-11-07 15:53:39.632 +08:00",
+  "results": [
+    {
+      "case": "wait-custom",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-custom",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "wait-saturation",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-saturation",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "wait-fast",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-fast",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "0",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "forty-four-rooks",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "44",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "45",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "K",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "k",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "player-turn",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.7,
+          "ok": true,
+          "actual": "50",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "custom-restart",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "44",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 1.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "undo-wait",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "undo-wait",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 18.1,
+          "ok": true,
+          "actual": "none",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "modal-ready",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "modal-ready",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "002手",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 3.2,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

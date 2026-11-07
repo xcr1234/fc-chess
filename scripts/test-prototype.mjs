@@ -53,7 +53,7 @@ test('step clock resets the new mover, keeps only opposite previous step and sto
  c.undo(2000,75000); c.update(76000); assert.equal(c.red,1000); assert.equal(c.black,2000);
  assert.equal(formatStep(59900),'00:59'); assert.equal(formatStep(60000),'01:00'); assert.equal(formatStep(6000000),'100:00');
 });
-test('difficult wait probabilities include books; custom complexity and fast timing remain', () => {
+test('wait probabilities include books; custom ignores complexity and fast adds zero', () => {
  assert.equal(waitingSeconds({count:60,tactical:60,gap:0,instability:1},1),0);
  assert.equal(waitingSeconds({count:1,tactical:1,gap:0,instability:1},0,()=>0),10);
  assert.equal(waitingSeconds({count:1},0,()=>1-Number.EPSILON),20);
@@ -64,9 +64,13 @@ test('difficult wait probabilities include books; custom complexity and fast tim
    assert.equal(calls,1);
   }
  }
- assert.equal(waitingSeconds({count:300,tactical:300,gap:0,instability:1},2),16);
- assert.ok(waitingSeconds({count:30,tactical:10,gap:10},2)>waitingSeconds({count:30,tactical:10,gap:150},2));
- assert.equal(waitingSeconds({count:30,tactical:10},2),9);
+ for(const summary of [undefined,{}, {count:0}, {count:1}, {count:30,tactical:10,gap:150}, {count:300,tactical:300,gap:0,instability:1}]) {
+  for(const [roll,seconds] of [[1,10],[1500,15],[1501,15],[5750,20],[10000,25]]) {
+   let calls=0;
+   assert.equal(waitingSeconds(summary,2,()=>{calls++;return (roll-.5)/10000;}),seconds);
+   assert.equal(calls,1);
+  }
+ }
  let total=0,normal=0;
  for(let roll=1;roll<=10000;roll++) {
   const n=waitingSeconds({count:30},0,()=>(roll-.5)/10000);
@@ -75,6 +79,14 @@ test('difficult wait probabilities include books; custom complexity and fast tim
   total+=n;
  }
  assert.ok(Math.abs(normal/8500-30)<.01 && Math.abs(total/10000-27.75)<.01);
+ total=0;normal=0;
+ for(let roll=1;roll<=10000;roll++) {
+  const n=waitingSeconds({count:1},2,()=>(roll-.5)/10000);
+  assert.ok(Number.isInteger(n) && n>=10 && n<=25);
+  if(roll<=1500) assert.ok(n<=15);else {assert.ok(n>=15);normal+=n;}
+  total+=n;
+ }
+ assert.ok(Math.abs(normal/8500-20)<.01 && Math.abs(total/10000-18.875)<.01);
 });
 
 import vm from 'node:vm';

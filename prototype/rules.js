@@ -39,25 +39,15 @@
     const king = board.indexOf(side === 'red' ? 'k' : 'K');
     return king >= 0 && board.some((p, from) => p && isRed(p) === (side === 'red') && basicMove(board, from, king, custom));
   }
-  function waitingSeconds({count, tactical = 0, gap, instability} = {}, mode, random = Math.random) {
+  function waitingSeconds({count} = {}, mode, random = Math.random) {
     if (mode === 1) return 0;
     const difficult = mode === 0;
-    if (difficult) {
-      if (count === 1) return 10 + Math.floor(random() * 11);
-      const roll = 1 + Math.floor(random() * 10000);
-      if (roll <= 1500) return 10 + Math.floor((roll - 1) * 11 / 1500);
-      const u = (roll - 1501) / 8499;
-      const q = u < .5 ? Math.sqrt(u / 2) : 1 - Math.sqrt((1 - u) / 2);
-      return Math.round(20 + 20 * q);
-    }
-    if (count === 0) return 0;
-    if (count === 1) return 4;
-    const clamp = x => Math.max(0, Math.min(1, x));
-    const metrics = [[.35, clamp((count - 1) / 59)], [.25, clamp(tactical / count)]];
-    if (Number.isFinite(gap)) metrics.push([.30, 1 - clamp(gap / 150)]);
-    if (Number.isFinite(instability)) metrics.push([.10, clamp(instability)]);
-    const c = metrics.reduce((s, [w, v]) => s + w * v, 0) / metrics.reduce((s, [w]) => s + w, 0);
-    return Math.round(4 + 12 * c);
+    if (difficult && count === 1) return 10 + Math.floor(random() * 11);
+    const roll = 1 + Math.floor(random() * 10000);
+    if (roll <= 1500) return 10 + Math.floor((roll - 1) * (difficult ? 11 : 6) / 1500);
+    const u = (roll - 1501) / 8499;
+    const q = u < .5 ? Math.sqrt(u / 2) : 1 - Math.sqrt((1 - u) / 2);
+    return Math.round(difficult ? 20 + 20 * q : 15 + 10 * q);
   }
   function formatStep(ms) {
     const seconds = Math.floor(Math.max(0, ms) / 1000);

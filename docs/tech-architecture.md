@@ -20,7 +20,7 @@ ui.move_animation消费未见过的序号，在独立队列按dt推进，以走�
 
 ## 2026-11-07 FC困难概率等待节奏
 
-game.wait将困难默认值20/40和自定义4/16分开。困难count=1时math.random(10,20)；其余情况包含书库/无摘要统一math.random(1,10000)，1500个结果映射10–20均匀短档，其余8500个结果以三角分布逆函数映射20–40、中心30并取整。每次调用只抽一次，不再用分支数推断普通困难等待。显式waitPolicy保留原min/max和复杂度模型；快速恒0，自定义仍4+12C。无新增平台API。
+game.wait共用probabilitySeconds：math.random(1,10000)一次，前1500结果映射均匀短档，其余8500结果以三角分布逆函数映射常规档并取整。困难短档10–20、常规20–40中心30，count=1保留math.random(10,20)例外；自定义短档10–15、常规15–25中心20，所有摘要和单着同概率，不读取复杂度。显式waitPolicy保留原min/max和复杂度兼容模型；快速恒0。无新增平台API。
 
 Session.computed仍原样把Wait.seconds写入extraWait/remaining，未扣compute；此后update只减倒计时，不重新抽签。引擎已有书库种子独立于math.random，无搜索内核/预算/棋力变更。HTML同规则，测试可向waitingSeconds注入随机函数验证两端。测试桥新增ExtraWaitInBounds，只读取fixture.waitRange判范围/整数，不影响生产入口；不新增平台API或图元。
 

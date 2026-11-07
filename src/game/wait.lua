@@ -2,10 +2,8 @@ local M={}
 local function clamp(x) return math.max(0,math.min(1,x)) end
 -- Extra delay after calculation. Difficult and custom have separate defaults.
 M.defaults={minSeconds=20,maxSeconds=40,simpleMinSeconds=10,simpleMaxSeconds=20}
-M.customDefaults={minSeconds=4,maxSeconds=16}
-local function difficultSeconds(s)
- local d=M.defaults
- if s and s.count==1 then return math.random(d.simpleMinSeconds,d.simpleMaxSeconds) end
+M.customDefaults={minSeconds=15,maxSeconds=25,simpleMinSeconds=10,simpleMaxSeconds=15}
+local function probabilitySeconds(d)
  -- One draw: 15% uniform short waits; 85% symmetric triangular normal waits.
  local roll=math.random(1,10000)
  if roll<=1500 then return d.simpleMinSeconds+math.floor((roll-1)*(d.simpleMaxSeconds-d.simpleMinSeconds+1)/1500) end
@@ -24,7 +22,10 @@ function M.seconds(mode,s,policy)
  assert(type(low)=='number' and type(high)=='number' and low>=0 and high>=low and high<math.huge,'Invalid wait policy')
  assert(type(simple)=='number' and simple>=0 and simple<=high,'Invalid simple wait')
  -- Book hits and missing summaries take the same probability draw as search.
- if mode=='difficult' and automatic then return difficultSeconds(s) end
+ if automatic and (mode=='difficult' or mode=='custom') then
+  if mode=='difficult' and s and s.count==1 then return math.random(defaults.simpleMinSeconds,defaults.simpleMaxSeconds) end
+  return probabilitySeconds(defaults)
+ end
  if not s or (s.count and s.count<=1) then return simple end
  local sum,weight=0,0
  local function add(v,w) if v~=nil then sum=sum+clamp(v)*w;weight=weight+w end end

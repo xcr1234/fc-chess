@@ -802,7 +802,11 @@
           "gap": 0,
           "instability": 1
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          25
+        ]
       }
     },
     {
@@ -858,7 +862,11 @@
           "gap": 0,
           "instability": 1
         },
-        "ai": "summary-only"
+        "ai": "summary-only",
+        "waitRange": [
+          10,
+          25
+        ]
       }
     },
     {

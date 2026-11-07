@@ -55,9 +55,23 @@ check('ordinary waits are selected once, survive updates, and add to calculation
  assert(s.extraWait==30 and s.remaining==20 and s.scene=='ai-wait')
  S.update(s,19.9);assert(s.moves==1);S.update(s,.1);assert(s.moves==2)
 end)
-check('custom and fast retain their original timing and policy overrides still work',function()
- assert(W.seconds('custom',{count=1})==4 and W.seconds('custom',complex)==16)
- assert(W.seconds('custom',{count=30,tactical=10})==9)
+check('custom probability ignores complexity and includes single moves and missing summaries',function()
+ for _,summary in ipairs({false,{},{count=0},{count=1},{count=30,tactical=10},complex}) do
+  for _,sample in ipairs({{1,10},{1500,15},{1501,15},{5750,20},{10000,25}}) do
+   assert(withRandom(sample[1],function() assert(W.seconds('custom',summary or nil)==sample[2]) end,1,10000)==1)
+  end
+ end
+ local total,normal=0,0
+ for roll=1,10000 do
+  withRandom(roll,function()
+   local n=W.seconds('custom',complex);assert(n>=10 and n<=25 and n==math.floor(n))
+   if roll<=1500 then assert(n<=15) else assert(n>=15);normal=normal+n end
+   total=total+n
+  end,1,10000)
+ end
+ assert(math.abs(normal/8500-20)<.01 and math.abs(total/10000-18.875)<.01)
+end)
+check('fast and explicit policy overrides still work',function()
  assert(W.seconds('fast',complex)==0)
  assert(W.seconds('difficult',{count=1},{minSeconds=8,maxSeconds=24})==8)
  assert(W.seconds('custom',complex,{minSeconds=8,maxSeconds=24})==24)
@@ -73,7 +87,9 @@ check('even a long calculation does not consume the artificial wait',function()
  S.update(s,10);assert(s.moves==2 and s.scene=='player-turn')
 end)
 check('custom still adds its delay after compute and diagnostic wait overrides remain exact',function()
- local s=setup('custom',3);S.computed(s,{28,37},{count=1});assert(s.extraWait==4)
+ local s=setup('custom',3)
+ assert(withRandom(5750,function() S.computed(s,{28,37},{count=1});S.update(s,5) end,1,10000)==1)
+ assert(s.extraWait==20 and s.remaining==15);S.update(s,14.9);assert(s.moves==1);S.update(s,.1);assert(s.moves==2)
  s=setup('difficult',3);s.aiInput={waitSeconds=2};S.computed(s,{28,37},complex);assert(s.extraWait==2)
 end)
 assert(failures==0,tostring(failures)..' FC wait failures')

@@ -1,0 +1,87 @@
+{
+  "runtime": "simulator",
+  "date": "2026-11-07",
+  "sourceSHA256": "d661068c765f273292e4b4e73afe1908b229e2e0e263727f0d63cae7cc4edd29",
+  "build": "2026-11-07 15:56:33.773 +08:00",
+  "results": [
+    {
+      "case": "wait-custom",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-custom",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "wait-saturation",
+      "canvasId": "pc-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.1,
+          "ok": true,
+          "actual": "wait-saturation",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "true",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "errors": []
+    },
+    {
+      "case": "production-custom-start",
+      "canvasId": "mobile-16-9",
+      "passed": true,
+      "assertions": [
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "紅方",
+          "expected": null,
+          "message": ""
+        },
+        {
+          "kind": "control",
+          "at": 0.3,
+          "ok": true,
+          "actual": "000手",
+          "expected": null,
+          "message": ""
+        }
+      ],
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-11-07 15:56:33.773 +08:00",
+          "time": 0
+        }
+      ]
+    }
+  ]
+}
