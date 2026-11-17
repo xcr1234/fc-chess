@@ -1,0 +1,352 @@
+{
+  "runtime": "simulator",
+  "commit": "18877a7",
+  "clock": "manual game seconds",
+  "scenes": [
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "navigation",
+      "menu": {
+        "Title": "中國象棋",
+        "MenuHint": "點擊模式，開始對局",
+        "ModeDifficultSubtitle": "經典老頭 · 原味等待",
+        "ModeFastSubtitle": "經典老頭 · 快速思考",
+        "ModeCustomSubtitle": "修改己方初始棋子"
+      },
+      "board": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "00000"
+      },
+      "empty": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "請先選擇己方棋子",
+        "AIThinkingNumber": "00000"
+      },
+      "selected": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "請選擇落點",
+        "AIThinkingNumber": "00000"
+      },
+      "illegal": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "這步不能走",
+        "AIThinkingNumber": "00000"
+      },
+      "leave": {
+        "ConfirmTitle": "返回標題界面？",
+        "ConfirmHint": "返回後無法恢復當前對局"
+      },
+      "confirm": {
+        "ConfirmTitle": "要認輸嗎？"
+      },
+      "result": {
+        "ResultTitle": "您落敗了",
+        "ResultReason": "主動認輸",
+        "RestartButtonLabel": "再來一局",
+        "ModeButtonLabel": "返回標題界面",
+        "ReturnBoardButtonLabel": "返回棋盤"
+      },
+      "review": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "本局已結束，悔棋後可繼續",
+        "AIThinkingNumber": "00000"
+      },
+      "reviewUndo": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "尚無棋步可悔",
+        "AIThinkingNumber": "00000"
+      },
+      "restart": {
+        "TurnText": "紅方",
+        "MoveCount": "000手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "00000"
+      },
+      "logs": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Build date (local): 2026-11-17 13:44:27.282 +08:00",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization started (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][bgm-request] id=10167 volume=50 enabled=true",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ready] UI ready test=false",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[miliastra] Initialization completed (OnStart)",
+          "time": 0
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][invalid] target=37",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] menu version=2",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=3",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=4",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.1
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] menu version=5",
+          "time": 0.4
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=6",
+          "time": 0.4
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.4
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] result version=7",
+          "time": 0.4
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][result] 您落敗了 主動認輸 moves=0",
+          "time": 0.4
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][cancel] start version=8",
+          "time": 0.7
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][start] fast profile=casual-capture-v1",
+          "time": 0.7
+        }
+      ]
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "book",
+      "startTime": 0.2,
+      "replyTime": 29.200000000000145,
+      "moves": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 65->68 captured= step=0.10 count=1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 2->21 captured= step=29.00 count=2",
+          "time": 29.200000000000145
+        }
+      ],
+      "ai": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=29.000 book=true reason=book score=nil",
+          "time": 0.2
+        }
+      ],
+      "snapshots": [
+        {
+          "elapsed": 22,
+          "TurnText": "黑方",
+          "MoveCount": "001手",
+          "StatusText": "思考中",
+          "AIThinkingNumber": "40000"
+        }
+      ],
+      "final": {
+        "TurnText": "紅方",
+        "MoveCount": "002手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "40000"
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "search",
+      "startTime": 0.2,
+      "replyTime": 40.2000000000003,
+      "settingsResumeTime": 8.199999999999987,
+      "afterSettings": {
+        "TurnText": "黑方",
+        "MoveCount": "001手",
+        "StatusText": "思考中",
+        "AIThinkingNumber": "10000"
+      },
+      "moves": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 55->46 captured= step=0.10 count=1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 2->21 captured= step=37.00 count=2",
+          "time": 40.2000000000003
+        }
+      ],
+      "ai": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=1 nodes=191 compute=4.000 wait=33.000 book=false reason=deadline score=6",
+          "time": 4.200000000000001
+        }
+      ],
+      "snapshots": [],
+      "final": {
+        "TurnText": "紅方",
+        "MoveCount": "002手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "40000"
+      }
+    },
+    {
+      "canvasId": "mobile-16-9",
+      "kind": "fast",
+      "startTime": 0.2,
+      "replyTime": 0.7999999999999999,
+      "moves": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 65->68 captured= step=0.10 count=1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 2->21 captured= step=0.60 count=2",
+          "time": 0.7999999999999999
+        }
+      ],
+      "ai": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=0 nodes=0 compute=0.000 wait=0.600 book=true reason=book score=nil",
+          "time": 0.2
+        }
+      ],
+      "snapshots": [],
+      "final": {
+        "TurnText": "紅方",
+        "MoveCount": "002手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "02080"
+      }
+    },
+    {
+      "canvasId": "pc-16-9",
+      "kind": "custom",
+      "startTime": 0.2,
+      "replyTime": 11.699999999999974,
+      "moves": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] red 46->28 captured=p step=0.10 count=1",
+          "time": 0.2
+        },
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][move] black 1->28 captured=R step=11.50 count=2",
+          "time": 11.699999999999974
+        }
+      ],
+      "ai": [
+        {
+          "source": "client",
+          "level": "info",
+          "text": "[fc-chess][ai] depth=1 nodes=111 compute=1.500 wait=10.000 book=false reason=deadline score=-8038",
+          "time": 1.7000000000000004
+        }
+      ],
+      "snapshots": [],
+      "final": {
+        "TurnText": "紅方",
+        "MoveCount": "002手",
+        "StatusText": "請走棋",
+        "AIThinkingNumber": "21700"
+      }
+    }
+  ],
+  "sha256": "604025e9f6fcfd7dbfab46364720ed8433dbedf34164babe0142399ef01327ba"
+}
