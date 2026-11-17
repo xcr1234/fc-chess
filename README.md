@@ -1,136 +1,81 @@
-# 千星奇域空白项目模板
+# FC 中国象棋 · 老头对战
 
-项目内的千星 Skill、模拟器/知识库 MCP、Lua 模块打包与单文件发布工具。没有派蒙玩法、素材、旧存档或账号配置；Lua 仅包含空生命周期入口。
+一款为《原神》千星奇域制作的单人人机象棋游戏。像素棋盘、黑方的「包」和老头头像沿用 FC 风格，困难模式也保留了原版慢悠悠的回棋节奏。
 
-## 默认开发规范：按 Skill 七步推进
+![FC 中国象棋的标准开局，右侧显示老头头像和对局操作](records/screenshots/fc-reference-board-pc-16-9.png)
 
-本模板的游戏开发默认遵循项目内 [qxqy-game-studio 七步规范](.agents/skills/qxqy-game-studio/SKILL.md)，并由根目录 [AGENTS.md](AGENTS.md) 指导后续 Codex 会话执行。新游戏按 1→7 顺序推进，每一步达到对应完成条件后再进入下一步。
+## 怎么玩
 
-| 步骤 | 主要产物与完成条件 |
-|---|---|
-| 1. 策划案 | 明确核心循环、输入、胜负和 P0 范围的 GDD。 |
-| 2. TDD 测试用例 | 规则对应的操作步骤、预期结果与回归用例。 |
-| 3. HTML 效果展示 | 可试玩原型及画面、操作、节奏反馈。 |
-| 4. 千星美术参考图与素材 | 参考图、素材清单、目标 imageId 和 UI 还原方案。 |
-| 5. Lua 编码实现 | 模块化源码、单文件产物、完整存档、挂载/架构说明及 Red→Green→Regress 记录。 |
-| 6. 测试 | 模拟器用例、试玩截图、设备布局检查与缺陷回归结果。 |
-| 7. 真机试玩验证与 bug 修复 | 导入/索引/映射核对、指定路径交付、真实试玩反馈及修复记录。 |
+你执红先走。先点己方棋子，再点目标交叉点。游戏保留马腿、象眼、炮架等基本走法，允许不应将。吃掉黑将即获胜，红帅被吃或主动认输即落败。
 
-步骤 2 先制定用例，有效 TDD Red 在步骤 5 的可运行骨架中验证。步骤 1–4 不打开模拟器、不修改存档；Lua 编码前先核对所需官方客户端 API。项目进度与证据写入 `docs/production-plan.md`，实际试玩结果按需记入 `records/playtest.md`。
+| 模式 | 玩法 |
+| --- | --- |
+| 困难 | 标准开局，保留 FC 的长思考节奏。老头每手算完还会额外等约 10–40 秒。 |
+| 快速模式 | 标准开局，和困难共用同一套 AI 搜索，回棋更快。 |
+| 自定义模式 | 开局前可替换红方棋子，也可在己方半场空位加子。选择「全部改子」可以保留红帅、用同一种棋子填满其余 44 个位置后直接开局。 |
 
-已有项目从最早缺失证据的步骤继续，窄修复只处理受影响步骤。用户明确调整范围时按其要求执行；正常推进无需逐步重复确认。模拟器结果与真机结果分别记录。
+对局中可以悔棋、认输或返回模式菜单。结束后可以回看棋盘或再来一局。自定义玩法示例见 [44 车开局截图](records/screenshots/player-feedback-2026-11-17-custom-rooks.png)。
 
-## 第 4 步：图片拟合
+## 本地试玩
 
-- **方案一：Codex + `miliastra-image-css-builder` → 导入 CSS/JSON → 精修导出**，在线使用[千星图片编辑器](https://qx.070077.xyz/)，适合简单图标、几何装饰、UI 拼接和局部修改。
-- **方案二：上传参考图 → 算法拟合 → 导出**，在线使用[千星图片图元拟合](https://qx-img.070077.xyz/)，适合头像、立绘和复杂插画。
-- 默认复杂图片先用方案二拟合，保存 JSON，再按需导入方案一编辑器精修。在线服务不可用时，可克隆对应 GitHub 仓库在本地启动，源码与依赖均留在项目 `.local-tools/`。
-
-具体选择、文件留存、Windows 本地部署命令和单文件 Lua 接入见 [图片拟合指南](docs/image-fitting.md)。[miliastra-image-css-builder](.agents/skills/miliastra-image-css-builder/SKILL.md) 及配套参考已随模板放在项目内，clone 后可用；两个图片服务本体仍按需要在线使用或本地部署。
-
-## 每次开始新游戏
-
-1. 打开 [miliastra-template](https://github.com/xcr1234/miliastra-template)，点击 **Use this template → Create a new repository**，填写你自己的游戏仓库名称并创建。
-2. 将刚创建的仓库克隆到本地（把下面地址替换为你的新仓库地址）：
-
-   ```sh
-   git clone https://github.com/你的用户名/你的游戏仓库.git
-   cd 你的游戏仓库
-   ```
-
-3. 安装 Node.js 22.19+，在新项目根目录运行：
+需要 Node.js 22.19 或更新版本。首次克隆仓库或移动项目目录后，在仓库根目录安装依赖并初始化本机配置。
 
 ```sh
+git clone https://github.com/xcr1234/fc-chess.git
+cd fc-chess
 npm ci
 npm run setup
-npm test
-npm run build:lua
 ```
 
-`setup` 自动生成当前项目绝对路径的 `.codex/config.toml`。在 Codex 打开并信任新项目，新开聊天，用 `/mcp` 核验 `qxqy_simulator` 与 `miliastra_toolbox`。初始化和安装不写全局 Skill 或 MCP 配置。
-
-以上命令只检查模板工具链、构建空入口；开发具体游戏时，从七步规范的策划案开始。
-
-如果只想查看或试用模板，也可以直接克隆模板仓库：
-
-```sh
-git clone https://github.com/xcr1234/miliastra-template.git E:/miliastra/my-game
-```
-
-直接克隆模板会保留模板历史及 `origin`；使用 **Use this template** 创建自己的仓库后再克隆，`origin` 就是你自己的仓库。修改 `package.json` 的项目名后，用 `npm install --package-lock-only` 同步锁文件；游戏名在 `lua.project.json`。
-
-## 开发、检查与预览
-
-```text
-.agents/skills/                 千星服务端、Lua 知识库与七步开发流程
-.codex/config.template.toml     可提交的 MCP 配置模板
-src/main.lua                   生命周期入口
-src/app/lifecycle.lua           空的应用模块
-lua.project.json               构建入口与项目内产物路径
-tools/                         初始化、Lua 打包、发布、知识库适配器
-scripts/                       构建/发布回归与 MCP 连接检查
-dist/main.lua                  本地生成的单文件，Git 忽略
-dist/main.lua.map.json          排错行号映射，不上传
-```
-
-`npm run check` 启动两个本地 MCP 并检查工具列表；`npm run check -- --online` 另做一次知识库远端查询。工具列表通过不代表网络查询通过。
-
-如果当前机器需要 HTTP 代理，可运行以下命令（端口按实际值修改）：
-
-```sh
-npm run setup -- --proxy http://127.0.0.1:7897
-```
-
-代理保存在本项目 `.codex/mcp.local.json`，不会提交；清除配置用 `npm run setup -- --no-proxy`。宿主的网络限制仍以实际环境为准。
-
-本项目已经包含正式游戏存档。启动浏览器模拟器：
+试玩千星 Lua 版时，用浏览器模拟器打开项目存档。
 
 ```sh
 npm run preview -- --file fc-chess.save.json
 ```
 
-启动命令会先运行 `npm run build:game`，生成被 Git 忽略的 `dist/main.lua`。正式/测试存档只提交 UI、索引、挂载和脚本路径，`source` 留空，由模拟器按路径读取 Lua。
+命令会先构建 `dist/main.lua`，再打开浏览器。在模拟器切到「试玩」，点击「▶ 启动」。修改 Lua 后运行 `npm run build:game`，刷新页面并重新启动试玩。
 
-访问 [本地模拟器](http://127.0.0.1:4173)，切换“试玩”并点击“▶ 启动”。终端保持运行，结束时按 `Ctrl+C`。修改 Lua 后先运行 `npm run build:game`，再刷新网页并重新启动试玩。分享工程需同时携带构建产物；单个存档不再包含完整 Lua。
-
-`preview`会先自动应用项目内的浏览器文字高清与点击修正：`beyond-simulator-web@0.4.1`原本按小字号生成文字贴图后随父控件放大，修正后按完整父级变换与屏幕像素比提高文字采样精度。原版还把按住时任意微移判为拖拽，导致漏掉点击；现在允许不足5个屏幕CSS像素的抖动，达到阈值仍保留拖拽。补丁源码位于`tools/simulator-text-resolution.mjs`与`tools/simulator-pointer-slop.mjs`，版本和原始文件SHA-256校验在`scripts/patch-simulator-renderer.mjs`；不会改动游戏Lua或存档。重新安装依赖后启动预览会自动重用修正；升级模拟器版本时需核对补丁，不能跳过校验直接套用。
-
-可单独运行 `npm run patch:simulator` 应用修正，`npm run test:simulator-renderer` 验证缩放、像素比、文字复用、轻点/拖拽与版本保护；`npm run test:simulator-input`另将真实浏览器事件绑定产生的输入回放到原生Worker，验证五画布的选子、落子、悔棋及棋格边缘。已有网页需刷新以重新加载浏览器代码。
-
-## 编译日期与初始化日志
-
-`npm run build:lua` 会在终端和产物头部输出本次构建机器的**本地系统时间**，带时区偏移；系统使用北京时间时显示 `+08:00`。时间在构建时写入，不依赖游戏运行时的时钟。
-
-默认在 `OnStart` 执行时打印编译日期、初始化开始和完成日志，例如：
-
-```text
-[miliastra] Build date (local): 2026-10-21 23:00:00.000 +08:00
-[miliastra] Initialization started (OnStart)
-[miliastra] Initialization completed (OnStart)
-```
-
-在千星编辑器日志中勾选“客户端脚本”查看。初始化报错时保留错误，不打印完成日志。
-
-默认配置为 `lua.project.json` 中的 `lua.startupLog: true`；改成 `false` 后重新构建，即可关闭上述运行时日志。关闭后，构建终端和产物头部仍保留编译日期。完整配置示例见 [Lua 构建与发布](docs/lua-modules.md#编译日期与初始化日志)。
-
-## 复制到用户指定路径
-
-为当前电脑设置完整目标文件路径，支持中文和空格，例如：
-
-```powershell
-npm run setup -- --target 'C:\Users\你的用户名\AppData\LocalLow\miHoYo\原神\BeyondLocal\账号目录\Beyond_Local_Save_Level\关卡目录\external_lua_file\default_import_file\workspace\my-game\main.lua'
-```
-
-配置写入 Git 忽略的 `lua.deploy.local.json`，此时不会复制文件。也可以参照 `lua.deploy.local.example.json` 手动创建本机配置。
+只想体验画面和操作时，可以运行独立的 HTML 原型。原型采用独立的演示 AI。
 
 ```sh
-npm run build:lua                 # 只在项目内生成 dist/main.lua
-npm run deploy:lua -- --dry-run   # 构建并查看目标，不写入目标
-npm run deploy:lua                # 重新构建成功后复制到指定目标
+npm run preview:html
 ```
 
-发布仅复制一个 `.lua`，文件名可与项目内产物不同。失败构建不会发布旧产物；替换前备份到项目 `.lua-deploy-backups/`，复制后核对哈希。目标已有未知内容或被手工改过时，先比较/合并；确定覆盖时显式运行 `npm run deploy:lua -- --overwrite`。
+打开 [本地 HTML 原型](http://127.0.0.1:4173/)。停止当前预览可按 `Ctrl+C`。
 
-后续一直更新同一目标路径，游戏内复用该文件的脚本映射和挂载，保存并重新试玩。复制文件不会自动完成编辑器加载或真机验证。
+## 开发与验证
 
-更多模块规则见 [Lua 构建与发布](docs/lua-modules.md)；工具来源见 [来源记录](docs/tool-sources.md)。
+| 路径 | 内容 |
+| --- | --- |
+| [src/main.lua](src/main.lua) | 千星客户端脚本入口 |
+| [src/game/](src/game/) | 棋盘规则、对局状态与 AI |
+| [src/ui/](src/ui/) | 千星界面、交互和棋子动画 |
+| [fc-chess.save.json](fc-chess.save.json) | 游戏的 UI、脚本索引和挂载关系 |
+| [prototype/](prototype/) | HTML 试玩原型 |
+| [tests/](tests/) | Lua 回归、规则用例及模拟器测试存档 |
+
+```sh
+npm test                    # 构建、存档引用与本机配置检查
+npm run test:lua            # 核心走棋与对局回归
+npm run test:prototype      # HTML 原型回归
+npm run check:game-cases    # 模拟器用例格式检查
+npm run build:lua           # 构建单文件 dist/main.lua
+npm run build:game          # 构建游戏并同步存档引用
+```
+
+`npm run setup` 按当前目录生成项目内 MCP 配置。`npm run check` 检查模拟器和知识库 MCP 的工具列表，`npm run check -- --online` 额外检查一次在线查询。需要代理时可用 `npm run setup -- --proxy <代理地址>` 配置。在 [AGENTS.md](AGENTS.md) 查看项目开发约定。
+
+## 千星编辑器发布
+
+在本机配置目标脚本的完整路径后，按以下命令检查并更新单文件 Lua。
+
+```sh
+npm run deploy:lua -- --dry-run
+npm run deploy:lua
+```
+
+发布会重新构建，替换前备份旧文件，复制后核对 SHA-256。目标有外部改动时先比较并将有效修改合并回源码。编辑器沿用目标文件的脚本映射和挂载，保存后重新试玩。正式存档和测试存档的 `scripts[].source` 均为空，模拟器从 `dist/main.lua` 读取脚本。分享可运行工程时请同时携带存档和构建产物。
+
+- 构建、日志与目标路径配置见 [Lua 构建与发布](docs/lua-modules.md)。映射、挂载与真机检查见 [真机导入说明](docs/device-handoff.md)。
+- 玩法与 AI 细节见 [策划案](docs/gdd.md) 和 [AI 设计](docs/ai-design.md)。美术制作见 [美术方案](docs/art-bible.md) 和 [图片拟合指南](docs/image-fitting.md)。
+- 当前进度与验证结果见 [制作计划](docs/production-plan.md)、[试玩记录](records/playtest.md) 和 [玩家反馈](records/player-feedback-2026-11-17.md)。
