@@ -78,4 +78,4 @@ npm run deploy:lua
 
 - 构建、日志与目标路径配置见 [Lua 构建与发布](docs/lua-modules.md)。映射、挂载与真机检查见 [真机导入说明](docs/device-handoff.md)。
 - 玩法与 AI 细节见 [策划案](docs/gdd.md) 和 [AI 设计](docs/ai-design.md)。美术制作见 [美术方案](docs/art-bible.md) 和 [图片拟合指南](docs/image-fitting.md)。
-- 当前进度与验证结果见 [制作计划](docs/production-plan.md)、[试玩记录](records/playtest.md) 和 [玩家反馈](records/player-feedback-2026-11-17.md)。
+- 当前进度与验证结果见 [制作计划](docs/production-plan.md)、[试玩记录](records/playtest.md) 和 [玩家反馈](records/player-feedback/player-feedback-2026-11-17.md)。
