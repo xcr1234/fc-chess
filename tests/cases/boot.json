@@ -21,6 +21,13 @@
       "name": "ModeCount",
       "field": "text",
       "equals": "3"
+    },
+    {
+      "kind": "control",
+      "at": 0.1,
+      "name": "ModeDifficultSubtitle",
+      "field": "text",
+      "equals": "经典老头 · 原味节奏"
     }
   ]
 }

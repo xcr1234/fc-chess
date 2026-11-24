@@ -18,7 +18,7 @@
   const portrait = new Image(); portrait.src = 'assets/original-opponents.jpg';
   const C = { navy: '#193b57', green: '#3defa0', cyan: '#28eff0', purple: '#6840fa', pink: '#f5a4cf', paper: '#bbc6c8', line: '#352599', red: '#f33d43', blue: '#2818a0', white: '#fff9e9', black: '#071415' };
   const names = ['困难', '快速模式', '自定义模式'];
-  const subnames = ['每手额外等 10–40 秒', '同等棋力 · 快速回棋', '修改己方初始棋子'];
+  const subnames = ['经典老头 · 原味节奏', '同等棋力 · 快速回棋', '修改己方初始棋子'];
   const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '包', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   function pieceGlyph(value,x,y,color,size,fallbackSize) {
