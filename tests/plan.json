@@ -1009,10 +1009,10 @@
       },
       "fixture": {
         "standard": true,
-        "mode": "fast",
+        "mode": "difficult",
         "ai": {
-          "computeSeconds": 30,
-          "waitSeconds": 0,
+          "computeSeconds": 1,
+          "waitSeconds": 29,
           "replySequence": [
             [
               0,

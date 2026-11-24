@@ -41,11 +41,25 @@
     },
     {
       "kind": "control",
+      "at": 25,
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "45280"
+    },
+    {
+      "kind": "control",
+      "at": 27,
+      "name": "AIThinkingNumber",
+      "field": "text",
+      "equals": "48880"
+    },
+    {
+      "kind": "control",
       "at": 31,
       "id": "",
       "name": "AIThinkingNumber",
       "field": "text",
-      "equals": "40000"
+      "equals": "55000"
     },
     {
       "kind": "control",
@@ -53,7 +67,7 @@
       "id": "",
       "name": "AIThinkingNumber",
       "field": "text",
-      "equals": "40000"
+      "equals": "55000"
     },
     {
       "kind": "control",

@@ -61,7 +61,7 @@ local function build(kind,s)
  end
  if kind=='menu' then
   rect('TitlePanel',128,197.5,142,33,'d60059');text('Title',128,197.5,142,33,'中國象棋','fff2c5',25)
-  local names={'ModeDifficult','ModeFast','ModeCustom'};local labels={'困難','快速模式','自定義模式'};local sub={'經典老頭 · 原味等待','經典老頭 · 快速思考','修改己方初始棋子'}
+  local names={'ModeDifficult','ModeFast','ModeCustom'};local labels={'困難','快速模式','自定義模式'};local sub={'每手額外等 10–40 秒','同等棋力 · 快速回棋','修改己方初始棋子'}
   for i,n in ipairs(names) do local y=166-(i-1)*51;P.draw(page,'MenuPortrait'..i,46.5-128,y-17.5-112,35)
    text(n..'Title',156,y-11,150,20,labels[i],'fff9e9',15).horizontalAlignment=Enum.TextHorizontalAlignment.Left
    text(n..'Subtitle',156,y-29,150,12,sub[i],'e2d0ff',8).horizontalAlignment=Enum.TextHorizontalAlignment.Left

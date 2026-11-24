@@ -74,7 +74,7 @@ Disk_i改为固定16尺寸容器，按当前棋种创建DiskArt_i的白底与蓝
 
 终局保留history；`ReturnBoardButton`仅在result转入`result-review`，不调用begin，不恢复计时或AI。square只接受player-turn、commit拒绝两种终局状态；review可走原悔棋确认与模式确认，认输不再响应。确认悔棋沿用历史快照恢复到上次红方落子前并清除resultTitle/Reason，冻结直到确认是才解除。生命周期和音效/BGM接口未变，review沿用全场景共用BGM且不生成落子事件。
 
-结算遮罩从93高增到116高，保持顶部不动，底部增加20高“返回棋盤”热区；查看时隐藏结算遮罩，右侧认输文字变灰，底部说明悔棋后可继续。HTML同步第三项与键盘三项循环、终局走棋锁和悔棋续下。契约与证据见`tests/result-review-plan.md`、`records/result-review-*.json`。
+结算遮罩从93高增到116高，保持顶部不动，底部增加20高“返回棋盤”热区；查看时隐藏结算遮罩，右侧认输文字变灰，有历史时提示悔棋后可继续，无历史时提示本局已结束。HTML同步第三项与键盘三项循环、终局走棋锁和悔棋续下。契约与证据见`tests/result-review-plan.md`、`records/result-review-*.json`。
 
 ## 2026-10-24 将军音效
 

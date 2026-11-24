@@ -170,6 +170,7 @@ test('result review: defeat restores both final plies and resignation without hi
  h.render(1000);h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
  const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
+ assert.equal(r.state.message,'本局已結束');r.input('cancel');assert.equal(r.state.message,'本局已結束');
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
 });
 test('result audio: defeated king and confirmed resignation use the metal door sound; mute stays silent',()=>{

@@ -156,7 +156,10 @@ function M.action(s,name)
   elseif name=='EditBackButton' then M.menu(s) end
  elseif s.scene=='result' then
   if name=='RestartButton' then M.start(s,s.mode,s.initial) elseif name=='ModeButton' then M.menu(s)
-  elseif name=='ReturnBoardButton' then s.scene='result-review';s.selected=nil;s.status='本局已結束，悔棋後可繼續' end
+  elseif name=='ReturnBoardButton' then
+   s.scene='result-review';s.selected=nil
+   s.status=#s.history>0 and '本局已結束，悔棋後可繼續' or '本局已結束'
+  end
  elseif name=='UndoButton' then if #s.history>0 then s.modal='undo' else s.status='尚無棋步可悔' end
  elseif name=='ResignButton' and s.scene~='result-review' then s.modal='resign'
  elseif name=='ModeButton' then s.modal='menu' end

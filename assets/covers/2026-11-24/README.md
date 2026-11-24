@@ -1,0 +1,9 @@
+# FC 中国象棋发布封面
+
+[封面 PNG](cover-fc-chess.png) 为 1672×941 横图。新版把老头放大到左侧，右侧展示完整的九列十行棋盘，标题放在上方。以旧封面和对局画面为参考，使用内置 ImageGen 重新绘制。
+
+本地缩至 320×180 后，标题、老头和棋盘可辨。以相同宽度预览 4:3 居中裁切，左侧会切到头像外缘，标题与整个棋盘仍可见。实际千星列表裁切和详情页显示待验证。
+
+## 生成提示词
+
+> Use case: ads-marketing. Generate one landscape 16:9 publication cover for the author's FC-style Chinese chess game, as polished original retro pixel-art box illustration. The screenshots are references for subject identity, board and palette; redesign the whole composition. Thumbnail hierarchy first: a large expressive bald white-browed elderly Chinese chess opponent with small white moustache and pointed white beard, friendly but formidable, on the left, looking across at a COMPLETE front-facing Chinese xiangqi board on the right. One clear title, exact text 'FC 中国象棋', in warm ivory with a bold deep navy pixel shadow across the upper center; no other marketing writing. Board shows nine vertical files and ten ranks, a single middle river split, two correct diagonal palaces, with red and dark-blue round pieces on the intersections; follow the game screenshot for the board and Chinese pieces, avoid western chess. Show all four outer corners clearly with air, centered within the middle 78% of the image, keep both the portrait's face and the board's edge clear and away from the canvas perimeter, leave 8–10% padding around the outer composition for list cropping. A deep indigo backdrop with restrained jade highlights and touches of vermilion, clean stepped outlines and subtle handcrafted dithering, two or three purposeful light clusters, rich but quiet background. Big readable shapes and crisp separation when viewed at 320 px wide. No ornamental external frame, control bar, HUD, mock device, controller, badges, watermarks, or tiny promotional typography. Full bleed.

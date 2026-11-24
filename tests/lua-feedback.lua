@@ -30,17 +30,19 @@ check('thinking number grows frequently in search and wait and freezes after act
  S.update(s,2);assert(s.scene=='player-turn' and s.aiCounter.value>=1000)
  local final=s.aiCounter.value;S.update(s,60);assert(s.aiCounter.value==final)
 end)
-check('longer actual AI wait raises the final number, with a five-digit ceiling',function()
+check('longer actual AI wait raises the final number beyond 40000',function()
  local values={}
- for _,elapsed in ipairs({0,.2,1,4,8,16,30,10000}) do
+ for _,elapsed in ipairs({0,.2,1,4,8,16,30,60}) do
   local s=thinking();S.update(s,elapsed)
   -- Isolate counter growth from the difficulty's random 10-20 second wait.
   s.aiInput={waitSeconds=4};S.computed(s,{28,37},{count=1});S.update(s,4)
-  assert(s.moves==2 and s.aiCounter.value>=1000 and s.aiCounter.value<=40000)
+  assert(s.moves==2 and s.aiCounter.value>=1000)
   values[#values+1]=s.aiCounter.value
  end
- for i=2,6 do assert(values[i]>values[i-1],'longer wait did not produce a higher final number') end
- assert(values[7]==40000 and values[8]==40000)
+ assert(values[7]>40000,'long turn still stops at 40000')
+ for i=2,#values do assert(values[i]>values[i-1],'longer wait did not produce a higher final number') end
+ local Counter=require('game.thinking_counter')
+ assert(Counter.format({value=values[8]})==tostring(values[8]) and #tostring(values[8])==6)
 end)
 check('growth is independent of frame splitting and never bypasses confirmation',function()
  local a,b=thinking(),thinking()
@@ -53,8 +55,9 @@ check('growth is independent of frame splitting and never bypasses confirmation'
  S.action(a,'ConfirmNo');assert(a.moves==2 and a.lastAiMove[2]==37)
  local final=a.aiCounter.value;S.update(a,10);assert(a.aiCounter.value==final)
 end)
-check('instant book replies, cancellation, restart and custom editing reset feedback safely',function()
+check('fast book replies, cancellation, restart and custom editing reset feedback safely',function()
  local s=S.new();S.start(s,'fast');S.commit(s,{65,68}) -- source-book central cannon
+ S.update(s,.6)
  assert(s.moves==2 and s.aiCounter.value>=1000 and s.aiCounter.value<=40000 and s.lastAiMove)
  S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton')
  assert(not s.lastAiMove and s.aiCounter.value==0)

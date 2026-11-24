@@ -18,7 +18,7 @@
   const portrait = new Image(); portrait.src = 'assets/original-opponents.jpg';
   const C = { navy: '#193b57', green: '#3defa0', cyan: '#28eff0', purple: '#6840fa', pink: '#f5a4cf', paper: '#bbc6c8', line: '#352599', red: '#f33d43', blue: '#2818a0', white: '#fff9e9', black: '#071415' };
   const names = ['困难', '快速模式', '自定义模式'];
-  const subnames = ['经典老头 · 原味等待', '经典老头 · 快速思考', '修改己方初始棋子'];
+  const subnames = ['每手额外等 10–40 秒', '同等棋力 · 快速回棋', '修改己方初始棋子'];
   const glyphs = { r: '車', n: '馬', e: '象', a: '士', k: '將', c: '包', p: '卒', R: '俥', N: '傌', E: '相', A: '仕', K: '帥', C: '炮', P: '兵' };
   const choices = ['R', 'N', 'C', 'E', 'A', 'P'];
   function pieceGlyph(value,x,y,color,size,fallbackSize) {
@@ -95,6 +95,7 @@
   }
   function playMoveSound(checking){playEffect(checking?50888:50882);}
   function announce(message) { state.message = message; live.textContent = message; }
+  function reviewMessage() { return state.history.length ? '本局已結束，悔棋後可繼續' : '本局已結束'; }
   function resetGame(board = initialBoard(), mode = state.menu) {
     state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now());
@@ -327,7 +328,7 @@
     if (state.scene === 'result') {
       advanceMotion();if(state.motion.length)return;
       if (direction) state.resultIndex = (state.resultIndex + (key==='up'||key==='left'?2:1))%3;
-      if (key === 'ok' || key === 'start') { if (state.resultIndex === 0) resetGame(state.initial, state.mode); else if(state.resultIndex===1)toMenu();else{state.scene='result-review';state.selected=null;state.zone='board';announce('本局已結束，悔棋後可繼續');} }
+      if (key === 'ok' || key === 'start') { if (state.resultIndex === 0) resetGame(state.initial, state.mode); else if(state.resultIndex===1)toMenu();else{state.scene='result-review';state.selected=null;state.zone='board';announce(reviewMessage());} }
       if (key === 'cancel') toMenu();
       return;
     }
@@ -364,7 +365,7 @@
       return;
     }
     if (key === 'select') { if (state.selected !== null) return; state.zone = state.zone === 'board' ? 'panel' : 'board'; return; }
-    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review'?'本局已結束，悔棋後可繼續':state.scene === 'edit' ? '點擊紅子或己方空位改子' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
+    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review' ? reviewMessage() : state.scene === 'edit' ? '點擊紅子或己方空位改子' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
     if (direction) {
       if (state.zone === 'panel') {
         const count = state.scene === 'edit' ? 4 : 3;

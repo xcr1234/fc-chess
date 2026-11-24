@@ -43,7 +43,7 @@ check('resigned unfinished AI remains cancelled; undo can continue from its hist
 end)
 check('empty-history resignation can be viewed but cannot resume without an undo',function()
  local s=S.new();S.start(s,'fast');S.action(s,'ResignButton');S.action(s,'ConfirmYes');S.action(s,'ReturnBoardButton')
- assert(s.scene=='result-review');S.action(s,'UndoButton');assert(not s.modal and s.status=='尚無棋步可悔' and s.scene=='result-review')
+ assert(s.scene=='result-review' and s.status=='本局已結束');S.action(s,'UndoButton');assert(not s.modal and s.status=='尚無棋步可悔' and s.scene=='result-review')
  S.square(s,55);assert(not s.selected and s.moves==0)
 end)
 check('return is available only from results; restart still preserves lineup and audio',function()

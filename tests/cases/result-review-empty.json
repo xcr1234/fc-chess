@@ -57,6 +57,13 @@
   "asserts": [
     {
       "kind": "control",
+      "at": 0.7,
+      "name": "StatusText",
+      "field": "text",
+      "equals": "本局已結束"
+    },
+    {
+      "kind": "control",
       "at": 1.2,
       "id": "",
       "name": "SceneState",
