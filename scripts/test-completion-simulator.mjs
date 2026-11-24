@@ -18,16 +18,16 @@ try{
  for(const canvasId of ['pc-16-9','mobile-16-9']){
   await play('start',{canvasId});
   for(const [scene,actions,completed,outcome,name,equals,signals] of [
-   ['initial',[],false,0,'ModeCustomTitle','自定義模式',0],
-   ['unfinished',['ModeFast','Square_0_6','Square_0_5','ModeButton','ConfirmYes'],false,0,'ModeCustomTitle','自定義模式',0],
-   ['win',win,true,1,'ResultTitle','您獲勝了',1],
-   ['defeat',['TestSetup_result-review-defeat-undo','Square_0_6','Square_0_5'],false,2,'ResultTitle','您落敗了',0],
+   ['initial',[],false,0,'ModeCustomTitle','自定义模式',0],
+   ['unfinished',['ModeFast','Square_0_6','Square_0_5','ModeButton','ConfirmYes'],false,0,'ModeCustomTitle','自定义模式',0],
+   ['win',win,true,1,'ResultTitle','您获胜了',1],
+   ['defeat',['TestSetup_result-review-defeat-undo','Square_0_6','Square_0_5'],false,2,'ResultTitle','您落败了',0],
    ['resign-cancel',['ModeFast','ResignButton','ConfirmNo'],false,0,'SceneState','player-turn',0],
-   ['resign',['ModeFast','ResignButton','ConfirmYes'],false,2,'ResultTitle','您落敗了',0],
+   ['resign',['ModeFast','ResignButton','ConfirmYes'],false,2,'ResultTitle','您落败了',0],
    ['review-undo',[...win,'ReturnBoardButton','UndoButton','ConfirmYes'],true,1,'SceneState','player-turn',1],
    ['restart',[...win,'RestartButton'],true,1,'SceneState','player-turn',1],
-   ['menu',[...win,'ModeButton'],true,1,'ModeCustomTitle','自定義模式',1],
-   ['win-then-lose',[...win,'RestartButton','ResignButton','ConfirmYes'],true,2,'ResultTitle','您落敗了',1]
+   ['menu',[...win,'ModeButton'],true,1,'ModeCustomTitle','自定义模式',1],
+   ['win-then-lose',[...win,'RestartButton','ResignButton','ConfirmYes'],true,2,'ResultTitle','您落败了',1]
   ]){
    const at=Math.max(1,.2+actions.length*.2);
    const result=await play('runCase',{canvasId,case:{format:'qxqy-autotest',version:1,name:'completion-'+scene+'-'+canvasId,dt:.05,

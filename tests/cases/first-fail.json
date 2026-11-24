@@ -45,7 +45,7 @@
       "id": "",
       "name": "TurnText",
       "field": "text",
-      "equals": "紅方"
+      "equals": "红方"
     },
     {
       "kind": "control",
@@ -53,7 +53,7 @@
       "id": "",
       "name": "StatusText",
       "field": "text",
-      "equals": "這步不能走"
+      "equals": "这步不能走"
     }
   ]
 }

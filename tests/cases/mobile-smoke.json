@@ -62,6 +62,20 @@
       "name": "TurnText",
       "field": "text",
       "equals": "黑方"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "name": "Glyph_86",
+      "field": "text",
+      "equals": "帥"
+    },
+    {
+      "kind": "control",
+      "at": 1.1,
+      "name": "RiverRight",
+      "field": "text",
+      "equals": "漢界"
     }
   ]
 }

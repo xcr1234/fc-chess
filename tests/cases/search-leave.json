@@ -93,7 +93,7 @@
       "id": "",
       "name": "TurnText",
       "field": "text",
-      "equals": "紅方"
+      "equals": "红方"
     },
     {
       "kind": "control",

@@ -19,7 +19,7 @@ try{
  for(const canvasId of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3']){
   await call('start',{canvasId});
   for(const [scene,actions,target,equals,color] of [
-   ['menu',[],'Title','中國象棋',[104,64,250,255]],
+   ['menu',[],'Title','中国象棋',[104,64,250,255]],
    ['board',['ModeFast'],'MoveCount','000手',[25,59,87,255]],
    ['settings',['ModeFast','SettingsButton'],'BGMVolume','50%',[25,59,87,255]]
   ]){

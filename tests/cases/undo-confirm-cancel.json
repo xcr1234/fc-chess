@@ -69,7 +69,7 @@
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
-      "equals": "要悔棋嗎？"
+      "equals": "要悔棋吗？"
     },
     {
       "kind": "control",
@@ -93,7 +93,7 @@
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
-      "equals": "要悔棋嗎？"
+      "equals": "要悔棋吗？"
     },
     {
       "kind": "control",

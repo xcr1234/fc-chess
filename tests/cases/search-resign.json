@@ -69,7 +69,7 @@
       "id": "",
       "name": "ConfirmTitle",
       "field": "text",
-      "equals": "要認輸嗎？"
+      "equals": "要认输吗？"
     },
     {
       "kind": "control",
@@ -85,7 +85,7 @@
       "id": "",
       "name": "ResultTitle",
       "field": "text",
-      "equals": "您落敗了"
+      "equals": "您落败了"
     },
     {
       "kind": "control",

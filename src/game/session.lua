@@ -8,7 +8,7 @@ local M={}
 local FAST_MIN_THINK_SECONDS=.6
 local gameSerial=0
 local function other(s) return s=='red' and 'black' or 'red' end
-function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='請選擇模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={},completionSequence=0} end
+function M.new() return {scene='mode-select',mode='difficult',board=B.standard(),draft=B.standard(),initial=B.standard(),turn='red',moves=0,red=0,black=0,aiCounter=Counter.new(),version=0,history={},status='请选择模式',extraWait=0,audio=Settings.new(),moveSoundSequence=0,moveSoundChecks={},resultSoundSequence=0,resultSoundOutcomes={},completionSequence=0} end
 function M.cancel(s,reason)
  if reason~='result' then s.visualEpoch=(s.visualEpoch or 0)+1;s.visualMoves={} end
  AI.cancel(s.job);s.job=nil;s.reply=nil;s.ready=false;s.remaining=0;s.extraWait=0;s.version=s.version+1
@@ -19,7 +19,7 @@ function M.start(s,mode,board)
  gameSerial=(gameSerial+1)%20000;s.bookSeed=gameSerial*104729+1
  local red,black=false,false for _,p in ipairs(s.board) do red=red or p=='K';black=black or p=='k' end
  assert(red and black,'Invalid initial board: both kings required')
- s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='請走棋';s.fixture=nil;s.aiInput=nil
+ s.scene='player-turn';s.turn='red';s.moves=0;s.red=0;s.black=0;s.selected=nil;s.modal=nil;s.palette=nil;s.history={};s.extraWait=0;s.status='请走棋';s.fixture=nil;s.aiInput=nil
  s.aiCounter=Counter.new();s.lastAiMove=nil;s.resultTitle=nil;s.resultReason=nil
  s.positionHistory={B.key(s.board,'red',s.custom)}
  Log.event('start',mode..' profile='..M.profile(s))
@@ -33,16 +33,16 @@ function M.finish(s,title,reason,outcome)
  if outcome=='win' or outcome=='lose' then s.resultSoundSequence=s.resultSoundSequence+1;s.resultSoundOutcomes[s.resultSoundSequence]=outcome end
  Log.event('result',title..' '..reason..' moves='..s.moves)
 end
-function M.menu(s) M.cancel(s,'menu');s.scene='mode-select';s.modal=nil;s.palette=nil;s.selected=nil;s.status='請選擇模式';s.aiCounter=Counter.new();s.lastAiMove=nil end
+function M.menu(s) M.cancel(s,'menu');s.scene='mode-select';s.modal=nil;s.palette=nil;s.selected=nil;s.status='请选择模式';s.aiCounter=Counter.new();s.lastAiMove=nil end
 function M.begin(s,side)
  s.turn=side;s[side]=0
  if #B.moves(s.board,side,s.custom)==0 then
   side=other(side)
-  if #B.moves(s.board,side,s.custom)==0 then M.finish(s,'本局無法繼續','雙方暫無可走棋');return end
+  if #B.moves(s.board,side,s.custom)==0 then M.finish(s,'本局无法继续','双方暂无可走棋');return end
   s.turn=side;s[side]=0;Log.event('skip','no basic move; next='..side)
   if s.positionHistory and #s.positionHistory>0 then s.positionHistory[#s.positionHistory]=B.key(s.board,side,s.custom) end
  end
- if side=='red' then s.scene='player-turn';s.status='請走棋';return end
+ if side=='red' then s.scene='player-turn';s.status='请走棋';return end
  s.scene='ai-search';s.status='思考中';s.compute=0;s.replyVersion=s.version
  s.aiCounter=Counter.new()
  local a=s.aiInput
@@ -69,8 +69,8 @@ function M.commit(s,m)
  s.moveSoundChecks[s.moveSoundSequence]=captured~='k' and captured~='K' and B.threatensKing(s.board,s.turn,s.custom)
  if s.moveSoundChecks[s.moveSoundSequence] then Log.event('check',s.turn..' count='..s.moves) end
  Log.event('move',s.turn..' '..m[1]..'->'..m[2]..' captured='..captured..' step='..string.format('%.2f',s[s.turn])..' count='..s.moves)
- if captured=='k' then M.finish(s,'您獲勝了','吃掉黑將','win')
- elseif captured=='K' then M.finish(s,'您落敗了','帥被吃掉','lose')
+ if captured=='k' then M.finish(s,'您获胜了','吃掉黑将','win')
+ elseif captured=='K' then M.finish(s,'您落败了','帅被吃掉','lose')
  else
   s.positionHistory=s.positionHistory or {}
   s.positionHistory[#s.positionHistory+1]=B.key(s.board,other(s.turn),s.custom)
@@ -107,19 +107,19 @@ end
 function M.square(s,i)
  if s.modal or s.palette or s.scene=='result' or s.scene=='mode-select' then return end
  if s.scene=='custom-edit' then
-  if s.board[i]=='K' then s.status='帥保留，不能修改'
-  elseif B.red(s.board[i]) or (i>=46 and i<=90 and s.board[i]=='') then s.palette=i else s.status='只能修改紅方棋子或己方半場空位' end
+  if s.board[i]=='K' then s.status='帅保留，不能修改'
+  elseif B.red(s.board[i]) or (i>=46 and i<=90 and s.board[i]=='') then s.palette=i else s.status='只能修改红方棋子或己方半场空位' end
   return
  end
  if s.scene~='player-turn' then return end
- if B.red(s.board[i]) then s.selected=s.selected~=i and i or nil;s.status='請選擇落點';return end
- if not s.selected then s.status='請先選擇己方棋子';return end
- if not M.commit(s,{s.selected,i}) then s.status='這步不能走';Log.event('invalid','target='..i) end
+ if B.red(s.board[i]) then s.selected=s.selected~=i and i or nil;s.status='请选择落点';return end
+ if not s.selected then s.status='请先选择己方棋子';return end
+ if not M.commit(s,{s.selected,i}) then s.status='这步不能走';Log.event('invalid','target='..i) end
 end
 function M.undo(s)
  if s.scene=='result' or s.scene=='mode-select' or s.modal then return end
  local h=table.remove(s.history)
- if not h then s.status='尚無棋步可悔';return end
+ if not h then s.status='尚无棋步可悔';return end
  M.cancel(s,'undo');s.board=B.copy(h.board);s.moves=h.moves;s.black=h.black;s.red=0;s.turn='red';s.scene='player-turn';s.selected=nil;s.status='已悔棋'
  s.bookSeed=h.bookSeed
  s.lastAiMove=h.lastAiMove;s.aiCounter=h.aiCounter
@@ -132,7 +132,7 @@ function M.action(s,name)
   if name=='ConfirmNo' then s.modal=nil;if s.ready then M.submitReply(s) end
   elseif name=='ConfirmYes' then
    if s.modal=='undo' then s.modal=nil;M.undo(s)
-   elseif s.modal=='resign' then M.finish(s,'您落敗了','主動認輸','lose') else M.menu(s) end
+   elseif s.modal=='resign' then M.finish(s,'您落败了','主动认输','lose') else M.menu(s) end
   end
   return
  end
@@ -147,7 +147,7 @@ function M.action(s,name)
   return
  end
  if s.scene=='mode-select' then
-  if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='點擊紅子或己方空位改子'
+  if name=='ModeCustom' then M.cancel(s,'edit');s.mode='custom';s.custom=true;s.board=B.copy(s.draft);s.scene='custom-edit';s.moves=0;s.red=0;s.black=0;s.turn='red';s.status='点击红子或己方空位改子'
   elseif name=='ModeDifficult' or name=='ModeFast' then M.start(s,name=='ModeFast' and 'fast' or 'difficult') end
  elseif s.scene=='custom-edit' then
   if name=='AllRooksButton' then s.palette='all'
@@ -158,9 +158,9 @@ function M.action(s,name)
   if name=='RestartButton' then M.start(s,s.mode,s.initial) elseif name=='ModeButton' then M.menu(s)
   elseif name=='ReturnBoardButton' then
    s.scene='result-review';s.selected=nil
-   s.status=#s.history>0 and '本局已結束，悔棋後可繼續' or '本局已結束'
+   s.status=#s.history>0 and '本局已结束，悔棋后可继续' or '本局已结束'
   end
- elseif name=='UndoButton' then if #s.history>0 then s.modal='undo' else s.status='尚無棋步可悔' end
+ elseif name=='UndoButton' then if #s.history>0 then s.modal='undo' else s.status='尚无棋步可悔' end
  elseif name=='ResignButton' and s.scene~='result-review' then s.modal='resign'
  elseif name=='ModeButton' then s.modal='menu' end
 end

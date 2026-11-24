@@ -45,7 +45,7 @@
       "id": "",
       "name": "StatusText",
       "field": "text",
-      "equals": "這步不能走"
+      "equals": "这步不能走"
     },
     {
       "kind": "control",

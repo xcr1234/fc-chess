@@ -162,7 +162,7 @@ check('RULE-REAL-NO-MOVE-SKIP-WITH-BOTH-KINGS',function()
  assert(s.scene=='player-turn' and s.turn=='red' and s.moves==12 and s.red==0,'skip changed result or move count')
  local s2=S.new();blockedPalace(b,'red');b[55]=''
  S.start(s2,'fast',b);S.begin(s2,'red')
- assert(s2.scene=='result' and s2.resultTitle=='本局無法繼續' and s2.moves==0)
+ assert(s2.scene=='result' and s2.resultTitle=='本局无法继续' and s2.moves==0)
  assert(s2.board[5]=='k' and s2.board[86]=='K','no-move fixture lost a king')
 end)
 
@@ -189,7 +189,7 @@ check('RULE-FORCED-LOSS-DOES-NOT-END-GAME-EARLY',function()
  assert(s.scene=='player-turn' and s.moves==1,'forced loss was prematurely adjudicated')
  local king;for i,pc in ipairs(s.board) do if pc=='k' then king=i end end;assert(king)
  local capture;for _,m in ipairs(B.moves(s.board,'red',false)) do if m[2]==king then capture=m;break end end
- assert(capture and S.commit(s,capture));assert(s.scene=='result' and s.resultTitle=='您獲勝了' and s.moves==2)
+ assert(capture and S.commit(s,capture));assert(s.scene=='result' and s.resultTitle=='您获胜了' and s.moves==2)
 end)
 
 check('RULE-REPEAT-KEEPS-PRODUCTION-PLAYABLE',function()

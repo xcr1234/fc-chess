@@ -1,10 +1,10 @@
 local Catalog=require('audio.catalog')
-local M={pageSize=5,catalog=Catalog,categories={'全部','探索','戰鬥','任務','其他'}}
+local M={pageSize=5,catalog=Catalog,categories={'全部','探索','战斗','任务','其他'}}
 local byId={};for _,track in ipairs(Catalog) do byId[track.id]=track end
 local recommended={10167,10029,10161}
 function M.new() return {music=10167,volume=50,sfx=true} end
 function M.track(id) return byId[id] end
-function M.name(id) return id==0 and '無BGM' or (byId[id] and byId[id].name or '無BGM') end
+function M.name(id) return id==0 and '无BGM' or (byId[id] and byId[id].name or '无BGM') end
 function M.recommended(id) for _,v in ipairs(recommended) do if v==id then return true end end return false end
 function M.list(category)
  local list,used={},{}

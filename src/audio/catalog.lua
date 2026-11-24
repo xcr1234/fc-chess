@@ -56,7 +56,7 @@ return {
  {id=10092,name="溶水的铃歌",seconds=96,category=0},
  {id=10093,name="石的秘藏",seconds=106,category=0},
  {id=10099,name="禁的劳作",seconds=111,category=0},
- {id=10102,name="釀饮同欢",seconds=103,category=0},
+ {id=10102,name="酿饮同欢",seconds=103,category=0},
  {id=10104,name="裁心的狡计",seconds=133,category=0},
  {id=10105,name="流泉醉月",seconds=116,category=0},
  {id=10107,name="熙焰明光",seconds=240,category=0},

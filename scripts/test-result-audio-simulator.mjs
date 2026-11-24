@@ -18,12 +18,12 @@ try{
  for(const canvasId of ['pc-16-9','mobile-16-9']){
   await call('start',{canvasId});
   for(const [name,actions,control,equals,ids] of [
-   ['victory',['TestSetup_result-review-win','Square_4_5','Square_4_0'],'ResultTitle','您獲勝了',[50882,50228]],
-   ['defeat',['TestSetup_result-review-defeat-undo','Square_0_6','Square_0_5'],'ResultTitle','您落敗了',[50882,50882,50265]],
-   ['resign',['ModeFast','ResignButton','ConfirmYes'],'ResultTitle','您落敗了',[50265]],
+   ['victory',['TestSetup_result-review-win','Square_4_5','Square_4_0'],'ResultTitle','您获胜了',[50882,50228]],
+   ['defeat',['TestSetup_result-review-defeat-undo','Square_0_6','Square_0_5'],'ResultTitle','您落败了',[50882,50882,50265]],
+   ['resign',['ModeFast','ResignButton','ConfirmYes'],'ResultTitle','您落败了',[50265]],
    ['cancel-resign',['ModeFast','ResignButton','ConfirmNo'],'MoveCount','000手',[]],
-   ['muted',['SettingsButton','SfxToggle','SettingsBack','TestSetup_result-review-win','Square_4_5','Square_4_0'],'ResultTitle','您獲勝了',[]],
-   ['second-game',['ModeFast','ResignButton','ConfirmYes','RestartButton','ResignButton','ConfirmYes'],'ResultTitle','您落敗了',[50265,50265]]
+   ['muted',['SettingsButton','SfxToggle','SettingsBack','TestSetup_result-review-win','Square_4_5','Square_4_0'],'ResultTitle','您获胜了',[]],
+   ['second-game',['ModeFast','ResignButton','ConfirmYes','RestartButton','ResignButton','ConfirmYes'],'ResultTitle','您落败了',[50265,50265]]
   ]){
    const test={format:'qxqy-autotest',version:1,name:'result-audio-'+name,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:2,name:control,field:'text',equals}]};
    const result=await call('runCase',{canvasId,case:test});assert.equal(result.passed,true,JSON.stringify(result));

@@ -30,7 +30,7 @@ check('cancel keeps a manually edited draft and later single edits stay local',f
 end)
 check('non-rook bulk lineup survives restart/menu and reset returns to standard',function()
  local s=edit();S.action(s,'AllRooksButton');S.action(s,'Choose_C');assert(s.board[46]=='C');local before=table.concat(s.board,',')
- S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton');assert(table.concat(s.board,',')==before)
+ S.finish(s,'您落败了','主动认输');S.action(s,'RestartButton');assert(table.concat(s.board,',')==before)
  S.menu(s);S.action(s,'ModeCustom');assert(table.concat(s.board,',')==before)
  S.action(s,'ResetCustomButton');assert(table.concat(s.board,',')==table.concat(B.standard(),','))
  S.square(s,46);S.action(s,'Choose_R');S.action(s,'StartCustomButton');assert(s.board[46]=='R' and s.board[47]=='')

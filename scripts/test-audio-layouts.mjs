@@ -66,7 +66,7 @@ try{
   ['selection-invalid',['TestSetup_ai-move-feedback','Square_0_6','Square_0_7'],0],
   ['sound-disabled',['SettingsButton','SfxToggle','SettingsBack','TestSetup_ai-move-feedback','Square_0_6','Square_0_5'],0]
  ]){
-  const test={format:'qxqy-autotest',version:1,name,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:5,name:'TurnText',field:'text',equals:'紅方'}]};
+  const test={format:'qxqy-autotest',version:1,name,dt:.1,events:actions.map((name,i)=>({t:.1+i*.2,source:'user',kind:'click',payload:{name}})),asserts:[{kind:'control',at:5,name:'TurnText',field:'text',equals:'红方'}]};
   const result=await call('runCase',{canvasId:'pc-16-9',case:test});if(!result.passed)throw new Error(JSON.stringify(result));
   const state=await call('get');assert.equal(state.audio.sequence,expected);if(expected){assert.equal(state.audio.recent.length,expected);assert.ok(state.audio.recent.every(voice=>voice.audioId===50882));}
   report.results.push({kind:'sound',name,passed:true,audio:state.audio});console.log('PASS sound',name);

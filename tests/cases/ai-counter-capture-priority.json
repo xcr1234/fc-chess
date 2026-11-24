@@ -53,7 +53,7 @@
       "id": "",
       "name": "ResultTitle",
       "field": "text",
-      "equals": "您落敗了"
+      "equals": "您落败了"
     },
     {
       "kind": "control",
@@ -61,7 +61,7 @@
       "id": "",
       "name": "ResultReason",
       "field": "text",
-      "equals": "帥被吃掉"
+      "equals": "帅被吃掉"
     },
     {
       "kind": "control",

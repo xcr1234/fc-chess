@@ -23,7 +23,7 @@ check('choosing rook from the bulk palette fills the own half and starts a red c
  assert(table.concat(s.draft,',')==table.concat(s.board,',') and table.concat(s.initial,',')==table.concat(s.board,','))
 end)
 check('restart and returning to edit preserve the 44-rook draft; reset clears it',function()
- local s=S.new();preset(s);S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton');verify(s)
+ local s=S.new();preset(s);S.finish(s,'您落败了','主动认输');S.action(s,'RestartButton');verify(s)
  S.menu(s);S.action(s,'ModeCustom');assert(s.scene=='custom-edit');verify(s)
  S.action(s,'ResetCustomButton');assert(table.concat(s.board,',')==table.concat(B.standard(),','))
 end)

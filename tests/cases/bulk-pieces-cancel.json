@@ -77,7 +77,7 @@
       "id": "",
       "name": "PaletteTitle",
       "field": "text",
-      "equals": "全部改成哪種棋子？"
+      "equals": "全部改成哪种棋子？"
     },
     {
       "kind": "control",
@@ -109,7 +109,7 @@
       "id": "",
       "name": "PaletteTitle",
       "field": "text",
-      "equals": "改成哪種棋子？"
+      "equals": "改成哪种棋子？"
     },
     {
       "kind": "control",

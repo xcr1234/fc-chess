@@ -61,7 +61,7 @@
       "id": "",
       "name": "MusicTitle",
       "field": "text",
-      "equals": "選擇背景音樂"
+      "equals": "选择背景音乐"
     },
     {
       "kind": "control",
@@ -69,7 +69,7 @@
       "id": "",
       "name": "PickMusic_10167Label",
       "field": "text",
-      "equals": "已選 · 推薦 · 杯中明月"
+      "equals": "已选 · 推荐 · 杯中明月"
     }
   ]
 }

@@ -29,7 +29,7 @@
       "id": "",
       "name": "StatusText",
       "field": "text",
-      "equals": "帥保留，不能修改"
+      "equals": "帅保留，不能修改"
     },
     {
       "kind": "control",

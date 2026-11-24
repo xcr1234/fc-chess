@@ -37,7 +37,7 @@ try{
    h.tap(...h.point(x,y));const list=h.pointer();for(const [i,{light,...payload}] of list.slice(cursor).entries())events.push({t:t+i*.02,source:'user',kind:'pointer',payload});cursor=list.length;
   }
   await run(canvasId,{format:'qxqy-autotest',version:1,name:'pointer-empty-add',dt:.02,events,asserts:[
-   check(.5,'PaletteTitle','text','改成哪種棋子？'),...['R','N','C','E','A','P'].map(p=>check(.5,'Choose_'+p+'Pixels','visible',true)),
+   check(.5,'PaletteTitle','text','改成哪种棋子？'),...['R','N','C','E','A','P'].map(p=>check(.5,'Choose_'+p+'Pixels','visible',true)),
    check(.8,'Glyph_46','text','俥'),check(.8,'PixelGlyph_46','visible',true),check(.8,'DiskArt_46','visible',true),check(.8,'MoveCount','text','000手')
   ]});
   const state=await play('get');assert(!state.mountError);assert(!state.logs.some(l=>l.level==='error'));

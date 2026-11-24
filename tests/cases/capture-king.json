@@ -61,7 +61,7 @@
       "id": "",
       "name": "ResultTitle",
       "field": "text",
-      "equals": "您獲勝了"
+      "equals": "您获胜了"
     },
     {
       "kind": "control",
@@ -69,7 +69,7 @@
       "id": "",
       "name": "ResultReason",
       "field": "text",
-      "equals": "吃掉黑將"
+      "equals": "吃掉黑将"
     }
   ]
 }

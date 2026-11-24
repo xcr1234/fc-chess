@@ -48,7 +48,7 @@ try {
       await call('qxqy_studio_play', { handle, action: 'start', args: { canvasId } });
       const test = { format: 'qxqy-autotest', version: 1, name: 'layout-' + canvasId, dt: .1,
         events: [{ t: .1, source: 'user', kind: 'click', payload: { name: 'ModeFast' } }],
-        asserts: [{ kind: 'control', at: .2, name: 'TurnText', field: 'text', equals: '紅方' }] };
+        asserts: [{ kind: 'control', at: .2, name: 'TurnText', field: 'text', equals: '红方' }] };
       const result = await call('qxqy_studio_play', { handle, action: 'runCase', args: { canvasId, case: test } });
       if (!result.passed || result.results.length !== 1) throw new Error('Layout smoke failed: ' + canvasId);
       const screenshot = await client.callTool({ name: 'qxqy_studio_play_screenshot', arguments: { handle } });
@@ -70,12 +70,12 @@ try {
     report.authoring={migrationWarnings:authoring.migrationWarnings,controlGuidChanges:authoring.controlGuidChanges,
       scripts:authoring.scripts.map(({path,mounted,controlName})=>({path,mounted,controlName})),luaBytes:Buffer.byteLength(source)};
     const scenes=[
-      ['menu',[], 'ModeCustomTitle','自定義模式'],
-      ['edit',['ModeCustom'],'EditTitle','自定義棋子'],
-      ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪種棋子？'],
-      ['board',['ModeFast'],'TurnText','紅方'],
-      ['confirm',['ModeFast','ModeButton'],'ConfirmTitle','返回標題界面？'],
-      ['result',['ModeFast','ResignButton','ConfirmYes'],'ResultTitle','您落敗了']
+      ['menu',[], 'ModeCustomTitle','自定义模式'],
+      ['edit',['ModeCustom'],'EditTitle','自定义棋子'],
+      ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪种棋子？'],
+      ['board',['ModeFast'],'TurnText','红方'],
+      ['confirm',['ModeFast','ModeButton'],'ConfirmTitle','返回标题界面？'],
+      ['result',['ModeFast','ResignButton','ConfirmYes'],'ResultTitle','您落败了']
     ];
     const sheet=createCanvas(256*6,224*5),ctx=sheet.getContext('2d');
     for (const [row,canvasId] of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3'].entries()) {
@@ -110,7 +110,7 @@ try {
       // right edge of the pawn hit box, then modal blocking and undo.
       const test={format:'qxqy-autotest',version:1,name:'pointer-'+canvasId,dt:.05,
         events:[point(.1,131.5,148),point(.2,191.5,80),point(.3,191.5,96),point(.4,227.5,72.5),point(.5,56,80),point(.6,164,88),point(.7,227.5,93.5),point(.8,92,88)],
-        asserts:[check(.35,'MoveCount','001手'),check(.45,'ConfirmTitle','要認輸嗎？'),check(.55,'MoveCount','001手'),check(.9,'MoveCount','000手'),check(.9,'TurnText','紅方')]};
+        asserts:[check(.35,'MoveCount','001手'),check(.45,'ConfirmTitle','要认输吗？'),check(.55,'MoveCount','001手'),check(.9,'MoveCount','000手'),check(.9,'TurnText','红方')]};
       const result=await call('qxqy_studio_play',{handle,action:'runCase',args:{canvasId,case:test}});
       report.results.push({canvasId,kind:'pointer',case:test,...result});
       if(!result.passed || result.results.length!==5)throw new Error('Pointer smoke failed: '+canvasId);

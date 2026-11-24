@@ -101,7 +101,7 @@
       "id": "",
       "name": "PaletteTitle",
       "field": "text",
-      "equals": "改成哪種棋子？"
+      "equals": "改成哪种棋子？"
     },
     {
       "kind": "control",

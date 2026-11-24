@@ -17,13 +17,13 @@ game={InstantiateClientUIControl=function(id,parent)
 end}
 check('all game font roles avoid small native font assignments',function()
  for _,size in ipairs({6,8,9,10,11,12,13,15,16,25}) do
-  local c=U.text({},'Role'..size,0,0,150,33,'中國象棋','fff9e9',size)
+  local c=U.text({},'Role'..size,0,0,150,33,'中国象棋','fff9e9',size)
   assert(c.fontSize>=20 and c.fontSize<=100 and not c.adaptiveFontSize)
  end
 end)
 check('text scale preserves effective font size, position and width with vertical headroom',function()
  for _,size in ipairs({6,8,10,15,25}) do
-  local c=U.text({},'Geometry'..size,28,-40,142,33,'中國象棋','fff9e9',size)
+  local c=U.text({},'Geometry'..size,28,-40,142,33,'中国象棋','fff9e9',size)
   assert(math.abs(c.fontSize*c.sx-size)<1e-8 and c.sx==c.sy)
   assert(math.abs(c.w*c.sx-142)<1e-8 and c.h*c.sy>=33 and c.x==28 and c.y==-40)
  end

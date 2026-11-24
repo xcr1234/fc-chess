@@ -10,7 +10,7 @@ end
 local function confirmUndo(s)S.action(s,'UndoButton');assert(s.modal=='undo');S.action(s,'ConfirmYes')end
 check('winning result can return to a frozen final board without selecting or moving',function()
  local s=win();local b=B.key(s.board,s.turn,s.custom);local red=s.red;local count=s.moveSoundSequence
- S.action(s,'ReturnBoardButton');assert(s.scene=='result-review' and s.status=='本局已結束，悔棋後可繼續')
+ S.action(s,'ReturnBoardButton');assert(s.scene=='result-review' and s.status=='本局已结束，悔棋后可继续')
  S.square(s,B.index(4,0));S.square(s,B.index(4,1));S.update(s,100)
  assert(not s.selected and s.moves==1 and s.red==red and s.moveSoundSequence==count and B.key(s.board,s.turn,s.custom)==b)
  assert(not S.commit(s,{B.index(4,0),B.index(4,1)}));assert(not s.job and not s.reply)
@@ -43,7 +43,7 @@ check('resigned unfinished AI remains cancelled; undo can continue from its hist
 end)
 check('empty-history resignation can be viewed but cannot resume without an undo',function()
  local s=S.new();S.start(s,'fast');S.action(s,'ResignButton');S.action(s,'ConfirmYes');S.action(s,'ReturnBoardButton')
- assert(s.scene=='result-review' and s.status=='本局已結束');S.action(s,'UndoButton');assert(not s.modal and s.status=='尚無棋步可悔' and s.scene=='result-review')
+ assert(s.scene=='result-review' and s.status=='本局已结束');S.action(s,'UndoButton');assert(not s.modal and s.status=='尚无棋步可悔' and s.scene=='result-review')
  S.square(s,55);assert(not s.selected and s.moves==0)
 end)
 check('return is available only from results; restart still preserves lineup and audio',function()

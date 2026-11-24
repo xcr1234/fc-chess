@@ -170,7 +170,7 @@ test('result review: defeat restores both final plies and resignation without hi
  h.render(1000);h.state.resultIndex=2;h.input('ok');h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
  assert.equal(h.state.scene,'game');assert.equal(h.state.moves,0);assert.equal(h.state.board[pos(3,9)],'K');assert.equal(h.state.board[pos(3,8)],'r');
  const r=appHarness();r.input('ok');r.state.zone='panel';r.state.sideIndex=1;r.input('ok');r.input('left');r.input('ok');r.state.resultIndex=2;r.input('ok');
- assert.equal(r.state.message,'本局已結束');r.input('cancel');assert.equal(r.state.message,'本局已結束');
+ assert.equal(r.state.message,'本局已结束');r.input('cancel');assert.equal(r.state.message,'本局已结束');
  r.state.zone='panel';r.state.sideIndex=0;r.input('ok');assert.equal(r.state.scene,'result-review');assert.equal(r.state.modal,null);r.square(0,6);assert.equal(r.state.selected,null);
 });
 test('result audio: defeated king and confirmed resignation use the metal door sound; mute stays silent',()=>{
@@ -209,7 +209,7 @@ test('real controller: capture ends game, decline capture does not; result clock
  const h=appHarness();h.resetGame(board([[4,9,'K'],[4,0,'k'],[4,5,'R'],[0,6,'P']]),0);
  h.square(0,6);h.square(0,5);assert.equal(h.state.scene,'game');
  h.state.zone='panel';h.state.sideIndex=0;h.input('ok');h.input('left');h.input('ok');
- h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您獲勝了');assert.equal(h.state.board[4],'R');
+ h.square(4,5);h.square(4,0);assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您获胜了');assert.equal(h.state.board[4],'R');
  const times=[h.clock.red,h.clock.black];h.render(60000);assert.deepEqual([h.clock.red,h.clock.black],times);
 });
 test('real controller: own-half empty squares use the six-piece palette and preserve draft',()=>{
@@ -274,7 +274,7 @@ test('real controller: exposed red king is captured and produces defeat',()=>{
  const h=appHarness();h.resetGame(board([[4,9,'K'],[0,0,'k'],[4,5,'r'],[0,6,'P']]),1);
  h.square(0,6);h.square(0,5);
  h.render(h.state.reply.due);
- assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您落敗了');assert.equal(h.state.resultReason,'紅帥被吃');assert.equal(h.state.moves,2);
+ assert.equal(h.state.scene,'result');assert.equal(h.state.resultTitle,'您落败了');assert.equal(h.state.resultReason,'红帅被吃');assert.equal(h.state.moves,2);
 });
 
 test('move animation: both sides queue, intermediate position, input lock and undo cancellation',()=>{

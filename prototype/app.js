@@ -55,7 +55,7 @@
   state.audio={music:10167,volume:50,sfx:true};state.musicCategory=0;state.musicPage=0;
   const musicById=new Map(FCChessMusicCatalog.map(([id,name,seconds,category])=>[id,{id,name,seconds,category}]));
   const recommended=[10167,10029,10161];
-  const musicName=id=>musicById.get(id)?.name||'無BGM';
+  const musicName=id=>musicById.get(id)?.name||'无BGM';
   function musicRows() {
     const rows=FCChessMusicCatalog.map(([id])=>musicById.get(id)).filter(r=>state.musicCategory===0||r.category===state.musicCategory-1);
     const priority=id=>{const i=recommended.indexOf(id);return i<0?recommended.length:i;};
@@ -95,25 +95,25 @@
   }
   function playMoveSound(checking){playEffect(checking?50888:50882);}
   function announce(message) { state.message = message; live.textContent = message; }
-  function reviewMessage() { return state.history.length ? '本局已結束，悔棋後可繼續' : '本局已結束'; }
+  function reviewMessage() { return state.history.length ? '本局已结束，悔棋后可继续' : '本局已结束'; }
   function resetGame(board = initialBoard(), mode = state.menu) {
     state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now());
     Object.assign(state, { scene: 'game', mode, board: board.slice(), initial: board.slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', history: [], reply: null, modal: null, palette: null, moves: 0 });
-    announce('紅方走棋');
+    announce('红方走棋');
   }
   function enterEdit() {
     state.motion=[];state.pendingResultSound=null;
     generation++; clock.reset(performance.now()); clock.stop(performance.now());
     Object.assign(state, {scene: 'edit', mode: 2, board: (draft || initialBoard()).slice(), cursor: {x: 0, y: 6}, zone: 'board', sideIndex: 0, selected: null, turn: 'red', reply: null, history: [], moves: 0, modal: null, palette: null});
-    announce('點擊紅子或己方空位改子');
+    announce('点击红子或己方空位改子');
   }
   function toMenu() {
     state.motion=[];state.pendingResultSound=null;
     if (state.scene === 'edit') draft = state.board.slice();
     generation++; clock.stop(performance.now());
     Object.assign(state, {scene: 'menu', selected: null, reply: null, modal: null, palette: null, zone: 'board'});
-    announce('請選擇模式');
+    announce('请选择模式');
   }
   function text(value, x, y, color = C.green, size = 9, align = 'left') {
     ctx.fillStyle = color; ctx.font = `${size}px "SimSun", "Songti SC", serif`; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(value, x, y);
@@ -133,49 +133,49 @@
   }
   function menuScreen() {
     ctx.fillStyle = C.purple; ctx.fillRect(0, 0, 256, 224);
-    box(57, 10, 142, 33, '#d60059', C.pink); text('中國象棋', 128, 14, '#fff2c5', 25, 'center');
+    box(57, 10, 142, 33, '#d60059', C.pink); text('中国象棋', 128, 14, '#fff2c5', 25, 'center');
     const rows = [58, 109, 160];
     rows.forEach((y, i) => {
       ctx.fillStyle = '#140948'; ctx.fillRect(34, y + 5, 35, 35); head(29, y, 35);
       text(names[i], 81, y + 3, C.white, 15); text(subnames[i], 81, y + 24, '#e2d0ff', 8);
       if (state.inputMethod === 'keyboard' && state.menu === i) focusRect(24, y - 4, 215, 44);
     });
-    text('點擊模式，開始對局', 100, 207, C.white, 8, 'center');
-    box(197,198,50,22,'#00482f');text('設定',222,204,C.green,8,'center');
+    text('点击模式，开始对局', 100, 207, C.white, 8, 'center');
+    box(197,198,50,22,'#00482f');text('设定',222,204,C.green,8,'center');
   }
   function settingsRegions(){
     const list=[];const add=(id,label,x,y,w,h)=>region(list,id,x-w/2,224-y-h/2,w,h,label,()=>settingsAction(id));
     if(state.scene==='audio-settings'){
       add('MusicButton',musicName(state.audio.music),164,156,120,24);
       add('VolumeDown','－',116,118,24,24);add('VolumeUp','＋',212,118,24,24);
-      add('SfxToggle',state.audio.sfx?'開啟':'關閉',164,80,120,24);add('SettingsBack','返回',128,32,88,24);
+      add('SfxToggle',state.audio.sfx?'开启':'关闭',164,80,120,24);add('SettingsBack','返回',128,32,88,24);
     }else{
       add('MusicBack','返回',226,207,42,20);
-      ['全部','探索','戰鬥','任務','其他'].forEach((name,i)=>add('MusicCategory_'+i,(state.musicCategory===i?'·':'')+name,34+i*47,182,44,20));
-      add('MusicOff','無BGM',128,157,232,22);
-      musicRows().slice(state.musicPage*5,state.musicPage*5+5).forEach((r,i)=>add('PickMusic_'+r.id,(state.audio.music===r.id?'已選 · ':'')+(recommended.includes(r.id)?'推薦 · ':'')+r.name,128,132-i*24,232,21));
-      add('MusicPrevious','上一頁',48,14,68,20);add('MusicNext','下一頁',208,14,68,20);
+      ['全部','探索','战斗','任务','其他'].forEach((name,i)=>add('MusicCategory_'+i,(state.musicCategory===i?'·':'')+name,34+i*47,182,44,20));
+      add('MusicOff','无BGM',128,157,232,22);
+      musicRows().slice(state.musicPage*5,state.musicPage*5+5).forEach((r,i)=>add('PickMusic_'+r.id,(state.audio.music===r.id?'已选 · ':'')+(recommended.includes(r.id)?'推荐 · ':'')+r.name,128,132-i*24,232,21));
+      add('MusicPrevious','上一页',48,14,68,20);add('MusicNext','下一页',208,14,68,20);
     }
     return list;
   }
   function settingsScreen(){
     ctx.fillStyle=C.navy;ctx.fillRect(0,0,256,224);
     if(state.scene==='audio-settings'){
-      text('聲音設定',128,18,C.white,16,'center');text('背景音樂',32,63.5,C.cyan,9);
-      text('BGM音量',32,101.5,C.cyan,9);text(state.audio.volume+'%',164,100.5,C.white,11,'center');text('遊戲音效',32,139.5,C.cyan,9);
+      text('声音设定',128,18,C.white,16,'center');text('背景音乐',32,63.5,C.cyan,9);
+      text('BGM音量',32,101.5,C.cyan,9);text(state.audio.volume+'%',164,100.5,C.white,11,'center');text('游戏音效',32,139.5,C.cyan,9);
     }else{
-      text('選擇背景音樂',113,10,C.white,13,'center');
+      text('选择背景音乐',113,10,C.white,13,'center');
       text((state.musicPage+1)+' / '+Math.ceil(musicRows().length/5),128,205,C.cyan,9,'center');
     }
     for(const r of settingsRegions()){box(r.x,r.y,r.w,r.h,'#00482f');text(r.label,r.x+r.w/2,r.y+(r.h-8)/2,C.green,8,'center');}
   }
   function boardScreen(now) {
     ctx.fillStyle = C.navy; ctx.fillRect(0, 0, 256, 224);
-    if(state.scene!=='edit'){box(204,192.5,47,17,'#00482f');text('設定',227.5,197,C.green,8,'center');}
-    if (state.scene === 'edit') text('自定義棋子', 128, 9, C.cyan, 10, 'center');
-    text('黑方', 8, 42); text('電腦', 8, 56); text('1 級', 8, 72); text(state.scene === 'edit' ? '00:00' : formatStep(clock.black), 5, 94, C.cyan, 8);
-    text('紅方', 8, 138); text('人腦', 8, 152); text('9 級', 8, 168); text(state.scene === 'edit' ? '00:00' : formatStep(clock.red), 5, 190, C.cyan, 8);
-    text(state.turn === 'black' ? '黑方' : '紅方', 226, 18, C.green, 10, 'center');
+    if(state.scene!=='edit'){box(204,192.5,47,17,'#00482f');text('设定',227.5,197,C.green,8,'center');}
+    if (state.scene === 'edit') text('自定义棋子', 128, 9, C.cyan, 10, 'center');
+    text('黑方', 8, 42); text('电脑', 8, 56); text('1 级', 8, 72); text(state.scene === 'edit' ? '00:00' : formatStep(clock.black), 5, 94, C.cyan, 8);
+    text('红方', 8, 138); text('人脑', 8, 152); text('9 级', 8, 168); text(state.scene === 'edit' ? '00:00' : formatStep(clock.red), 5, 190, C.cyan, 8);
+    text(state.turn === 'black' ? '黑方' : '红方', 226, 18, C.green, 10, 'center');
     text(`${String(state.moves).padStart(3, '0')}手`, 226, 36, C.green, 8, 'center');
     head(210, 56, 32);
     box(48, 40, 144, 160, C.paper, '#f2f2c5');
@@ -198,7 +198,7 @@
       drawPiece(p,x,y,i===state.selected&&!flight.piece);
     });
     if(flight.piece)drawPiece(flight.piece,flight.x,flight.y);
-    const buttons = state.scene === 'edit' ? ['全部改子', '恢復初始', '開始對局', '返回'] : ['悔棋', '認輸', '返回標題界面'];
+    const buttons = state.scene === 'edit' ? ['全部改子', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
     buttons.forEach((label, i) => {
       const y = 122 + i * 21;
       box(204, y, 47, 17, state.zone === 'panel' && state.sideIndex === i ? '#067347' : '#00482f', C.green);
@@ -207,7 +207,7 @@
     text(state.message, 128, 210, C.cyan, 8, 'center');
   }
   function paletteScreen() {
-    box(37, 67, 182, 98, C.navy, C.cyan); text(state.palette.all ? '全部改成哪種棋子？' : '改成哪種棋子？', 128, 77, C.cyan, 11, 'center');
+    box(37, 67, 182, 98, C.navy, C.cyan); text(state.palette.all ? '全部改成哪种棋子？' : '改成哪种棋子？', 128, 77, C.cyan, 11, 'center');
     choices.forEach((piece, i) => {
       const x = 83 + (i % 3) * 45, y = 104 + Math.floor(i / 3) * 25;
       pieceGlyph(glyphs[piece],x,y,C.white,globalThis.FCChessPixelGlyphs.paletteSize,15); if (state.inputMethod === 'keyboard' && i === state.palette.choice) focusRect(x - 19, y - 10, 38, 20);
@@ -216,15 +216,15 @@
   }
   function modalScreen() {
     const m = state.modal; box(29, 77, 198, 72, C.navy, C.cyan);
-    text(m.type === 'undo' ? '要悔棋嗎？' : m.type === 'resign' ? '要認輸嗎？' : m.type === 'menu' ? '返回標題界面？' : '重新配置開局？', 128, 88, C.white, 12, 'center');
-    if (m.type === 'menu') text('返回後無法恢復當前對局', 128, 105, C.cyan, 8, 'center');
-    else if (m.type === 'custom') text('將結束當前演示局', 128, 105, C.cyan, 9, 'center');
+    text(m.type === 'undo' ? '要悔棋吗？' : m.type === 'resign' ? '要认输吗？' : m.type === 'menu' ? '返回标题界面？' : '重新配置开局？', 128, 88, C.white, 12, 'center');
+    if (m.type === 'menu') text('返回后无法恢复当前对局', 128, 105, C.cyan, 8, 'center');
+    else if (m.type === 'custom') text('将结束当前演示局', 128, 105, C.cyan, 9, 'center');
     text('是', 92, 127, C.green, 10, 'center'); text('否', 164, 127, C.green, 10, 'center'); if (state.inputMethod === 'keyboard') focusRect(m.choice === 0 ? 62 : 134, 119, 60, 23);
   }
   function resultScreen() {
     box(42, 70, 172, 116, C.navy, C.cyan); text(state.resultTitle, 128, 80, C.white, 16, 'center');
     text(state.resultReason, 128, 101, C.cyan, 8, 'center');
-    text('再來一局', 128, 116, C.green, 11, 'center'); text('返回標題界面', 128, 139, C.green, 11, 'center');text('返回棋盤',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
+    text('再来一局', 128, 116, C.green, 11, 'center'); text('返回标题界面', 128, 139, C.green, 11, 'center');text('返回棋盘',128,162,C.green,11,'center'); if (state.inputMethod === 'keyboard') focusRect(80, 109 + state.resultIndex * 23, 96, 23);
   }
   function finish(title, reason, outcome) {
     generation++; clock.stop(performance.now());
@@ -236,12 +236,12 @@
     state.turn = side; clock.start(side, performance.now());
     if (!movesFor(state.board, side, state.mode === 2).length) {
       const other = side === 'red' ? 'black' : 'red';
-      if (!movesFor(state.board, other, state.mode === 2).length) { finish('本局無法繼續', '雙方暫無可走棋'); return; }
+      if (!movesFor(state.board, other, state.mode === 2).length) { finish('本局无法继续', '双方暂无可走棋'); return; }
       state.turn = other; clock.start(other, performance.now());
-      announce(`${side === 'red' ? '紅方' : '黑方'}無可走棋，本次跳過`);
+      announce(`${side === 'red' ? '红方' : '黑方'}无可走棋，本次跳过`);
     }
     if (state.turn === 'black') planReply();
-    else announce('紅方走棋');
+    else announce('红方走棋');
   }
   function commitMove(from, to) {
     clock.update(performance.now());
@@ -252,7 +252,7 @@
     const capturedKing = state.board[to]?.toLowerCase() === 'k', side = state.turn;
     state.board[to] = state.board[from]; state.board[from] = null; state.selected = null; state.moves++;
     const sound=state.motion.at(-1);sound.checking=!capturedKing&&threatensKing(state.board,side,state.mode===2);sound.soundEnabled=state.audio.sfx;
-    if (capturedKing) { finish(side === 'red' ? '您獲勝了' : '您落敗了', side === 'red' ? '吃掉黑將' : '紅帥被吃',side==='red'?'win':'lose'); return; }
+    if (capturedKing) { finish(side === 'red' ? '您获胜了' : '您落败了', side === 'red' ? '吃掉黑将' : '红帅被吃',side==='red'?'win':'lose'); return; }
     beginTurn(side === 'red' ? 'black' : 'red');
   }
   function planReply() {
@@ -271,21 +271,21 @@
     const computedAt = performance.now();
     const seconds = state.mode === 1 ? Math.max(0, .6 - (computedAt - thinkStarted) / 1000) : waitingSeconds({count: candidates.length, tactical}, state.mode);
     state.reply = {move: candidates[0], due: computedAt + seconds * 1000, generation};
-    announce('老頭正在思考');
+    announce('老头正在思考');
     if (seconds === 0 && !state.modal) demoReply();
   }
   function playSquare() {
     advanceMotion();if(state.motion.length)return;
     if(state.scene!=='game')return;
-    if (state.turn !== 'red') { announce('老頭正在思考'); return; }
+    if (state.turn !== 'red') { announce('老头正在思考'); return; }
     const i = state.cursor.y * 9 + state.cursor.x, p = state.board[i];
     if (state.selected === null) {
-      if (isRed(p)) { state.selected = i; announce('點擊目標落子，再點棋子取消'); } else announce('請選擇己方棋子');
+      if (isRed(p)) { state.selected = i; announce('点击目标落子，再点棋子取消'); } else announce('请选择己方棋子');
       return;
     }
-    if (i === state.selected) { state.selected = null; announce('已取消選子'); return; }
+    if (i === state.selected) { state.selected = null; announce('已取消选子'); return; }
     if (isRed(p)) { state.selected = i; return; }
-    if (!basicMove(state.board, state.selected, i, state.mode === 2)) { announce('這步不能走'); return; }
+    if (!basicMove(state.board, state.selected, i, state.mode === 2)) { announce('这步不能走'); return; }
     state.history.push({board: state.board.slice(), moves: state.moves, blackTime: clock.black});
     commitMove(state.selected, i);
   }
@@ -300,13 +300,13 @@
     if(state.scene==='result-review'&&state.sideIndex===1)return;
     if (state.scene === 'edit') {
       if (state.sideIndex === 0) { state.palette = {all: true, choice: 0}; return; }
-      if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢復初始棋子'); }
+      if (state.sideIndex === 1) { state.board = initialBoard(); announce('已恢复初始棋子'); }
       if (state.sideIndex === 2) { draft = state.board.slice(); resetGame(state.board, 2); }
       if (state.sideIndex === 3) toMenu();
       return;
     }
     if (state.sideIndex === 0) {
-      if (!state.history.length) { announce('尚無棋步可悔'); return; }
+      if (!state.history.length) { announce('尚无棋步可悔'); return; }
       state.modal = {type: 'undo', choice: 1};
     } else state.modal = {type: state.sideIndex === 1 ? 'resign' : 'menu', choice: 1};
   }
@@ -314,7 +314,7 @@
     state.motion=[];
     const last = state.history.pop();
     if (!last) return;
-    state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null;state.scene='game';state.resultTitle=null;state.resultReason=null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，紅方走棋');
+    state.board = last.board.slice(); state.moves = last.moves; state.turn = 'red'; state.reply = null;state.scene='game';state.resultTitle=null;state.resultReason=null; generation++; clock.undo(last.blackTime, performance.now()); state.selected = null; announce('已悔棋，红方走棋');
   }
   function input(key) {
     clock.update(performance.now());
@@ -341,7 +341,7 @@
           if (m.type === 'undo') undoMove();
           else if (m.type === 'custom') enterEdit();
           else if (m.type === 'menu') toMenu();
-          else finish('您落敗了', '主動認輸','lose');
+          else finish('您落败了', '主动认输','lose');
         }
       }
       return;
@@ -365,7 +365,7 @@
       return;
     }
     if (key === 'select') { if (state.selected !== null) return; state.zone = state.zone === 'board' ? 'panel' : 'board'; return; }
-    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review' ? reviewMessage() : state.scene === 'edit' ? '點擊紅子或己方空位改子' : (state.turn === 'red' ? '紅方走棋' : '老頭正在思考')); return; }
+    if (key === 'cancel') { if (state.zone === 'panel') state.zone = 'board'; state.selected = null; announce(state.scene === 'result-review' ? reviewMessage() : state.scene === 'edit' ? '点击红子或己方空位改子' : (state.turn === 'red' ? '红方走棋' : '老头正在思考')); return; }
     if (direction) {
       if (state.zone === 'panel') {
         const count = state.scene === 'edit' ? 4 : 3;
@@ -381,9 +381,9 @@
       if (state.zone === 'panel') { panelAction(); return; }
       if (state.scene === 'edit') {
         const square = state.cursor.y * 9 + state.cursor.x, p = state.board[square];
-        if (p === 'K') announce('帥保留，不能修改');
+        if (p === 'K') announce('帅保留，不能修改');
         else if (isRed(p) || (!p && square >= 45 && square < 90)) state.palette = {square, choice: Math.max(0, choices.indexOf(p))};
-        else announce('只能修改紅方棋子或己方半場空位');
+        else announce('只能修改红方棋子或己方半场空位');
       } else playSquare();
     }
   }
@@ -401,7 +401,7 @@
     const list = [];
     if (state.scene === 'menu') {
       [58, 109, 160].forEach((y, i) => region(list, `mode-${i}`, 24, y - 4, 215, 44, names[i], () => { state.menu = i; input('ok'); }));
-      region(list,'SettingsButton',197,198,50,22,'設定',()=>settingsAction('SettingsButton'));
+      region(list,'SettingsButton',197,198,50,22,'设定',()=>settingsAction('SettingsButton'));
     } else if(state.scene==='audio-settings'||state.scene==='music-select'){
       list.push(...settingsRegions());
     } else if (state.modal) {
@@ -414,7 +414,7 @@
     } else {
       const labels = state.scene === 'edit' ? ['全部改子', '恢复初始', '开始对局', '返回'] : ['悔棋', '认输', '返回标题界面'];
       labels.forEach((label, i) => region(list, `panel-${i}`, 203, 121 + i * 21, 49, 19, label, () => { state.zone = 'panel'; state.sideIndex = i; panelAction(); }));
-      if(state.scene!=='edit')region(list,'SettingsButton',204,192.5,47,17,'設定',()=>settingsAction('SettingsButton'));
+      if(state.scene!=='edit')region(list,'SettingsButton',204,192.5,47,17,'设定',()=>settingsAction('SettingsButton'));
     }
     screenActions = new Map(list.map(r => [r.id, r.run]));
     const signature = JSON.stringify(list.map(({run, ...r}) => r));
@@ -447,7 +447,7 @@
     else if (state.scene === 'menu') menuScreen();
     else { boardScreen(now); if (state.palette) paletteScreen(); if (state.modal) modalScreen(); if (state.scene === 'result'&&!state.motion.length) resultScreen(); }
     updateHotspots();
-    const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，紅方步時${formatStep(clock.red)}，黑方步時${formatStep(clock.black)}，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;
+    const description = `FC 中国象棋，${state.scene === 'menu' ? '选择模式：' + names[state.menu] : (state.scene === 'edit' ? '自定义编辑' : names[state.mode])}，${state.message}，右侧${state.turn === 'black' ? '黑方' : '红方'} ${String(state.moves).padStart(3, '0')}手，红方步时${formatStep(clock.red)}，黑方步时${formatStep(clock.black)}，光标 ${state.cursor.x + 1} 路 ${state.cursor.y + 1} 行，${state.selected === null ? '未选棋子' : '已选中' + glyphs[state.board[state.selected]]}，己方${state.board.filter(isRed).length}子、${state.board.filter(p => p === 'R').length}车。点击棋子选择，再点击目标落子，再点一次取消。`;
     if (canvas.getAttribute('aria-label') !== description) canvas.setAttribute('aria-label', description);
     requestAnimationFrame(frame);
   }

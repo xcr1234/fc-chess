@@ -40,7 +40,7 @@ function renderer(resolution = 1) {
 }
 const matrix = (a = 1, b = 0, c = 0, d = a) => ({ a, b, c, d, tx: 0, ty: 0 });
 const group = (id, parent, transform) => ({ id, parent, kind: 'container', sourceWidth: 256, sourceHeight: 224, matrix: transform });
-const label = (id, parent) => ({ id, parent, kind: 'textbox', sourceWidth: 80, sourceHeight: 16, fontSize: 10, text: '中國象棋', matrix: matrix() });
+const label = (id, parent) => ({ id, parent, kind: 'textbox', sourceWidth: 80, sourceHeight: 16, fontSize: 10, text: '中国象棋', matrix: matrix() });
 const text = r => r.nodes.get('label').__visual.children.find(x => x.text);
 
 test('a 4x game container rasterizes glyphs at 4x while keeping layout and font size', async () => {

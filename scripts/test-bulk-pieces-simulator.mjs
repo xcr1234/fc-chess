@@ -35,7 +35,7 @@ try{
  for(const canvasId of canvases){
   await play('start',{canvasId});
   for(const p of ['R','N','C','E','A','P']){
-   const asserts=[check(.3,'PaletteTitle','全部改成哪種棋子？'),check(.3,'SceneState','custom-edit'),check(.3,'RedPieceCount','16'),
+   const asserts=[check(.3,'PaletteTitle','全部改成哪种棋子？'),check(.3,'SceneState','custom-edit'),check(.3,'RedPieceCount','16'),
     ...['R','N','C','E','A','P'].map(q=>check(.3,'Choose_'+q+'Pixels',true,'visible')),
     check(.6,'SceneState','player-turn'),check(.6,'RedPieceCount','45'),check(.6,'MoveCount','000手'),check(.6,'Piece_4_0','k'),check(.6,'Piece_0_0','r'),check(.6,'Piece_0_4','')];
    for(let rank=5;rank<10;rank++)for(let file=0;file<9;file++)asserts.push(check(.6,`Piece_${file}_${rank}`,rank===9&&file===4?'K':p));
@@ -53,8 +53,8 @@ try{
    for(const [t,x,y] of [[.1,131.5,46],[.3,227.5,93.5],...(kind==='cannons'?[[.6,173,120]]:[])]){
     h.tap(...h.point(x,y));const list=h.pointer();for(const [i,{light,...payload}]of list.slice(cursor).entries())events.push({t:t+i*.02,source:'user',kind:'pointer',payload});cursor=list.length;
    }
-   const asserts=[check(.2,'AllRooksButtonLabel','全部改子'),check(.5,'PaletteTitle','全部改成哪種棋子？'),...['R','N','C','E','A','P'].map(p=>check(.5,'Choose_'+p+'Pixels',true,'visible'))];
-   if(kind==='cannons')asserts.push(check(.8,'Glyph_46','炮'),check(.8,'PixelGlyph_46',true,'visible'),check(.8,'Glyph_86','帥'),check(.8,'StatusText','請走棋'),check(.8,'MoveCount','000手'));
+   const asserts=[check(.2,'AllRooksButtonLabel','全部改子'),check(.5,'PaletteTitle','全部改成哪种棋子？'),...['R','N','C','E','A','P'].map(p=>check(.5,'Choose_'+p+'Pixels',true,'visible'))];
+   if(kind==='cannons')asserts.push(check(.8,'Glyph_46','炮'),check(.8,'PixelGlyph_46',true,'visible'),check(.8,'Glyph_86','帥'),check(.8,'StatusText','请走棋'),check(.8,'MoveCount','000手'));
    await run(canvasId,{format:'qxqy-autotest',version:1,name:'pointer-bulk-'+kind,dt:.02,events,asserts});
    const state=await play('get');assert(!state.mountError);assert(!state.logs.some(l=>l.level==='error'));
    if(['pc-16-9','mobile-16-9'].includes(canvasId))await screenshot(canvasId,kind);

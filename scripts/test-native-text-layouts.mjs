@@ -16,12 +16,12 @@ try{
  await client.connect(new StdioClientTransport({command:process.execPath,args:['node_modules/beyond-simulator-mcp/dist/index.js','--workspace',process.cwd()]}));
  const opened=await client.callTool({name:'qxqy_project_open',arguments:{path:'fc-chess.save.json'}});({handle}=opened.structuredContent??JSON.parse(opened.content.find(c=>c.type==='text').text));
  const scenes=[
-  ['menu',[],'ModeDifficultTitle','困難'],['board',['ModeDifficult'],'Glyph_55','兵'],
-  ['confirm',['ModeDifficult','ModeButton'],'ConfirmHint','返回後無法恢復當前對局'],
+  ['menu',[],'ModeDifficultTitle','困难'],['board',['ModeDifficult'],'Glyph_55','兵'],
+  ['confirm',['ModeDifficult','ModeButton'],'ConfirmHint','返回后无法恢复当前对局'],
   ['settings',['SettingsButton','VolumeDown'],'BGMVolume','40%'],
   ['music',['SettingsButton','MusicButton'],'MusicPage','1 / 38'],
-  ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪種棋子？'],
-  ['result',['ModeFast','ResignButton','ConfirmYes'],'ReturnBoardButtonLabel','返回棋盤'],
+  ['palette',['ModeCustom','Square_0_6'],'PaletteTitle','改成哪种棋子？'],
+  ['result',['ModeFast','ResignButton','ConfirmYes'],'ReturnBoardButtonLabel','返回棋盘'],
   ['undo',['ModeDifficult','Square_0_6','Square_0_5','UndoButton','ConfirmYes'],'MoveCount','000手']
  ];
  for(const canvasId of ['pc-16-9','pc-21-9','mobile-16-9','mobile-19.5-9','mobile-4-3']){
@@ -36,8 +36,8 @@ try{
     }else events.push({t,source:'user',kind:'click',payload:{name}});
    }
    const asserts=[{kind:'control',at:1.1,name,field:'text',equals},{kind:'control',at:1.1,name,field:'fontSize',equals:25}];
-   if(kind==='board'||kind==='result')asserts.push({kind:'control',at:1.1,name:'ModeButtonLabel',field:'text',equals:'返回標題界面'});
-   if(kind==='confirm')asserts.push({kind:'control',at:1.1,name:'ConfirmTitle',field:'text',equals:'返回標題界面？'});
+   if(kind==='board'||kind==='result')asserts.push({kind:'control',at:1.1,name:'ModeButtonLabel',field:'text',equals:'返回标题界面'});
+   if(kind==='confirm')asserts.push({kind:'control',at:1.1,name:'ConfirmTitle',field:'text',equals:'返回标题界面？'});
    const test={format:'qxqy-autotest',version:1,name:kind+'-'+canvasId,dt:.1,events,asserts};
    const result=await call('runCase',{canvasId,case:test});assert.equal(result.passed,true,JSON.stringify(result));
    assert.ok(!result.snapshot.logs.some(x=>/字号超出限制/.test(x.text)));const row={canvasId,kind,passed:true,assertions:result.results};

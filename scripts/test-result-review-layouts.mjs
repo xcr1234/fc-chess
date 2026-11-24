@@ -22,8 +22,8 @@ try{
   await call('start',{canvasId});
   const {canvasWidth:width,canvasHeight:height}=await call('get');
   for(const [kind,actions,checks] of [
-   ['result',['ModeDifficult','Square_0_6','Square_0_5','ResignButton','ConfirmYes'],[['ResultTitle','您落敗了'],['ReturnBoardButtonLabel','返回棋盤']]],
-   ['review',['ModeDifficult','Square_0_6','Square_0_5','ResignButton','ConfirmYes','ReturnBoardButton','Square_0_5','Square_0_4'],[['StatusText','本局已結束，悔棋後可繼續'],['MoveCount','001手']]],
+   ['result',['ModeDifficult','Square_0_6','Square_0_5','ResignButton','ConfirmYes'],[['ResultTitle','您落败了'],['ReturnBoardButtonLabel','返回棋盘']]],
+   ['review',['ModeDifficult','Square_0_6','Square_0_5','ResignButton','ConfirmYes','ReturnBoardButton','Square_0_5','Square_0_4'],[['StatusText','本局已结束，悔棋后可继续'],['MoveCount','001手']]],
    ['resume',['ModeDifficult','Square_0_6','Square_0_5','ResignButton','ConfirmYes','ReturnBoardButton','UndoButton','ConfirmYes'],[['StatusText','已悔棋'],['MoveCount','000手']]]
   ]){
    const h=await inputHarness({width,height,cssWidth:800,cssHeight:800*height/width});const events=[];

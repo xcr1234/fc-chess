@@ -59,7 +59,7 @@ check('fast book replies, cancellation, restart and custom editing reset feedbac
  local s=S.new();S.start(s,'fast');S.commit(s,{65,68}) -- source-book central cannon
  S.update(s,.6)
  assert(s.moves==2 and s.aiCounter.value>=1000 and s.aiCounter.value<=40000 and s.lastAiMove)
- S.finish(s,'您落敗了','主動認輸');S.action(s,'RestartButton')
+ S.finish(s,'您落败了','主动认输');S.action(s,'RestartButton')
  assert(not s.lastAiMove and s.aiCounter.value==0)
  s.aiInput='hold';S.commit(s,{55,46});S.update(s,2);S.undo(s);S.update(s,20)
  assert(s.aiCounter.value==0 and not s.lastAiMove and s.moves==0)

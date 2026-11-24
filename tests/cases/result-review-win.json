@@ -61,7 +61,7 @@
       "id": "",
       "name": "ReturnBoardButtonLabel",
       "field": "text",
-      "equals": "返回棋盤"
+      "equals": "返回棋盘"
     },
     {
       "kind": "control",
@@ -109,7 +109,7 @@
       "id": "",
       "name": "StatusText",
       "field": "text",
-      "equals": "本局已結束，悔棋後可繼續"
+      "equals": "本局已结束，悔棋后可继续"
     }
   ]
 }
