@@ -1,5 +1,21 @@
 # FC 中国象棋发布封面
 
+## 44 车挑战版
+
+[封面 PNG](cover-44-rooks-challenge.png) 为 1672×941 横图。红底、成排木质棋子和「给你 44 辆车，能赢吗？」突出游戏内可玩的 44 车挑战。参考[模拟器里的自定义棋盘](../../../records/screenshots/player-feedback-2026-11-17-custom-rooks.png)，用内置 ImageGen 制作主视觉并调整裁切留量。
+
+本地查看 320×180 等比缩图和 320×240 居中裁切。两种取景都能读清完整文案，主棋子也完整可见。千星实际列表裁切和新玩家的点击意愿待验证。
+
+构图提示词
+
+> Use case: ads-marketing. Create one completely new wide 16:9 Chinese indie puzzle-game cover, a punchy modern challenge poster for a playable Chinese chess game. Thumbnail audience has never played the game or seen FC. They should understand one playful dare in a split second: you get a ridiculous army of 44 rooks, can you win? Draw a concept totally unlike a retro cover or gameplay screenshot. Handcrafted contemporary graphic design meets tactile ivory chess tokens on a vivid vermilion red field. Use striking flat graphics, crisp navy block shadows, warm ivory, and restrained game-piece embossing. Main layout: the text is centered vertically on the left half, safely inset; style '44' as the biggest cream number in this one headline, supported by bold cream simplified Chinese. Use exactly three lines of real lettering, with the literal text in this order: first line '给你44辆车', second line '能赢吗？', small clear game name below '中国象棋'. Both large headline lines are highly legible on plain red and stay away from the outer 12 percent of the canvas. On the right, one oversized round ivory xiangqi token with a bold vermilion Chinese '車' faces the viewer at a slight angle, backed by orderly diagonally receding rows of many much smaller matching and clearly Chinese chess tokens, a dense 'rook army' all on a minimal dark red plane. Use the attached in-game screenshot as subject and gameplay reference only. The cover artwork is a stylized challenge illustration, not a depiction of an exact board, so no grid lines or UI. Use pictorial scale, repetition, asymmetric balance, and typography to communicate the premise even at 320 pixels wide. The hero token and headline must both sit inside the central 74 percent of width; only peripheral decorative tokens may approach the outer edges. No portrait, no landscapes, no pixel nostalgia, no retro frame, no tanks or automobiles, no western chess, no extra words, no marketing badges, no watermarks. A confident, polished commercial-grade game-cover composition, two clear focal points.
+
+裁切调整提示词
+
+> Refine this specific red 16:9 Chinese chess game cover into a crop-safe final cover. Preserve the excellent current composition, exact typography and text ('给你44辆车', '能赢吗？', '中国象棋'), the exact design of the single dominant wooden '車' chess token in front, and the red field with receding smaller chess tokens. Visually ZOOM OUT the entire composition by 25 percent, centered horizontally and vertically, and extend its saturated red field seamlessly to the edges. There must be a clearly visible blank red margin of 15 percent on the left before the first letter stroke and a margin of 14 percent on the right for the hero token. Preserve warm ivory and crisp midnight shadows, with '44' much larger than any Chinese character. Retain the athletic contemporary headline, readable at thumbnail size, and main chess token as two focal points. Only background rows may spill further into the edges. Keep the same wide 16:9 full bleed red canvas. Output the final cover itself, not a mockup. No extra text, borders, frames, portrait, grid or signage.
+
+## 怀旧版
+
 [封面 PNG](cover-fc-chess.png) 为 1672×941 横图。新版把老头放大到左侧，右侧展示完整的九列十行棋盘，标题放在上方。以旧封面和对局画面为参考，使用内置 ImageGen 重新绘制。
 
 本地缩至 320×180 后，标题、老头和棋盘可辨。以相同宽度预览 4:3 居中裁切，左侧会切到头像外缘，标题与整个棋盘仍可见。实际千星列表裁切和详情页显示待验证。
