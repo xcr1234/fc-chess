@@ -1,5 +1,15 @@
 # FC 中国象棋发布封面
 
+## FC 像素横幅
+
+[封面 PNG](cover-fc-pixel-banner.png) 为 1672×941 横图。左边用点阵字显示「FC 中国象棋」和「人机对弈」，右边用粗像素描绘思考中的老头，画面下沿只留棋盘一角和红炮、黑包等棋子。使用内置 ImageGen 生成。
+
+本地 320×180 预览中，标题、副标题、头像和棋子均可辨。正式列表的裁切待上传预览时核对。
+
+生成提示词
+
+> Use case: ads-marketing. Generate one 16:9 WIDE BANNER cover for an original FC-style Chinese chess video game. Highest priority: the ENTIRE image must look like authentic 8-bit Famicom pixel illustration, as if an artist drew each block on a ~256x144 logical square-pixel grid and scaled it up with nearest neighbor. Coarse visible hard-edged square pixel clusters everywhere, large chunky staircase silhouettes, deliberately limited palette of 12 flat swatches, black/indigo outlines, only one or two shading steps per surface, selective checkerboard dithering only. Absolutely no smooth painted shading, no smooth anime lines, no ink wash, no wood grain, no photoreal rendering, no anti-aliasing and no effects imitating paper or canvas. Think an original 1980s game title-art illustration, not an actual menu or screenshot. Left-center cover typography in original bitmap fonts with cream letters and hard midnight pixel shadow, exactly small 'FC', large Simplified Chinese '中国象棋', small but clear '人机对弈'. Typography left edge at 17% of whole canvas, horizontally centered along with the artwork, ample clear background. Right side exaggerated but warm expressive anime old man's face as an entirely square-pixel sprite (bald crown, two big pale eyebrows, tidy little white goatee, simple indigo robe, subtle sideways smile while contemplating). Give his face clear large planar 8-bit pixel clusters. To read as Chinese chess, in lower-right corner illustrate only a SLIVER of greenish cream chess grid cut diagonally off the bottom edge, with two round, intentionally stepped and low-detail pixel-sprite Chinese chess discs red '炮' and blue '包', plus one tiny '兵' if helpful. Zero complete board, no rectangle, no other chess layout. Discs are flat with hard pixel profiles and a single pixel highlight, not 3D physical objects. Deep midnight-blue / blue-purple field, limited pale butter, light salmon, muted cyan and brick red accents, with one or two angular 8-bit pixel patterns sparingly. The look is deliberately graphic, non-realistic and FC-authentic, strong memorable silhouette, not modern lithography or cel-shaded pseudo-realism. Position full title, the rival's eyes and the two key chess-piece marks inside the center 72% of the width so a 4:3 crop is safe. No text beyond the stated copy and the characters on the pieces, no brand logos, frame, buttons, complete board, TV or peripheral decorative UI. A genuine, original FC pixel-art storefront banner with a strong title/personality composition.
+
 ## 44 车挑战版
 
 [封面 PNG](cover-44-rooks-challenge.png) 为 1672×941 横图。红底、成排木质棋子和「给你 44 辆车，能赢吗？」突出游戏内可玩的 44 车挑战。参考[模拟器里的自定义棋盘](../../../records/screenshots/player-feedback-2026-11-17-custom-rooks.png)，用内置 ImageGen 制作主视觉并调整裁切留量。
